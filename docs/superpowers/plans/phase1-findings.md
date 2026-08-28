@@ -59,6 +59,37 @@ against the paper's +0.003 on the same fold. Our CPU-measured Δ_Joint should th
 marginal or failing under the paper's setup. Practical consequence: keep the T2 gate at
 `Δ_Joint > 0` for triage only, and never treat a CPU-measured Δ_Joint near zero as a pass.
 
+## Task 9 — embedding cache: built, proven bit-exact (run out of order)
+
+Taken **before** Task 7 rather than last. The plan's own trigger fired: it said to build the
+cache only if a frozen `all` run exceeded ~10 minutes, and ours took ~600s. Task 7 needs ~26
+embedding runs, which is ~4.3 hours uncached against roughly 15–30 minutes warm — so deferring
+the cache would have cost four hours and taught us nothing.
+
+**Design change from the plan.** The plan keyed the cache on the whole text *list*. That key
+misses on every fold, because each fold trains on a different subset — near-zero benefit. The
+implementation keys **per string**, so all 5 folds and all 5 learners share one encode of each
+unique text.
+
+**Verification.** `test_cache.py` (4 tests, all passing) asserts bit-exactness, correct ordering
+when a *re-ordered subset* is requested (the real fold-to-fold access pattern), and that the same
+text under a different column name does not collide. End-to-end, LightGBM `all` fold 0:
+
+```
+uncached all fold0 : 0.8618478948517495
+cached   all fold0 : 0.8618478948517495
+IDENTICAL          : True
+```
+
+Cold-cache runtime fell from ~600s to 439s even on the populating run, since the fit and
+transform passes within a single run now share encodes. Store: 9.1 MB for 5091 vectors.
+
+**Safety.** A wrong cache would silently corrupt every downstream number, so it is guarded three
+ways: `enable_cache()` refuses without an explicit `frozen_only=True`; `run_one()` never enables
+it when `tune_e5` is set (a LoRA-tuned E5 returns different vectors for the same text under the
+same base-model name); and the tests above gate it. Per the plan's rule, a cache that changed
+results would have been deleted rather than debugged.
+
 ### Tolerance calibration
 
 The plan's initial frozen tolerance of 0.02 was a guess made before any run. It was raised to
