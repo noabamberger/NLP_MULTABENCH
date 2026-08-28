@@ -24,6 +24,7 @@ from multabench.baselines.tabpfnv2 import TabPFNv2, TabPFNv2p5
 from multabench.constants import DEVICE
 from multabench.finetune.train_args import E5TrainArgs
 
+from curation_lab.runner.cache import disable_cache, enable_cache
 from curation_lab.runner.paper import STATE_BY_FLAG, load_paper_dataset
 from curation_lab.runner.results import append_row, row_from_summary
 
@@ -37,7 +38,8 @@ MODELS: dict[str, type] = {
 
 
 def run_one(dataset: str, model_key: str, state_flag: str, fold: int, out_csv: str,
-            e5_overrides: dict | None = None) -> dict:
+            e5_overrides: dict | None = None, use_cache: bool = True,
+            cache_dir: str = ".emb_cache") -> dict:
     if model_key not in MODELS:
         raise ValueError(f"Unknown model {model_key!r}; expected one of {sorted(MODELS)}")
     tune_e5 = state_flag == "ft"
@@ -46,17 +48,26 @@ def run_one(dataset: str, model_key: str, state_flag: str, fold: int, out_csv: s
         e5_train_kwargs = E5TrainArgs().to_dict()
         e5_train_kwargs.update(e5_overrides or {})
 
-    loaded = load_paper_dataset(dataset, state_flag)
-    summary = evaluate_on_loaded_dataset(
-        model_cls=MODELS[model_key],
-        dataset=loaded,
-        fold=fold,
-        device=get_device(device=DEVICE),
-        train_examples=DOWNSTREAM_EXAMPLES,
-        multimodal_state=STATE_BY_FLAG[state_flag],
-        tune_e5=tune_e5,
-        e5_train_kwargs=e5_train_kwargs,
-    )
+    # The cache is only sound for frozen encoders; a LoRA-tuned E5 returns
+    # different vectors for the same text under the same base model name.
+    cache_on = use_cache and not tune_e5
+    if cache_on:
+        enable_cache(cache_dir, frozen_only=True)
+    try:
+        loaded = load_paper_dataset(dataset, state_flag)
+        summary = evaluate_on_loaded_dataset(
+            model_cls=MODELS[model_key],
+            dataset=loaded,
+            fold=fold,
+            device=get_device(device=DEVICE),
+            train_examples=DOWNSTREAM_EXAMPLES,
+            multimodal_state=STATE_BY_FLAG[state_flag],
+            tune_e5=tune_e5,
+            e5_train_kwargs=e5_train_kwargs,
+        )
+    finally:
+        if cache_on:
+            disable_cache()
     append_row(out_csv, row_from_summary(summary, state_flag=state_flag))
     return summary
 
@@ -70,9 +81,12 @@ def main() -> None:
     p.add_argument("--out", default="results/candidates/phase1.csv")
     p.add_argument("--e5-epochs", type=int, default=None,
                    help="Override E5 fine-tuning epochs (ft only); use to timebox CPU runs.")
+    p.add_argument("--no-cache", action="store_true",
+                   help="Disable the frozen-embedding cache (it is off for ft regardless).")
     args = p.parse_args()
     overrides = {"epochs": args.e5_epochs} if args.e5_epochs is not None else None
-    summary = run_one(args.dataset, args.model, args.state, args.fold, args.out, overrides)
+    summary = run_one(args.dataset, args.model, args.state, args.fold, args.out, overrides,
+                      use_cache=not args.no_cache)
     print(f"{args.model} {args.state} fold={args.fold} score={summary['test_score']:.4f} "
           f"runtime={summary['runtime']:.0f}s -> {args.out}")
 
