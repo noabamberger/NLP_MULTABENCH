@@ -39,25 +39,93 @@ Runtimes (CPU): `no_text` 2s; `text_only` ~600s; `all` ~600s. The encoder-free s
 effectively free; embedding-dependent states cost ~10 minutes each, essentially all of it E5
 encoding.
 
-### The systematic +0.022 offset
+### An apparent +0.022 offset — **superseded by Task 7, see the correction there**
 
-`no_text` reproduced to the last decimal, while `text_only` and `all` both came in high by
-almost exactly the same amount (+0.0219 and +0.0235). That pattern localizes the divergence to
-the encoder path — E5 → PCA → learner — rather than to the protocol, the splits, or the seeds.
+On fold 0 alone, `no_text` reproduced exactly while `text_only` and `all` both came in high by
+almost the same amount (+0.0219 and +0.0235), which looked like a systematic upward bias on the
+encoder path. The five-fold, four-model grid in Task 7 does not support that reading: across 36
+runs the `text_only` mean signed difference is −0.0000, i.e. scatter around zero rather than
+bias. **The conclusion originally recorded here — that CPU-measured Δ_Joint is systematically
+inflated and should be treated as optimistic — was wrong, and is corrected below.** It was drawn
+from a single fold of a single model.
 
-**Leading hypothesis (not verified):** the shipped numbers were produced on cluster GPUs, where
-float32 matmuls run at reduced internal precision (TF32), whereas our CPU float32 path is more
-precise. Slightly cleaner embeddings would plausibly yield slightly better downstream scores.
-Version drift in `transformers`/`torch` is an alternative explanation. We did not attempt to
-distinguish these, because the criterion does not depend on it.
+## Task 7 — five-model frozen grid (36 of 39 runs; TabPFN-2.5 blocked)
 
-**Why it matters for Phase 2, regardless of cause:** the offset is *not* uniform across states.
-It lifts `all` while leaving `no_text` untouched, so it inflates
-`Δ_Joint = all − max(no_text, text_only)` relative to the paper's environment — here +0.027
-against the paper's +0.003 on the same fold. Our CPU-measured Δ_Joint should therefore be read as
-**optimistic**: a candidate that clears the T2 screen marginally on this machine could be
-marginal or failing under the paper's setup. Practical consequence: keep the T2 gate at
-`Δ_Joint > 0` for triage only, and never treat a CPU-measured Δ_Joint near zero as a pass.
+LightGBM and CatBoost across 3 frozen states × 5 folds; TabM and TabPFN-v2 on fold 0.
+**TabPFN-2.5 contributed no runs** — see the blocker section below.
+
+Per-state absolute difference vs the paper:
+
+```
+             mean                       max
+state        all no_text text_only     all no_text text_only
+CatBoost  0.0027  0.0000    0.0054  0.0050  0.0000    0.0104
+LightGBM  0.0140  0.0000    0.0151  0.0235  0.0000    0.0383
+TabM      0.0011  0.0000    0.0460  0.0011  0.0000    0.0460
+TabPFNv2  0.0019  0.0003    0.0001  0.0019  0.0003    0.0001
+
+mean signed (ours − paper) by state:
+             mean    min     max
+all        0.0058 -0.004  0.0235
+no_text    0.0000 -0.000  0.0003
+text_only -0.0000 -0.046  0.0383
+```
+
+Δ_Joint, computed like-for-like on the same cells:
+
+```
+   model  n_rows  delta_joint_ours  delta_joint_paper  sign_agrees
+CatBoost      15             0.075              0.073         True
+LightGBM      15             0.058              0.046         True
+    TabM       3             0.085              0.086         True
+TabPFNv2       3             0.076              0.079         True
+```
+
+### Correction to the Task 6 analysis
+
+With 36 runs instead of 3, the picture changes materially:
+
+- `no_text` reproduces **exactly** for every model (mean abs diff 0.0000) — the protocol, splits
+  and seeds are faithful beyond doubt.
+- `text_only` has a mean signed difference of **−0.0000** with a range of −0.046 to +0.0383. That
+  is symmetric scatter, **not** the systematic upward bias inferred from fold 0. Only 2 of 36 rows
+  exceed 0.03, and they diverge in *opposite* directions (LightGBM +0.038, TabM −0.046).
+- `all` carries a small genuine positive bias (mean +0.0058, max +0.0235) — real but four times
+  smaller than fold 0 suggested.
+
+Why `text_only` is the noisy one: it reduces a single text column to 30 PCA components to predict
+4 classes — a weak, high-variance signal where small embedding perturbations move the score a
+lot. `all` also contains the strong structured feature, so it is far more stable.
+
+**Δ_Joint — the quantity the criterion actually consumes — reproduces well:** within 0.012 across
+all four models, with every sign agreeing, and three of four within 0.003.
+
+**Revised guidance for Phase 2 (replacing the Task 6 version):** treat CPU-measured Δ_Joint as
+accurate to roughly ±0.015, with no directional bias. Since the criterion's δ is 0.001, a
+candidate whose Δ_Joint is below about 0.02 should be re-measured on more folds rather than
+accepted or rejected on one reading. The earlier advice to treat CPU Δ_Joint as systematically
+optimistic was wrong and should be disregarded.
+
+### Blocker: TabPFN-2.5 requires interactive license acceptance
+
+`tabpfnv2p5` fails before fitting. TabPFN-2.5's weights live in a **gated HuggingFace repo**, and
+`tabpfn/browser_auth.py::ensure_license_accepted` launches a browser/stdin login flow:
+
+```
+tabpfn/model_loading.py:523  _download_model -> ensure_license_accepted(hf_repo_id=...)
+tabpfn/browser_auth.py:619   ensure_license_accepted -> try_browser_login
+tabpfn/browser_auth.py:342   _poll_for_token -> select.select([sys.stdin], ...)
+OSError: [WinError 10038] An operation was attempted on something that is not a socket
+```
+
+`select.select` on stdin cannot work on Windows for a non-socket handle, so this fails in any
+non-interactive context regardless of stdin redirection. TabPFN **v2** is unaffected and ran
+normally.
+
+Resolution requires a one-time human step: accept the TabPFN-2.5 licence on HuggingFace and
+supply an `HF_TOKEN` in `.env`, or complete the login once in an interactive terminal so the
+token is cached. This matters beyond Phase 1 — TabPFN-2.5 is one of the five committee models, so
+`verdict()` cannot produce a real 3-of-5 decision without it.
 
 ## Task 9 — embedding cache: built, proven bit-exact (run out of order)
 
