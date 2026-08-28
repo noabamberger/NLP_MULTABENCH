@@ -20,3 +20,8 @@ kaggle_uploads/
 # Generated outputs (kept in paper-multabench repo instead)
 results/qualitative/
 figures/
+
+# curation_lab working data
+data/candidates/
+results/candidates/
+.emb_cache/
