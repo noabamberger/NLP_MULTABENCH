@@ -320,11 +320,15 @@ git commit -m "feat: criterion harness delegating to pass_matrix.passes()"
 Run: `python -c "import tabstar" ; python -c "import kagglehub"`
 Expected: both raise `ModuleNotFoundError`. Everything else in the stack already imports.
 
-- [ ] **Step 2: Install the two missing packages**
+- [ ] **Step 2: Install the missing packages**
 
 ```bash
-python -m pip install "tabstar>=1.1.15" "kagglehub>=1.0.0"
+python -m pip install "tabstar>=1.1.15" "kagglehub>=1.0.0" datasets openml pytabkit wandb
 ```
+
+**As executed, the gap was wider than the initial `import` probe suggested** — that probe only tested top-level packages, while the real import chain pulls in more. The full set actually needed was `tabstar`, `kagglehub`, `datasets`, `openml`, `pytabkit`, and `wandb`.
+
+`wandb` is on that list despite this project never using W&B: `evaluate.py:17` imports `get_current_commit_hash` from `multabench.utils.logging`, which imports `wandb` at module level. Only `wandb_run()` demands credentials, and we never call it — so installing the package is sufficient and no `WANDB_*` values are required.
 
 The repo targets Python 3.11 (`init.sh`) but this machine has only 3.12.10 and no `py` launcher. If `tabstar` refuses to install on 3.12, stop and create a 3.11 environment instead — do not work around it by vendoring or stubbing `tabstar`, which supplies the seed and split functions the protocol depends on.
 
