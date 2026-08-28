@@ -169,11 +169,32 @@ Analysis chain (each runnable as `python -m ...`, each writes into
 over gaps — one legitimately-missing row is hardcoded in `_KNOWN_MISSING_ROWS`; any new assertion
 failure is a real data gap to investigate, not something to append to that set.
 
+## Environment (this machine)
+
+Use the project venv for everything: **`.venv/Scripts/python.exe`**, never the system Python.
+The system interpreter hosts an unrelated project (`tap-text-tabular`) pinned to pandas 3.0.3 /
+numpy 2.4.0, which is incompatible with this repo; installing this repo's pins there breaks it.
+
+- **pandas must be 2.3.3** (the repo's pin). Under pandas 3.x, string columns get the new `str`
+  dtype and `tabstar.preprocessing.feat_types.is_numerical_feature` raises
+  `ValueError: Unsupported dtype str for series <col>`, which takes down all feature detection —
+  and therefore the `no_text` / `text_only` states.
+- Beyond `requirements.txt`, the import chain needs `tabstar`, `kagglehub`, `datasets`, `openml`,
+  `pytabkit` and `wandb` present. `init.sh` is bash-only, so on Windows build the venv manually.
+- Always run Python with `PYTHONIOENCODING=utf-8`. The console codepage here is cp1255, and simply
+  printing an emoji `MODEL_NAME` raises `UnicodeEncodeError`. Pass `encoding="utf-8"` to every
+  `read_csv`/`to_csv` that touches model names.
+- No CUDA on this machine: `DEVICE` is `None` and everything runs on CPU. Frozen E5 embedding of
+  ~5k rows costs ~10 minutes per run; LoRA fine-tuning (`ft`) is far more expensive.
+
 ## Gotchas
 
-- **W&B is mandatory.** `utils/logging.py::wandb_run` raises if `WANDB_API_KEY`/`WANDB_ENTITY` are
-  missing — `benchmark.py` cannot run offline as written. To evaluate without W&B, call
-  `evaluate_on_dataset()` directly instead of patching the logger.
+- **W&B is mandatory for `benchmark.py`.** `utils/logging.py::wandb_run` raises if
+  `WANDB_API_KEY`/`WANDB_ENTITY` are missing. To evaluate without W&B, call
+  `evaluate_on_dataset()` / `evaluate_on_loaded_dataset()` directly instead of patching the logger.
+  Note the `wandb` *package* is still required regardless: `evaluate.py:17` imports
+  `multabench.utils.logging`, which does `import wandb` at module level. Only `wandb_run()` needs
+  credentials.
 - **The README's `--multimodal_state` table is stale.** Actual accepted values (see `benchmark.py`):
   `all, non, ft, img, text_only, no_text, txt, non_txt, ft-txt, ft-img-ft-txt`. The README's
   `no_img` / `all 🔥` do not exist as CLI values.
