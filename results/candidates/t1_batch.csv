@@ -1,0 +1,234 @@
+ref,status,encoding,csv,n_rows,n_text,n_num,n_cat,text_cols,problems,viable
+datasnaek/chess,ok,utf-8,games.csv,20058,7,7,2,black_id|id|increment_code|moves|opening_eco|opening_name,7 multimodal cols > 5,False
+CooperUnion/anime-recommendations-database,ok,utf-8,rating.csv,7813737,0,3,0,,no column detected as TEXT (all fell under the cardinality thresholds),False
+mylesoneill/world-university-rankings,ok,utf-8,educational_attainment_supplementary_data.csv,79055,2,25,0,country_name|series_name,,True
+sudalairajkumar/indian-startup-funding,ok,utf-8,startup_funding.csv,3044,7,1,2,Amount in USD|City  Location|Date dd/mm/yyyy|Industry Vertical|Investors Name|Startup Name,7 multimodal cols > 5,False
+thedevastator/unlock-profits-with-e-commerce-sales-data,ok,utf-8,Amazon Sale Report.csv,128975,6,5,13,ASIN|Order ID|SKU|Style|promotion-ids|ship-city,6 multimodal cols > 5,False
+adityadesai13/used-car-dataset-ford-and-mercedes,ok,utf-8,ford.csv,17965,0,6,3,,no column detected as TEXT (all fell under the cardinality thresholds),False
+shrutimehta/zomato-restaurants-data,ok,latin-1,zomato.csv,9551,6,8,7,Address|City|Cuisines|Locality|Locality Verbose|Restaurant Name,6 multimodal cols > 5,False
+nelgiriyewithana/most-streamed-spotify-songs-2024,ok,latin-1,Most Streamed Spotify Songs 2024.csv,4600,22,6,0,AirPlay Spins|Album Name|All Time Rank|Artist|Deezer Playlist Reach|ISRC,23 multimodal cols > 5,False
+wardabilal/spotify-global-music-dataset-20092025,ok,utf-8,track_data_final.csv,8778,7,7,1,album_id|album_name|album_release_date|artist_genres|artist_name|track_id,7 multimodal cols > 5,False
+danielgrijalvas/movies,ok,utf-8,movies.csv,7668,6,6,3,company|director|name|released|star|writer,6 multimodal cols > 5,False
+joebeachcapital/30000-spotify-songs,ok,utf-8,spotify_songs.csv,32833,8,13,2,playlist_id|playlist_name|track_album_id|track_album_name|track_album_release_date|track_artist,8 multimodal cols > 5,False
+udacity/armenian-online-job-postings,ok,utf-8,online-job-postings.csv,19001,21,3,0,AboutC|AnnouncementCode|ApplicationP|Attach|Audience|Company,21 multimodal cols > 5,False
+kundanbedmutha/exam-score-prediction-dataset,ok,utf-8,Exam_Score_Prediction.csv,20000,0,6,7,,no column detected as TEXT (all fell under the cardinality thresholds),False
+anandshaw2001/video-game-sales,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True
+nikhilbhathi/data-scientist-salary-us-glassdoor,ok,utf-8,data_cleaned_2021.csv,742,8,25,9,Company Name|Competitors|Headquarters|Job Description|Job Title|Location,8 multimodal cols > 5; only 742 rows (<2000 gives unstable 5-fold means),False
+rtatman/questionanswer-dataset,ok,utf-8,text_data_toc.csv,165,1,1,0,file,only 165 rows (<2000 gives unstable 5-fold means),False
+jacksondivakarr/online-shopping-dataset,ok,utf-8,file.csv,52955,4,12,5,Date|Product_Description|Product_SKU|Transaction_Date,,True
+anshtanwar/monthly-food-price-estimates,ok,utf-8,WLD_RTFP_country_2023-10-02.csv,4798,1,5,2,date,,True
+jilkothari/finance-accounting-courses-udemy-13k-course,ok,utf-8,udemy_output_All_Finance__Accounting_p1_p626.csv,13608,4,12,4,created|published_time|title|url,,True
+harrywang/housing,ok,utf-8,housing.csv,20640,0,9,1,,no column detected as TEXT (all fell under the cardinality thresholds),False
+ulrikthygepedersen/online-retail-dataset,ok,utf-8,online_retail.csv,541909,4,3,1,Description|InvoiceDate|InvoiceNo|StockCode,,True
+uciml/news-aggregator-dataset,ok,utf-8,uci-news-aggregator.csv,422419,5,2,1,HOSTNAME|PUBLISHER|STORY|TITLE|URL,,True
+muhmores/spotify-top-100-songs-of-20152019,ok,utf-8,Spotify 2010 - 2019 Top 100.csv,1003,3,12,2,artist|title|top genre,only 1003 rows (<2000 gives unstable 5-fold means),False
+mvieira101/global-cost-of-living,ok,utf-8,cost-of-living_v2.csv,4956,2,56,0,city|country,,True
+sudalairajkumar/nifty-indices-dataset,ok,utf-8,NIFTY 500.csv,5353,1,9,0,Date,,True
+therohk/ireland-historical-news,ok,utf-8,ireland-news-headlines.csv,1611495,2,1,0,headline_category|headline_text,,True
+nelgiriyewithana/australian-vehicle-prices,ok,utf-8,Australian Vehicle Prices.csv,16734,8,2,9,Car/Suv|ColourExtInt|Engine|FuelConsumption|Kilometres|Location,8 multimodal cols > 5,False
+asaniczka/video-game-sales-2024,ok,utf-8,vgchartz-2024.csv,64016,5,6,2,developer|last_update|publisher|release_date|title,6 multimodal cols > 5,False
+ashpalsingh1525/imdb-movies-dataset,ok,utf-8,imdb_movies.csv,10178,6,3,3,crew|date_x|genre|names|orig_title|overview,6 multimodal cols > 5,False
+melissamonfared/board-games,ok,latin-1,BGG_Data_Set.csv,20343,2,11,1,Mechanics|Name,,True
+anshtanwar/top-200-trending-books-with-reviews,ok,utf-8,customer reviews.csv,920,5,3,2,date|review description|review title|reviewer|timestamp,only 920 rows (<2000 gives unstable 5-fold means),False
+raghadalharbi/all-products-available-on-sephora-website,ok,utf-8,sephora_website_dataset.csv,9168,9,11,1,URL|brand|category|details|how_to_use|ingredients,9 multimodal cols > 5,False
+ahmedmohamed2003/retail-store-sales-dirty-for-data-cleaning,ok,utf-8,retail_store_sales.csv,12575,3,3,5,Item|Transaction Date|Transaction ID,,True
+thedevastator/global-video-game-sales,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True
+shivan118/big-mart-sales-prediction-datasets,ok,utf-8,train.csv,8523,1,5,6,Item_Identifier,,True
+mukuldeshantri/ecommerce-fashion-dataset,ok,utf-8,FashionDataset.csv,30758,4,2,2,BrandName|Deatils|MRP|Sizes,,True
+joebeachcapital/top-10000-spotify-songs-1960-now,ok,utf-8,top_10000_1950-now.csv,10000,16,17,1,Added At|Album Artist Name(s)|Album Artist URI(s)|Album Image URL|Album Name|Album Release Date,17 multimodal cols > 5,False
+die9origephit/amazon-data-science-books,ok,utf-8,final_book_dataset_kaggle2.csv,830,11,2,6,ISBN_13|author|complete_link|dimensions|link|n_reviews,11 multimodal cols > 5; only 830 rows (<2000 gives unstable 5-fold means),False
+khusheekapoor/coursera-courses-dataset-2021,ok,utf-8,Coursera.csv,3522,5,0,2,Course Description|Course Name|Course URL|Skills|University,,True
+r1chardson/the-world-university-rankings-2011-2023,ok,utf-8,2024_rankings.csv,2671,7,15,3,aliases|location|name|rank|scores_overall|stats_number_students,7 multimodal cols > 5,False
+ibriiee/video-games-sales-dataset-2022-updated-extra-feat,ok,utf-8,Video_Games.csv,16719,3,9,4,Developer|Name|Publisher,,True
+ambaliyagati/spotify-dataset-for-playing-around-with-sql,ok,utf-8,spotify_tracks.csv,6300,5,3,0,album|artists|genre|id|name,,True
+cameronseamons/electronic-sales-sep2023-sep2024,ok,utf-8,Electronic_sales_Sep2023-Sep2024.csv,20000,1,7,8,Purchase Date,,True
+kaushiksuresh147/adidas-vs-nike,ok,utf-8,Adidas Vs Nike.csv,3268,4,5,1,Description|Last Visited|Product ID|Product Name,,True
+josephinelsy/spotify-top-hit-playlist-2010-2022,ok,latin-1,playlist_2010to2023.csv,2400,6,16,1,album|artist_genres|artist_id|artist_name|track_id|track_name,6 multimodal cols > 5,False
+andrewmvd/board-games,ok,utf-8/sep=';',bgg_dataset.csv,20343,4,9,1,Complexity Average|Mechanics|Name|Rating Average,,True
+jithinanievarghese/drugs-side-effects-and-medical-condition,ok,utf-8,drugs_side_effects_drugs_com.csv,2931,7,2,8,brand_names|drug_classes|drug_link|drug_name|generic_name|related_drugs,7 multimodal cols > 5,False
+yanmaksi/big-startup-secsees-fail-dataset-from-crunchbase,ok,utf-8,big_startup_secsees_dataset.csv,66368,12,1,1,category_list|city|country_code|first_funding_at|founded_at|funding_total_usd,12 multimodal cols > 5,False
+bhavikjikadara/google-play-store-applications,ok,utf-8,googleplaystore.csv,10841,5,3,6,App|Current Ver|Genres|Last Updated|Size,,True
+promptcloud/amazon-product-dataset-2020,ok,utf-8,marketing_sample_for_amazon_com-ecommerce__20200101_20200131__10k_data.csv,10002,13,0,1,About Product|Category|Model Number|Product Dimensions|Product Name|Product Specification,27 multimodal cols > 5,False
+thedevastator/global-video-game-sales-ratings,ok,utf-8,Raw Data.csv,16719,3,9,4,Developer|Name|Publisher,,True
+juzershakir/tmdb-movies-dataset,ok,utf-8,tmdb_movies_data.csv,10866,11,10,0,cast|director|genres|homepage|imdb_id|keywords,11 multimodal cols > 5,False
+whenamancodes/play-store-apps,ok,utf-8,googleplaystore_user_reviews.csv,64295,2,2,1,App|Translated_Review,,True
+bhanupratapbiswas/zomato,ok,utf-8,zomato.csv,56252,13,0,0,address|approx_cost(for two people)|book_table|cuisines|dish_liked|listed_in(type),no structured column survives -> no_text state would be empty; 13 multimodal cols > 5,False
+asaniczka/52000-animation-movie-details-dataset-2024,ok,utf-8,Animation_Movies.csv,51945,12,8,1,genres|homepage|imdb_id|original_language|original_title|overview,14 multimodal cols > 5,False
+elvinrustam/books-dataset,ok,utf-8,BooksDataset.csv,103082,7,0,0,Authors|Category|Description|Price|Publish Date|Publisher,no structured column survives -> no_text state would be empty; 7 multimodal cols > 5,False
+mikhail1681/airline-quality-ratings,ok,utf-8,Airline Quality Ratings.csv,129880,0,19,5,,no column detected as TEXT (all fell under the cardinality thresholds),False
+juhibhojani/airline-reviews,ok,utf-8,Airline_review.csv,23171,7,9,4,Aircraft|Airline Name|Date Flown|Review|Review Date|Review_Title,7 multimodal cols > 5,False
+vikasojha98/top-women-chess-players,ok,utf-8,top_women_chess_players_aug_2020.csv,8553,2,5,3,Federation|Name,,True
+holmjason2/videogamedata,ok,latin-1,game_sales_data.csv,19600,3,5,1,Developer|Name|Publisher,,True
+nikhil1e9/myanimelist-anime-and-manga,ok,utf-8,MAL-manga.csv,17811,3,5,1,Published|Title|page_url,,True
+chhavidhankhar11/amazon-books-dataset,ok,utf-8,Books_df.csv,7928,5,3,2,Author|Price|Sub Genre|Title|URLs,,True
+nikatomashvili/steam-games-dataset,ok,utf-8,merged_data.csv,71700,14,0,2,All Reviews Number|Developer|Discounted Price|Game Description|Game Features|Link,14 multimodal cols > 5,False
+sujaykapadnis/horror-movies-dataset,ok,utf-8,horror_movies.csv,32540,7,9,2,collection_name|genre_names|original_title|overview|release_date|tagline,9 multimodal cols > 5,False
+thedevastator/video-game-sales-and-ratings,ok,utf-8,Video_Games.csv,16928,3,10,4,Developer|Name|Publisher,,True
+bhushandivekar/video-game-sales-and-industry-data-1980-2024,ok,utf-8,Video Games Sales (1980-2024) - Raw.csv,64016,5,6,2,developer|last_update|publisher|release_date|title,6 multimodal cols > 5,False
+nypl/whats-on-the-menu,ok,utf-8,MenuItem.csv,1332278,2,7,0,created_at|updated_at,,True
+thedevastator/get-your-game-on-metacritic-recommendations-and,ok,utf-8,games-features-edit.csv,12624,2,17,0,ReleaseDate|ResponseName,,True
+ahsanneural/future-jobs-and-skills-demand-2025,ok,utf-8,future_jobs_dataset.csv,10000,1,2,6,posting_date,,True
+aadyasingh55/drug-dataset,ok,utf-8,Medicine_Details.csv,11825,5,3,0,Composition|Manufacturer|Medicine Name|Side_effects|Uses,6 multimodal cols > 5,False
+sujalsuthar/airlines-reviews,ok,utf-8,airlines_reviews.csv,8100,6,6,5,Month Flown|Name|Review Date|Reviews|Route|Title,6 multimodal cols > 5,False
+pratyushpuri/financial-news-market-events-dataset-2025,ok,utf-8,financial_news_events.csv,3024,1,2,9,Date,,True
+lorentzyeung/all-japanese-anime-titles-in-imdb,ok,utf-8,imdb_anime.csv,45717,8,1,4,Episode Title|Genre|Number of Votes|Runtime|Stars|Summary,8 multimodal cols > 5,False
+hbugrae/best-selling-steam-games-of-all-time,ok,utf-8,bestSelling_games.csv,2380,6,8,1,developer|game_name|other_features|release_date|supported_languages|user_defined_tags,6 multimodal cols > 5,False
+joyshil0599/hotel-dataset-rates-reviews-and-amenities5k,ok,latin-1,tripadvisor_room.csv,4477,4,0,0,Comment about room|Room Price (in BDT or any other currency)|property name |review_count,no structured column survives -> no_text state would be empty,False
+ursmaheshj/top-10000-popular-movies-tmdb-05-2023,read_failed: UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 48313: character maps to <undefined>,,top_1000_popular_movies_tmdb.csv,0,0,0,0,,,False
+dhrubangtalukdar/magnus-carlsen-chess-com-games,ok,utf-8,magnus_carlsen_all_online_games_cleaned.csv,17125,3,3,6,date|moves|opponent_name,,True
+mohdshahnawazaadil/restaurant-dataset,ok,utf-8,Dataset .csv,9551,6,8,7,Address|City|Cuisines|Locality|Locality Verbose|Restaurant Name,6 multimodal cols > 5,False
+siddharth0935/video-game-sales,ok,utf-8,vgchartz-2024.csv,64016,5,6,2,developer|last_update|publisher|release_date|title,6 multimodal cols > 5,False
+quadeer15sh/windows-store-top-apps-games,ok,utf-8,windows_store.csv,3960,7,0,2,Date of Release|Description|Languages|Name|Price|Publisher,7 multimodal cols > 5,False
+muhammadaqeelkabir/steam-games-dataset-steamspy-api,ok,utf-8,steam_games_dataset.csv,10000,3,13,1,developer|name|publisher,,True
+patelris/steam-top-1495-games-dataset,ok,utf-8,steam_top_games_2026.csv,1495,8,19,1,categories|developer|genres|name|publisher|release_date,9 multimodal cols > 5; only 1495 rows (<2000 gives unstable 5-fold means),False
+ayeshaseherr/delivery-logistics-dataset,ok,utf-8,Delivery_Logistics.csv,25000,0,5,10,,no column detected as TEXT (all fell under the cardinality thresholds),False
+sujaykapadnis/horror-movies-profits-dataset,ok,utf-8,movie_profit.csv,3401,3,4,2,distributor|movie|release_date,,True
+omkargowda/indian-startups-funding-data,ok,utf-8,startup_funding2021.csv,1209,6,1,2,Amount($)|Company/Brand|Founders|Investor|Sector|What it does,6 multimodal cols > 5; only 1209 rows (<2000 gives unstable 5-fold means),False
+prakharrathi25/google-play-store-reviews,ok,utf-8,reviews.csv,12495,8,2,2,at|content|repliedAt|replyContent|reviewCreatedVersion|reviewId,8 multimodal cols > 5,False
+chaudharyanshul/airline-reviews,ok,utf-8,BA_AirlineReviews.csv,3701,7,10,3,Aircraft|DateFlown|Datetime|Name|ReviewBody|ReviewHeader,7 multimodal cols > 5,False
+erfansobhaei/ultimate-university-ranking,ok,utf-8,Times_2023.csv,2345,8,18,3,aliases|location|name|rank|scores_overall|stats_number_students,8 multimodal cols > 5,False
+patelris/anime-and-manga-dataset-2026,ok,utf-8,manga_dataset.csv,82889,10,10,3,authors|genres|published_from|published_to|serializations|synopsis,11 multimodal cols > 5,False
+ayeshaseherr/book-store,ok,utf-8,bookstore_inventory.csv,21566,1,5,4,sku,,True
+anandshaw2001/airlines-reviews-and-rating,ok,utf-8,Airlines Reviews and Rating.csv,3290,4,7,4,Aircraft Type|Date Flown|Route|Users Reviews,,True
+rabieelkharoua/patient-ratings-identifying-best-drugs,ok,utf-8,drugsComTrain_raw.csv,161297,4,3,0,condition|date|drugName|review,,True
+beridzeg45/world-university-rankings,ok,utf-8,top universities.csv,12713,3,1,0,City|Country|University,,True
+meruvakodandasuraj/video-game-sales-and-metacritic-intelligence-198026,ok,utf-8,games.csv,50000,2,24,9,game_id|title,,True
+motahareshokri/cookbook-reviews,ok,utf-8,Cookbook Reviews .csv,18182,5,9,0,cmt_id|comment|rec_nm|user_id|user_nm,,True
+charitarth/semeval-2014-task-4-aspectbasedsentimentanalysis,ok,utf-8,Restaurants_Train_v2.csv,3693,2,3,1,Aspect Term|Sentence,,True
+jalota/books-dataset,ok,utf-8,Book_Dataset_1.csv,1000,2,7,1,Book_Description|Title,only 1000 rows (<2000 gives unstable 5-fold means),False
+volodymyrpivoshenko/video-game-sales-dataset,ok,utf-8,video_games_sales.csv,16598,2,7,2,Name|Publisher,,True
+khushipitroda/airline-reviews,ok,utf-8,Airline_Reviews.csv,23171,7,9,4,Aircraft|Airline Name|Date Flown|Review|Review Date|Review_Title,7 multimodal cols > 5,False
+samayashar/ai-powered-job-recommendations,ok,utf-8,job_recommendation_dataset.csv,50000,3,1,3,Company|Job Title|Required Skills,,True
+amanbarthwal/steam-store-data,ok,utf-8,steam-games.csv,42497,10,11,3,about_description|categories|content_descriptor|developer|discounted_price|genres,10 multimodal cols > 5,False
+adampq/linkedin-jobs-machine-learning-data-set,ok,utf-8,LinkedInJobs_MLDataset.csv,33246,5,14,5,Co_Nm|Job_Desc|Job_Ttl|domain|loc,,True
+cluesec/app-store-music-app-reviews,ok,utf-8,app_store_music_reviews.csv,5640,3,1,2,date|review|title,,True
+hosammhmdali/video-game-sales-2024,ok,utf-8,vgchartz-2024.csv,64016,5,6,2,developer|last_update|publisher|release_date|title,6 multimodal cols > 5,False
+aliibrahim10/anime-ratings,ok,utf-8,MALratings.csv,20343,4,4,0,Episode length|Genres|Release Date|Title,,True
+rahuldabholkar/steam-pc-games,ok,latin-1,games_data.csv,73344,9,4,3,dc_price|developer|genres|multiplayer_or_singleplayer|percent_positive|price,9 multimodal cols > 5,False
+mouathalmansour/perfumes-price-in-ksa-stores,ok,utf-8,perfumesdata.csv,25029,8,1,4,discounted_price|extracted_link|info1|info2|product_description|product_link,8 multimodal cols > 5,False
+jithinanievarghese/drugs-related-to-common-treatments,ok,utf-8,drugs_for_common_treatments.csv,3959,2,2,8,drug_link|drug_name,,True
+milapgohil/car-dataset,ok,utf-8,Car Sell Dataset.csv,140904,0,3,9,,no column detected as TEXT (all fell under the cardinality thresholds),False
+joelljungstrom/128k-airline-reviews,ok,utf-8,AirlineReviews.csv,129455,10,8,4,Aircraft|AirlineName|DateFlown|DatePub|OriginCountry|Review,10 multimodal cols > 5,False
+thedevastator/better-recipes-for-a-better-life,ok,utf-8,recipes.csv,1090,9,3,2,cuisine_path|directions|ingredients|nutrition|recipe_name|timing,10 multimodal cols > 5; only 1090 rows (<2000 gives unstable 5-fold means),False
+chik0di/board-games-dataset-complete-features,ok,utf-8,boardgame-geek-dataset_organized.csv,2000,13,41,3,artists|boardgame|categories|description|designers|developers,13 multimodal cols > 5,False
+saitejabandaruin/global-restaurant-delivery-intelligence,ok,utf-8,menus.csv,62417,2,10,3,Menu_ID|Restaurant_ID,,True
+yaaryiitturan/auto-scout-car-price,ok,utf-8,final_scout_not_dummy.csv,15915,4,10,9,Comfort_Convenience|Entertainment_Media|Extras|Safety_Security,,True
+philmorekoung11/luxury-watch-listings,ok,utf-8,Watches.csv,284491,6,1,7,model|name|price|ref|size|yop,6 multimodal cols > 5,False
+dhrubangtalukdar/startup-funding-and-outcome-dataset,ok,utf-8,startup_success_dataset.csv,100000,0,7,4,,no column detected as TEXT (all fell under the cardinality thresholds),False
+rrkcoder/glassdoor-data-science-job-listings,ok,utf-8,glassdoor_jobs.csv,1500,5,2,5,Company Name|Job Description|Job Title|Location|Salary Estimate,only 1500 rows (<2000 gives unstable 5-fold means),False
+youssefkhaled117/used-car-cleaned,ok,utf-8,Used_Cars_Cleaned.csv,392012,2,5,11,model|region,,True
+yusufdelikkaya/google-play-store-apps-dataset,ok,utf-8,google_play_store_dataset.csv,10841,5,2,6,App|Current Ver|Genres|Last Updated|Size,,True
+sujaykapadnis/board-games,ok,utf-8,board_games.csv,10532,10,10,0,artist|category|compilation|description|designer|expansion,12 multimodal cols > 5,False
+jypenpen54534/steam-games-dataset-2021-2025-65k,ok,utf-8,a_steam_data_2021_2025.csv,65521,6,4,0,categories|developer|genres|name|publisher|release_date,6 multimodal cols > 5,False
+joebeachcapital/board-games,ok,utf-8,details.csv,21631,10,13,0,boardgameartist|boardgamecategory|boardgamedesigner|boardgameexpansion|boardgamefamily|boardgameimplementation,10 multimodal cols > 5,False
+ahmedfakhar123/used-car-price-prediction-dataset,ok,utf-8,Pakistan_Used_Cars.csv,78630,1,6,3,Car Name,,True
+sridipbasu/global-food-nutrition-dataset-pricing-and-rating,ok,utf-8,food_menu_nutrition_dataset.csv,7500,1,10,7,item_name,,True
+aritra100/world-university-ranking,ok,utf-8,WUR_2016_to_2025.csv,14522,3,10,1,Country|Female to Male Ratio|Name,,True
+gauravkumar2525/zomato-restaurant-dataset,ok,utf-8,enhanced_zomato_dataset_clean.csv,123657,3,20,3,Item_Name|Place_Name|Restaurant_Name,,True
+arpan129/startups-funding-dataset,ok,utf-8,Sep_2021.csv,147,4,2,4,Founders|Investors|Startup Name|Sub-Vertical,only 147 rows (<2000 gives unstable 5-fold means),False
+mohamedsaad254/uae-used-cars-analysis-full-project-v1-0,ok,utf-8,uae_used_cars_10k.csv,10000,2,3,7,Description|Model,,True
+successikuku/tmbd-movie-dataset,ok,utf-8,TMBD Movie Dataset.csv,1287,11,12,1,cast|director|genres|homepage|imdb_id|keywords,11 multimodal cols > 5; only 1287 rows (<2000 gives unstable 5-fold means),False
+yaminh/german-car-insights,ok,utf-8,gcar_data.csv,100000,8,2,5,fuel_consumption_g_km|fuel_consumption_l_100km|model|offer_description|power_kw|power_ps,8 multimodal cols > 5,False
+satyakidas07/retail-sales-dataset,ok,utf-8,retail_sales_dataset.csv,4310,4,9,8,customer_id|customer_name|order_date|order_id,,True
+wajihulhassan369/steam-games-dataset,ok,utf-8,steam_uncleaned.csv,7812,6,0,1,Description|Name|Price|Release_date|Review_no|Tags,6 multimodal cols > 5,False
+songseungwon/2020-udemy-courses-dataset,ok,utf-8,udemy_business.csv,9970,3,4,0,Link|Summary|Title,,True
+abhishekgupta56447/video-games-sales-from-zenodo,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True
+muneebmuhammadali/perfume-e-commerece-dataset,ok,utf-8,ebay_womens_perfume.csv,1000,6,3,1,availableText|brand|itemLocation|lastUpdated|priceWithCurrency|title,6 multimodal cols > 5; only 1000 rows (<2000 gives unstable 5-fold means),False
+ayeshaseherr/exame-score-dataset,ok,utf-8,Exam_Score_Prediction.csv,20000,0,6,7,,no column detected as TEXT (all fell under the cardinality thresholds),False
+mohankrishnathalla/startup-founder-burnout-and-failure-risk-dataset,ok,utf-8,startup_founder_burnout_2026.csv,50000,0,21,8,,no column detected as TEXT (all fell under the cardinality thresholds),False
+vrajesh0sharma7/used-car-price-prediction,ok,utf-8,Used_Car_Price_Prediction.csv,7400,6,13,10,ad_created_on|car_name|model|registered_city|rto|variant,6 multimodal cols > 5,False
+madhav000/playstore-analysis,ok,utf-8,googleplaystore.csv,10840,5,2,6,App|Current Ver|Genres|Last Updated|Size,,True
+drisrarahmad/realistic-sales-revenue-dataset,ok,utf-8,realistic_linear_regression_dataset.csv,2000,0,8,4,,no column detected as TEXT (all fell under the cardinality thresholds),False
+mobeenfatimah/fake-news-detection-dataset-6000-news-articles,ok,utf-8,news_dataset.csv,6000,3,1,1,date|text|title,,True
+suhanigupta04/global-movies-dataset-19502026,ok,utf-8,global_movies_dataset_1950_2026.csv,100000,2,18,7,genre|title,,True
+wiltheman/anime-data-set-for-ml,ok,utf-8,Safe_data.csv,10000,3,7,3,genres|themes|title_english,,True
+michau96/ratings-of-the-most-popular-anime,ok,utf-8,Votes_2023_03_16.csv,1000,1,4,0,English_Name,only 1000 rows (<2000 gives unstable 5-fold means),False
+sumeakash/daily-news-for-stock-market-prediction,ok,utf-8,stock_news_2016 to 2026.csv,139919,6,2,2,categories|date|description|matched_keywords|title|url,6 multimodal cols > 5,False
+nikhilmaurya1324/swiggy-restaurant-data-india,ok,utf-8,swiggy_all_menus_india.csv,197430,4,3,2,Category|Dish Name|Location|Restaurant Name,,True
+jagathratchakan/indian-airlines-customer-reviews,ok,utf-8,Indian_Domestic_Airline.csv,2210,4,1,2,Date|Name|Review|Title,,True
+pratyushpuri/online-furniture-orders-delivery-and-assembly-2025,ok,utf-8,online_furniture_retailer.csv,1938,0,9,5,,no column detected as TEXT (all fell under the cardinality thresholds); only 1938 rows (<2000 gives unstable 5-fold means),False
+alikalwar/uae-used-car-prices-and-features-10k-listings,ok,utf-8,uae_used_cars_10k.csv,10000,2,3,7,Description|Model,,True
+darkmatternet/airbnb-listings-nyc-london-paris-tokyo-and-more,ok,utf-8,airbnb_top_cities.csv,292802,5,11,4,host_name|last_review|license|name|neighbourhood,,True
+raminhuseyn/demand-forecasting-dataset,ok,utf-8,demand_forecasting.csv,76000,1,9,6,Date,,True
+neomatrix369/google-play-store-apps-extended,ok,utf-8,extended_googleplaystore_user_reviews.csv,64295,2,21,10,App|Translated_Review,,True
+tolstoyjustin/kerala-bevco-liquor-price-list-2025-2026,ok,utf-8,PriceList_Dataset.csv,4389,2,14,1,Description|Product Code,,True
+nguyentiennhan/vietnam-housing-dataset-2024,ok,utf-8,vietnam_housing_dataset.csv,30229,1,7,4,Address,,True
+khushikyad001/fake-vs-real-job-postings-synthetic-nlp-dataset,ok,utf-8,fake_real_job_postings_3000x25.csv,3000,8,7,10,application_deadline|benefits|company_name|company_profile|contact_email|job_description,8 multimodal cols > 5,False
+cluesec/google-play-music-app-reviews,ok,utf-8,google_play_music_reviews.csv,76525,3,1,1,date|review|version,,True
+alyahmedts13/top-pc-games-metacritic-vs-steam-popularity,ok,utf-8,metacritic_Toppc_games.csv,6294,3,0,2,Description|Name|Release_Date,,True
+cid007/pizza-restaurants-us,ok,utf-8,Pizza_Restaurants_and_the_Pizza_They_Sell.csv,10000,10,6,3,address|categories|city|id|keys|menuPageURL,10 multimodal cols > 5,False
+shafin11027/newspaper-headline-tag,ok,utf-8,Training_data_5.csv,93229,1,0,1,News Headline,,True
+adityajha1504/chesscom-user-games-60000-games,ok,utf-8,club_games_data.csv,66879,6,3,5,black_id|black_username|fen|pgn|white_id|white_username,6 multimodal cols > 5,False
+sridipbasu/india-tech-jobs-2024-2026-salary-and-skills,ok,utf-8,india_job_market_2024_2026.csv,5000,3,4,10,Date_Posted|Job_ID|Skills_Required,,True
+setseries/news-category-dataset,ok,utf-8,NewsCategorizer.csv,50000,4,0,1,headline|keywords|links|short_description,,True
+sairamkilari/austin-airbnb-dataset,ok,utf-8,listings (1).csv,13808,3,12,1,host_name|last_review|name,,True
+banuprakashv/news-articles-classification-dataset-for-nlp-and-ml,ok,utf-8,business_data.csv,2000,4,0,1,content|description|headlines|url,,True
+thedevastator/student-engagement-with-tableau-a-data-science-p,ok,utf-8,365_student_quizzes.csv,147029,0,4,0,,no column detected as TEXT (all fell under the cardinality thresholds),False
+anthonytherrien/half-a-million-lifestyle,ok,utf-8,user_data.csv,475688,4,24,3,City|First Name|Last Name|State,,True
+vittoriohaardt/rolex-on-chrono24,ok,utf-8,rolex_scaper_clean.csv,87117,4,3,5,ad name|case diameter|location|reference number,,True
+riteshsoun/indian-startup-funding-jan-2015-april-2021,ok,utf-8,indian_startup_funding.csv,3212,7,1,1,Date|Industry|Investors|Location|Startup Name|Sub-vertical,7 multimodal cols > 5,False
+mostov/udemy-and-stepik-programming-courses,ok,utf-8,stepik_courses_data.csv,2056,4,3,4,description|price|students_count|title,,True
+waddahali/laptop-prices-and-specifications-dataset,ok,utf-8,laptops_Dataset.csv,1033,16,1,13,Battery|Colors|Connections|Dimensions|Display|Hard drive,16 multimodal cols > 5; only 1033 rows (<2000 gives unstable 5-fold means),False
+katyjqian/charity-navigator-scores-expenses-dataset,ok,utf-8,CLEAN_charity_data.csv,8408,5,14,4,description|ein|leader|motto|name,,True
+ahmedmohamed2003/restaurant-sales-dirty-data-for-cleaning-training,ok,utf-8,restaurant_sales_data.csv,17534,3,3,3,Customer ID|Order Date|Order ID,,True
+mansiaggarwal88/global-trending-topics-dataset,ok,utf-8,global_trending_topics.csv,6960,2,6,10,topic|url,,True
+jaskiratsinghjassi/airline-customer-reviews-dataset,ok,utf-8,output.csv,3418,2,1,1,date|reviews,,True
+mathurutkarsh/zomato-dataset,ok,latin-1,zomato.csv,9551,6,8,7,Address|City|Cuisines|Locality|Locality Verbose|Restaurant Name,6 multimodal cols > 5,False
+sakhadib/binary-classification-dataset-for-crime-headline,ok,utf-8,CrimeVsNoCrimeArticles.csv,7124,1,1,0,title,,True
+hassanjameelahmed/googleplaystore,ok,utf-8,googleplaystore.csv,10841,5,2,6,App|Current Ver|Genres|Last Updated|Size,,True
+lazrus/headlines-5000,ok,utf-8,Headlines_5000.csv,4999,4,0,1,date|headline|time_12hr|time_24hr,,True
+zsinghrahulk/recipe-reviews,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True
+thedevastator/airbnb-listings-and-reviews-in-washington-dc,ok,utf-8,Airbnb Reviews.csv,56989,1,2,0,date,,True
+shubhamchambhare/all-major-fields-courses-in-udemy-44k-courses,ok,utf-8,Udemy_Courses.csv,44571,3,3,1,Link|Summary|Title,,True
+jaderz/synthetic-animal-charity-donations,ok,utf-8,animal_charity_donation_records.csv,10000,4,2,8,donation_date|donor_id|email|name,,True
+shubham2703/recipe-review-and-user-feedback-dataset,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True
+tornikeonoprishvili/tbilisi-housing-challenge-2020,ok,utf-8,housing_clean_2.csv,29204,0,11,3,,no column detected as TEXT (all fell under the cardinality thresholds),False
+rakshitrk/airline-reviews,ok,utf-8,reviews.csv,308384,5,1,0,comment|company_logo|company_name|company_website|url_website,,True
+yaminh/anime-ratings-and-popularity-dataset,ok,utf-8,Anime_ratings.csv,20343,4,4,0,Episode length|Genres|Release Date|Title,,True
+mehvishsheikh31/ultimate-anime-dataset-ratings-and-genres,ok,utf-8,ultimate_anime_dataset.csv,3994,8,9,5,end_date|english_title|genres|romaji_title|start_date|studio,9 multimodal cols > 5,False
+crawlfeeds/furniture-products-dataset-from-amazon,ok,utf-8,furniture_amazon_dataset_sample copy.csv,312,16,1,6,about_item|asin|brand|color|date_first_available|description,18 multimodal cols > 5; only 312 rows (<2000 gives unstable 5-fold means),False
+promptcloud/travel-listing-from-makemytrip,"read_failed: ParserError: Error tokenizing data. C error: Expected 22 fields in line 22, saw 25
+",,marketing_sample_for_makemytrip_com-travel__20190901_20190930__30k_data.csv,0,0,0,0,,,False
+ahmedalghali/cleaned-version-of-condition-classification,ok,utf-8,proccessed_fr_fr.csv,210873,0,5,0,,no column detected as TEXT (all fell under the cardinality thresholds),False
+kartiksaini18/recipe-review-dataset-with-feedback-and-ratings,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True
+beridzeg45/watch-prices-dataset,ok,utf-8,watches (cleaned).csv,45024,1,10,12,Brand,,True
+amogh7joshi/wsj-headline-classification,ok,utf-8,wsj_headlines.csv,19227,2,1,1,Date|Headline,,True
+satyajeetkumarraj/recipe-reviews-dataset,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True
+michaelstepanovsky/hotel-data,ok,utf-8,hotel_data.csv,12619,2,49,0,Description|Hotel Name,,True
+joebeachcapital/recipe-reviews-and-user-feedback-dataset,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True
+ziya07/student-learning-interaction-logs-dataset,ok,utf-8,student_learning_interaction_dataset.csv,9000,3,16,3,session_id|student_id|timestamp,,True
+datawitharyan/laptops-specs-and-price-data,ok,utf-8,laptops.csv,1011,3,3,9,graphics|name|processor,only 1011 rows (<2000 gives unstable 5-fold means),False
+denniszapatos/philippines-news-headlines-dataset,ok,utf-8,Philippines-News-Headlines-Dataset-for-Sentiment-Analysis.csv,65006,2,0,0,Date|Headlines,no structured column survives -> no_text state would be empty,False
+kavyasreeb/google-play-store-dating-app-reviews,ok,utf-8,dating_app.csv,240000,4,2,1,at|content|reviewCreatedVersion|reviewId,,True
+sergionefedov/job-postings-salary-prediction-50k-postings,ok,utf-8,job_postings.csv,50000,5,10,9,benefits|company|job_id|post_date|skills_required,,True
+rudraprasadbhuyan/amazon-laptop-messy-dataset,ok,utf-8,single_amazon_laptop_messy_dataset_1-10.csv,209,6,2,13,about|mrp|price|product_details_dict|product_title|technical_details_dict,6 multimodal cols > 5; only 209 rows (<2000 gives unstable 5-fold means),False
+malharkhatu/airline-passenger-reviews,ok,utf-8,Airline Passenger Reviews.csv,64017,1,0,1,customer_review,,True
+zohairbaloch/global-perfume-e-commerce-analytics-dataset,ok,utf-8,Perfume_Market_Intelligence_Dataset.csv,1998,2,5,10,Brand|Product,only 1998 rows (<2000 gives unstable 5-fold means),False
+manarmohamed11/multicategory-electronics-product-new-egg,ok,utf-8,Multicategory Electronics Product.csv,4347,3,0,5,Original Price|Price|Title,,True
+rohiteng/apple-products-dataset-100k-rows-and-20-features,ok,utf-8,apple_products_dataset_100k.csv,100000,4,7,9,dimensions_mm|model_name|product_id|seller_id,,True
+mirkoferretti/data-visualization-project-trendspotters,ok,utf-8,cleaned_dataset_with_indices_social_support (2).csv,1618,1,32,1,Country,only 1618 rows (<2000 gives unstable 5-fold means),False
+hamzasafwan/airline-customer-reviews,ok,utf-8,customer_reviews.csv,3799,1,1,0,reviews,,True
+laurenainsleyhaines/united-states-fruit-and-vegetable-prices,ok,utf-8,Directory.csv,82,2,0,2,title|url,only 82 rows (<2000 gives unstable 5-fold means),False
+ahmed2892/finding-donors-for-charityml,ok,utf-8,CharityML.csv,45222,0,5,9,,no column detected as TEXT (all fell under the cardinality thresholds),False
+halaturkialotaibi/makeup-website-in-saudi-arabia,ok,utf-8,Makeup website in Saudi Arabia.csv,10014,1,3,5,Order_Date,,True
+osamaalaa2001/american-airline-reviews-trustpilot,ok,utf-8,American_reviews_trustpilot.csv,1193,1,1,0,reviews,only 1193 rows (<2000 gives unstable 5-fold means),False
+znbrazi/customer-behavioral-segmentation-of-charity-group,ok,utf-8,TransactionalData.csv,1490797,1,4,1,PaymentDate,,True
+manjushwarkhairkar/all-recipe-dataset,ok,utf-8,All_Recipe_Web_Scraping_Dataset.csv,13057,5,1,2,Cook Time|Description|Ingredients|Name|Total Time,6 multimodal cols > 5,False
+mariahalshiekh/udemy-course-academy-teaching,ok,utf-8,udemy_dataset.csv,2999,3,8,1,course_instr|course_link|course_name,,True
+sowmyaiyer/coursera-courses-and-details,ok,utf-8,Coursera_catalog.csv,891,8,2,2,course_URL|course_organization|course_skills|course_students_enrolled|course_title|course_top_instructor,9 multimodal cols > 5; only 891 rows (<2000 gives unstable 5-fold means),False
+holaholap/drinks-sales-dataset,no_usable_csv,,,0,0,0,0,,,False
+techsalerator/real-estate-and-airbnb-data-for-united-arab-emirates,ok,utf-8,STR_Monthly_Performance_ZIP.csv,445,0,20,3,,no column detected as TEXT (all fell under the cardinality thresholds); only 445 rows (<2000 gives unstable 5-fold means),False
+rrokon/global-grocery-nutrition-dataset-2025,ok,utf-8,grocery_nutrition_ecoscore_clean.csv,5918,3,16,6,brand|packaging_materials|product_name,,True
+nomanmunir/daraz-perfumes,ok,utf-8,daraz_perfumes.csv,2280,4,4,5,name|seller|sold|url,,True
+reapxdev/boardgamegeek-scraper,ok,utf-8,boardgamegeek-scraper.csv,437,9,7,4,artists|categories|designers|families|mechanics|name,10 multimodal cols > 5; only 437 rows (<2000 gives unstable 5-fold means),False
+colabsss/smart-tourism-service-quality-dataset,ok,utf-8,Smart_Tourism_IoT_Service_Quality_Dataset.csv,13000,2,37,6,Record_ID|Tourist_ID,,True
+liamvgallagher/wegmans-grocery-inventory-with-nutrition-and-pricing,ok,utf-8,wegmans_products.csv,32759,22,11,14,brand_name|calcium_mg|calories_per_serving|categories|description|ingredients,22 multimodal cols > 5,False
+srimathi24/food-recipe-rating-multiclass-classification,ok,utf-8,train.csv,13636,5,10,0,CommentID|RecipeName|Recipe_Review|UserID|UserName,,True
+delemist/vinted-listings-data,ok,utf-8,vinted_items.csv,23563,4,14,4,brand|listed_at|size|title,,True
+vaibhavsaran/best-buy-amazon-flipkart-laptop-data,ok,utf-8,LaptrackPhase2.csv,4196,7,9,5,Display_Resolution|Laptop_Dimensions|Laptop_Model_Name|Laptop_Model_Number|Processor_Model|Time_Of_Extraction,7 multimodal cols > 5,False
+bidyutmalasaha/blockchain-based-medicine-supply-chain-management,ok,utf-8,medicine_scm_10k_simulation_transactions.csv,10000,15,13,34,batch_id|block_hash|confirm_time|customer_id|detection_time|distributor_id,15 multimodal cols > 5,False
+mihaildeligrozev/the-hague-airbnb-listings,ok,utf-8,reviews.csv,48467,3,3,0,comments|date|reviewer_name,,True
+denslov/images-of-single-ticket-listings,ok,utf-8,annotations_gpt_4o_mini_df.csv,520,1,3,6,section,only 520 rows (<2000 gives unstable 5-fold means),False
+zara2099/cultural-heritage-tourism-dataset,ok,utf-8,Cultural_Heritage_Tourism_Dataset.csv,7000,3,82,12,heritage_site_id|observation_date|record_id,,True
+colabsss/tourism-cultural-heritage-sustainability-data,ok,utf-8,tourism_cultural_heritage_dataset.csv,15000,0,41,7,,no column detected as TEXT (all fell under the cardinality thresholds),False
+techsalerator/foot-traffic-and-mobility-data-for-france,ok,utf-8,STR_Monthly_Performance_ZIP.csv,445,0,20,3,,no column detected as TEXT (all fell under the cardinality thresholds); only 445 rows (<2000 gives unstable 5-fold means),False

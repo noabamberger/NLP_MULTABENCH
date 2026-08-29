@@ -1,0 +1,59 @@
+ref,status,encoding,csv,n_rows,n_text,n_num,n_cat,text_cols,problems,viable,real_text,n_real_text,score
+meruvakodandasuraj/video-game-sales-and-metacritic-intelligence-198026,ok,utf-8,games.csv,50000,2,24,9,game_id|title,,True,['title'],1,31
+beridzeg45/watch-prices-dataset,ok,utf-8,watches (cleaned).csv,45024,1,10,12,Brand,,True,['Brand'],1,20
+jacksondivakarr/online-shopping-dataset,ok,utf-8,file.csv,52955,4,12,5,Date|Product_Description|Product_SKU|Transaction_Date,,True,['Product_Description'],1,15
+sridipbasu/global-food-nutrition-dataset-pricing-and-rating,ok,utf-8,food_menu_nutrition_dataset.csv,7500,1,10,7,item_name,,True,['item_name'],1,15
+satyakidas07/retail-sales-dataset,ok,utf-8,retail_sales_dataset.csv,4310,4,9,8,customer_id|customer_name|order_date|order_id,,True,['customer_name'],1,15
+mansiaggarwal88/global-trending-topics-dataset,ok,utf-8,global_trending_topics.csv,6960,2,6,10,topic|url,,True,['topic'],1,14
+tolstoyjustin/kerala-bevco-liquor-price-list-2025-2026,ok,utf-8,PriceList_Dataset.csv,4389,2,14,1,Description|Product Code,,True,['Description'],1,13
+sridipbasu/india-tech-jobs-2024-2026-salary-and-skills,ok,utf-8,india_job_market_2024_2026.csv,5000,3,4,10,Date_Posted|Job_ID|Skills_Required,,True,['Skills_Required'],1,12
+nguyentiennhan/vietnam-housing-dataset-2024,ok,utf-8,vietnam_housing_dataset.csv,30229,1,7,4,Address,,True,['Address'],1,9
+ahmedfakhar123/used-car-price-prediction-dataset,ok,utf-8,Pakistan_Used_Cars.csv,78630,1,6,3,Car Name,,True,['Car Name'],1,7
+ahmedmohamed2003/retail-store-sales-dirty-for-data-cleaning,ok,utf-8,retail_store_sales.csv,12575,3,3,5,Item|Transaction Date|Transaction ID,,True,['Item'],1,6
+mvieira101/global-cost-of-living,ok,utf-8,cost-of-living_v2.csv,4956,2,56,0,city|country,,True,"['city', 'country']",2,52
+michaelstepanovsky/hotel-data,ok,utf-8,hotel_data.csv,12619,2,49,0,Description|Hotel Name,,True,"['Description', 'Hotel Name']",2,45
+neomatrix369/google-play-store-apps-extended,ok,utf-8,extended_googleplaystore_user_reviews.csv,64295,2,21,10,App|Translated_Review,,True,"['App', 'Translated_Review']",2,27
+mylesoneill/world-university-rankings,ok,utf-8,educational_attainment_supplementary_data.csv,79055,2,25,0,country_name|series_name,,True,"['country_name', 'series_name']",2,21
+suhanigupta04/global-movies-dataset-19502026,ok,utf-8,global_movies_dataset_1950_2026.csv,100000,2,18,7,genre|title,,True,"['genre', 'title']",2,21
+thedevastator/get-your-game-on-metacritic-recommendations-and,ok,utf-8,games-features-edit.csv,12624,2,17,0,ReleaseDate|ResponseName,,True,"['ReleaseDate', 'ResponseName']",2,13
+jilkothari/finance-accounting-courses-udemy-13k-course,ok,utf-8,udemy_output_All_Finance__Accounting_p1_p626.csv,13608,4,12,4,created|published_time|title|url,,True,"['created', 'title']",2,12
+rohiteng/apple-products-dataset-100k-rows-and-20-features,ok,utf-8,apple_products_dataset_100k.csv,100000,4,7,9,dimensions_mm|model_name|product_id|seller_id,,True,"['dimensions_mm', 'model_name']",2,12
+melissamonfared/board-games,ok,latin-1,BGG_Data_Set.csv,20343,2,11,1,Mechanics|Name,,True,"['Mechanics', 'Name']",2,8
+mohamedsaad254/uae-used-cars-analysis-full-project-v1-0,ok,utf-8,uae_used_cars_10k.csv,10000,2,3,7,Description|Model,,True,"['Description', 'Model']",2,6
+alikalwar/uae-used-car-prices-and-features-10k-listings,ok,utf-8,uae_used_cars_10k.csv,10000,2,3,7,Description|Model,,True,"['Description', 'Model']",2,6
+anandshaw2001/video-game-sales,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True,"['Name', 'Publisher']",2,5
+thedevastator/global-video-game-sales,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True,"['Name', 'Publisher']",2,5
+dhrubangtalukdar/magnus-carlsen-chess-com-games,ok,utf-8,magnus_carlsen_all_online_games_cleaned.csv,17125,3,3,6,date|moves|opponent_name,,True,"['moves', 'opponent_name']",2,5
+volodymyrpivoshenko/video-game-sales-dataset,ok,utf-8,video_games_sales.csv,16598,2,7,2,Name|Publisher,,True,"['Name', 'Publisher']",2,5
+abhishekgupta56447/video-games-sales-from-zenodo,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True,"['Name', 'Publisher']",2,5
+mariahalshiekh/udemy-course-academy-teaching,ok,utf-8,udemy_dataset.csv,2999,3,8,1,course_instr|course_link|course_name,,True,"['course_instr', 'course_name']",2,5
+vikasojha98/top-women-chess-players,ok,utf-8,top_women_chess_players_aug_2020.csv,8553,2,5,3,Federation|Name,,True,"['Federation', 'Name']",2,4
+nikhil1e9/myanimelist-anime-and-manga,ok,utf-8,MAL-manga.csv,17811,3,5,1,Published|Title|page_url,,True,"['Published', 'Title']",2,2
+sujaykapadnis/horror-movies-profits-dataset,ok,utf-8,movie_profit.csv,3401,3,4,2,distributor|movie|release_date,,True,"['distributor', 'movie']",2,2
+charitarth/semeval-2014-task-4-aspectbasedsentimentanalysis,ok,utf-8,Restaurants_Train_v2.csv,3693,2,3,1,Aspect Term|Sentence,,True,"['Aspect Term', 'Sentence']",2,0
+songseungwon/2020-udemy-courses-dataset,ok,utf-8,udemy_business.csv,9970,3,4,0,Link|Summary|Title,,True,"['Summary', 'Title']",2,0
+shubhamchambhare/all-major-fields-courses-in-udemy-44k-courses,ok,utf-8,Udemy_Courses.csv,44571,3,3,1,Link|Summary|Title,,True,"['Summary', 'Title']",2,0
+mihaildeligrozev/the-hague-airbnb-listings,ok,utf-8,reviews.csv,48467,3,3,0,comments|date|reviewer_name,,True,"['comments', 'reviewer_name']",2,-1
+gauravkumar2525/zomato-restaurant-dataset,ok,utf-8,enhanced_zomato_dataset_clean.csv,123657,3,20,3,Item_Name|Place_Name|Restaurant_Name,,True,"['Item_Name', 'Place_Name', 'Restaurant_Name']",3,17
+rrokon/global-grocery-nutrition-dataset-2025,ok,utf-8,grocery_nutrition_ecoscore_clean.csv,5918,3,16,6,brand|packaging_materials|product_name,,True,"['brand', 'packaging_materials', 'product_name']",3,16
+sergionefedov/job-postings-salary-prediction-50k-postings,ok,utf-8,job_postings.csv,50000,5,10,9,benefits|company|job_id|post_date|skills_required,,True,"['benefits', 'company', 'skills_required']",3,13
+thedevastator/video-game-sales-and-ratings,ok,utf-8,Video_Games.csv,16928,3,10,4,Developer|Name|Publisher,,True,"['Developer', 'Name', 'Publisher']",3,8
+muhammadaqeelkabir/steam-games-dataset-steamspy-api,ok,utf-8,steam_games_dataset.csv,10000,3,13,1,developer|name|publisher,,True,"['developer', 'name', 'publisher']",3,8
+ibriiee/video-games-sales-dataset-2022-updated-extra-feat,ok,utf-8,Video_Games.csv,16719,3,9,4,Developer|Name|Publisher,,True,"['Developer', 'Name', 'Publisher']",3,7
+thedevastator/global-video-game-sales-ratings,ok,utf-8,Raw Data.csv,16719,3,9,4,Developer|Name|Publisher,,True,"['Developer', 'Name', 'Publisher']",3,7
+sairamkilari/austin-airbnb-dataset,ok,utf-8,listings (1).csv,13808,3,12,1,host_name|last_review|name,,True,"['host_name', 'last_review', 'name']",3,7
+anandshaw2001/airlines-reviews-and-rating,ok,utf-8,Airlines Reviews and Rating.csv,3290,4,7,4,Aircraft Type|Date Flown|Route|Users Reviews,,True,"['Aircraft Type', 'Route', 'Users Reviews']",3,5
+aritra100/world-university-ranking,ok,utf-8,WUR_2016_to_2025.csv,14522,3,10,1,Country|Female to Male Ratio|Name,,True,"['Country', 'Female to Male Ratio', 'Name']",3,5
+wiltheman/anime-data-set-for-ml,ok,utf-8,Safe_data.csv,10000,3,7,3,genres|themes|title_english,,True,"['genres', 'themes', 'title_english']",3,4
+zsinghrahulk/recipe-reviews,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True,"['recipe_name', 'text', 'user_name']",3,4
+shubham2703/recipe-review-and-user-feedback-dataset,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True,"['recipe_name', 'text', 'user_name']",3,4
+kartiksaini18/recipe-review-dataset-with-feedback-and-ratings,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True,"['recipe_name', 'text', 'user_name']",3,4
+satyajeetkumarraj/recipe-reviews-dataset,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True,"['recipe_name', 'text', 'user_name']",3,4
+joebeachcapital/recipe-reviews-and-user-feedback-dataset,ok,utf-8,Recipe Reviews and User Feedback Dataset.csv,18182,5,10,0,comment_id|recipe_name|text|user_id|user_name,,True,"['recipe_name', 'text', 'user_name']",3,4
+motahareshokri/cookbook-reviews,ok,utf-8,Cookbook Reviews .csv,18182,5,9,0,cmt_id|comment|rec_nm|user_id|user_nm,,True,"['comment', 'rec_nm', 'user_nm']",3,3
+nomanmunir/daraz-perfumes,ok,utf-8,daraz_perfumes.csv,2280,4,4,5,name|seller|sold|url,,True,"['name', 'seller', 'sold']",3,3
+kaushiksuresh147/adidas-vs-nike,ok,utf-8,Adidas Vs Nike.csv,3268,4,5,1,Description|Last Visited|Product ID|Product Name,,True,"['Description', 'Last Visited', 'Product Name']",3,0
+holmjason2/videogamedata,ok,latin-1,game_sales_data.csv,19600,3,5,1,Developer|Name|Publisher,,True,"['Developer', 'Name', 'Publisher']",3,0
+aliibrahim10/anime-ratings,ok,utf-8,MALratings.csv,20343,4,4,0,Episode length|Genres|Release Date|Title,,True,"['Episode length', 'Genres', 'Title']",3,-2
+yaminh/anime-ratings-and-popularity-dataset,ok,utf-8,Anime_ratings.csv,20343,4,4,0,Episode length|Genres|Release Date|Title,,True,"['Episode length', 'Genres', 'Title']",3,-2
+rabieelkharoua/patient-ratings-identifying-best-drugs,ok,utf-8,drugsComTrain_raw.csv,161297,4,3,0,condition|date|drugName|review,,True,"['condition', 'drugName', 'review']",3,-3
