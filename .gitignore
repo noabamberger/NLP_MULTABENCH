@@ -25,3 +25,7 @@ figures/
 data/candidates/
 results/candidates/
 .emb_cache/
+
+# Remote login bootstrap (contains a password - never commit)
+remote_login.env
+remote_login.txt
