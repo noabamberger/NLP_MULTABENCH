@@ -157,3 +157,60 @@ Setup script: `/home/student/remote_setup2.sh`, log `/home/student/setup2.log`.
 
 **`remote_login.env` in the repo root still contains a plaintext password.** It is gitignored, and
 key auth works, so it can be deleted.
+
+---
+
+# Scout findings (agent `scout-datasets`, completed)
+
+Full detail in `RESEARCH_NOTES.md`. Top backups, all T1-PASS but **none T2-screened**:
+
+1. **`melissamonfared/board-games`** (BGG, 20,343 rows) — cleanest shape found: exactly
+   **2 TEXT** (`Name`, `Mechanics`) vs **8 numeric + 1 categorical**. `Mechanics` is semantically
+   dense and not recoverable from the numerics; `Complexity Average` (|corr| 0.481) gives
+   `no_text` a genuine non-degenerate baseline, so a positive Delta_Joint would be a real
+   measurement rather than an artifact of an empty structured condition. Target
+   `Rating Average`, only 7 rows over |z|>5.
+   **CRITICAL: drop `BGG Rank`** — monotone function of the target AND 100% unique, so it would
+   also type as TEXT and leak into every condition.
+2. **`raghadalharbi/all-products-available-on-sephora-website`** (9,168 rows) — T1 PASS after
+   dropping `id, URL, details, how_to_use, ingredients, options, value_price`. Leaves 4 TEXT /
+   8 NUM / 1 CAT. **Cheapest to encode: every column caps at <=40 tokens, 386k tokens/pass,
+   12.8x under a 512 cap.** Nearly free to screen.
+3. **`olgagmiufana1/fragrantica-com-fragrance-dataset`**, file **`fra_cleaned.csv`** (24,063 rows)
+   — 5 TEXT (name + Top/Middle/Base note pyramid + Brand) vs `mainaccord1..5` as five categorical
+   accord words: an unusually clean "does full note text beat its coarse categorical summary"
+   contrast. Risk: target std only 0.277 and structured |corr| maxes at 0.109, so all four states
+   may sit near R^2=0 and absolute deltas could be tiny.
+
+Rejected with reasons: luxury watches (|z|max 136.9 on raw price; log-price would need a
+`PROCESSING_FUNC`), Google Play Store (4 columns needing separate parsers, 1,181 duplicate app
+names, known corrupted `Rating` row), Drugs.com.
+
+## Corrections to my stated assumptions
+
+- **The typing rule fires in the OPPOSITE direction from what I warned about.** I emphasised
+  "short free text silently becomes categorical". The dominant real failure is the reverse: the
+  `>=100 distinct` arm **promotes low-cardinality columns into TEXT** and blows the <=5 multimodal
+  budget. Sephora's `brand` (324 distinct, 3.5% unique) and `category` (143 distinct, 1.6% unique)
+  both type as TEXT — that alone is why the raw file has 9 text columns.
+
+## Two BUGS in my own tooling, found by the scout
+
+1. **`batch_profile.py::_read_any_csv` varies one axis at a time and will wrongly declare files
+   unreadable.** `fra_cleaned.csv` needed `sep=";"` AND `encoding="latin-1"` AND `decimal=","`
+   *simultaneously*; each fix only exposed the next error. The fallback must try combinations, not
+   a single axis. **The batch T1 run in progress is affected — some "read_failed" rows are false
+   negatives.**
+2. **`profile_frame` has no duplicate-row gate.** `mterzolo/lego-sets` looks like 12,261 rows but
+   is 744 products replicated across 21 countries — near-identical rows would land in both train
+   and test in every fold. Add a duplicate-key gate to T1; cheap, and nothing else caught it.
+
+## Search-strategy lessons (feed these into `discover/rules.py`)
+
+- **Batching several queries into one `search()` call is counterproductive** — strong terms
+  monopolise the merged result list and weak queries return zero on-topic hits. Two of the four
+  scout rounds were wasted this way. Search **one query per call**.
+- **"reviews" as a query term is an anti-pattern** — reliably returns single-column text corpora
+  with no structured block, failing gate 2.
+- Proper-noun domains (olympics, universities) pass the uniqueness test while carrying no signal
+  E5 can exploit.
