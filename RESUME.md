@@ -214,3 +214,66 @@ names, known corrupted `Rating` row), Drugs.com.
   with no structured block, failing gate 2.
 - Proper-noun domains (olympics, universities) pass the uniqueness test while carrying no signal
   E5 can exploit.
+
+---
+
+# STATUS UPDATE — candidate found and passing on fold 0
+
+## `REG_TEXT_EDU_UDEMY_ACADEMY` (`mariahalshiekh/udemy-course-academy-teaching`)
+
+**Delta_Joint: 5 of 5 models pass**, +0.136 to +0.209 (delta threshold is 0.001).
+**Delta_Awareness on fold 0 at epochs=10: 3 of 5 pass** -> meets the RHO=3/5 quorum.
+
+| model | Delta_Joint | Delta_Awareness (fold 0) | both |
+|---|---|---|---|
+| LightGBM | +0.209 | +0.0322 | PASS |
+| CatBoost | +0.194 | +0.0122 | PASS |
+| TabPFN-2.5 | +0.140 | +0.0188 | PASS |
+| TabM | +0.208 | -0.0138 | fail |
+| TabPFNv2 | +0.136 | -0.0134 | fail |
+
+Running now: folds 1-4 of the ft half, into `results/candidates/verify_udemy_e10.csv`
+(log `verify_udemy_e10.log`). The driver is RESUMABLE -- rerun the same command and it
+skips cells already in the CSV:
+
+```bash
+PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -m curation_lab.screen.verify \
+  --ref mariahalshiekh/udemy-course-academy-teaching --name REG_TEXT_EDU_UDEMY_ACADEMY \
+  --out results/candidates/verify_udemy_e10.csv --folds 0,1,2,3,4 --epochs 10
+```
+
+Final verdict once complete:
+
+```bash
+PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -c "
+import pandas as pd
+from curation_lab.criterion.deltas import normalize, verdict
+d=normalize(pd.read_csv('results/candidates/verify_udemy_e10.csv',encoding='utf-8'))
+d=d.drop_duplicates(subset=['model','state','fold']); print(verdict(d))"
+```
+
+## THE key methodological finding
+
+`epochs=2` makes Delta_Awareness meaningless. An under-trained LoRA adapter leaves
+ft ~= all, so the delta collapses to noise around zero BY CONSTRUCTION. The first sweep
+"rejected" this dataset 1-of-5 purely because of that shortcut. At epochs=10 the same
+model/fold went +0.0099 -> +0.0322.
+
+This invalidates the epochs=2 batch TAR probes in `results/candidates/tar_probes.csv`
+(Vietnam housing +0.0007, metacritic -0.0143, ...): they measured the epoch budget, not
+the datasets. **Re-probe any backup candidate at epochs>=10 before believing a fail.**
+
+Corollary: a cheap screen is only valid where cheapness does not change the quantity
+being screened. True for Delta_Joint (frozen encoders, exact). False for Delta_Awareness.
+
+## Backup candidates (16 passed Delta_Joint)
+
+`results/candidates/hunt_full.csv` has all of them; the strongest by Delta_Joint are
+Vietnam housing (+0.236, but housing is a used MulTaBench domain), Udemy academy
+(+0.200, chosen), metacritic (+0.083), board games (+0.039), Udemy finance (+0.025),
+women chess players (+0.024). All need re-probing at epochs>=10.
+
+Watch out: the auto-target picker chose junk targets in two cases -- `Sl No` (a serial
+number) for Kerala liquor and `CustomerID` for online-shopping. The JUNK regex uses word
+boundaries so it misses camelCase (`CustomerID`) and spaced abbreviations (`Sl No`).
+Fix that before trusting those two rows.
