@@ -1,0 +1,35 @@
+ref,verdict,detail,no_text,all,text_only,delta_joint,secs
+satyakidas07/retail-sales-dataset,PASS,target=shipping_cost (nuniq=3140 zmax=3.82) leaks_dropped=[] text=['customer_name'] n_num=8,0.28937551414662654,0.3203098065690225,-0.10177833019879823,0.0309,14.3
+tolstoyjustin/kerala-bevco-liquor-price-list-2025-2026,PASS,target=Sl No (nuniq=4105 zmax=1.76) leaks_dropped=[] text=['Description'] n_num=13,0.692027214413534,0.9642655727936218,0.8280300137893629,0.1362,15.9
+mansiaggarwal88/global-trending-topics-dataset,skip,no usable target (no numeric column qualified),,,,,0.5
+sridipbasu/global-food-nutrition-dataset-pricing-and-rating,FAIL,target=calories (nuniq=4393 zmax=3.28) leaks_dropped=[] text=['item_name'] n_num=9,0.6285842829057405,0.6277297177895842,0.6295968676243547,-0.0019,5.5
+ahmedmohamed2003/retail-store-sales-dirty-for-data-cleaning,PASS,target=Total Spent (nuniq=227 zmax=2.96) leaks_dropped=[] text=['Item'] n_num=2,0.9643243975940005,0.9675760674012245,0.3532007109877796,0.0033,24.9
+nguyentiennhan/vietnam-housing-dataset-2024,PASS,target=Price (nuniq=687 zmax=2.54) leaks_dropped=[] text=['Address'] n_num=6,0.38275207329250605,0.6188883273782935,0.3320921799738743,0.2361,74.5
+beridzeg45/watch-prices-dataset,FAIL,target=Watches Sold by the Seller (nuniq=1404 zmax=4.66) leaks_dropped=['Seller Reviews'] text=['Brand'] n_num=7,0.9359251588504004,0.9345473964182425,0.36699760658086156,-0.0014,35.9
+jacksondivakarr/online-shopping-dataset,FAIL,"target=CustomerID (nuniq=1468 zmax=1.70) leaks_dropped=[] text=['Product_Description'] n_num=9 | all<=no_text, aborted before text_only",0.5232487346080934,0.4536951243299042,,,33.9
+mariahalshiekh/udemy-course-academy-teaching,PASS,"target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_num=6",0.29565601848272804,0.49573199015659863,0.20829228564579982,0.2001,32.3
+mvieira101/global-cost-of-living,PASS,"target=x33 (nuniq=230 zmax=4.72) leaks_dropped=[] text=['city', 'country'] n_num=55",0.8197301206474962,0.9137811250561501,0.9015217500652037,0.0123,28.5
+vikasojha98/top-women-chess-players,PASS,"target=Rapid_rating (nuniq=861 zmax=3.73) leaks_dropped=[] text=['Federation', 'Name'] n_num=2",0.7923373775871763,0.8165148210640814,0.07360254186473725,0.0242,262.0
+songseungwon/2020-udemy-courses-dataset,skip,no usable target (no numeric column qualified),,,,,0.6
+michaelstepanovsky/hotel-data,PASS,"target=Rating (nuniq=85 zmax=4.98) leaks_dropped=[] text=['Description', 'Hotel Name'] n_num=48",0.15471557513433432,0.15900284171166423,0.036199417697869274,0.0043,542.2
+thedevastator/get-your-game-on-metacritic-recommendations-and,PASS,"target=Metacritic (nuniq=72 zmax=2.96) leaks_dropped=[] text=['ReleaseDate', 'ResponseName'] n_num=16",0.3920029605633665,0.47452019156776837,0.2404187861310445,0.0825,98.7
+jilkothari/finance-accounting-courses-udemy-13k-course,PASS,"target=avg_rating_recent (nuniq=11781 zmax=3.76) leaks_dropped=['avg_rating', 'rating'] text=['created', 'title'] n_num=8",0.754233432885273,0.7787658159233029,0.046007105021011685,0.0245,138.6
+dhrubangtalukdar/magnus-carlsen-chess-com-games,skip,no usable target (no numeric column qualified),,,,,0.6
+melissamonfared/board-games,PASS,"target=Complexity Average (nuniq=379 zmax=3.54) leaks_dropped=[] text=['Mechanics', 'Name'] n_num=6",0.5840176711206982,0.6227834384258129,0.5024069552509925,0.0388,423.7
+shubhamchambhare/all-major-fields-courses-in-udemy-44k-courses,PASS,"target=Stars (nuniq=43 zmax=3.49) leaks_dropped=[] text=['Summary', 'Title'] n_num=2",0.735162963917747,0.7452024103285546,0.012517847756890577,0.01,498.3
+neomatrix369/google-play-store-apps-extended,PASS,"target=sentiment_polarity_score (nuniq=5410 zmax=3.37) leaks_dropped=['original_Sentiment_Polarity'] text=['App', 'Translated_Review'] n_num=19",0.8733777735437279,0.9009954162763989,0.5840519916375091,0.0276,1456.9
+mylesoneill/world-university-rankings,error,"MultimodalError: No text features found, irrelevant",0.9411129643207599,0.9411129643207599,,,5.7
+rohiteng/apple-products-dataset-100k-rows-and-20-features,FAIL,"target=price (nuniq=85760 zmax=1.73) leaks_dropped=[] text=['dimensions_mm', 'model_name'] n_num=5 | all<=no_text, aborted before text_only",-0.03321340472481449,-0.04469432131357598,,,177.1
+nomanmunir/daraz-perfumes,PASS,"target=rating (nuniq=172 zmax=4.41) leaks_dropped=[] text=['sold', 'seller', 'image'] n_num=3",-0.12990144003828918,-0.008773781011577109,-0.04546479467784281,0.0367,26.5
+kaushiksuresh147/adidas-vs-nike,FAIL,"target=Listing Price (nuniq=78 zmax=4.90) leaks_dropped=[] text=['Description', 'Last Visited', 'Product Name'] n_num=4 | all<=no_text, aborted before text_only",0.9211902624026296,0.8162991096655449,,,354.0
+anandshaw2001/airlines-reviews-and-rating,skip,no usable target (no numeric column qualified),,,,,0.6
+rrokon/global-grocery-nutrition-dataset-2025,PASS,"target=ecoscore_score (nuniq=127 zmax=3.19) leaks_dropped=[] text=['brand', 'packaging_materials', 'product_name'] n_num=15",0.9691425336722679,0.9696828645110702,0.1189371955729166,0.0005,195.0
+muhammadaqeelkabir/steam-games-dataset-steamspy-api,PASS,"target=appid (nuniq=9950 zmax=3.71) leaks_dropped=[] text=['developer', 'name', 'publisher'] n_num=11",0.47117279716428806,0.49472284878021966,0.1702111954357619,0.0236,462.1
+aritra100/world-university-ranking,FAIL,"target=Overall Score (nuniq=12550 zmax=3.76) leaks_dropped=[] text=['Country', 'Female to Male Ratio', 'Name'] n_num=7",0.9987946702887629,0.9987396036407363,0.8461092543382175,-0.0001,1558.8
+zsinghrahulk/recipe-reviews,FAIL,"target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', 'user_name'] n_num=7",0.030187735752948863,0.9999998866185152,0.9999998834336864,0.0,2222.5
+shubham2703/recipe-review-and-user-feedback-dataset,FAIL,"target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', 'user_name'] n_num=7",0.030187735752948863,0.9999998752556316,0.999999878856398,-0.0,29.5
+kartiksaini18/recipe-review-dataset-with-feedback-and-ratings,FAIL,"target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', 'user_name'] n_num=7",0.030187735752948863,0.9999998866185152,0.9999998834336864,0.0,27.3
+satyajeetkumarraj/recipe-reviews-dataset,FAIL,"target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', 'user_name'] n_num=7",0.030187735752948863,0.9999998866185152,0.9999998834336864,0.0,27.6
+joebeachcapital/recipe-reviews-and-user-feedback-dataset,FAIL,"target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', 'user_name'] n_num=7",0.030187735752948863,0.9999998866185152,0.9999998834336864,0.0,27.8
+motahareshokri/cookbook-reviews,FAIL,"target=rec_no (nuniq=100 zmax=2.06) leaks_dropped=[] text=['comment', 'rec_nm', 'user_nm'] n_num=7",0.9980299412002813,0.9999999884914381,0.9999965696531382,0.0,1527.1
+rabieelkharoua/patient-ratings-identifying-best-drugs,skip,no usable target (no numeric column qualified),,,,,2.7
