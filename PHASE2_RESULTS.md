@@ -67,3 +67,41 @@ Two independent checks that the automatic curation is sound:
   columns identified by hand (`avg_rating`, `rating` vs target `avg_rating_recent`).
 - On `melissamonfared/board-games` it rejected `Rating Average` as target (|z|>5 outliers)
   and chose `Complexity Average` instead — avoiding the R^2 instability flagged earlier.
+
+---
+
+## CORRECTION: the epochs=2 rejection was my artifact, not the dataset's failure
+
+The first full sweep rejected `REG_TEXT_EDU_UDEMY_ACADEMY` at 1 of 5, with
+Delta_Awareness between -0.010 and +0.002. I had recorded epochs=2 as "conservative".
+**That reasoning was wrong.** It only runs one way: a PASS at 2 epochs would likely
+survive at 50, but a FAIL at 2 epochs proves nothing, because an under-trained LoRA
+adapter barely moves the encoder -- so ft ~= all and Delta_Awareness collapses to noise
+around zero by construction.
+
+Re-running at epochs=10 confirms it:
+
+| model, fold 0 | all | ft @ 2 ep | Delta @ 2 ep | ft @ 10 ep | **Delta @ 10 ep** |
+|---|---|---|---|---|---|
+| LightGBM | 0.4957 | 0.5056 | +0.0099 | 0.5279 | **+0.0322** |
+| CatBoost | 0.5177 | 0.5282 | +0.0105 | 0.5299 | **+0.0122** |
+
+Delta_Awareness grows ~3x with more fine-tuning, as the TAR mechanism predicts. The
+same artifact explains the near-zero Delta_Awareness seen across ALL candidates in the
+epochs=2 batch probes (Vietnam housing +0.0007, metacritic -0.0143, etc.) -- those
+probes measured the epoch budget, not the datasets.
+
+**Methodological lesson for the report:** the TAR probe must use a realistic epoch
+budget or it measures nothing. A cheap screen is only valid where cheapness does not
+change the quantity being screened -- true for Delta_Joint (frozen encoders), false for
+Delta_Awareness.
+
+## TAR encoder sharing: working
+
+The tuned encoder depends on `(x_train, y_train, e5_train_kwargs)` and NOT on the
+tabular learner, so per (dataset, fold) there are 2 distinct fine-tunings, not 5.
+Measured on fold 0: LightGBM 2184 s (cold, fine-tunes) then CatBoost 1082 s (cache hit,
+no fine-tuning). Cuts the 25-run sweep to 10 fine-tunings.
+
+Keyed on a hash of the actual arguments rather than on the model grouping, so it stays
+correct if upstream ever threads a real fold into `split_to_val`.

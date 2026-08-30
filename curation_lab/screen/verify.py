@@ -52,7 +52,12 @@ def _run_all(spec, out_csv: str, folds, do_ft: bool, epochs: int | None) -> None
                 t0 = time.time()
                 kwargs = None
                 if tune:
-                    enable_dynamic_max_length()
+                    # Share the tuned encoder across models: it is a function of
+                    # (x_train, y_train, e5_train_kwargs) only, so the 25 ft runs
+                    # contain just 10 distinct fine-tunings (3 val-split models
+                    # share one per fold, the 2 TabPFNs share another).
+                    from curation_lab.runner.tar_cache import enable_tar_cache
+                    enable_tar_cache(".tar_cache", dynamic_max_length=True)
                 else:
                     enable_cache(".emb_cache", frozen_only=True, dynamic_max_length=True)
                 try:
@@ -77,6 +82,11 @@ def _run_all(spec, out_csv: str, folds, do_ft: bool, epochs: int | None) -> None
                           f"{str(e)[:70]}", flush=True)
                 finally:
                     disable_cache()
+                    try:
+                        from curation_lab.runner.tar_cache import disable_tar_cache
+                        disable_tar_cache()
+                    except Exception:
+                        pass
 
 
 def main() -> None:
