@@ -23,7 +23,11 @@ KERNEL_ID = "talkraicer/multabench-tar-gpu"
 CODE_DATASET = "talkraicer/multabench-code"
 # The candidate must be pre-attached: an API-launched kernel is non-interactive
 # and Kaggle rejects kagglehub.dataset_download() for a not-yet-attached dataset.
+# Which candidate is a build-time choice (--dataset-ref / --dataset-name); it has
+# to appear in BOTH the notebook parameters and kernel-metadata dataset_sources,
+# which is exactly the pair that is easy to desynchronise by hand.
 CANDIDATE_DATASET = "mariahalshiekh/udemy-course-academy-teaching"
+CANDIDATE_NAME = "REG_TEXT_EDU_UDEMY_ACADEMY"
 NOTEBOOK_FILE = "tar_gpu.ipynb"
 
 # --------------------------------------------------------------------------
@@ -47,12 +51,13 @@ PARAMS = '''\
 # ---------------------------------------------------------------- parameters
 SMOKE          = __SMOKE__    # True: one training epoch, just prove the path runs
 REQUIRE_GPU    = __REQUIRE_GPU__    # False = CPU validation run (no GPU quota spent)
-DATASET_REF    = "mariahalshiekh/udemy-course-academy-teaching"
-DATASET_NAME   = "REG_TEXT_EDU_UDEMY_ACADEMY"   # {BIN|MUL|REG}_TEXT_* prefix is load-bearing
-FOLD           = 0
+DATASET_REF    = "__DATASET_REF__"
+DATASET_NAME   = "__DATASET_NAME__"   # {BIN|MUL|REG}_TEXT_* prefix is load-bearing
+FOLDS          = __FOLDS__
 SMOKE_EPOCHS   = 1
 FULL_EPOCHS    = __FULL_EPOCHS__   # PHASE2_RESULTS.md: epochs=2 under-trains the adapter
                          # and collapses Delta_Awareness to noise; 10 is the working value.
+MODELS         = __MODELS__   # SHORT_NAMEs of the curation committee members to run
 CODE_DIR       = "/kaggle/input/multabench-code"
 OUT_CSV        = "/kaggle/working/tar_results.csv"
 '''
@@ -100,10 +105,16 @@ import torch
 with open("/kaggle/working/constraints.txt", "w") as fh:
     fh.write(f"torch=={torch.__version__.split('+')[0]}\\n")
 
+EXTRAS = {"tabm": ["pytabkit"], "tabpfnv2": ["tabpfn"], "tabpfnv2p5": ["tabpfn"]}
+wanted = sorted({pkg for m in MODELS for pkg in EXTRAS.get(m, [])})
+if wanted:
+    print("extra learner packages for", MODELS, "->", wanted)
+
 subprocess.check_call([
     sys.executable, "-m", "pip", "install", "-q", "--no-warn-conflicts",
     "-c", "/kaggle/working/constraints.txt",
     "tabstar", "skrub", "openml", "peft", "python-dotenv", "transformers>=4.56",
+    *wanted,
 ])
 
 # peft's LoRA dispatch calls is_torchao_available(), which *raises* rather than
@@ -253,7 +264,7 @@ import time
 
 if SMOKE:
     t0 = time.time()
-    result = tar_probe(spec, all_score=0.0, fold=FOLD, epochs=SMOKE_EPOCHS)
+    result = tar_probe(spec, all_score=0.0, fold=FOLDS[0], epochs=SMOKE_EPOCHS)
     print("\\n=== SMOKE OK ===")
     print(f"  ft score      : {result['ft']:.4f}")
     print(f"  max_length cap: {result['cap']} (upstream default 512)")
@@ -266,22 +277,43 @@ else:
 FULL = '''\
 # ------------------------------------------------------- full TAR measurement
 # Runs `all` (frozen E5) and `ft` (LoRA-tuned E5) under identical splits, so the
-# difference is Delta_Awareness for this (dataset, model, fold).
+# difference is Delta_Awareness for each (model, fold).
+#
+# Both states are measured HERE rather than reusing the CPU `all` numbers from the
+# frozen Delta_Joint grid: Delta_Awareness is a difference of two means, so the two
+# halves must come from the same machine, the same torch build and the same library
+# versions, or float drift between them lands directly in the delta.
 import time
+import traceback
+
+import importlib
 
 import pandas as pd
 from multabench.baselines.benchmarks.evaluate import DOWNSTREAM_EXAMPLES, evaluate_on_loaded_dataset
-from multabench.baselines.lgbm import LightGBM
 from multabench.finetune.train_args import E5TrainArgs
 from curation_lab.ingest.candidate import STATE_BY_FLAG, load_candidate
 from curation_lab.runner.cache import disable_cache, enable_dynamic_max_length
 from curation_lab.screen.t3_tar import _training_max_length
 
+# Imported lazily and one at a time. Each baseline module pulls its own learner at
+# import (tabm -> pytabkit, tabpfnv2 -> tabpfn), and those are NOT all in the Kaggle
+# image -- so an eager import of the whole committee makes a LightGBM-only run fail
+# on a dependency it never uses.
+_MODEL_PATHS = {"light": ("multabench.baselines.lgbm", "LightGBM"),
+                "cat": ("multabench.baselines.catboost", "CatBoost"),
+                "tabm": ("multabench.baselines.tabm", "TabM"),
+                "tabpfnv2": ("multabench.baselines.tabpfnv2", "TabPFNv2"),
+                "tabpfnv2p5": ("multabench.baselines.tabpfnv2", "TabPFNv2p5")}
+
+def model_cls_for(name):
+    module, attr = _MODEL_PATHS[name]
+    return getattr(importlib.import_module(module), attr)
+
 # e5_finetune asserts CUDA_VISIBLE_DEVICES exists regardless of the device it is
 # handed; the environment cell sets it, so CPU validation satisfies the guard too.
 DEVICE = torch.device("cuda:0") if REQUIRE_GPU else torch.device("cpu")
 
-def run_state(state_flag, epochs=None):
+def run_state(model_cls, state_flag, fold, epochs=None):
     enable_dynamic_max_length()
     try:
         loaded = load_candidate(spec, state_flag)
@@ -293,7 +325,7 @@ def run_state(state_flag, epochs=None):
             print(f"[{state_flag}] max_length={kwargs['max_length']}, epochs={epochs}", flush=True)
         t0 = time.time()
         summary = evaluate_on_loaded_dataset(
-            model_cls=LightGBM, dataset=loaded, fold=FOLD,
+            model_cls=model_cls, dataset=loaded, fold=fold,
             device=DEVICE, train_examples=DOWNSTREAM_EXAMPLES,
             multimodal_state=STATE_BY_FLAG[state_flag],
             tune_e5=(state_flag == "ft"), e5_train_kwargs=kwargs,
@@ -303,19 +335,53 @@ def run_state(state_flag, epochs=None):
     return {"state": state_flag, "score": float(summary["test_score"]),
             "secs": round(time.time() - t0, 1), "epochs": epochs}
 
-if not SMOKE:
-    rows = [run_state("all"), run_state("ft", epochs=FULL_EPOCHS)]
-    scores = {r["state"]: r["score"] for r in rows}
-    delta = round(scores["ft"] - scores["all"], 4)
-    for r in rows:
-        print(f"  {r['state']:>4s}: {r['score']:.4f}  ({r['secs']}s)")
-    print(f"\\nDelta_Awareness = {delta}  -> {'PASS' if delta > 0.001 else 'FAIL'} (delta=0.001)")
-
+def flush(rows):
+    """Write after every cell. A Kaggle session that hits its wall clock still
+    leaves every completed (model, fold) behind in the output."""
     out = pd.DataFrame(rows)
-    out["dataset"] = DATASET_NAME
-    out["fold"] = FOLD
-    out["delta_awareness"] = delta
     out.to_csv(OUT_CSV, index=False)
+
+if not SMOKE:
+    rows = []
+    for fold in FOLDS:
+        for name in MODELS:
+            try:
+                cls = model_cls_for(name)
+            except Exception as e:
+                print(f"!! {name}: cannot import ({type(e).__name__}: {e}) -- skipping", flush=True)
+                continue
+            for state, ep in (("all", None), ("ft", FULL_EPOCHS)):
+                tag = f"{name}/{state}/f{fold}"
+                try:
+                    r = run_state(cls, state, fold, epochs=ep)
+                except SystemExit:
+                    # is_invalid_model_dataset_pair() calls exit() for a legitimately
+                    # skipped (model, dataset) cell; that is data, not a failure.
+                    print(f"!! {tag}: model skipped this dataset", flush=True)
+                    continue
+                except Exception as e:
+                    print(f"!! {tag} FAILED: {type(e).__name__}: {e}", flush=True)
+                    traceback.print_exc()
+                    continue
+                r.update(dataset=DATASET_NAME, model=name, fold=fold)
+                rows.append(r)
+                flush(rows)
+                print(f"  {tag:28s} = {r['score']:.4f}  ({r['secs']}s)", flush=True)
+
+    print("\\n================ Delta_Awareness = mean(ft) - mean(all) ================")
+    if rows:
+        df_r = pd.DataFrame(rows)
+        # Round the per-state means to 3 decimals BEFORE differencing -- this is the
+        # paper's rule, implemented in leaderboard/analysis/pass_matrix.py::passes().
+        piv = df_r.pivot_table(index="model", columns="state", values="score", aggfunc="mean").round(3)
+        if {"all", "ft"}.issubset(piv.columns):
+            piv["Delta_Awareness"] = (piv["ft"] - piv["all"]).round(4)
+            piv["verdict"] = ["PASS" if d > 0.001 else "fail" for d in piv["Delta_Awareness"]]
+            print(piv.to_string())
+            n_pass = int((piv["Delta_Awareness"] > 0.001).sum())
+            print(f"\\n{n_pass} of {len(piv)} models pass (folds run: {sorted(df_r.fold.unique())})")
+        else:
+            print(piv.to_string())
     print("wrote", OUT_CSV)
 else:
     print("SMOKE=True -- skipping the full run.")
@@ -342,10 +408,17 @@ def _cell(kind: str, source: str) -> dict:
             "outputs": [], "source": lines}
 
 
-def _cells(require_gpu: bool, smoke: bool = True, full_epochs: int = 10) -> list[tuple[str, str]]:
+def _cells(require_gpu: bool, smoke: bool = True, full_epochs: int = 10,
+           dataset_ref: str = CANDIDATE_DATASET, dataset_name: str = CANDIDATE_NAME,
+           folds: tuple[int, ...] = (0,),
+           models: tuple[str, ...] = ("light",)) -> list[tuple[str, str]]:
     subs = {"__REQUIRE_GPU__": str(bool(require_gpu)),
             "__SMOKE__": str(bool(smoke)),
-            "__FULL_EPOCHS__": str(int(full_epochs))}
+            "__FULL_EPOCHS__": str(int(full_epochs)),
+            "__DATASET_REF__": dataset_ref,
+            "__DATASET_NAME__": dataset_name,
+            "__FOLDS__": repr(list(folds)),
+            "__MODELS__": repr(list(models))}
     out = []
     for kind, src in CELLS:
         for k, v in subs.items():
@@ -374,11 +447,12 @@ def _check_cells_compile() -> None:
                                      f"does not compile: {e}\n---\n{src}\n---")
 
 
-def build_notebook(require_gpu: bool = True, smoke: bool = True, full_epochs: int = 10) -> dict:
+def build_notebook(require_gpu: bool = True, smoke: bool = True, full_epochs: int = 10,
+                   **candidate) -> dict:
     _check_cells_compile()
     return {
         "cells": [_cell(kind, src)
-                  for kind, src in _cells(require_gpu, smoke, full_epochs)],
+                  for kind, src in _cells(require_gpu, smoke, full_epochs, **candidate)],
         "metadata": {
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
             "language_info": {"name": "python", "version": "3.11.0"},
@@ -388,7 +462,8 @@ def build_notebook(require_gpu: bool = True, smoke: bool = True, full_epochs: in
     }
 
 
-def build_metadata(enable_gpu: bool = True, machine_shape: str | None = None) -> dict:
+def build_metadata(enable_gpu: bool = True, machine_shape: str | None = None,
+                   dataset_ref: str = CANDIDATE_DATASET) -> dict:
     # The CPU validation variant lives in its own kernel so that pushing it does
     # not overwrite the GPU kernel's accelerator setting.
     kid = KERNEL_ID if enable_gpu else KERNEL_ID.replace("-tar-gpu", "-tar-cpu")
@@ -402,7 +477,7 @@ def build_metadata(enable_gpu: bool = True, machine_shape: str | None = None) ->
         "enable_gpu": enable_gpu,
         "enable_tpu": False,
         "enable_internet": True,
-        "dataset_sources": [CODE_DATASET, CANDIDATE_DATASET],
+        "dataset_sources": [CODE_DATASET, dataset_ref],
         "competition_sources": [],
         "kernel_sources": [],
         "model_sources": [],
@@ -426,7 +501,24 @@ def main() -> None:
                    help="SMOKE=False: run the all vs ft measurement instead of the smoke test.")
     p.add_argument("--full-epochs", type=int, default=10,
                    help="E5 fine-tuning epochs for the full run.")
+    p.add_argument("--dataset-ref", default=CANDIDATE_DATASET,
+                   help="Kaggle owner/slug of the candidate. Also written into dataset_sources.")
+    p.add_argument("--dataset-name", default=CANDIDATE_NAME,
+                   help="MulTaBench name; the {BIN|MUL|REG}_TEXT_ prefix is load-bearing.")
+    p.add_argument("--folds", default="0", help="Comma-separated folds, e.g. 0,1,2,3,4.")
+    p.add_argument("--models", default="light",
+                   help="Comma-separated SHORT_NAMEs from the curation committee: "
+                        "light,cat,tabm,tabpfnv2,tabpfnv2p5.")
     args = p.parse_args()
+
+    if args.dataset_name[:3] not in ("BIN", "MUL", "REG"):
+        raise SystemExit(f"--dataset-name must start with BIN_/MUL_/REG_, got {args.dataset_name!r}")
+    folds = tuple(int(f) for f in args.folds.split(",") if f.strip() != "")
+    models = tuple(m.strip() for m in args.models.split(",") if m.strip())
+    known = {"light", "cat", "tabm", "tabpfnv2", "tabpfnv2p5"}
+    unknown = sorted(set(models) - known)
+    if unknown:
+        raise SystemExit(f"unknown model(s) {unknown}; expected from {sorted(known)}")
 
     require_gpu = not args.cpu
     os.makedirs(args.out, exist_ok=True)
@@ -434,10 +526,14 @@ def main() -> None:
     meta_path = os.path.join(args.out, "kernel-metadata.json")
     with open(nb_path, "w", encoding="utf-8") as fh:
         json.dump(build_notebook(require_gpu=require_gpu, smoke=not args.full,
-                                 full_epochs=args.full_epochs), fh, indent=1)
+                                 full_epochs=args.full_epochs,
+                                 dataset_ref=args.dataset_ref,
+                                 dataset_name=args.dataset_name,
+                                 folds=folds, models=models), fh, indent=1)
     with open(meta_path, "w", encoding="utf-8") as fh:
         json.dump(build_metadata(enable_gpu=require_gpu,
-                                 machine_shape=args.machine_shape), fh, indent=2)
+                                 machine_shape=args.machine_shape,
+                                 dataset_ref=args.dataset_ref), fh, indent=2)
     print(f"wrote {nb_path}\nwrote {meta_path}")
 
 

@@ -24,13 +24,35 @@ import sys
 import time
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-KAGGLE_EXE = os.path.join(REPO_ROOT, ".venv-tools", "Scripts", "kaggle.exe")
 DEFAULT_DIR = os.path.join(REPO_ROOT, "kaggle_uploads", "tar-gpu")
 KERNEL_ID = "talkraicer/multabench-tar-gpu"
 POLL_SECONDS = 20
 # A cold GPU notebook is queue + container boot + pip + HF model pull before it
-# reaches any of our code; 45 min covers a full ft run too.
+# reaches any of our code; 45 min covers a one-epoch smoke run. A multi-fold ft
+# sweep runs for hours, so --timeout raises this.
 TIMEOUT_SECONDS = 45 * 60
+
+
+def find_kaggle_exe() -> str:
+    """Locate a kaggle CLI. Not hardcoded to .venv-tools any more: this module is
+    run from git worktrees, which do not carry the (gitignored) tools venv."""
+    override = os.environ.get("KAGGLE_EXE")
+    candidates = [override] if override else []
+    for root in (REPO_ROOT, os.path.abspath(os.path.join(REPO_ROOT, "..", "..", ".."))):
+        for venv in (".venv-tools", ".venv"):
+            candidates.append(os.path.join(root, venv, "Scripts", "kaggle.exe"))
+            candidates.append(os.path.join(root, venv, "bin", "kaggle"))
+    for path in candidates:
+        if path and os.path.isfile(path):
+            return path
+    from shutil import which
+    found = which("kaggle")
+    if found:
+        return found
+    raise SystemExit("no kaggle CLI found; set KAGGLE_EXE or create .venv-tools")
+
+
+KAGGLE_EXE = find_kaggle_exe()
 
 
 def load_token() -> str:
@@ -66,7 +88,9 @@ def kaggle(*args: str, check: bool = True) -> str:
 
 
 def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
-          full: bool = False, full_epochs: int = 10) -> None:
+          full: bool = False, full_epochs: int = 10, dataset_ref: str | None = None,
+          dataset_name: str | None = None, folds: str | None = None,
+          models: str | None = None) -> None:
     cmd = [sys.executable, "-m", "curation_lab.kaggle.build_notebook", "--out", out_dir]
     if machine_shape:
         cmd += ["--machine-shape", machine_shape]
@@ -74,14 +98,18 @@ def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
         cmd += ["--cpu"]
     if full:
         cmd += ["--full", "--full-epochs", str(full_epochs)]
+    for flag, value in (("--dataset-ref", dataset_ref), ("--dataset-name", dataset_name),
+                        ("--folds", folds), ("--models", models)):
+        if value:
+            cmd += [flag, value]
     subprocess.check_call(cmd, cwd=REPO_ROOT, env=_env())
 
 
-def wait_for_run(kernel_id: str = KERNEL_ID) -> str:
+def wait_for_run(kernel_id: str = KERNEL_ID, timeout: int = TIMEOUT_SECONDS) -> str:
     """Poll until the kernel leaves the running/queued state. Returns final status."""
     started = time.time()
     last = ""
-    while time.time() - started < TIMEOUT_SECONDS:
+    while time.time() - started < timeout:
         status = kaggle("kernels", "status", kernel_id, check=False).strip()
         if status != last:
             print(f"[{int(time.time() - started):5d}s] {status}", flush=True)
@@ -90,7 +118,7 @@ def wait_for_run(kernel_id: str = KERNEL_ID) -> str:
         if "complete" in low or "error" in low or "cancel" in low:
             return status
         time.sleep(POLL_SECONDS)
-    return f"TIMEOUT after {TIMEOUT_SECONDS}s (last: {last})"
+    return f"TIMEOUT after {timeout}s (last: {last})"
 
 
 def fetch_log(dest: str, kernel_id: str = KERNEL_ID) -> None:
@@ -139,6 +167,13 @@ def main() -> None:
     p.add_argument("--full", action="store_true",
                    help="Run the all-vs-ft measurement instead of the smoke test.")
     p.add_argument("--full-epochs", type=int, default=10)
+    p.add_argument("--dataset-ref", default=None, help="Kaggle owner/slug of the candidate.")
+    p.add_argument("--dataset-name", default=None, help="MulTaBench {BIN|MUL|REG}_TEXT_* name.")
+    p.add_argument("--folds", default=None, help="Comma-separated folds, e.g. 0,1,2,3,4.")
+    p.add_argument("--models", default=None, help="Comma-separated committee SHORT_NAMEs.")
+    p.add_argument("--timeout", type=int, default=TIMEOUT_SECONDS,
+                   help="Seconds to poll before giving up. A multi-fold ft sweep needs hours; "
+                        "giving up here does not stop the kernel, --log-only still collects it.")
     args = p.parse_args()
 
     kernel_id = KERNEL_ID.replace("-tar-gpu", "-tar-cpu") if args.cpu else KERNEL_ID
@@ -150,14 +185,16 @@ def main() -> None:
 
     if not args.no_build:
         build(work_dir, args.machine_shape, cpu=args.cpu,
-              full=args.full, full_epochs=args.full_epochs)
+              full=args.full, full_epochs=args.full_epochs,
+              dataset_ref=args.dataset_ref, dataset_name=args.dataset_name,
+              folds=args.folds, models=args.models)
     push_args = ["kernels", "push", "-p", work_dir]
     if args.machine_shape:
         push_args += ["--accelerator", args.machine_shape]
     print(kaggle(*push_args))
     if args.no_wait:
         return
-    status = wait_for_run(kernel_id)
+    status = wait_for_run(kernel_id, timeout=args.timeout)
     print(f"\nfinal status: {status}")
     fetch_log(out_dir, kernel_id)
 
