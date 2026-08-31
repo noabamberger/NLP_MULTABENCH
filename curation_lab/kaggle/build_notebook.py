@@ -293,7 +293,21 @@ from multabench.baselines.benchmarks.evaluate import DOWNSTREAM_EXAMPLES, evalua
 from multabench.finetune.train_args import E5TrainArgs
 from curation_lab.ingest.candidate import STATE_BY_FLAG, load_candidate
 from curation_lab.runner.cache import disable_cache, enable_dynamic_max_length
-from curation_lab.screen.t3_tar import _training_max_length
+from curation_lab.runner.tar_cache import (cache_stats, disable_tar_cache,
+                                           enable_tar_cache, reset_stats)
+
+# Fine-tuning happens only in the embedding step, never end to end, so the tuned
+# encoder is a function of (train texts, train labels, device, hyperparameters) and
+# NOT of the tabular learner. Per fold the five committee models differ only in
+# USE_VAL_SPLIT -- True for LightGBM/CatBoost/TabM, False for both TabPFNs -- so a
+# fold contains 2 distinct fine-tunings, not 5, and a 5x5 sweep contains 10, not 25.
+#
+# The cache still keys on a hash of the actual arguments rather than on that
+# grouping, so if the grouping is ever wrong (or upstream threads a real fold into
+# split_to_val) the effect is a wasted miss, never a model served an encoder it
+# would not have trained. cache_stats() is printed at the end so the hits are
+# evidence rather than an assumption.
+TAR_CACHE_DIR = "/kaggle/working/.tar_cache"
 
 # Imported lazily and one at a time. Each baseline module pulls its own learner at
 # import (tabm -> pytabkit, tabpfnv2 -> tabpfn), and those are NOT all in the Kaggle
@@ -307,7 +321,31 @@ _MODEL_PATHS = {"light": ("multabench.baselines.lgbm", "LightGBM"),
 
 def model_cls_for(name):
     module, attr = _MODEL_PATHS[name]
-    return getattr(importlib.import_module(module), attr)
+    cls = getattr(importlib.import_module(module), attr)
+    if name.startswith("tabpfn"):
+        cls = _without_hf_token_assignment(cls)
+    return cls
+
+def _without_hf_token_assignment(cls):
+    """multabench/baselines/tabpfnv2.py:28 does `os.environ["HF_TOKEN"] = HF_TOKEN`.
+
+    HF_TOKEN comes from multabench.constants, which reads it out of a .env that
+    does not exist on Kaggle -- so it is None and the assignment raises
+    `TypeError: str expected, not NoneType` in initialize_model(), before a single
+    weight is fetched. Skip just that assignment when there is no token to set;
+    TabPFN v2's weights are public, so the download proceeds anonymously. (TabPFN
+    2.5's are gated and will still fail at fetch time -- that is the known licence
+    blocker in RESUME.md, not anything about this dataset.)
+    """
+    class _Patched(cls):
+        def initialize_model(self):
+            if os.environ.get("HF_TOKEN"):
+                return super().initialize_model()
+            return None
+    _Patched.__name__ = cls.__name__
+    _Patched.MODEL_NAME = cls.MODEL_NAME
+    _Patched.SHORT_NAME = cls.SHORT_NAME
+    return _Patched
 
 # e5_finetune asserts CUDA_VISIBLE_DEVICES exists regardless of the device it is
 # handed; the environment cell sets it, so CPU validation satisfies the guard too.
@@ -315,14 +353,18 @@ DEVICE = torch.device("cuda:0") if REQUIRE_GPU else torch.device("cpu")
 
 def run_state(model_cls, state_flag, fold, epochs=None):
     enable_dynamic_max_length()
+    if state_flag == "ft":
+        # dynamic_max_length here caps the TRAINING loop's padding (512 -> the longest
+        # passage actually present). It participates in the cache key, so weights
+        # trained under different caps can never be served for one another.
+        enable_tar_cache(TAR_CACHE_DIR, dynamic_max_length=True)
     try:
         loaded = load_candidate(spec, state_flag)
         kwargs = None
         if state_flag == "ft":
             kwargs = E5TrainArgs().to_dict()
             kwargs["epochs"] = epochs
-            kwargs["max_length"] = _training_max_length(loaded, spec.text_cols)
-            print(f"[{state_flag}] max_length={kwargs['max_length']}, epochs={epochs}", flush=True)
+            print(f"[{state_flag}] epochs={epochs}, max_length capped by tar_cache", flush=True)
         t0 = time.time()
         summary = evaluate_on_loaded_dataset(
             model_cls=model_cls, dataset=loaded, fold=fold,
@@ -332,6 +374,7 @@ def run_state(model_cls, state_flag, fold, epochs=None):
         )
     finally:
         disable_cache()
+        disable_tar_cache()
     return {"state": state_flag, "score": float(summary["test_score"]),
             "secs": round(time.time() - t0, 1), "epochs": epochs}
 
@@ -343,6 +386,7 @@ def flush(rows):
 
 if not SMOKE:
     rows = []
+    reset_stats()
     for fold in FOLDS:
         for name in MODELS:
             try:
@@ -367,6 +411,10 @@ if not SMOKE:
                 rows.append(r)
                 flush(rows)
                 print(f"  {tag:28s} = {r['score']:.4f}  ({r['secs']}s)", flush=True)
+
+    st = cache_stats()
+    print(f"\\n[tar_cache] {st} -- {st['hits']} of {st['hits'] + st['misses']} ft runs "
+          f"reused an encoder instead of fine-tuning it again")
 
     print("\\n================ Delta_Awareness = mean(ft) - mean(all) ================")
     if rows:
