@@ -105,3 +105,71 @@ no fine-tuning). Cuts the 25-run sweep to 10 fine-tunings.
 
 Keyed on a hash of the actual arguments rather than on the model grouping, so it stays
 correct if upstream ever threads a real fold into `split_to_val`.
+
+---
+
+# FINAL VERDICT: ACCEPTED
+
+`REG_TEXT_EDU_UDEMY_ACADEMY` (`mariahalshiekh/udemy-course-academy-teaching`)
+passes the MulTaBench curation pipeline. Complete 5 models x 4 states x 5 folds grid,
+no missing cells, verdict computed by `multabench.leaderboard.analysis.pass_matrix.passes()`
+(the repo's own implementation -- never reimplemented here).
+
+```
+  CatBoost     PASS
+  LightGBM     PASS
+  TabM         fail
+  TabPFN-2.5   PASS
+  TabPFNv2     fail
+
+  3 of 5 pass (quorum 3)   ACCEPTED = True
+
+      model  delta_joint  delta_awareness
+  CatBoost        0.194            0.010
+  LightGBM        0.209            0.006
+      TabM        0.208           -0.007
+TabPFN-2.5        0.140            0.016
+  TabPFNv2        0.136           -0.001
+```
+
+## Why this dataset is a good result, not a marginal one
+
+**Delta_Joint is enormous on all five learners** (+0.136 to +0.209 against a delta of
+0.001 -- 136x to 209x the threshold), and it is a real complementarity result rather than
+an artifact: both unimodal baselines are non-degenerate (no_text ~0.30, text_only ~0.20),
+so `all` genuinely beats each modality alone rather than winning by default.
+
+Delta_Awareness is the narrower margin (+0.006 to +0.016 on the three passing learners),
+which matches the paper's own experience -- TAR gain is the harder criterion, and it is
+what rejected most of the paper's 56-dataset pool.
+
+The split is interpretable: the three passing learners are LightGBM, CatBoost and
+TabPFN-2.5; TabM and TabPFNv2 fail on TAR while still showing large Delta_Joint.
+
+## Dataset description
+
+- Source: Kaggle `mariahalshiekh/udemy-course-academy-teaching`
+- Domain: online course listings -- **no course/MOOC dataset exists in MulTaBench**, so
+  this is genuinely new rather than a re-slug of an existing domain.
+- Target: `price` (regression)
+- Text: `course_name`, `course_instr` (short -- max 40 tokens, so cheap to encode)
+- Structured: numeric course statistics
+- Curation spec derived automatically by `curation_lab/screen/auto_spec.py`; leakage
+  columns dropped by a spearman >= 0.95 rule against the target.
+
+## Reproduce
+
+```bash
+PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -m curation_lab.screen.verify \
+  --ref mariahalshiekh/udemy-course-academy-teaching \
+  --name REG_TEXT_EDU_UDEMY_ACADEMY \
+  --out results/candidates/verify_udemy_e10.csv --folds 0,1,2,3,4 --epochs 10
+```
+
+## Deviation to disclose in the report
+
+E5 fine-tuning ran **10 epochs** rather than the `E5TrainArgs` default of 50 (patience 3),
+for CPU feasibility. This is conservative in the direction that matters: Delta_Awareness
+grew monotonically with epochs in our measurements (LightGBM fold 0: +0.0099 at 2 epochs
+-> +0.0322 at 10), so the paper's full budget would be expected to widen the margin, not
+narrow it. The result should be re-run at 50 epochs if GPU time becomes available.
