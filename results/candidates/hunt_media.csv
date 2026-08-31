@@ -1,0 +1,14 @@
+ref,verdict,detail,no_text,all,text_only,delta_joint,secs
+sharmajicoder/smartphones-specification-and-prices,FAIL,"target=cpu_score (nuniq=17040 zmax=4.89) leaks_dropped=['price_inr'] text=['camera_setup', 'model_name'] n_num=22",0.9519878189957293,0.9513375420568916,0.7276580436732722,-0.0007,554.3
+sharmajicoder/used-phone-price-prediction-dataset,skip,no genuine text column (raw text cols: []),,,,,51.5
+jakubkhalponiak/phones-2024,FAIL,"target=ppi_density (nuniq=94 zmax=3.33) leaks_dropped=[] text=['phone_model', 'chipset', 'os'] n_num=12",0.9922835117183757,0.9914724733366652,0.9527230636631412,-0.0008,159.7
+muhammadawaistayyab/mobile-phones-prices-in-india,FAIL,"target=Rating (nuniq=21 zmax=4.50) leaks_dropped=[] text=['Weight', 'Width', 'Height'] n_num=5 | all<=no_text, aborted before text_only",0.8543106150006886,0.8332382493515739,,,83.8
+gyanprakashkushwaha/mobile-recommendation-system-dataset,skip,no usable target (no numeric column qualified),,,,,2.3
+costinflation/nvme-ssd-prices-raw-dataset-2026,PASS,target=price_amount (nuniq=1189 zmax=4.66) leaks_dropped=[] text=['product_name'] n_num=3,0.9827313761399297,0.9992313937556988,0.9822101598984142,0.0165,638.3
+maulikgajera/global-silicon-chip-benchmark-dataset,skip,no genuine text column (raw text cols: ['chip_id']),,,,,8.1
+donbarbos/github-repos,skip,no usable target (no numeric column qualified),,,,,22.4
+lorenzoscaturchio/github-repo-metrics,PASS,"target=test_coverage (nuniq=696 zmax=2.74) leaks_dropped=[] text=['description', 'repo_name', 'topics'] n_num=19",-0.17810443496816464,-0.13049251819228003,-0.19365752175531337,0.0476,353.7
+muhammadaqeelkabir/top-github-repositories,skip,no usable target (no numeric column qualified),,,,,3.3
+mansiaggarwal88/ai-engineering-github-repositories,FAIL,"target=releases_count (nuniq=101 zmax=2.32) leaks_dropped=[] text=['detected_dependencies', 'language', 'owner'] n_num=9 | all<=no_text, aborted before text_only",0.8379271897160692,0.829026663105157,,,335.6
+quadeer15sh/windows-store-top-apps-games,skip,no usable target (no numeric column qualified),,,,,0.8
+bhavikjikadara/google-play-store-applications,skip,no usable target (no numeric column qualified),,,,,0.8

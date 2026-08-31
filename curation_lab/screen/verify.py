@@ -18,7 +18,8 @@ import warnings
 import pandas as pd
 
 
-def _run_all(spec, out_csv: str, folds, do_ft: bool, epochs: int | None) -> None:
+def _run_all(spec, out_csv: str, folds, do_ft: bool, epochs: int | None,
+             only_models: list[str] | None = None) -> None:
     import torch
     from tabstar.training.devices import get_device
 
@@ -37,6 +38,8 @@ def _run_all(spec, out_csv: str, folds, do_ft: bool, epochs: int | None) -> None
 
     models = {"light": LightGBM, "cat": CatBoost, "tabm": TabM,
               "tabpfnv2": TabPFNv2, "tabpfnv2p5": TabPFNv2p5}
+    if only_models:
+        models = {k: v for k, v in models.items() if k in only_models}
     done = set()
     if os.path.exists(out_csv):  # resumable: skip cells already recorded
         prev = pd.read_csv(out_csv, encoding="utf-8")

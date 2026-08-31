@@ -1,0 +1,6 @@
+ref,verdict,detail,no_text,all,text_only,delta_joint,secs
+arnabchaki/popular-video-games-1980-2023,skip,no usable target (no numeric column qualified),,,,,2.6
+douglascampospires/mtg-all-cards,skip,no usable target (no numeric column qualified),,,,,3.2
+lunthu/gog-com-video-games-dataset,FAIL,"target=globalReleaseDate (nuniq=3554 zmax=4.80) leaks_dropped=['releaseDate'] text=['dateGlobal', 'dateReleaseDate', 'publisher'] n_num=26",0.770407582141252,0.9960782129007055,0.9964077942754975,-0.0003,234.9
+nikatomashvili/steam-games-dataset,skip,no usable target (no numeric column qualified),,,,,2.8
+rudrakumargupta/ultimate-games-dataset-15k-games-43-features,FAIL,"target=serial_no (nuniq=15000 zmax=1.73) leaks_dropped=['library_count', 'status_owned'] text=['available_stores', 'all_platforms', 'publishers'] n_num=17",0.9825187134440712,0.9798316805972748,0.5745832377528493,-0.0027,1173.9
