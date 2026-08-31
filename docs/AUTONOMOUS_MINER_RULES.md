@@ -310,3 +310,86 @@ someone restored the deleted columns and watched the delta collapse to -0.0005.
 | rrokon/global-grocery-nutrition-2025 | +0.0005 | noise (baseline saturated at 0.969) |
 
 A miner should reproduce every one of these verdicts, including the rejections.
+
+---
+
+## 10. POSITIVE signatures -- what a miner should SEEK
+
+Sections 1-9 are mostly rejection rules. Those keep a miner honest but will not, on their own,
+find anything. These are the measured properties of the datasets that actually worked, and they
+are far more discriminative than Delta_Joint magnitude alone.
+
+### 10.1 The measured signature of a real pass
+
+| signal | Vietnam housing (strong) | MTG cards (solid) | interpretation |
+|---|---|---|---|
+| **Lift** = all / best baseline | **1.73x - 1.91x** | 1.11x - 1.16x | joint nearly doubles the better modality |
+| **Baseline balance** = mean abs(no_text - text_only) | **0.016** | 0.230 | both modalities independently informative |
+| **CV of delta** = std/mean over 25 cells | **0.086** | 0.143 | consistent across models AND folds |
+| absolute R^2 range | 0.31 - 0.68 | 0.26 - 0.60 | mid-range: headroom, models working |
+| positive cells | 25/25 | 13/13 so far | no model or fold dissents |
+
+**R10.1 -- Baseline balance is the strongest single positive signal.** Vietnam housing has
+no_text 0.31-0.36 and text_only 0.31-0.35: the two modalities are almost exactly equally
+informative, differing by 0.016 on average. That is the fingerprint of two genuinely independent
+information channels. Rank candidates by small abs(no_text - text_only) with both values in the
+0.2-0.7 band.
+
+**R10.2 -- Use lift, not raw delta.** all / max(baseline) is scale-free, so it compares across
+datasets with different intrinsic difficulty. A raw delta of +0.04 means something very different
+at baseline 0.05 than at baseline 0.95. Vietnam's 1.8x lift is a far stronger claim than its
++0.29 absolute delta alone conveys.
+
+**R10.3 -- Low coefficient of variation proves it is not luck.** CV = std/mean over the 25
+(model, fold) cells. Vietnam 0.086 means every model and every fold sees essentially the same
+effect. A dataset whose delta is real but fragile shows a high CV even with a positive mean --
+that is the signature to distrust.
+
+### 10.2 The underlying mechanism -- and how to search for it directly
+
+Both winners share one structural property: **the text encodes a causal channel that no structured
+column captures.**
+
+- **Vietnam housing**: `Address` encodes *location premium* (street, ward, district, city). The
+  structured block is *physical attributes* (Area, Frontage, Floors, Bedrooms, Bathrooms, direction,
+  legal status, furniture). Location and physical size are orthogonal drivers of price, and neither
+  is derivable from the other. The screening agent verified explicitly that **no structured column
+  duplicates the address**.
+- **MTG cards**: `CARD_TEXT` and `TYPE` encode *what the card does* (abilities, interactions). The
+  structured block is *cost and scarcity* (CMC, editions, power, toughness, first-edition year,
+  rarity, colour). Playability and scarcity are independent price drivers.
+
+**R10.4 -- Seek orthogonal channels; reject restatement.** The productive question at T1 is not
+"does this dataset have text?" but **"does the text describe a different aspect of the entity than
+the structured columns do?"** A product description reading "3 bedrooms, 2 bathrooms" beside
+`bedrooms` and `bathrooms` columns is a *restatement*: it is redundant, Delta_Joint will be near
+zero, and TAR has nothing to add. This is testable cheaply, before any model runs, by checking
+whether structured column values appear verbatim inside the text.
+
+**R10.5 -- A single rich text column beats several thin ones.** Both winners use 1-2 text columns.
+More columns multiply encoding cost linearly while usually adding redundancy -- Rotten Tomatoes in
+the paper pool has 13 text columns, i.e. 13x the encode cost for one dataset.
+
+### 10.3 Practical ranking function
+
+For candidates surviving T1, rank by (highest first):
+
+    score = lift_estimate
+            * (1 - abs(no_text - text_only))        # balance bonus
+            * in_band(no_text, 0.2, 0.7)            # headroom, not saturated
+            * in_band(text_only, 0.2, 0.7)          # text is genuinely informative
+            * orthogonality(text, structured)       # 10.4, verbatim-overlap check
+            / n_text_columns                        # encoding cost
+
+Estimated from a single cheap LightGBM screen, this ranks Vietnam housing above every other
+candidate we found -- correctly, and before any expensive grid was run.
+
+### 10.4 What the winners did NOT need
+
+Worth recording, because we wasted effort assuming otherwise:
+
+- **Not a large delta at screen time.** MTG's screen looked ordinary; its grid value held up.
+- **Not many rows.** Vietnam has 30k but training subsamples to 10k; the extra rows were unused.
+- **Not a novel domain.** Vietnam housing overlaps four existing MulTaBench housing datasets and
+  still produced the cleanest result in the pool. Novelty matters for the *writeup*, not for
+  whether the criterion is met -- keep the two judgements separate.
