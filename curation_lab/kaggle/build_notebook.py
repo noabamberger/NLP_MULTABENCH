@@ -58,6 +58,7 @@ SMOKE_EPOCHS   = 1
 FULL_EPOCHS    = __FULL_EPOCHS__   # PHASE2_RESULTS.md: epochs=2 under-trains the adapter
                          # and collapses Delta_Awareness to noise; 10 is the working value.
 MODELS         = __MODELS__   # SHORT_NAMEs of the curation committee members to run
+STATES         = __STATES__   # curation conditions to measure this run
 CODE_DIR       = "/kaggle/input/multabench-code"
 OUT_CSV        = "/kaggle/working/tar_results.csv"
 '''
@@ -394,7 +395,8 @@ if not SMOKE:
             except Exception as e:
                 print(f"!! {name}: cannot import ({type(e).__name__}: {e}) -- skipping", flush=True)
                 continue
-            for state, ep in (("all", None), ("ft", FULL_EPOCHS)):
+            for state in STATES:
+                ep = FULL_EPOCHS if state == "ft" else None
                 tag = f"{name}/{state}/f{fold}"
                 try:
                     r = run_state(cls, state, fold, epochs=ep)
@@ -459,14 +461,16 @@ def _cell(kind: str, source: str) -> dict:
 def _cells(require_gpu: bool, smoke: bool = True, full_epochs: int = 10,
            dataset_ref: str = CANDIDATE_DATASET, dataset_name: str = CANDIDATE_NAME,
            folds: tuple[int, ...] = (0,),
-           models: tuple[str, ...] = ("light",)) -> list[tuple[str, str]]:
+           models: tuple[str, ...] = ("light",),
+           states: tuple[str, ...] = ("all", "ft")) -> list[tuple[str, str]]:
     subs = {"__REQUIRE_GPU__": str(bool(require_gpu)),
             "__SMOKE__": str(bool(smoke)),
             "__FULL_EPOCHS__": str(int(full_epochs)),
             "__DATASET_REF__": dataset_ref,
             "__DATASET_NAME__": dataset_name,
             "__FOLDS__": repr(list(folds)),
-            "__MODELS__": repr(list(models))}
+            "__MODELS__": repr(list(models)),
+            "__STATES__": repr(list(states))}
     out = []
     for kind, src in CELLS:
         for k, v in subs.items():
@@ -557,6 +561,9 @@ def main() -> None:
     p.add_argument("--models", default="light",
                    help="Comma-separated SHORT_NAMEs from the curation committee: "
                         "light,cat,tabm,tabpfnv2,tabpfnv2p5.")
+    p.add_argument("--states", default="all,ft",
+                   help="Curation conditions to measure: no_text,text_only,all,ft. "
+                        "Run all four on one machine when the output feeds passes().")
     args = p.parse_args()
 
     if args.dataset_name[:3] not in ("BIN", "MUL", "REG"):
@@ -567,6 +574,11 @@ def main() -> None:
     unknown = sorted(set(models) - known)
     if unknown:
         raise SystemExit(f"unknown model(s) {unknown}; expected from {sorted(known)}")
+    states = tuple(s.strip() for s in args.states.split(",") if s.strip())
+    known_states = {"no_text", "text_only", "all", "ft"}
+    bad_states = sorted(set(states) - known_states)
+    if bad_states:
+        raise SystemExit(f"unknown state(s) {bad_states}; expected from {sorted(known_states)}")
 
     require_gpu = not args.cpu
     os.makedirs(args.out, exist_ok=True)
@@ -577,7 +589,7 @@ def main() -> None:
                                  full_epochs=args.full_epochs,
                                  dataset_ref=args.dataset_ref,
                                  dataset_name=args.dataset_name,
-                                 folds=folds, models=models), fh, indent=1)
+                                 folds=folds, models=models, states=states), fh, indent=1)
     with open(meta_path, "w", encoding="utf-8") as fh:
         json.dump(build_metadata(enable_gpu=require_gpu,
                                  machine_shape=args.machine_shape,

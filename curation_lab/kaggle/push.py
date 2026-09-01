@@ -90,7 +90,7 @@ def kaggle(*args: str, check: bool = True) -> str:
 def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
           full: bool = False, full_epochs: int = 10, dataset_ref: str | None = None,
           dataset_name: str | None = None, folds: str | None = None,
-          models: str | None = None) -> None:
+          models: str | None = None, states: str | None = None) -> None:
     cmd = [sys.executable, "-m", "curation_lab.kaggle.build_notebook", "--out", out_dir]
     if machine_shape:
         cmd += ["--machine-shape", machine_shape]
@@ -99,7 +99,7 @@ def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
     if full:
         cmd += ["--full", "--full-epochs", str(full_epochs)]
     for flag, value in (("--dataset-ref", dataset_ref), ("--dataset-name", dataset_name),
-                        ("--folds", folds), ("--models", models)):
+                        ("--folds", folds), ("--models", models), ("--states", states)):
         if value:
             cmd += [flag, value]
     subprocess.check_call(cmd, cwd=REPO_ROOT, env=_env())
@@ -171,6 +171,8 @@ def main() -> None:
     p.add_argument("--dataset-name", default=None, help="MulTaBench {BIN|MUL|REG}_TEXT_* name.")
     p.add_argument("--folds", default=None, help="Comma-separated folds, e.g. 0,1,2,3,4.")
     p.add_argument("--models", default=None, help="Comma-separated committee SHORT_NAMEs.")
+    p.add_argument("--states", default=None,
+                   help="Comma-separated conditions: no_text,text_only,all,ft.")
     p.add_argument("--timeout", type=int, default=TIMEOUT_SECONDS,
                    help="Seconds to poll before giving up. A multi-fold ft sweep needs hours; "
                         "giving up here does not stop the kernel, --log-only still collects it.")
@@ -187,7 +189,7 @@ def main() -> None:
         build(work_dir, args.machine_shape, cpu=args.cpu,
               full=args.full, full_epochs=args.full_epochs,
               dataset_ref=args.dataset_ref, dataset_name=args.dataset_name,
-              folds=args.folds, models=args.models)
+              folds=args.folds, models=args.models, states=args.states)
     push_args = ["kernels", "push", "-p", work_dir]
     if args.machine_shape:
         push_args += ["--accelerator", args.machine_shape]
