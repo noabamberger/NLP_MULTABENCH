@@ -73,6 +73,15 @@ import os, subprocess, sys
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+# TabPFN 2.5/2.6 weights are gated behind a Prior Labs licence, checked by
+# tabpfn/model_loading.py -> browser_auth.ensure_license_accepted(). Without a token
+# that raises TabPFNLicenseError, which is why TabPFN-2.5 had no cells in the earlier
+# grids. browser_auth.get_cached_token() reads TABPFN_TOKEN first. TabPFN v2 is NOT
+# gated -- it is absent from _HF_REPOS -- so it never needed this.
+# Injected at build time from .env; the generator in git carries only the placeholder.
+if "__TABPFN_TOKEN__":
+    os.environ["TABPFN_TOKEN"] = "__TABPFN_TOKEN__"
+
 try:
     print(subprocess.run(
         ["nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv"],
@@ -481,6 +490,25 @@ CELLS: list[tuple[str, str]] = [
 ]
 
 
+def _tabpfn_token() -> str:
+    """Prior Labs API key from the environment or .env, or "" if absent.
+
+    Read at BUILD time and baked into the generated notebook, which lives under the
+    gitignored kaggle_uploads/. The key therefore never enters git -- but it does
+    travel to Kaggle inside the notebook source, so the kernel must stay private.
+    """
+    token = os.environ.get("TABPFN_TOKEN", "").strip()
+    if token:
+        return token
+    env_path = os.path.join(os.path.dirname(__file__), "..", "..", ".env")
+    if os.path.isfile(env_path):
+        with open(env_path, encoding="utf-8") as fh:
+            for line in fh:
+                if line.strip().startswith("TABPFN_TOKEN="):
+                    return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return ""
+
+
 def _cell(kind: str, source: str) -> dict:
     lines = source.splitlines(keepends=True)
     if kind == "markdown":
@@ -500,7 +528,8 @@ def _cells(require_gpu: bool, smoke: bool = True, full_epochs: int = 10,
             "__CANDIDATES__": repr([list(c) for c in candidates]),
             "__FOLDS__": repr(list(folds)),
             "__MODELS__": repr(list(models)),
-            "__STATES__": repr(list(states))}
+            "__STATES__": repr(list(states)),
+            "__TABPFN_TOKEN__": _tabpfn_token()}
     out = []
     for kind, src in CELLS:
         for k, v in subs.items():
