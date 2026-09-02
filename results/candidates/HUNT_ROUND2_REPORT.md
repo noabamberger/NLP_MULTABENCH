@@ -31,13 +31,23 @@ Full grids (4 models x 4 states x 5 folds, no gaps):
 | TabM | 0.576 | 0.504 | 0.628 | 0.629 | +0.052 | +0.001 |
 | CatBoost | 0.576 | 0.490 | 0.623 | 0.623 | +0.047 | 0.000 |
 | TabPFNv2 | 0.585 | 0.504 | 0.640 | 0.639 | +0.055 | -0.001 |
+| TabPFN-2.5 | 0.586 | 0.514 | 0.645 | 0.645 | +0.059 | 0.000 |
 
-2 of 5 pass, quorum is 3 -> REJECTED. And TabM's +0.001 is the same float knife-edge
+2 of 5 pass, quorum is 3 -> REJECTED, on a COMPLETE five-model grid (the Prior Labs
+token unblocked TabPFN-2.5 after the first write-up). The fifth model did not change
+the outcome: it posts the strongest Delta_Joint of the five, +0.059, and then a
+Delta_Awareness of exactly 0.000 -- the same split every other model shows here. And TabM's +0.001 is the same float knife-edge
 documented for TabPFNv2 in `DJ_PROPERTY_TAR_REPORT.md`: the difference of the rounded
 means is exactly delta and clears `>` only through float64 representation. Counting
 honestly, board-games has **one** passing model.
 
 Anime is cleaner cut: -0.001, 0.000, -0.002, -0.002 -> 0 of 5.
+
+For contrast, the accepted Vietnam housing dataset scores Delta_Awareness +0.015 /
++0.005 / +0.005 / +0.004 / +0.001 across the same five models, on the same hardware
+and the same protocol. The separation between an accepted dataset and a rejected one
+is not subtle once all five folds are measured -- it is the fold-0 screen that made
+board-games look comparable.
 
 ## Finding 1: a fold-0 Delta_Awareness screen is invalid
 
