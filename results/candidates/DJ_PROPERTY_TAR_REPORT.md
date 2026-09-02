@@ -13,7 +13,7 @@ no leakage columns.
 Delta_Joint originally came from CPU and Delta_Awareness from GPU. Each delta is a
 difference of two means, so its two halves must share an environment or the drift
 between them lands in the delta. All four states were therefore re-run on the same
-T4: **4 models x 4 states x 5 folds = 80 cells, no gaps.**
+T4: **5 models x 4 states x 5 folds = 100 cells, no gaps.**
 
 ### How far apart are CPU and GPU, actually?
 
@@ -62,10 +62,10 @@ Per-state means over folds 0-4, rounded to 3 decimals before differencing
 | TabM | 0.312 | 0.336 | 0.633 | 0.638 | **+0.297** | **+0.005** |
 | CatBoost | 0.341 | 0.322 | 0.632 | 0.636 | **+0.291** | **+0.004** |
 | TabPFNv2 | 0.342 | 0.340 | 0.646 | 0.647 | **+0.304** | +0.001 (see below) |
-| TabPFN-2.5 | — | — | — | — | — | NOT MEASURED |
+| TabPFN-2.5 | 0.356 | 0.346 | 0.680 | 0.685 | **+0.324** | **+0.005** |
 
-**Three models pass both criteria with a real margin**, which meets `RHO = 3/5`.
-The verdict does not depend on either of the two doubtful rows.
+**All five models pass both criteria**, well past the `RHO = 3/5` quorum. Four pass
+with a real margin; only TabPFNv2 sits on the threshold (see below).
 
 ### TabPFNv2 is exactly on the threshold — do not count it
 
@@ -82,14 +82,19 @@ difference to 4 decimals first (as the notebook does) flips it to a fail. This c
 is decided by floating-point representation, not by evidence about the dataset —
 treat it as a non-pass and rely on the three models above.
 
-### TabPFN-2.5 could not run
+### TabPFN-2.5 now runs (resolved)
 
-`TabPFNLicenseError: TabPFN requires a one-time license acceptance to download`,
-on all 10 of its cells. This is the blocker already recorded in `RESUME.md`: the
-weights sit behind a gated HuggingFace repo. It needs a human to accept the
-Prior-Labs licence once. Counted as a non-pass here, which is how the paper treats
-an empty (model, dataset) cell and is the conservative direction — it can only make
-acceptance harder.
+Earlier grids had no TabPFN-2.5 cells at all: every one failed with
+`TabPFNLicenseError`. The cause is NOT Hugging Face gating, as `RESUME.md` recorded
+it -- `tabpfn/model_loading.py` lists 2.5/2.6/3 in `_HF_REPOS` and calls
+`browser_auth.ensure_license_accepted()`, which wants a **Prior Labs** API key and
+raises without one. `HF_TOKEN` never could have satisfied it, which is why the
+blocker survived so long. TabPFN v2 is absent from `_HF_REPOS`, which is why it
+always ran.
+
+With `TABPFN_TOKEN` supplied (read first by `browser_auth.get_cached_token()`), the
+model runs clean: 20 of 20 cells, no failures. Its Delta_Joint of **+0.324** is the
+largest of the five, and its Delta_Awareness of **+0.005** matches TabM and CatBoost.
 
 ## Encoder sharing: 25 ft runs, 10 fine-tunings
 
@@ -139,8 +144,8 @@ Raw rows: `dj_property_tar_all_ft.csv`, `dj_property_tar_frozen.csv`.
 
 ## Still open
 
-1. **TabPFN-2.5 licence** — one human step, and the only thing standing between this
-   and a complete five-model grid.
+1. ~~TabPFN-2.5 licence~~ — RESOLVED. A Prior Labs API key in `TABPFN_TOKEN` closes
+   it; the grid is now complete on all five models.
 2. **Domain novelty** — unchanged from `DJ_PROPERTY_REPORT.md`: MulTaBench already
    contains four housing datasets, though none is Vietnamese listing-address -> price.
    A human call, not a measurement.
