@@ -25,16 +25,55 @@ import pandas as pd
 
 from curation_lab.ingest.candidate import CandidateSpec
 
-JUNK = re.compile(
-    r"(?:^|_|\b)(date|time|timestamp|year|id|ids|sku|url|link|code|identifier|isbn|asin|"
-    r"uuid|key|ref|rank|index|unnamed)(?:$|_|\b)", re.I)
+JUNK_TOKENS = frozenset("""
+date time timestamp year id ids sku url link code identifier isbn asin
+uuid key ref rank index unnamed serial sl no num number idx seq
+""".split())
+
+
+def _tokens(col: str) -> list[str]:
+    """Split a column name into words, splitting camelCase as well as separators.
+
+    The old regex used `\\b` around each keyword, which cannot see a boundary inside
+    `ReleaseDate` or `CustomerID` (letter-to-letter is not a word boundary) and never
+    matched the `No` of a space-separated `Sl No`. Both slipped through and became a
+    text column and a *target* respectively -- a serial-number target makes every
+    score for that dataset meaningless. Normalising to tokens first is what closes
+    the camelCase and spaced-abbreviation gaps together.
+    """
+    s = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", str(col))      # releaseDate -> release_Date
+    s = re.sub(r"(?<=[A-Z])(?=[A-Z][a-z])", "_", s)           # HTTPServer  -> HTTP_Server
+    return [t for t in re.split(r"[^A-Za-z0-9]+", s) if t]
 LEAK_CORR = 0.95
 MAX_ABS_Z = 5.0
 MIN_TARGET_UNIQUE = 20
 
 
 def _is_junk(col: str) -> bool:
-    return bool(JUNK.search(str(col)))
+    return any(t.lower() in JUNK_TOKENS for t in _tokens(col))
+
+
+ID_UNIQUE_RATIO = 0.98
+
+
+def _looks_like_identifier(s: pd.Series) -> bool:
+    """Is this numeric column a key rather than a measurement?
+
+    Needed because the scorer below *rewards* uniqueness, so a perfect identifier
+    scores the maximum -- which is how `appid` and `Sl No` became targets. Name
+    rules cannot close this: `appid` is a single glued token, and widening the
+    keyword list to any word ending in "id" would swallow `rapid`, `valid`, `paid`.
+
+    The test is structural instead: near-unique AND integral. A genuinely
+    continuous measurement can also be near-unique in a small table, so requiring
+    integrality is what keeps a legitimate float target (a price, a score) safe.
+    """
+    if len(s) == 0:
+        return False
+    if s.nunique() / len(s) <= ID_UNIQUE_RATIO:
+        return False
+    values = s.dropna()
+    return bool((values == values.round()).all())
 
 
 def pick_target(df: pd.DataFrame, numeric_cols: list[str]) -> tuple[str | None, str]:
@@ -52,6 +91,8 @@ def pick_target(df: pd.DataFrame, numeric_cols: list[str]) -> tuple[str | None, 
             continue
         zmax = float(((s - s.mean()).abs() / s.std(ddof=0)).max())
         if zmax > MAX_ABS_Z:
+            continue
+        if _looks_like_identifier(s):
             continue
         # Prefer well-spread targets; nunique ratio is a decent proxy.
         score = min(s.nunique() / len(s), 0.5) * (1.0 / (1.0 + zmax / MAX_ABS_Z))

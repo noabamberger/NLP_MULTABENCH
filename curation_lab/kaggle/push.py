@@ -88,9 +88,9 @@ def kaggle(*args: str, check: bool = True) -> str:
 
 
 def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
-          full: bool = False, full_epochs: int = 10, dataset_ref: str | None = None,
-          dataset_name: str | None = None, folds: str | None = None,
-          models: str | None = None, states: str | None = None) -> None:
+          full: bool = False, full_epochs: int = 10, candidates: list[str] | None = None,
+          folds: str | None = None, models: str | None = None,
+          states: str | None = None) -> None:
     cmd = [sys.executable, "-m", "curation_lab.kaggle.build_notebook", "--out", out_dir]
     if machine_shape:
         cmd += ["--machine-shape", machine_shape]
@@ -98,8 +98,9 @@ def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
         cmd += ["--cpu"]
     if full:
         cmd += ["--full", "--full-epochs", str(full_epochs)]
-    for flag, value in (("--dataset-ref", dataset_ref), ("--dataset-name", dataset_name),
-                        ("--folds", folds), ("--models", models), ("--states", states)):
+    for item in candidates or []:
+        cmd += ["--candidate", item]
+    for flag, value in (("--folds", folds), ("--models", models), ("--states", states)):
         if value:
             cmd += [flag, value]
     subprocess.check_call(cmd, cwd=REPO_ROOT, env=_env())
@@ -167,8 +168,8 @@ def main() -> None:
     p.add_argument("--full", action="store_true",
                    help="Run the all-vs-ft measurement instead of the smoke test.")
     p.add_argument("--full-epochs", type=int, default=10)
-    p.add_argument("--dataset-ref", default=None, help="Kaggle owner/slug of the candidate.")
-    p.add_argument("--dataset-name", default=None, help="MulTaBench {BIN|MUL|REG}_TEXT_* name.")
+    p.add_argument("--candidate", action="append", default=[], metavar="REF=NAME",
+                   help="Repeatable: kaggle owner/slug=MulTaBench name.")
     p.add_argument("--folds", default=None, help="Comma-separated folds, e.g. 0,1,2,3,4.")
     p.add_argument("--models", default=None, help="Comma-separated committee SHORT_NAMEs.")
     p.add_argument("--states", default=None,
@@ -188,7 +189,7 @@ def main() -> None:
     if not args.no_build:
         build(work_dir, args.machine_shape, cpu=args.cpu,
               full=args.full, full_epochs=args.full_epochs,
-              dataset_ref=args.dataset_ref, dataset_name=args.dataset_name,
+              candidates=args.candidate,
               folds=args.folds, models=args.models, states=args.states)
     push_args = ["kernels", "push", "-p", work_dir]
     if args.machine_shape:

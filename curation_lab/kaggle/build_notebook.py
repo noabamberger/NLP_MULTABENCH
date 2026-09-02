@@ -51,8 +51,8 @@ PARAMS = '''\
 # ---------------------------------------------------------------- parameters
 SMOKE          = __SMOKE__    # True: one training epoch, just prove the path runs
 REQUIRE_GPU    = __REQUIRE_GPU__    # False = CPU validation run (no GPU quota spent)
-DATASET_REF    = "__DATASET_REF__"
-DATASET_NAME   = "__DATASET_NAME__"   # {BIN|MUL|REG}_TEXT_* prefix is load-bearing
+CANDIDATES     = __CANDIDATES__   # (kaggle ref, MulTaBench name); the {BIN|MUL|REG}_TEXT_
+                                  # prefix is load-bearing -- evaluate.py slices name[:3]
 FOLDS          = __FOLDS__
 SMOKE_EPOCHS   = 1
 FULL_EPOCHS    = __FULL_EPOCHS__   # PHASE2_RESULTS.md: epochs=2 under-trains the adapter
@@ -234,27 +234,48 @@ SPEC = '''\
 # mounted, so we just locate its CSV.
 import glob
 
-slug = DATASET_REF.split("/")[-1]
 all_csvs = [p for p in glob.glob("/kaggle/input/**/*.csv", recursive=True)
             if not p.startswith(CODE_DIR)]
-matching = [p for p in all_csvs if slug in p] or all_csvs
-assert matching, f"no candidate CSV mounted; is {DATASET_REF} in dataset_sources?"
-csv = max(matching, key=os.path.getsize)
-print("csv:", csv)
 
-df, enc, err = _read_any_csv(csv)
-assert df is not None, f"could not read {csv}: {err}"
+def spec_for(ref, name):
+    """Locate one candidate's CSV among the mounted datasources and auto-spec it.
 
-read_kwargs = {} if enc == "utf-8" else {"encoding": enc.split("/")[0]}
-spec, why = build_spec(df, name=DATASET_NAME, csv_path=csv, read_kwargs=read_kwargs)
-assert spec is not None, f"spec rejected: {why}"
+    Matching is by slug rather than by taking the largest CSV overall, because a
+    multi-candidate run mounts several datasets at once and "largest" would hand
+    every candidate the same file.
+    """
+    slug = ref.split("/")[-1]
+    matching = [p for p in all_csvs if slug in p]
+    if not matching:
+        return None, None, f"no CSV mounted for {ref}; is it in dataset_sources?"
+    csv = max(matching, key=os.path.getsize)
+    df, enc, err = _read_any_csv(csv)
+    if df is None:
+        return None, None, f"could not read {csv}: {err}"
+    read_kwargs = {} if enc == "utf-8" else {"encoding": enc.split("/")[0]}
+    spec, why = build_spec(df, name=name, csv_path=csv, read_kwargs=read_kwargs)
+    if spec is None:
+        return None, df, f"spec rejected: {why}"
+    return spec, df, why
 
-print(f"rows={len(df)}  cols={df.shape[1]}")
-print(f"reason: {why}")
-print(f"target={spec.target!r}  task={spec.task}")
-print(f"text={spec.text_cols}")
-print(f"numeric={spec.numeric_cols}")
-print(f"categorical={spec.categorical_cols}")
+# Build every spec up front, so a bad candidate fails here rather than after the
+# first one has already spent an hour of GPU.
+SPECS = {}
+for _ref, _name in CANDIDATES:
+    _spec, _df, _why = spec_for(_ref, _name)
+    print(f"\\n=== {_name}  ({_ref}) ===")
+    if _spec is None:
+        print("  SKIPPED:", _why)
+        continue
+    SPECS[_name] = _spec
+    print(f"  rows={len(_df)} cols={_df.shape[1]}  csv={os.path.basename(_spec.csv_path)}")
+    print(f"  {_why}")
+    print(f"  target={_spec.target!r}  text={_spec.text_cols}")
+    print(f"  numeric={_spec.numeric_cols}")
+    print(f"  categorical={_spec.categorical_cols}")
+
+assert SPECS, "no candidate produced a usable spec"
+print(f"\\n{len(SPECS)} of {len(CANDIDATES)} candidates specced")
 '''
 
 SMOKE = '''\
@@ -265,7 +286,8 @@ import time
 
 if SMOKE:
     t0 = time.time()
-    result = tar_probe(spec, all_score=0.0, fold=FOLDS[0], epochs=SMOKE_EPOCHS)
+    result = tar_probe(next(iter(SPECS.values())), all_score=0.0,
+                       fold=FOLDS[0], epochs=SMOKE_EPOCHS)
     print("\\n=== SMOKE OK ===")
     print(f"  ft score      : {result['ft']:.4f}")
     print(f"  max_length cap: {result['cap']} (upstream default 512)")
@@ -352,7 +374,7 @@ def _without_hf_token_assignment(cls):
 # handed; the environment cell sets it, so CPU validation satisfies the guard too.
 DEVICE = torch.device("cuda:0") if REQUIRE_GPU else torch.device("cpu")
 
-def run_state(model_cls, state_flag, fold, epochs=None):
+def run_state(spec, model_cls, state_flag, fold, epochs=None):
     enable_dynamic_max_length()
     if state_flag == "ft":
         # dynamic_max_length here caps the TRAINING loop's padding (512 -> the longest
@@ -385,54 +407,63 @@ def flush(rows):
     out = pd.DataFrame(rows)
     out.to_csv(OUT_CSV, index=False)
 
+def summarise(df_r):
+    """Per-model deltas for one dataset. Means are rounded to 3 decimals BEFORE
+    differencing -- the paper's rule, per pass_matrix.passes()."""
+    piv = df_r.pivot_table(index="model", columns="state", values="score",
+                           aggfunc="mean").round(3)
+    unimodal = [s for s in ("no_text", "text_only") if s in piv.columns]
+    if "all" in piv.columns and unimodal:
+        piv["D_Joint"] = (piv["all"] - piv[unimodal].max(axis=1)).round(4)
+    if {"all", "ft"}.issubset(piv.columns):
+        piv["D_Awareness"] = (piv["ft"] - piv["all"]).round(4)
+    return piv
+
 if not SMOKE:
     rows = []
     reset_stats()
-    for fold in FOLDS:
-        for name in MODELS:
-            try:
-                cls = model_cls_for(name)
-            except Exception as e:
-                print(f"!! {name}: cannot import ({type(e).__name__}: {e}) -- skipping", flush=True)
-                continue
-            for state in STATES:
-                ep = FULL_EPOCHS if state == "ft" else None
-                tag = f"{name}/{state}/f{fold}"
+    for dname, spec in SPECS.items():
+        print(f"\\n########## {dname} ##########", flush=True)
+        for fold in FOLDS:
+            for name in MODELS:
                 try:
-                    r = run_state(cls, state, fold, epochs=ep)
-                except SystemExit:
-                    # is_invalid_model_dataset_pair() calls exit() for a legitimately
-                    # skipped (model, dataset) cell; that is data, not a failure.
-                    print(f"!! {tag}: model skipped this dataset", flush=True)
-                    continue
+                    cls = model_cls_for(name)
                 except Exception as e:
-                    print(f"!! {tag} FAILED: {type(e).__name__}: {e}", flush=True)
-                    traceback.print_exc()
+                    print(f"!! {name}: cannot import ({type(e).__name__}: {e})", flush=True)
                     continue
-                r.update(dataset=DATASET_NAME, model=name, fold=fold)
-                rows.append(r)
-                flush(rows)
-                print(f"  {tag:28s} = {r['score']:.4f}  ({r['secs']}s)", flush=True)
+                for state in STATES:
+                    ep = FULL_EPOCHS if state == "ft" else None
+                    tag = f"{dname[:22]}/{name}/{state}/f{fold}"
+                    try:
+                        r = run_state(spec, cls, state, fold, epochs=ep)
+                    except SystemExit:
+                        # is_invalid_model_dataset_pair() calls exit() for a legitimately
+                        # skipped (model, dataset) cell; that is data, not a failure.
+                        print(f"!! {tag}: model skipped this dataset", flush=True)
+                        continue
+                    except Exception as e:
+                        # MultimodalError is a soft skip meaning "this state does not
+                        # apply here", not a crash -- it is reported the same way and
+                        # simply leaves the cell absent.
+                        print(f"!! {tag} FAILED: {type(e).__name__}: {e}", flush=True)
+                        traceback.print_exc()
+                        continue
+                    r.update(dataset=dname, model=name, fold=fold)
+                    rows.append(r)
+                    flush(rows)
+                    print(f"  {tag:52s} = {r['score']:.4f}  ({r['secs']}s)", flush=True)
 
     st = cache_stats()
     print(f"\\n[tar_cache] {st} -- {st['hits']} of {st['hits'] + st['misses']} ft runs "
           f"reused an encoder instead of fine-tuning it again")
 
-    print("\\n================ Delta_Awareness = mean(ft) - mean(all) ================")
     if rows:
-        df_r = pd.DataFrame(rows)
-        # Round the per-state means to 3 decimals BEFORE differencing -- this is the
-        # paper's rule, implemented in leaderboard/analysis/pass_matrix.py::passes().
-        piv = df_r.pivot_table(index="model", columns="state", values="score", aggfunc="mean").round(3)
-        if {"all", "ft"}.issubset(piv.columns):
-            piv["Delta_Awareness"] = (piv["ft"] - piv["all"]).round(4)
-            piv["verdict"] = ["PASS" if d > 0.001 else "fail" for d in piv["Delta_Awareness"]]
-            print(piv.to_string())
-            n_pass = int((piv["Delta_Awareness"] > 0.001).sum())
-            print(f"\\n{n_pass} of {len(piv)} models pass (folds run: {sorted(df_r.fold.unique())})")
-        else:
-            print(piv.to_string())
-    print("wrote", OUT_CSV)
+        df_all = pd.DataFrame(rows)
+        for dname, sub in df_all.groupby("dataset"):
+            print(f"\\n================ {dname} ================")
+            print(summarise(sub).to_string())
+            print(f"folds: {sorted(sub.fold.unique())}")
+    print("\\nwrote", OUT_CSV)
 else:
     print("SMOKE=True -- skipping the full run.")
 '''
@@ -459,15 +490,14 @@ def _cell(kind: str, source: str) -> dict:
 
 
 def _cells(require_gpu: bool, smoke: bool = True, full_epochs: int = 10,
-           dataset_ref: str = CANDIDATE_DATASET, dataset_name: str = CANDIDATE_NAME,
+           candidates: tuple[tuple[str, str], ...] = ((CANDIDATE_DATASET, CANDIDATE_NAME),),
            folds: tuple[int, ...] = (0,),
            models: tuple[str, ...] = ("light",),
            states: tuple[str, ...] = ("all", "ft")) -> list[tuple[str, str]]:
     subs = {"__REQUIRE_GPU__": str(bool(require_gpu)),
             "__SMOKE__": str(bool(smoke)),
             "__FULL_EPOCHS__": str(int(full_epochs)),
-            "__DATASET_REF__": dataset_ref,
-            "__DATASET_NAME__": dataset_name,
+            "__CANDIDATES__": repr([list(c) for c in candidates]),
             "__FOLDS__": repr(list(folds)),
             "__MODELS__": repr(list(models)),
             "__STATES__": repr(list(states))}
@@ -515,7 +545,7 @@ def build_notebook(require_gpu: bool = True, smoke: bool = True, full_epochs: in
 
 
 def build_metadata(enable_gpu: bool = True, machine_shape: str | None = None,
-                   dataset_ref: str = CANDIDATE_DATASET) -> dict:
+                   dataset_refs: tuple[str, ...] = (CANDIDATE_DATASET,)) -> dict:
     # The CPU validation variant lives in its own kernel so that pushing it does
     # not overwrite the GPU kernel's accelerator setting.
     kid = KERNEL_ID if enable_gpu else KERNEL_ID.replace("-tar-gpu", "-tar-cpu")
@@ -529,7 +559,7 @@ def build_metadata(enable_gpu: bool = True, machine_shape: str | None = None,
         "enable_gpu": enable_gpu,
         "enable_tpu": False,
         "enable_internet": True,
-        "dataset_sources": [CODE_DATASET, dataset_ref],
+        "dataset_sources": [CODE_DATASET, *dataset_refs],
         "competition_sources": [],
         "kernel_sources": [],
         "model_sources": [],
@@ -553,10 +583,10 @@ def main() -> None:
                    help="SMOKE=False: run the all vs ft measurement instead of the smoke test.")
     p.add_argument("--full-epochs", type=int, default=10,
                    help="E5 fine-tuning epochs for the full run.")
-    p.add_argument("--dataset-ref", default=CANDIDATE_DATASET,
-                   help="Kaggle owner/slug of the candidate. Also written into dataset_sources.")
-    p.add_argument("--dataset-name", default=CANDIDATE_NAME,
-                   help="MulTaBench name; the {BIN|MUL|REG}_TEXT_ prefix is load-bearing.")
+    p.add_argument("--candidate", action="append", default=[], metavar="REF=NAME",
+                   help="Repeatable. Kaggle owner/slug=MulTaBench name. Every ref is also "
+                        "written into dataset_sources, so one kernel run can screen several "
+                        "candidates and pay the container/pip setup cost once.")
     p.add_argument("--folds", default="0", help="Comma-separated folds, e.g. 0,1,2,3,4.")
     p.add_argument("--models", default="light",
                    help="Comma-separated SHORT_NAMEs from the curation committee: "
@@ -566,8 +596,21 @@ def main() -> None:
                         "Run all four on one machine when the output feeds passes().")
     args = p.parse_args()
 
-    if args.dataset_name[:3] not in ("BIN", "MUL", "REG"):
-        raise SystemExit(f"--dataset-name must start with BIN_/MUL_/REG_, got {args.dataset_name!r}")
+    pairs = args.candidate or [f"{CANDIDATE_DATASET}={CANDIDATE_NAME}"]
+    candidates = []
+    for item in pairs:
+        if "=" not in item:
+            raise SystemExit(f"--candidate must be REF=NAME, got {item!r}")
+        ref, name = item.split("=", 1)
+        ref, name = ref.strip(), name.strip()
+        if name[:3] not in ("BIN", "MUL", "REG"):
+            raise SystemExit(f"candidate name must start with BIN_/MUL_/REG_, got {name!r}")
+        if ref.count("/") != 1:
+            raise SystemExit(f"candidate ref must be owner/slug, got {ref!r}")
+        candidates.append((ref, name))
+    dup = {n for _, n in candidates if [x for _, x in candidates].count(n) > 1}
+    if dup:
+        raise SystemExit(f"duplicate candidate name(s) {sorted(dup)}; results key on name")
     folds = tuple(int(f) for f in args.folds.split(",") if f.strip() != "")
     models = tuple(m.strip() for m in args.models.split(",") if m.strip())
     known = {"light", "cat", "tabm", "tabpfnv2", "tabpfnv2p5"}
@@ -587,13 +630,12 @@ def main() -> None:
     with open(nb_path, "w", encoding="utf-8") as fh:
         json.dump(build_notebook(require_gpu=require_gpu, smoke=not args.full,
                                  full_epochs=args.full_epochs,
-                                 dataset_ref=args.dataset_ref,
-                                 dataset_name=args.dataset_name,
+                                 candidates=tuple(candidates),
                                  folds=folds, models=models, states=states), fh, indent=1)
     with open(meta_path, "w", encoding="utf-8") as fh:
         json.dump(build_metadata(enable_gpu=require_gpu,
                                  machine_shape=args.machine_shape,
-                                 dataset_ref=args.dataset_ref), fh, indent=2)
+                                 dataset_refs=tuple(r for r, _ in candidates)), fh, indent=2)
     print(f"wrote {nb_path}\nwrote {meta_path}")
 
 
