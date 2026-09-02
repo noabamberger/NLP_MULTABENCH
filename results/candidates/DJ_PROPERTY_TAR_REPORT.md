@@ -15,11 +15,41 @@ difference of two means, so its two halves must share an environment or the drif
 between them lands in the delta. All four states were therefore re-run on the same
 T4: **4 models x 4 states x 5 folds = 80 cells, no gaps.**
 
-The frozen unimodal states reproduced the CPU numbers to 3 decimals (LightGBM
-`no_text` 0.342 both), which is expected — `no_text` never touches E5 and `text_only`
-uses a frozen encoder. The `all` state did move (LightGBM 0.591 CPU -> 0.592 GPU
-over 5 folds, but 0.591 -> 0.625 on fold 0 alone), which is exactly why the halves
-were not mixed.
+### How far apart are CPU and GPU, actually?
+
+Close. Over the 20 `all` cells the CPU and GPU grids agree to **mean +0.0004, worst
+case 0.0062**, and the per-model 5-fold means agree to within 0.0011. For scale,
+LightGBM's `all` score varies by ~0.05 across folds within CPU alone — an order of
+magnitude more than the cross-machine gap.
+
+Breaking the gap down by how much E5 each state uses identifies the cause:
+
+| state | uses E5 | mean abs diff | max abs diff |
+|---|---|---|---|
+| `no_text` | no | 0.00046 | 0.0029 |
+| `text_only` | yes | 0.00316 | 0.0096 |
+| `all` | yes | 0.00221 | 0.0062 |
+
+The control is decisive: for LightGBM and CatBoost, `no_text` differs by **exactly
+0.0000** across machines. Data loading, curation, the 90/10 split, the seeding and
+the tree learners are therefore bit-identical, and the divergence enters only where
+text does — the frozen E5 embeddings themselves differ between CPU and GPU float32
+kernels (~1e-7 per element), which shifts the per-column PCA and occasionally flips
+a tree split. TabM and TabPFNv2 also move slightly under `no_text` (0.0029, 0.0009)
+because they are torch models with their own GPU kernels.
+
+Within one machine the path is deterministic: two independent GPU runs of
+(LightGBM, `all`, fold 0) returned `0.6251228440663799` to all 16 digits.
+
+So mixing the halves would not have been catastrophic for Delta_Joint (+0.25 to
++0.30, ~40x this noise) — but it would have been fatal for Delta_Awareness, where
+CatBoost (+0.004) and TabM (+0.005) are *smaller* than the 0.0062 cross-machine
+noise. That is the real reason the halves were not mixed.
+
+An earlier draft of this report justified the same decision with "LightGBM fold 0:
+0.591 CPU vs 0.625 GPU". That was wrong: it compared the CPU five-fold *mean*
+(0.5906) against the GPU *fold-0* score (0.6251). The correct fold-0 pair is
+0.6189 vs 0.6251.
 
 ## Result: quorum met, dataset ACCEPTED
 
