@@ -1,0 +1,11 @@
+ref,rows,target,task,n_text,n_num,n_cat,text,flags,detail
+cameronseamons/electronic-sales-sep2023-sep2024,20000,,,,,,,no-spec,no genuine text column (raw text cols: ['Purchase Date'])
+raminhuseyn/demand-forecasting-dataset,76000,,,,,,,no-spec,no genuine text column (raw text cols: ['Date'])
+colabsss/smart-tourism-service-quality-dataset,13000,,,,,,,no-spec,"no genuine text column (raw text cols: ['Record_ID', 'Tourist_ID'])"
+shivan118/big-mart-sales-prediction-datasets,8523,,,,,,,no-spec,no genuine text column (raw text cols: ['Item_Identifier'])
+ziya07/student-learning-interaction-logs-dataset,9000,,,,,,,no-spec,"no genuine text column (raw text cols: ['session_id', 'student_id', 'timestamp'])"
+zara2099/cultural-heritage-tourism-dataset,7000,,,,,,,no-spec,"no genuine text column (raw text cols: ['heritage_site_id', 'observation_date', 'record_id'])"
+sudalairajkumar/nifty-indices-dataset,5353,,,,,,,no-spec,no genuine text column (raw text cols: ['Date'])
+halaturkialotaibi/makeup-website-in-saudi-arabia,10014,,,,,,,no-spec,no genuine text column (raw text cols: ['Order_Date'])
+jithinanievarghese/drugs-related-to-common-treatments,3959,rating,REG,1.0,0.0,7.0,drug_name,ok,target=rating (nuniq=86 zmax=2.96) leaks_dropped=[] text=['drug_name'] n_num=0
+anshtanwar/monthly-food-price-estimates,4798,,,,,,,no-spec,no genuine text column (raw text cols: ['date'])

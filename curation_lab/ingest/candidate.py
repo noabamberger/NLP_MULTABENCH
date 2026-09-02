@@ -18,6 +18,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import Enum
 
+import numpy as np
 import pandas as pd
 
 from multabench.datasets.curation import MultimodalDataset, curate_dataset
@@ -69,6 +70,14 @@ class CandidateSpec:
     categorical_cols: list[str] = field(default_factory=list)
     read_kwargs: dict = field(default_factory=dict)         # sep/encoding/decimal/...
     context: str = ""
+    # "" or "log1p". The repo only WARNS about |z|>5 targets and never clips
+    # (check_extreme_outliers), so a heavy right tail -- every price dataset -- lets a
+    # handful of rows dominate R^2 and swamp both deltas. This is the CandidateSpec
+    # equivalent of an annotated module's PROCESSING_FUNC.
+    #
+    # It changes the task: scores become R^2 on log price, not on price. That is a
+    # curation choice and has to be stated wherever the numbers are reported.
+    target_transform: str = ""
 
     def features(self) -> list[CuratedFeature]:
         feats = []
@@ -94,12 +103,35 @@ def register(spec: CandidateSpec) -> Enum:
     return dataset_id
 
 
+def apply_target_transform(df: pd.DataFrame, spec: CandidateSpec) -> pd.DataFrame:
+    """Apply spec.target_transform to the target column, in place on a copy.
+
+    Applied to the raw frame BEFORE curate_dataset, so every downstream consumer --
+    the split, the models, the metric, and the TAR discretisation into 20 bins --
+    sees the same transformed target. Transforming later would silently give the
+    fine-tuning bins a different target from the one being scored.
+    """
+    if not spec.target_transform:
+        return df
+    if spec.target_transform != "log1p":
+        raise ValueError(f"Unknown target_transform {spec.target_transform!r}")
+    out = df.copy()
+    y = pd.to_numeric(out[spec.target], errors="coerce")
+    if (y.dropna() < 0).any():
+        raise ValueError(
+            f"log1p target_transform needs a non-negative target; {spec.target!r} "
+            f"has negative values (min {float(y.min())})")
+    out[spec.target] = np.log1p(y)
+    return out
+
+
 def load_candidate(spec: CandidateSpec, state_flag: str) -> MultimodalDataset:
     """Read the CSV and run it through the repo's full curation path."""
     if state_flag not in STATE_BY_FLAG:
         raise ValueError(f"Unknown state {state_flag!r}; expected one of {sorted(STATE_BY_FLAG)}")
     dataset_id = register(spec)
     df = pd.read_csv(spec.csv_path, low_memory=False, **spec.read_kwargs)
+    df = apply_target_transform(df, spec)
     return curate_dataset(
         x=df, y=None, dataset_id=dataset_id,
         multimodal_state=STATE_BY_FLAG[state_flag],

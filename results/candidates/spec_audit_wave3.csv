@@ -1,0 +1,4 @@
+ref,rows,target,task,n_text,n_num,n_cat,text,flags,detail
+vittoriohaardt/rolex-on-chrono24,87117,,,,,,,no-spec,no usable target (no numeric column qualified)
+srimathi24/food-recipe-rating-multiclass-classification,13636,,,,,,,no-spec,no usable target (no numeric column qualified)
+sujaykapadnis/horror-movies-profits-dataset,3401,production_budget,REG,2.0,2.0,2.0,"distributor,movie",ok,"target=production_budget (nuniq=314 zmax=4.06) leaks_dropped=['Unnamed: 0'] text=['distributor', 'movie'] n_nu"

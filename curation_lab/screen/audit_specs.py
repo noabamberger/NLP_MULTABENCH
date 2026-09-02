@@ -39,7 +39,7 @@ SUSPECT_TARGET = re.compile(
 def audit_one(ref: str) -> dict:
     import kagglehub
 
-    row = {"ref": ref, "rows": None, "target": None, "task": None,
+    row = {"ref": ref, "rows": None, "target": None, "task": None, "transform": "",
            "n_text": None, "n_num": None, "n_cat": None,
            "text": None, "flags": "", "detail": ""}
     try:
@@ -69,7 +69,7 @@ def audit_one(ref: str) -> dict:
             return row
 
         flags = []
-        row.update(target=spec.target, task=spec.task,
+        row.update(target=spec.target, task=spec.task, transform=spec.target_transform,
                    n_text=len(spec.text_cols), n_num=len(spec.numeric_cols),
                    n_cat=len(spec.categorical_cols), text=",".join(spec.text_cols)[:44])
         if SUSPECT_TARGET.search(str(spec.target)):
@@ -119,7 +119,7 @@ def main() -> None:
         if args.out:
             pd.DataFrame(rows).to_csv(args.out, index=False, encoding="utf-8")
     print()
-    print(pd.DataFrame(rows)[["ref", "rows", "target", "n_text", "n_num", "n_cat",
+    print(pd.DataFrame(rows)[["ref", "rows", "target", "transform", "n_text", "n_num", "n_cat",
                               "flags"]].to_string(index=False))
 
 
