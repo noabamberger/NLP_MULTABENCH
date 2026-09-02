@@ -596,11 +596,16 @@ git mv $C/t3_udemy.log $C/t3_udemy2.log $C/t3_udemy_e20.log $C/verify_udemy_e10.
 git mv $C/dj_property.csv $V/grid_frozen_cpu.csv && \
 git mv $C/dj_property_tar_frozen.csv $V/grid_frozen_gpu.csv && \
 git mv $C/dj_property_tar_all_ft.csv $V/grid_tar.csv && \
+git mv $C/dj_property_tar_pfn25.csv $V/grid_tar_pfn25.csv && \
 git mv $C/dj_property.log $V/logs/ && \
 find results/curation/accepted -type f | sort
 ```
 
-Expected: 12 files listed — 2 grids + 6 logs under Udemy, 3 grids + 1 log under Vietnam.
+Expected: 13 files listed — 2 grids + 6 logs under Udemy, 4 grids + 1 log under Vietnam.
+
+`dj_property_tar_pfn25.csv` arrives with commit `e272239`, which landed on `origin/kaggle_work`
+after this plan was first written. It is the TabPFN-2.5 grid that completes the Vietnam
+committee.
 
 - [ ] **Step 3: Move the in-progress dataset**
 
@@ -734,21 +739,22 @@ Each folder gets the document that says what it proves. All numbers below are tr
 `results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/VERDICT.md`, merging `docs/archive/DJ_PROPERTY_REPORT.md` and `docs/archive/DJ_PROPERTY_TAR_REPORT.md`:
 
 - Source `nguyentiennhan/vietnam-housing-dataset-2024`, target `Price` (687 distinct, |z|max 2.54), text `Address` — genuine free text that no structured column duplicates. 6 numeric + 4 categorical survive; no leakage columns detected.
-- **ACCEPTED**, 3 of 5. All four states were measured on one machine (Kaggle T4), 4 models × 4 states × 5 folds, no gaps — the GPU `ft` half was deliberately *not* differenced against the CPU `all` half.
+- **ACCEPTED, 5 of 5** on the complete committee — 5 models × 4 states × 5 folds = 100 cells, no gaps and nothing counted as absent. All states were measured on one machine (Kaggle T4); the GPU `ft` half was deliberately *not* differenced against the CPU `all` half.
 - The per-model table:
 
   | model | no_text | text_only | all | ft | Delta_Joint | Delta_Awareness |
   |---|---|---|---|---|---|---|
   | LightGBM | 0.342 | 0.310 | 0.592 | 0.607 | +0.250 | +0.015 |
+  | TabPFN-2.5 | 0.356 | 0.346 | 0.680 | 0.685 | **+0.324** | +0.005 |
   | TabM | 0.312 | 0.336 | 0.633 | 0.638 | +0.297 | +0.005 |
   | CatBoost | 0.341 | 0.322 | 0.632 | 0.636 | +0.291 | +0.004 |
   | TabPFNv2 | 0.342 | 0.340 | 0.646 | 0.647 | +0.304 | +0.001 |
-  | TabPFN-2.5 | — | — | — | — | — | — |
 
-- **Two caveats that must appear.** TabPFNv2 is *not* counted among the three passes: the difference of its rounded means is exactly delta and clears a strict `>` only because float64 renders `0.647 - 0.646` as `0.0010000000000000009` — decided by representation, not evidence. TabPFN-2.5 failed all ten cells with `TabPFNLicenseError` (gated weights) and is counted as a non-pass, the paper's treatment of an empty cell and the conservative direction.
+- **The caveat that must still appear.** TabPFNv2's Delta_Awareness is the float knife-edge: the difference of its rounded means is exactly delta and clears a strict `>` only because float64 renders `0.647 - 0.646` as `0.0010000000000000009`. Report it, and note that the verdict does not depend on it — excluding that cell leaves 4 of 5, still above the quorum of 3.
+- **TabPFN-2.5 is measured, not absent.** It posts the largest Delta_Joint of the five (+0.324) over a complete 20-cell grid (`grid_tar_pfn25.csv`). Earlier reports counted it as a non-pass because its weights were unavailable; that blocker is resolved and this dataset no longer rests on an empty cell. Any sentence describing TabPFN-2.5 as failing with `TabPFNLicenseError` is stale — do not carry it forward.
 - The CPU frozen grid (`grid_frozen_cpu.csv`) stands on its own: mean Delta_Joint 0.2872, std 0.0247, 25/25 cells positive, t = 58.03, against a fold-noise band of about ±0.015.
 - The domain-novelty caveat: MulTaBench already contains four housing datasets; this is a different market and a different task, but the domain overlaps. Novelty matters for the writeup, not for whether the criterion is met.
-- Note the two CSV schemas: `grid_frozen_cpu.csv` uses the CPU columns, `grid_frozen_gpu.csv` and `grid_tar.csv` the Kaggle columns. Read both through `curation_lab.criterion.deltas.normalize`.
+- Note the two CSV schemas: `grid_frozen_cpu.csv` uses the CPU columns, `grid_frozen_gpu.csv`, `grid_tar.csv` and `grid_tar_pfn25.csv` the Kaggle columns. Read both through `curation_lab.criterion.deltas.normalize`.
 
 - [ ] **Step 3: Write the MTG status**
 
@@ -803,7 +809,7 @@ Each folder gets the document that says what it proves. All numbers below are tr
 - The runner reproduces the paper exactly for `no_text`: `0.83454303717305` for every model. Anchor values, LightGBM fold 0: `no_text=0.83454303717305`, `text_only=0.7658517388790819`, `all=0.8618478948517495`.
 - Delta_Joint agrees with the paper within 0.012 across four models, all signs matching.
 - `cache_check.csv` proves the frozen embedding cache is bit-exact (~40x speedup, 600s cold to 11s warm).
-- `tabpfn25_retry.csv` records a TabPFN-2.5 retry against the gated-weights blocker.
+- `tabpfn25_retry.csv` records an early TabPFN-2.5 retry from when the model could not be loaded. That blocker is since resolved (a Prior Labs API key was needed, not an HF licence), so this file is a historical record of the failure mode, not a live limitation.
 
 - [ ] **Step 6: Write INDEX.md**
 
@@ -951,7 +957,8 @@ Sources: `CLAUDE.md`, `docs/superpowers/plans/phase1-findings.md`, `docs/archive
 
 - **The `max_length` cap is not bit-exact.** Masked padding is algebraically inert, but changing the padded length reassociates float32 matmuls and moves embeddings ~1e-7. Compare with `atol=1e-5`, never `array_equal`. Fine for screening; never for numbers compared against the paper.
 - Why encoder sharing is correct: fine-tuning happens only in the embedding step, so the tuned encoder is a function of `(x_train, y_train, e5_train_kwargs)` alone. `USE_VAL_SPLIT` is True for LightGBM/CatBoost/TabM and False for both TabPFNs, giving 2 distinct fine-tunings per fold rather than 5. The cache is keyed on argument content, not on model grouping, so it stays correct if upstream ever threads a real fold into `split_to_val`.
-- Open blockers: TabPFN-2.5's gated HuggingFace weights (`browser_auth.py::_poll_for_token` calls `select.select` on stdin, which fails on Windows with `OSError: WinError 10038` in any non-interactive context) — needs a one-time licence acceptance; and `multabench/e5/e5_finetune.py:245` asserting `CUDA_VISIBLE_DEVICES`, bypassed by `run_one(..., cpu_ft=True)`.
+- **The TabPFN-2.5 blocker, and why it survived so long.** It is now RESOLVED, and the reason it persisted is itself a finding worth recording: the blocker was mis-attributed to Hugging Face gating for weeks. `tabpfn/model_loading.py` lists 2.5/2.6/3 in `_HF_REPOS` and calls `browser_auth.ensure_license_accepted()`, which wants a **Prior Labs API key** — `HF_TOKEN` could never have satisfied it, so every attempt to fix it by accepting an HF licence was aimed at the wrong door. v2 is absent from `_HF_REPOS`, which is why it always ran. The Windows `select.select` crash (`OSError: WinError 10038`) was a real symptom of the interactive fallback, not the cause. Lesson: a blocker diagnosed from its symptom rather than its source can outlive several attempts to clear it.
+- Remaining blocker: `multabench/e5/e5_finetune.py:245` asserts `CUDA_VISIBLE_DEVICES`, bypassed by `run_one(..., cpu_ft=True)`.
 - The known test failure: `test_training_passage_matches_what_the_dataset_tokenizes` compares detokenized text (which reinserts spaces around punctuation) against the raw string. A flaw in the test, not the pipeline. Baseline is 1 failed.
 
 - [ ] **Step 6: Write `docs/status/STATE.md`**
@@ -960,7 +967,7 @@ The live handoff replacing `RESUME.md`:
 
 - Verdicts: 2 accepted (Udemy, Vietnam), 1 in progress (MTG, needs a TAR grid), 3 gridded rejections (board games, anime, metacritic), plus the screen-time rejections table.
 - Standard scope (1 passing dataset) is met twice; outstanding scope (≥5) needs 3 more.
-- Blockers: TabPFN-2.5 licence; the local candidate pool is exhausted and needs a fresh T0/T1 Kaggle search with the junk-aware profiler, because the previous search ranked on a text-column count that counted dates and ids.
+- Blockers: the local candidate pool is exhausted and needs a fresh T0/T1 Kaggle search with the junk-aware profiler, because the previous search ranked on a text-column count that counted dates and ids. **The TabPFN-2.5 blocker is resolved** — a Prior Labs API key, not an HF licence — so the full five-model committee is available for every future grid.
 - Next steps, in order: TAR grid on MTG at epochs ≥ 10 over ≥ 3 folds; then a fresh search feeding the reversed pipeline (TAR first).
 - Deadline 2026-10-26.
 - The reproduce commands, against the new paths:
@@ -1059,7 +1066,7 @@ Expected: `paper/source/instructions.pdf` exists. (`instructions.pdf` is untrack
 
 - [ ] **Step 2: Write `paper/README.md`**
 
-States: this directory holds the Technion 097215 Track 2 write-up. `source/instructions.pdf` is the assignment brief. `report.md` is a **skeleton, not a draft** — drafting it is separate work. `assets/` holds tables and figures generated from `results/curation/`; nothing there is hand-typed, so every number in the report traces to a committed CSV. Note the two deviations that must be disclosed in any submission: E5 fine-tuning ran 10 epochs rather than the `E5TrainArgs` default of 50, and TabPFN-2.5 could not run locally because of gated weights.
+States: this directory holds the Technion 097215 Track 2 write-up. `source/instructions.pdf` is the assignment brief. `report.md` is a **skeleton, not a draft** — drafting it is separate work. `assets/` holds tables and figures generated from `results/curation/`; nothing there is hand-typed, so every number in the report traces to a committed CSV. Note the deviation that must be disclosed in any submission: E5 fine-tuning ran 10 epochs rather than the `E5TrainArgs` default of 50. (TabPFN-2.5 was unavailable for the Udemy grid and is recorded there as a non-pass; it is available now, so a re-run would only strengthen that result.)
 
 - [ ] **Step 3: Write `paper/report.md` as a skeleton with evidence pointers**
 
@@ -1074,7 +1081,7 @@ Each section is a heading plus a note naming the evidence folder it draws from �
 7. **Negative results and what they taught** — Evidence: `results/curation/rejected/`, `docs/findings/03-methodological-findings.md`.
 8. **Methodological contribution** — the cheap-screen principle and its two instances. Evidence: `docs/findings/03-methodological-findings.md`.
 9. **Reproducibility and deviations** — Evidence: `docs/findings/04-environment-and-performance.md`, `results/curation/validation/`.
-10. **Limitations** — TabPFN-2.5 unavailable; 10 epochs not 50; the float knife-edge cells.
+10. **Limitations** — 10 epochs not 50; the float knife-edge cells; TabPFN-2.5 unavailable at the time of the Udemy grid though available now.
 
 - [ ] **Step 4: Archive the upstream README and add its header**
 
@@ -1094,7 +1101,7 @@ A map, in this order:
    | dataset | Delta_Joint | Delta_Awareness | verdict | evidence |
    |---|---|---|---|---|
    | `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.209 (5/5) | +0.006..+0.016 (3/5) | **ACCEPTED** | `results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/` |
-   | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.249..+0.324 (5/5) | +0.004..+0.015 (3/5) | **ACCEPTED** | `results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/` |
+   | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.250..+0.324 (5/5) | +0.001..+0.015 (5/5) | **ACCEPTED** | `results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/` |
    | `REG_TEXT_GAMES_MTG_CARD_PRICES` | +0.050..+0.075 (5/5) | not measured | in progress | `results/curation/in_progress/` |
    | board games | +0.047..+0.055 | +0.003..-0.001 (1/5) | rejected | `results/curation/rejected/board_games/` |
    | anime | +0.031..+0.037 | -0.002..0.000 (0/5) | rejected | `results/curation/rejected/anime/` |
@@ -1104,7 +1111,7 @@ A map, in this order:
 4. **Where the results are** — the five buckets, and `results/curation/INDEX.md` as the file-level map.
 5. **Where the paper is** — `paper/`, with the note that `report.md` is a skeleton.
 6. **How to run the harness** — Kaggle GPU as the primary path (`curation_lab.kaggle.push`, then `verdict_from_runs`), CPU as the legacy path that produced the Udemy and MTG grids and remains the way to reproduce them (`curation_lab.screen.verify`). Include the environment constraints inline: `.venv/Scripts/python.exe`, `PYTHONIOENCODING=utf-8`, pandas 2.3.3.
-7. **Open blockers** — TabPFN-2.5 gated weights; exhausted local candidate pool.
+7. **Open blockers** — the exhausted local candidate pool. Note that the TabPFN-2.5 blocker is resolved, so the full committee is available.
 
 - [ ] **Step 6: Verify every README link resolves, then commit**
 
