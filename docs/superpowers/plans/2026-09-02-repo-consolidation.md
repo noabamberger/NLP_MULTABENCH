@@ -506,6 +506,55 @@ cd /c/Noa/nlp/project/MulTaBench2 && git status --short results/ && echo "--- cl
 
 Expected: no output before the marker line.
 
+- [ ] **Step 6: Regenerate the manifest over the complete tree**
+
+The Task 2 manifest was taken *before* the merge, so it does not cover the 13 files that
+arrived from the GPU lane (`anime_full.csv`, `boardgames_full.csv`, `dj_property_tar_*.csv`,
+`novelty_shortlist.csv`, `screen*_fold0.csv`, `spec_audit_wave*.csv`, and the two reports).
+Task 9 would pass while one of them was lost. Right now — merged, fully captured, nothing yet
+moved — is the moment the tree holds everything at its original path.
+
+```bash
+cd /c/Noa/nlp/project/MulTaBench2 && PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -c "
+from pathlib import Path
+from curation_lab.tools.manifest import build, write_manifest
+root = Path('.').resolve()
+roots = [root / 'results']
+roots += [root / n for n in [
+    'RESUME.md', 'PHASE2_RESULTS.md', 'RESEARCH_NOTES.md', 'README.md',
+    'docs/AUTONOMOUS_MINER_RULES.md',
+]]
+entries = build(roots, root)
+write_manifest(entries, root / 'docs/superpowers/plans/consolidation-manifest.json')
+print('recorded', len(entries), 'files')
+"
+```
+
+Expected: a count larger than Task 2's, covering both lanes' files. Sanity-check that these
+GPU-lane names now appear:
+
+```bash
+cd /c/Noa/nlp/project/MulTaBench2 && grep -c 'anime_full\|boardgames_full\|dj_property_tar\|spec_audit_wave\|HUNT_ROUND2' docs/superpowers/plans/consolidation-manifest.json
+```
+
+Expected: `8` or more.
+
+- [ ] **Step 7: Commit the regenerated manifest**
+
+```bash
+cd /c/Noa/nlp/project/MulTaBench2 && git add docs/superpowers/plans/consolidation-manifest.json && git commit -F - <<'MSG'
+chore: re-take the manifest now that both lanes are present
+
+The first manifest predated the merge, so it covered neither the GPU lane's
+grids nor its two reports -- the verification in Task 9 would have passed while
+one of them was lost. This snapshot is taken at the one moment the tree holds
+every file at its original path: merged, fully captured, nothing yet moved.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01BCGmNdi44q9z3kU46BM9bo
+MSG
+```
+
 ---
 
 ## Task 5: Reorganize results into `results/curation/`
