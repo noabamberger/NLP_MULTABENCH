@@ -1,0 +1,17 @@
+ref,rows,target,task,n_text,n_num,n_cat,text,flags,detail
+nguyentiennhan/vietnam-housing-dataset-2024,30229,Price,REG,1,6,4,Address,ok,target=Price (nuniq=687 zmax=2.54) leaks_dropped=[] text=['Address'] n_num=6
+mariahalshiekh/udemy-course-academy-teaching,2999,price,REG,2,6,1,"course_instr,course_name",ok,"target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_num=6"
+tolstoyjustin/kerala-bevco-liquor-price-list-2025-2026,4389,Sl No,REG,1,13,1,Description,SUSPECT-TARGET,target=Sl No (nuniq=4105 zmax=1.76) leaks_dropped=[] text=['Description'] n_num=13
+thedevastator/get-your-game-on-metacritic-recommendations-and,12624,Metacritic,REG,2,16,0,"ReleaseDate,ResponseName",ok,"target=Metacritic (nuniq=72 zmax=2.96) leaks_dropped=[] text=['ReleaseDate', 'ResponseName'] n_num=16"
+melissamonfared/board-games,20343,Complexity Average,REG,2,6,1,"Mechanics,Name",ok,"target=Complexity Average (nuniq=379 zmax=3.54) leaks_dropped=[] text=['Mechanics', 'Name'] n_num=6"
+nomanmunir/daraz-perfumes,2280,rating,REG,3,3,5,"sold,seller,image",ok,"target=rating (nuniq=172 zmax=4.41) leaks_dropped=[] text=['sold', 'seller', 'image'] n_num=3"
+satyakidas07/retail-sales-dataset,4310,shipping_cost,REG,1,8,8,customer_name,ok,target=shipping_cost (nuniq=3140 zmax=3.82) leaks_dropped=[] text=['customer_name'] n_num=8
+neomatrix369/google-play-store-apps-extended,64295,sentiment_polarity_score,REG,2,19,10,"App,Translated_Review",DUPES-52% WIDE,target=sentiment_polarity_score (nuniq=5410 zmax=3.37) leaks_dropped=['original_Sentiment_Polarity'] text=['Ap
+jilkothari/finance-accounting-courses-udemy-13k-course,13608,avg_rating_recent,REG,2,8,4,"created,title",ok,"target=avg_rating_recent (nuniq=11781 zmax=3.76) leaks_dropped=['avg_rating', 'rating'] text=['created', 'titl"
+vikasojha98/top-women-chess-players,8553,Rapid_rating,REG,2,2,3,"Federation,Name",SUSPECT-TARGET,"target=Rapid_rating (nuniq=861 zmax=3.73) leaks_dropped=[] text=['Federation', 'Name'] n_num=2"
+muhammadaqeelkabir/steam-games-dataset-steamspy-api,10000,appid,REG,3,11,1,"developer,name,publisher",SUSPECT-TARGET TARGET-NEAR-UNIQUE,"target=appid (nuniq=9950 zmax=3.71) leaks_dropped=[] text=['developer', 'name', 'publisher'] n_num=11"
+mvieira101/global-cost-of-living,4956,x33,REG,2,55,0,"city,country",WIDE,"target=x33 (nuniq=230 zmax=4.72) leaks_dropped=[] text=['city', 'country'] n_num=55"
+shubhamchambhare/all-major-fields-courses-in-udemy-44k-courses,44571,Stars,REG,2,2,1,"Summary,Title",ok,"target=Stars (nuniq=43 zmax=3.49) leaks_dropped=[] text=['Summary', 'Title'] n_num=2"
+michaelstepanovsky/hotel-data,12619,Rating,REG,2,48,0,"Description,Hotel Name",WIDE,"target=Rating (nuniq=85 zmax=4.98) leaks_dropped=[] text=['Description', 'Hotel Name'] n_num=48"
+ahmedmohamed2003/retail-store-sales-dirty-for-data-cleaning,12575,Total Spent,REG,1,2,4,Item,ok,target=Total Spent (nuniq=227 zmax=2.96) leaks_dropped=[] text=['Item'] n_num=2
+rrokon/global-grocery-nutrition-dataset-2025,5918,ecoscore_score,REG,3,15,6,"brand,packaging_materials,product_name",ok,"target=ecoscore_score (nuniq=127 zmax=3.19) leaks_dropped=[] text=['brand', 'packaging_materials', 'product_na"
