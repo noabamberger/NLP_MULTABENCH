@@ -1,0 +1,15 @@
+ref,status,encoding,csv,n_rows,n_text,n_num,n_cat,text_cols,problems,viable,n_struct,used_domain,corpus_shaped,rejected_for,keep,score
+cameronseamons/electronic-sales-sep2023-sep2024,ok,utf-8,Electronic_sales_Sep2023-Sep2024.csv,20000,1,7,8,Purchase Date,,True,15,False,False,,True,0.85
+raminhuseyn/demand-forecasting-dataset,ok,utf-8,demand_forecasting.csv,76000,1,9,6,Date,,True,15,False,False,,True,0.85
+colabsss/smart-tourism-service-quality-dataset,ok,utf-8,Smart_Tourism_IoT_Service_Quality_Dataset.csv,13000,2,37,6,Record_ID|Tourist_ID,,True,43,False,False,,True,0.7
+shivan118/big-mart-sales-prediction-datasets,ok,utf-8,train.csv,8523,1,5,6,Item_Identifier,,True,11,False,False,,True,0.5833333333333333
+ziya07/student-learning-interaction-logs-dataset,ok,utf-8,student_learning_interaction_dataset.csv,9000,3,16,3,session_id|student_id|timestamp,,True,19,False,False,,True,0.55
+zara2099/cultural-heritage-tourism-dataset,ok,utf-8,Cultural_Heritage_Tourism_Dataset.csv,7000,3,82,12,heritage_site_id|observation_date|record_id,,True,94,False,False,,True,0.55
+sudalairajkumar/nifty-indices-dataset,ok,utf-8,NIFTY 500.csv,5353,1,9,0,Date,,True,9,False,False,,True,0.44999999999999996
+ibriiee/video-games-sales-dataset-2022-updated-extra-feat,ok,utf-8,Video_Games.csv,16719,3,9,4,Developer|Name|Publisher,,True,13,False,False,,True,0.41666666666666674
+halaturkialotaibi/makeup-website-in-saudi-arabia,ok,utf-8,Makeup website in Saudi Arabia.csv,10014,1,3,5,Order_Date,,True,8,False,False,,True,0.3833333333333333
+jithinanievarghese/drugs-related-to-common-treatments,ok,utf-8,drugs_for_common_treatments.csv,3959,2,2,8,drug_link|drug_name,,True,10,False,False,,True,0.36666666666666664
+anshtanwar/monthly-food-price-estimates,ok,utf-8,WLD_RTFP_country_2023-10-02.csv,4798,1,5,2,date,,True,7,False,False,,True,0.31666666666666665
+abhishekgupta56447/video-games-sales-from-zenodo,ok,utf-8,vgsales.csv,16598,2,7,2,Name|Publisher,,True,9,False,False,,True,0.3
+holmjason2/videogamedata,ok,latin-1,game_sales_data.csv,19600,3,5,1,Developer|Name|Publisher,,True,6,False,False,,True,-0.04999999999999993
+manarmohamed11/multicategory-electronics-product-new-egg,ok,utf-8,Multicategory Electronics Product.csv,4347,3,0,5,Original Price|Price|Title,,True,5,False,False,,True,-0.11666666666666664

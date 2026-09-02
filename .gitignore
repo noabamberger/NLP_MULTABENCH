@@ -29,3 +29,6 @@ results/candidates/
 # Remote login bootstrap (contains a password - never commit)
 remote_login.env
 remote_login.txt
+
+# Minimal venv holding only the kaggle CLI (see curation_lab/kaggle/push.py)
+.venv-tools/

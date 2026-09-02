@@ -25,39 +25,111 @@ import pandas as pd
 
 from curation_lab.ingest.candidate import CandidateSpec
 
-JUNK = re.compile(
-    r"(?:^|_|\b)(date|time|timestamp|year|id|ids|sku|url|link|code|identifier|isbn|asin|"
-    r"uuid|key|ref|rank|index|unnamed)(?:$|_|\b)", re.I)
+JUNK_TOKENS = frozenset("""
+date time timestamp year id ids sku url link code identifier isbn asin
+uuid key ref rank index unnamed serial sl no num number idx seq
+""".split())
+
+
+def _tokens(col: str) -> list[str]:
+    """Split a column name into words, splitting camelCase as well as separators.
+
+    The old regex used `\\b` around each keyword, which cannot see a boundary inside
+    `ReleaseDate` or `CustomerID` (letter-to-letter is not a word boundary) and never
+    matched the `No` of a space-separated `Sl No`. Both slipped through and became a
+    text column and a *target* respectively -- a serial-number target makes every
+    score for that dataset meaningless. Normalising to tokens first is what closes
+    the camelCase and spaced-abbreviation gaps together.
+    """
+    s = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", str(col))      # releaseDate -> release_Date
+    s = re.sub(r"(?<=[A-Z])(?=[A-Z][a-z])", "_", s)           # HTTPServer  -> HTTP_Server
+    return [t for t in re.split(r"[^A-Za-z0-9]+", s) if t]
 LEAK_CORR = 0.95
 MAX_ABS_Z = 5.0
 MIN_TARGET_UNIQUE = 20
 
 
 def _is_junk(col: str) -> bool:
-    return bool(JUNK.search(str(col)))
+    return any(t.lower() in JUNK_TOKENS for t in _tokens(col))
 
 
-def pick_target(df: pd.DataFrame, numeric_cols: list[str]) -> tuple[str | None, str]:
+ID_UNIQUE_RATIO = 0.98
+
+
+def _looks_like_identifier(s: pd.Series) -> bool:
+    """Is this numeric column a key rather than a measurement?
+
+    Needed because the scorer below *rewards* uniqueness, so a perfect identifier
+    scores the maximum -- which is how `appid` and `Sl No` became targets. Name
+    rules cannot close this: `appid` is a single glued token, and widening the
+    keyword list to any word ending in "id" would swallow `rapid`, `valid`, `paid`.
+
+    The test is structural instead: near-unique AND integral. A genuinely
+    continuous measurement can also be near-unique in a small table, so requiring
+    integrality is what keeps a legitimate float target (a price, a score) safe.
+    """
+    if len(s) == 0:
+        return False
+    if s.nunique() / len(s) <= ID_UNIQUE_RATIO:
+        return False
+    values = s.dropna()
+    return bool((values == values.round()).all())
+
+
+def _zmax(s: pd.Series) -> float:
+    return float(((s - s.mean()).abs() / s.std(ddof=0)).max())
+
+
+def pick_target(df: pd.DataFrame, numeric_cols: list[str],
+                allow_log: bool = True) -> tuple[str | None, str, str]:
     """Choose the numeric column that makes the best regression target.
 
-    Returns (column, reason). Rejects outlier-heavy columns outright: the repo only
-    warns about |z|>5 and never clips, so those wreck R^2.
+    Returns (column, transform, reason). Outlier-heavy columns are rejected because
+    the repo only warns about |z|>5 and never clips, so a few rows dominate R^2.
+
+    A right-skewed positive column (every price dataset) is retried under log1p
+    rather than discarded: that is the difference between rejecting Rolex listings
+    outright and having a usable 87k-row candidate. The raw column always wins when
+    it qualifies on its own, so no existing spec changes.
     """
-    best, best_score, why = None, -1.0, "no numeric column qualified"
+    raw: list[tuple[float, str, str, str]] = []
+    logged_: list[tuple[float, str, str, str]] = []
     for c in numeric_cols:
         if _is_junk(c):
             continue
         s = pd.to_numeric(df[c], errors="coerce").dropna()
         if len(s) < 100 or s.nunique() < MIN_TARGET_UNIQUE or s.std(ddof=0) == 0:
             continue
-        zmax = float(((s - s.mean()).abs() / s.std(ddof=0)).max())
-        if zmax > MAX_ABS_Z:
+        if _looks_like_identifier(s):
             continue
+
         # Prefer well-spread targets; nunique ratio is a decent proxy.
-        score = min(s.nunique() / len(s), 0.5) * (1.0 / (1.0 + zmax / MAX_ABS_Z))
-        if score > best_score:
-            best, best_score, why = c, score, f"nuniq={s.nunique()} zmax={zmax:.2f}"
-    return best, why
+        def _score(z):
+            return min(s.nunique() / len(s), 0.5) * (1.0 / (1.0 + z / MAX_ABS_Z))
+
+        zmax = _zmax(s)
+        if zmax <= MAX_ABS_Z:
+            raw.append((_score(zmax), c, "", f"nuniq={s.nunique()} zmax={zmax:.2f}"))
+            continue
+        if not (allow_log and (s >= 0).all()):
+            continue
+        lg = np.log1p(s)
+        if lg.std(ddof=0) == 0:
+            continue
+        zl = _zmax(lg)
+        if zl <= MAX_ABS_Z:
+            logged_.append((_score(zl), c, "log1p",
+                            f"nuniq={s.nunique()} zmax={zl:.2f} transform=log1p"))
+
+    # STRICT two-pass, not a score discount: a column that qualifies untransformed
+    # always wins. A discount is only a tendency, and it already silently moved the
+    # Udemy candidate's target from `price` to log1p(course_enrollmenters) -- exactly
+    # the kind of drift that would invalidate an already-accepted result.
+    pool = raw or logged_
+    if not pool:
+        return None, "", "no numeric column qualified"
+    best_score, best, best_tf, why = max(pool)
+    return best, best_tf, why
 
 
 def find_leaks(df: pd.DataFrame, target: str, numeric_cols: list[str]) -> list[str]:
@@ -96,7 +168,7 @@ def build_spec(df: pd.DataFrame, name: str, csv_path: str,
 
     if not text:
         return None, f"no genuine text column (raw text cols: {text_all[:4]})"
-    target, why = pick_target(df, numeric)
+    target, target_transform, why = pick_target(df, numeric)
     if target is None:
         return None, f"no usable target ({why})"
 
@@ -114,5 +186,6 @@ def build_spec(df: pd.DataFrame, name: str, csv_path: str,
         name=name, csv_path=csv_path, target=target, task="REG",
         cols_to_drop=drop, text_cols=text, numeric_cols=nums,
         categorical_cols=cats, read_kwargs=read_kwargs or {},
+        target_transform=target_transform,
     )
     return spec, f"target={target} ({why}) leaks_dropped={leaks} text={text} n_num={len(nums)}"
