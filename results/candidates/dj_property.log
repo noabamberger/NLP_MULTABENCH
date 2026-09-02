@@ -1,0 +1,611 @@
+REG_TEXT_HOUSES_VIETNAM_2024: rows=30229 | target=Price (nuniq=687 zmax=2.54) leaks_dropped=[] text=['Address'] n_num=6
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → light  [tabular: 10]
+🔥 Feature importances: Area                 0.2575
+Bathrooms            0.2166
+Floors               0.1413
+Bedrooms             0.1360
+Access_Road          0.1041
+Frontage             0.0682
+Furniture_state      0.0310
+House_direction      0.0291
+Legal_status         0.0097
+Balcony_direction    0.0064
+dtype: float64
+Scored 0.3828 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 5 seconds. Multimodal state: no_text 😶
+  light      no_text    f0 = 0.3828 (6s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → cat  [tabular: 10]
+Scored 0.3756 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 140 seconds. Multimodal state: no_text 😶
+  cat        no_text    f0 = 0.3756 (142s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabm  [tabular: 10]
+Scored 0.3476 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 301 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f0 = 0.3476 (302s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2  [tabular: 10]
+Scored 0.3813 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 635 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f0 = 0.3813 (636s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2p5  [tabular: 10]
+Scored 0.3924 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 336 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f0 = 0.3924 (337s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → light  [tabular: 10]
+🔥 Feature importances: Bathrooms            0.2571
+Area                 0.2462
+Bedrooms             0.1332
+Floors               0.1297
+Access_Road          0.0971
+Frontage             0.0697
+House_direction      0.0275
+Furniture_state      0.0253
+Legal_status         0.0107
+Balcony_direction    0.0035
+dtype: float64
+Scored 0.3300 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f1 = 0.3300 (1s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → cat  [tabular: 10]
+Scored 0.3263 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 112 seconds. Multimodal state: no_text 😶
+  cat        no_text    f1 = 0.3263 (112s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabm  [tabular: 10]
+Scored 0.2989 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 328 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f1 = 0.2989 (328s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2  [tabular: 10]
+Scored 0.3294 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 496 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f1 = 0.3294 (497s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2p5  [tabular: 10]
+Scored 0.3399 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 254 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f1 = 0.3399 (255s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → light  [tabular: 10]
+🔥 Feature importances: Area                 0.2310
+Bathrooms            0.2191
+Bedrooms             0.1525
+Floors               0.1375
+Access_Road          0.1129
+Frontage             0.0775
+Furniture_state      0.0277
+House_direction      0.0195
+Legal_status         0.0134
+Balcony_direction    0.0089
+dtype: float64
+Scored 0.3359 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f2 = 0.3359 (1s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → cat  [tabular: 10]
+Scored 0.3362 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 50 seconds. Multimodal state: no_text 😶
+  cat        no_text    f2 = 0.3362 (51s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabm  [tabular: 10]
+Scored 0.3037 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 207 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f2 = 0.3037 (207s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2  [tabular: 10]
+Scored 0.3319 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 438 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f2 = 0.3319 (438s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2p5  [tabular: 10]
+Scored 0.3494 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 249 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f2 = 0.3494 (250s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → light  [tabular: 10]
+🔥 Feature importances: Area                 0.2557
+Bathrooms            0.2298
+Bedrooms             0.1393
+Floors               0.1346
+Access_Road          0.1009
+Frontage             0.0704
+Furniture_state      0.0249
+House_direction      0.0228
+Legal_status         0.0148
+Balcony_direction    0.0069
+dtype: float64
+Scored 0.3353 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f3 = 0.3353 (1s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → cat  [tabular: 10]
+Scored 0.3370 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 77 seconds. Multimodal state: no_text 😶
+  cat        no_text    f3 = 0.3370 (78s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabm  [tabular: 10]
+Scored 0.3123 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 176 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f3 = 0.3123 (177s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2  [tabular: 10]
+Scored 0.3419 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 454 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f3 = 0.3419 (455s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2p5  [tabular: 10]
+Scored 0.3542 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 259 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f3 = 0.3542 (260s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → light  [tabular: 10]
+🔥 Feature importances: Area                 0.2328
+Bedrooms             0.2241
+Bathrooms            0.1677
+Floors               0.1334
+Access_Road          0.0959
+Frontage             0.0765
+House_direction      0.0247
+Furniture_state      0.0227
+Balcony_direction    0.0112
+Legal_status         0.0110
+dtype: float64
+Scored 0.3270 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f4 = 0.3270 (1s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → cat  [tabular: 10]
+Scored 0.3319 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 70 seconds. Multimodal state: no_text 😶
+  cat        no_text    f4 = 0.3319 (71s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabm  [tabular: 10]
+Scored 0.3035 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 247 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f4 = 0.3035 (248s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2  [tabular: 10]
+Scored 0.3236 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 457 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f4 = 0.3236 (458s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 10 features → tabpfnv2p5  [tabular: 10]
+Scored 0.3464 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 259 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f4 = 0.3464 (260s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7571.91it/s]
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Address_txt    1.0
+dtype: float64
+Scored 0.3321 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 5 seconds. Multimodal state: text_only 📝
+  light      text_only  f0 = 0.3321 (6s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.3476 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 11 seconds. Multimodal state: text_only 📝
+  cat        text_only  f0 = 0.3476 (12s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.3496 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 399 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f0 = 0.3496 (399s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.3477 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 943 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f0 = 0.3477 (944s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.3641 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 667 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f0 = 0.3641 (668s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.643
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Address_txt    1.0
+dtype: float64
+Scored 0.2949 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 19 seconds. Multimodal state: text_only 📝
+  light      text_only  f1 = 0.2949 (20s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.643
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.3043 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 8 seconds. Multimodal state: text_only 📝
+  cat        text_only  f1 = 0.3043 (8s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.643
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.3263 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 288 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f1 = 0.3263 (289s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.3273 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 920 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f1 = 0.3273 (921s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.3355 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 667 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f1 = 0.3355 (667s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Address_txt    1.0
+dtype: float64
+Scored 0.2943 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 12 seconds. Multimodal state: text_only 📝
+  light      text_only  f2 = 0.2943 (12s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.3085 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 9 seconds. Multimodal state: text_only 📝
+  cat        text_only  f2 = 0.3085 (9s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.3299 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 342 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f2 = 0.3299 (343s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.3247 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 921 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f2 = 0.3247 (922s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.3328 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 665 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f2 = 0.3328 (666s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Address_txt    1.0
+dtype: float64
+Scored 0.3473 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 8 seconds. Multimodal state: text_only 📝
+  light      text_only  f3 = 0.3473 (9s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.3633 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 8 seconds. Multimodal state: text_only 📝
+  cat        text_only  f3 = 0.3633 (8s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.3786 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 272 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f3 = 0.3786 (273s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.3859 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 913 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f3 = 0.3859 (913s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.3946 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 666 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f3 = 0.3946 (667s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Address_txt    1.0
+dtype: float64
+Scored 0.2899 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 6 seconds. Multimodal state: text_only 📝
+  light      text_only  f4 = 0.2899 (7s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.3003 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 7 seconds. Multimodal state: text_only 📝
+  cat        text_only  f4 = 0.3003 (7s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.2848 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 464 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f4 = 0.2848 (465s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.3138 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 916 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f4 = 0.3138 (917s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.3029 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 664 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f4 = 0.3029 (665s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 40 features → light  [tabular: 10 | txt_emb: 30]
+🔥 Feature importances: Address_txt          0.4980
+Area                 0.1835
+Bathrooms            0.1177
+Floors               0.0688
+Bedrooms             0.0675
+Access_Road          0.0445
+Frontage             0.0106
+Furniture_state      0.0041
+House_direction      0.0023
+Legal_status         0.0022
+Balcony_direction    0.0008
+dtype: float64
+Scored 0.6189 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 2 seconds. Multimodal state: all 🔥
+  light      all        f0 = 0.6189 (3s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 40 features → cat  [tabular: 10 | txt_emb: 30]
+Scored 0.6598 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 125 seconds. Multimodal state: all 🔥
+  cat        all        f0 = 0.6598 (126s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 40 features → tabm  [tabular: 10 | txt_emb: 30]
+Scored 0.6530 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 836 seconds. Multimodal state: all 🔥
+  tabm       all        f0 = 0.6530 (837s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 40 features → tabpfnv2  [tabular: 10 | txt_emb: 30]
+Scored 0.6681 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 1301 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f0 = 0.6681 (1302s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 40 features → tabpfnv2p5  [tabular: 10 | txt_emb: 30]
+Scored 0.7028 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 0 in 838 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f0 = 0.7028 (839s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.643
+🔭 40 features → light  [tabular: 10 | txt_emb: 30]
+🔥 Feature importances: Address_txt          0.5034
+Area                 0.1686
+Bathrooms            0.1413
+Bedrooms             0.0695
+Floors               0.0618
+Access_Road          0.0405
+Frontage             0.0073
+Furniture_state      0.0031
+Legal_status         0.0031
+House_direction      0.0010
+Balcony_direction    0.0003
+dtype: float64
+Scored 0.5679 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 2 seconds. Multimodal state: all 🔥
+  light      all        f1 = 0.5679 (3s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.643
+🔭 40 features → cat  [tabular: 10 | txt_emb: 30]
+Scored 0.6144 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 137 seconds. Multimodal state: all 🔥
+  cat        all        f1 = 0.6144 (137s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.643
+🔭 40 features → tabm  [tabular: 10 | txt_emb: 30]
+Scored 0.6210 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 744 seconds. Multimodal state: all 🔥
+  tabm       all        f1 = 0.6210 (744s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabpfnv2  [tabular: 10 | txt_emb: 30]
+Scored 0.6297 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 1303 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f1 = 0.6297 (1303s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabpfnv2p5  [tabular: 10 | txt_emb: 30]
+Scored 0.6690 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 1 in 839 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f1 = 0.6690 (840s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → light  [tabular: 10 | txt_emb: 30]
+🔥 Feature importances: Address_txt          0.4998
+Area                 0.1630
+Bathrooms            0.1217
+Bedrooms             0.0802
+Floors               0.0721
+Access_Road          0.0446
+Frontage             0.0094
+Legal_status         0.0049
+Furniture_state      0.0028
+House_direction      0.0009
+Balcony_direction    0.0005
+dtype: float64
+Scored 0.5840 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 2 seconds. Multimodal state: all 🔥
+  light      all        f2 = 0.5840 (3s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → cat  [tabular: 10 | txt_emb: 30]
+Scored 0.6238 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 136 seconds. Multimodal state: all 🔥
+  cat        all        f2 = 0.6238 (137s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → tabm  [tabular: 10 | txt_emb: 30]
+Scored 0.6204 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 736 seconds. Multimodal state: all 🔥
+  tabm       all        f2 = 0.6204 (737s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabpfnv2  [tabular: 10 | txt_emb: 30]
+Scored 0.6365 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 1299 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f2 = 0.6365 (1300s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabpfnv2p5  [tabular: 10 | txt_emb: 30]
+Scored 0.6662 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 2 in 838 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f2 = 0.6662 (839s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → light  [tabular: 10 | txt_emb: 30]
+🔥 Feature importances: Address_txt          0.5051
+Area                 0.1715
+Bathrooms            0.1201
+Bedrooms             0.0829
+Floors               0.0588
+Access_Road          0.0453
+Frontage             0.0086
+Legal_status         0.0041
+Furniture_state      0.0028
+House_direction      0.0006
+Balcony_direction    0.0001
+dtype: float64
+Scored 0.6064 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 2 seconds. Multimodal state: all 🔥
+  light      all        f3 = 0.6064 (3s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → cat  [tabular: 10 | txt_emb: 30]
+Scored 0.6488 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 137 seconds. Multimodal state: all 🔥
+  cat        all        f3 = 0.6488 (138s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabm  [tabular: 10 | txt_emb: 30]
+Scored 0.6604 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 891 seconds. Multimodal state: all 🔥
+  tabm       all        f3 = 0.6604 (892s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → tabpfnv2  [tabular: 10 | txt_emb: 30]
+Scored 0.6653 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 1297 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f3 = 0.6653 (1298s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → tabpfnv2p5  [tabular: 10 | txt_emb: 30]
+Scored 0.7041 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 3 in 839 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f3 = 0.7041 (840s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → light  [tabular: 10 | txt_emb: 30]
+🔥 Feature importances: Address_txt          0.4904
+Area                 0.1654
+Bedrooms             0.1192
+Bathrooms            0.0958
+Floors               0.0688
+Access_Road          0.0414
+Frontage             0.0103
+Legal_status         0.0026
+Furniture_state      0.0023
+Balcony_direction    0.0022
+House_direction      0.0017
+dtype: float64
+Scored 0.5759 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 3 seconds. Multimodal state: all 🔥
+  light      all        f4 = 0.5759 (3s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → cat  [tabular: 10 | txt_emb: 30]
+Scored 0.6085 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 136 seconds. Multimodal state: all 🔥
+  cat        all        f4 = 0.6085 (136s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.642
+🔭 40 features → tabm  [tabular: 10 | txt_emb: 30]
+Scored 0.6117 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 620 seconds. Multimodal state: all 🔥
+  tabm       all        f4 = 0.6117 (620s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabpfnv2  [tabular: 10 | txt_emb: 30]
+Scored 0.6269 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 1298 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f4 = 0.6269 (1298s)
+🎯 Regression variable Price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 10000 texts
+🔍 [PCA variance] Address: 0.641
+🔭 40 features → tabpfnv2p5  [tabular: 10 | txt_emb: 30]
+Scored 0.6557 on dataset REG_TEXT_HOUSES_VIETNAM_2024, fold 4 in 835 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f4 = 0.6557 (835s)
+
+=== deltas ===
+     model  n_rows  delta_joint  delta_awareness
+  CatBoost      15        0.290              NaN
+  LightGBM      15        0.249              NaN
+      TabM      15        0.299              NaN
+TabPFN-2.5      15        0.324              NaN
+  TabPFNv2      15        0.303              NaN

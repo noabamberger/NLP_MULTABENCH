@@ -1,0 +1,2 @@
+model,dataset,fold,multimodal_state,test_score,runtime,n_train,n_test,m_features,task_type,tune_e5
+LightGBM 💡,MUL_TEXT_PRODUCT_SENTIMENT,0,all,0.8618478948517495,438.88758754730225,4582,509,2,MUL,False

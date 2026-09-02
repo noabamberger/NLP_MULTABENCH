@@ -1,0 +1,1570 @@
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+hunting 34 candidates (used-domain filtered)
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable shipping_cost had no extreme outliers.
+🔭 16 features → light  [tabular: 16]
+🔥 Feature importances: region                   0.4097
+product_name             0.0986
+age                      0.0860
+city                     0.0731
+discount_pct             0.0662
+unit_price               0.0449
+quantity                 0.0447
+profit                   0.0411
+sales_amount             0.0396
+customer_satisfaction    0.0344
+days_to_ship             0.0343
+payment_method           0.0121
+gender                   0.0070
+order_status             0.0062
+return_flag              0.0016
+product_category         0.0005
+dtype: float64
+Scored 0.2894 on dataset REG_TEXT_AUTO_SATYAKIDAS07_RETAIL_SALES_DATASET, fold 0 in 2 seconds. Multimodal state: no_text 😶
+🎯 Regression variable shipping_cost had no extreme outliers.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 12723.77it/s]
+Fitting E5ColumnEncoder for column customer_name with model intfloat/e5-small-v2 for 3467 texts
+🔍 [PCA variance] customer_name: 0.924
+🔭 46 features → light  [tabular: 16 | txt_emb: 30]
+🔥 Feature importances: customer_name_txt        0.3806
+region                   0.3720
+product_name             0.0771
+city                     0.0543
+age                      0.0266
+discount_pct             0.0190
+quantity                 0.0144
+sales_amount             0.0109
+days_to_ship             0.0107
+unit_price               0.0104
+profit                   0.0080
+customer_satisfaction    0.0076
+payment_method           0.0028
+gender                   0.0027
+order_status             0.0027
+return_flag              0.0002
+product_category         0.0000
+dtype: float64
+Scored 0.3203 on dataset REG_TEXT_AUTO_SATYAKIDAS07_RETAIL_SALES_DATASET, fold 0 in 10 seconds. Multimodal state: all 🔥
+🎯 Regression variable shipping_cost had no extreme outliers.
+Fitting E5ColumnEncoder for column customer_name with model intfloat/e5-small-v2 for 3467 texts
+🔍 [PCA variance] customer_name: 0.924
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: customer_name_txt    1.0
+dtype: float64
+Scored -0.1018 on dataset REG_TEXT_AUTO_SATYAKIDAS07_RETAIL_SALES_DATASET, fold 0 in 1 seconds. Multimodal state: text_only 📝
+[1/34] PASS   dj=0.0309 nt=0.28937551414662654 all=0.3203098065690225 to=-0.10177833019879823 14.3s satyakidas07/retail-sales-dataset :: target=shipping_cost (nuniq=3140 zmax=3.82) leaks_dropped=[] text=['customer_name'] n_num=
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Sl No had no extreme outliers.
+🔭 14 features → light  [tabular: 14]
+🔥 Feature importances: Proof              0.5225
+Source_File        0.1918
+Landed_Cost        0.0725
+Special_Fee        0.0464
+Warehouse_Price    0.0449
+Shop_Before_Tax    0.0405
+Wh_Before_Tax      0.0387
+Import_Fee         0.0189
+Volume_(ml)        0.0084
+Wh_Tax             0.0082
+Shop_Tax           0.0037
+Shop_Price         0.0030
+Cess               0.0004
+Case_Qty           0.0001
+dtype: float64
+Scored 0.6920 on dataset REG_TEXT_AUTO_TOLSTOYJUSTIN_KERALA_BEVCO_LIQUOR_PRICE_LIST, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Sl No had no extreme outliers.
+Fitting E5ColumnEncoder for column Description with model intfloat/e5-small-v2 for 3556 texts
+🔍 [PCA variance] Description: 0.545
+🔭 44 features → light  [tabular: 14 | txt_emb: 30]
+🔥 Feature importances: Description_txt    0.4249
+Proof              0.3912
+Source_File        0.1431
+Landed_Cost        0.0162
+Import_Fee         0.0095
+Special_Fee        0.0046
+Wh_Before_Tax      0.0042
+Warehouse_Price    0.0035
+Wh_Tax             0.0016
+Shop_Before_Tax    0.0008
+Shop_Tax           0.0003
+Shop_Price         0.0001
+Volume_(ml)        0.0000
+Case_Qty           0.0000
+Cess               0.0000
+dtype: float64
+Scored 0.9643 on dataset REG_TEXT_AUTO_TOLSTOYJUSTIN_KERALA_BEVCO_LIQUOR_PRICE_LIST, fold 0 in 12 seconds. Multimodal state: all 🔥
+🎯 Regression variable Sl No had no extreme outliers.
+Fitting E5ColumnEncoder for column Description with model intfloat/e5-small-v2 for 3556 texts
+🔍 [PCA variance] Description: 0.545
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Description_txt    1.0
+dtype: float64
+Scored 0.8280 on dataset REG_TEXT_AUTO_TOLSTOYJUSTIN_KERALA_BEVCO_LIQUOR_PRICE_LIST, fold 0 in 1 seconds. Multimodal state: text_only 📝
+[2/34] PASS   dj=0.1362 nt=0.692027214413534 all=0.9642655727936218 to=0.8280300137893629 15.9s tolstoyjustin/kerala-bevco-liquor-price-list :: target=Sl No (nuniq=4105 zmax=1.76) leaks_dropped=[] text=['Description'] n_num=13
+[3/34] skip   dj=None nt=None all=None to=None 0.5s mansiaggarwal88/global-trending-topics-datas :: no usable target (no numeric column qualified)
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable calories had no extreme outliers.
+🔭 16 features → light  [tabular: 16]
+🔥 Feature importances: item_category           0.7570
+city                    0.0325
+brand_name              0.0244
+item_subcategory        0.0237
+serving_size_g          0.0229
+total_carbs_g           0.0214
+total_fat_g             0.0204
+price_usd_normalized    0.0203
+protein_g               0.0203
+sugars_g                0.0189
+sodium_mg               0.0174
+avg_rating              0.0110
+brand_tier              0.0078
+city_tier               0.0014
+is_bestseller           0.0008
+country                 0.0000
+dtype: float64
+Scored 0.6286 on dataset REG_TEXT_AUTO_SRIDIPBASU_GLOBAL_FOOD_NUTRITION_DATASET_PRI, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable calories had no extreme outliers.
+Fitting E5ColumnEncoder for column item_name with model intfloat/e5-small-v2 for 6075 texts
+🔍 [PCA variance] item_name: 0.752
+🔭 46 features → light  [tabular: 16 | txt_emb: 30]
+🔥 Feature importances: item_category           0.7398
+item_name_txt           0.0907
+city                    0.0282
+brand_name              0.0208
+item_subcategory        0.0191
+price_usd_normalized    0.0144
+total_carbs_g           0.0134
+sugars_g                0.0129
+protein_g               0.0129
+total_fat_g             0.0120
+serving_size_g          0.0112
+sodium_mg               0.0098
+avg_rating              0.0069
+brand_tier              0.0064
+city_tier               0.0011
+is_bestseller           0.0004
+country                 0.0000
+dtype: float64
+Scored 0.6277 on dataset REG_TEXT_AUTO_SRIDIPBASU_GLOBAL_FOOD_NUTRITION_DATASET_PRI, fold 0 in 1 seconds. Multimodal state: all 🔥
+🎯 Regression variable calories had no extreme outliers.
+Fitting E5ColumnEncoder for column item_name with model intfloat/e5-small-v2 for 6075 texts
+🔍 [PCA variance] item_name: 0.752
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: item_name_txt    1.0
+dtype: float64
+Scored 0.6296 on dataset REG_TEXT_AUTO_SRIDIPBASU_GLOBAL_FOOD_NUTRITION_DATASET_PRI, fold 0 in 2 seconds. Multimodal state: text_only 📝
+[4/34] FAIL   dj=-0.0019 nt=0.6285842829057405 all=0.6277297177895842 to=0.6295968676243547 5.5s sridipbasu/global-food-nutrition-dataset-pri :: target=calories (nuniq=4393 zmax=3.28) leaks_dropped=[] text=['item_name'] n_num=9
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Total Spent had no extreme outliers.
+🔭 6 features → light  [tabular: 6]
+🔥 Feature importances: Quantity            0.5214
+Price_Per_Unit      0.4740
+Discount_Applied    0.0016
+Payment_Method      0.0014
+Location            0.0010
+Category            0.0005
+dtype: float64
+Scored 0.9643 on dataset REG_TEXT_AUTO_AHMEDMOHAMED2003_RETAIL_STORE_SALES_DIRTY_FO, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Total Spent had no extreme outliers.
+Fitting E5ColumnEncoder for column Item with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Item: 0.996
+🔭 36 features → light  [tabular: 6 | txt_emb: 30]
+🔥 Feature importances: Quantity            0.5205
+Price_Per_Unit      0.4716
+Item_txt            0.0037
+Discount_Applied    0.0014
+Payment_Method      0.0013
+Location            0.0011
+Category            0.0005
+dtype: float64
+Scored 0.9676 on dataset REG_TEXT_AUTO_AHMEDMOHAMED2003_RETAIL_STORE_SALES_DIRTY_FO, fold 0 in 21 seconds. Multimodal state: all 🔥
+🎯 Regression variable Total Spent had no extreme outliers.
+Fitting E5ColumnEncoder for column Item with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Item: 0.996
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Item_txt    1.0
+dtype: float64
+Scored 0.3532 on dataset REG_TEXT_AUTO_AHMEDMOHAMED2003_RETAIL_STORE_SALES_DIRTY_FO, fold 0 in 1 seconds. Multimodal state: text_only 📝
+[5/34] PASS   dj=0.0033 nt=0.9643243975940005 all=0.9675760674012245 to=0.3532007109877796 24.9s ahmedmohamed2003/retail-store-sales-dirty-fo :: target=Total Spent (nuniq=227 zmax=2.96) leaks_dropped=[] text=['Item'] n_num=2
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Price had no extreme outliers.
+🔭 10 features → light  [tabular: 10]
+🔥 Feature importances: Area                 0.2575
+Bathrooms            0.2166
+Floors               0.1413
+Bedrooms             0.1360
+Access_Road          0.1041
+Frontage             0.0682
+Furniture_state      0.0310
+House_direction      0.0291
+Legal_status         0.0097
+Balcony_direction    0.0064
+dtype: float64
+Scored 0.3828 on dataset REG_TEXT_AUTO_NGUYENTIENNHAN_VIETNAM_HOUSING_DATASET_2024, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Price had no extreme outliers.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 40 features → light  [tabular: 10 | txt_emb: 30]
+🔥 Feature importances: Address_txt          0.4980
+Area                 0.1835
+Bathrooms            0.1177
+Floors               0.0688
+Bedrooms             0.0675
+Access_Road          0.0445
+Frontage             0.0106
+Furniture_state      0.0041
+House_direction      0.0023
+Legal_status         0.0022
+Balcony_direction    0.0008
+dtype: float64
+Scored 0.6189 on dataset REG_TEXT_AUTO_NGUYENTIENNHAN_VIETNAM_HOUSING_DATASET_2024, fold 0 in 69 seconds. Multimodal state: all 🔥
+🎯 Regression variable Price had no extreme outliers.
+Fitting E5ColumnEncoder for column Address with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Address: 0.640
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Address_txt    1.0
+dtype: float64
+Scored 0.3321 on dataset REG_TEXT_AUTO_NGUYENTIENNHAN_VIETNAM_HOUSING_DATASET_2024, fold 0 in 2 seconds. Multimodal state: text_only 📝
+[6/34] PASS   dj=0.2361 nt=0.38275207329250605 all=0.6188883273782935 to=0.3320921799738743 74.5s nguyentiennhan/vietnam-housing-dataset-2024 :: target=Price (nuniq=687 zmax=2.54) leaks_dropped=[] text=['Address'] n_num=6
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Watches Sold by the Seller had no extreme outliers.
+🔭 19 features → light  [tabular: 19]
+🔥 Feature importances: Active_listing_of_the_seller    0.8608
+Price                           0.0568
+Water_resistance                0.0218
+Scope_of_delivery               0.0188
+Fast_Shipper                    0.0090
+Availability                    0.0077
+Face_Area                       0.0074
+Shape                           0.0028
+Trusted_Seller                  0.0027
+Bracelet_material               0.0024
+Case_material                   0.0019
+Condition                       0.0019
+Gender                          0.0017
+Bracelet_color                  0.0015
+Dial                            0.0014
+Clasp                           0.0009
+Crystal                         0.0005
+Movement                        0.0000
+Punctuality                     0.0000
+dtype: float64
+Scored 0.9359 on dataset REG_TEXT_AUTO_BERIDZEG45_WATCH_PRICES_DATASET, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Watches Sold by the Seller had no extreme outliers.
+Fitting E5ColumnEncoder for column Brand with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Brand: 0.496
+🔭 49 features → light  [tabular: 19 | txt_emb: 30]
+🔥 Feature importances: Active_listing_of_the_seller    0.8456
+Price                           0.0523
+Brand_txt                       0.0503
+Water_resistance                0.0202
+Scope_of_delivery               0.0101
+Fast_Shipper                    0.0049
+Face_Area                       0.0027
+Trusted_Seller                  0.0020
+Clasp                           0.0018
+Availability                    0.0017
+Bracelet_material               0.0017
+Gender                          0.0015
+Condition                       0.0013
+Bracelet_color                  0.0008
+Shape                           0.0008
+Dial                            0.0008
+Case_material                   0.0007
+Crystal                         0.0007
+Movement                        0.0000
+Punctuality                     0.0000
+dtype: float64
+Scored 0.9345 on dataset REG_TEXT_AUTO_BERIDZEG45_WATCH_PRICES_DATASET, fold 0 in 29 seconds. Multimodal state: all 🔥
+🎯 Regression variable Watches Sold by the Seller had no extreme outliers.
+Fitting E5ColumnEncoder for column Brand with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Brand: 0.496
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: Brand_txt    1.0
+dtype: float64
+Scored 0.3670 on dataset REG_TEXT_AUTO_BERIDZEG45_WATCH_PRICES_DATASET, fold 0 in 2 seconds. Multimodal state: text_only 📝
+[7/34] FAIL   dj=-0.0014 nt=0.9359251588504004 all=0.9345473964182425 to=0.36699760658086156 35.9s beridzeg45/watch-prices-dataset :: target=Watches Sold by the Seller (nuniq=1404 zmax=4.66) leaks_dropped=['Seller Reviews'] 
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable CustomerID had no extreme outliers.
+🔭 13 features → light  [tabular: 13]
+🔥 Feature importances: Tenure_Months       0.3635
+Online_Spend        0.2516
+Offline_Spend       0.1086
+Month               0.0965
+Location            0.0554
+Gender              0.0458
+Discount_pct        0.0454
+Avg_Price           0.0125
+Delivery_Charges    0.0108
+Quantity            0.0055
+Coupon_Status       0.0020
+Product_Category    0.0019
+GST                 0.0004
+dtype: float64
+Scored 0.5232 on dataset REG_TEXT_AUTO_JACKSONDIVAKARR_ONLINE_SHOPPING_DATASET, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable CustomerID had no extreme outliers.
+Fitting E5ColumnEncoder for column Product_Description with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Product_Description: 0.782
+🔭 43 features → light  [tabular: 13 | txt_emb: 30]
+🔥 Feature importances: Tenure_Months              0.3382
+Online_Spend               0.2206
+Offline_Spend              0.0945
+Product_Description_txt    0.0918
+Month                      0.0916
+Location                   0.0622
+Gender                     0.0413
+Discount_pct               0.0376
+Delivery_Charges           0.0086
+Avg_Price                  0.0053
+Quantity                   0.0049
+Coupon_Status              0.0030
+Product_Category           0.0004
+GST                        0.0000
+dtype: float64
+Scored 0.4537 on dataset REG_TEXT_AUTO_JACKSONDIVAKARR_ONLINE_SHOPPING_DATASET, fold 0 in 30 seconds. Multimodal state: all 🔥
+[8/34] FAIL   dj=None nt=0.5232487346080934 all=0.4536951243299042 to=None 33.9s jacksondivakarr/online-shopping-dataset :: target=CustomerID (nuniq=1468 zmax=1.70) leaks_dropped=[] text=['Product_Description'] n_n
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable price had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: price_dis               0.3484
+coures_reviews          0.1646
+course_enrollmenters    0.1575
+course_lectures         0.1567
+course_totalHourse      0.0847
+course_rating           0.0774
+course_level            0.0107
+dtype: float64
+Scored 0.2957 on dataset REG_TEXT_AUTO_MARIAHALSHIEKH_UDEMY_COURSE_ACADEMY_TEACHING, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable price had no extreme outliers.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4128
+course_name_txt         0.2507
+price_dis               0.2355
+coures_reviews          0.0436
+course_lectures         0.0360
+course_enrollmenters    0.0114
+course_totalHourse      0.0065
+course_rating           0.0019
+course_level            0.0016
+dtype: float64
+Scored 0.4957 on dataset REG_TEXT_AUTO_MARIAHALSHIEKH_UDEMY_COURSE_ACADEMY_TEACHING, fold 0 in 29 seconds. Multimodal state: all 🔥
+🎯 Regression variable price had no extreme outliers.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt    0.5948
+course_name_txt     0.4052
+dtype: float64
+Scored 0.2083 on dataset REG_TEXT_AUTO_MARIAHALSHIEKH_UDEMY_COURSE_ACADEMY_TEACHING, fold 0 in 1 seconds. Multimodal state: text_only 📝
+[9/34] PASS   dj=0.2001 nt=0.29565601848272804 all=0.49573199015659863 to=0.20829228564579982 32.3s mariahalshiekh/udemy-course-academy-teaching :: target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable x33 had no extreme outliers.
+🔭 55 features → light  [tabular: 55]
+🔥 Feature importances: x55             0.3720
+x27             0.0940
+x7              0.0858
+x44             0.0404
+x38             0.0322
+x8              0.0319
+x36             0.0259
+x28             0.0251
+x5              0.0214
+x16             0.0181
+x6              0.0138
+x24             0.0115
+x1              0.0113
+x19             0.0112
+x41             0.0109
+x13             0.0101
+x3              0.0101
+x35             0.0097
+x10             0.0095
+x37             0.0091
+x12             0.0088
+x9              0.0088
+x31             0.0080
+x25             0.0080
+x4              0.0074
+x34             0.0071
+x15             0.0065
+x23             0.0064
+x18             0.0062
+x29             0.0061
+x42             0.0051
+x11             0.0050
+x43             0.0050
+x17             0.0048
+x53             0.0042
+x46             0.0039
+x21             0.0038
+x22             0.0037
+x26             0.0037
+x30             0.0034
+x2              0.0032
+x32             0.0031
+x20             0.0030
+x14             0.0030
+x54             0.0029
+x47             0.0025
+x39             0.0022
+x45             0.0021
+x49             0.0017
+x48             0.0014
+x52             0.0013
+x51             0.0013
+x50             0.0011
+x40             0.0011
+data_quality    0.0000
+dtype: float64
+Scored 0.8197 on dataset REG_TEXT_AUTO_MVIEIRA101_GLOBAL_COST_OF_LIVING, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable x33 had no extreme outliers.
+Fitting E5ColumnEncoder for column city with model intfloat/e5-small-v2 for 3539 texts
+🔍 [PCA variance] city: 0.401
+Fitting E5ColumnEncoder for column country with model intfloat/e5-small-v2 for 3539 texts
+🔍 [PCA variance] country: 0.858
+🔭 115 features → light  [tabular: 55 | txt_emb: 60]
+🔥 Feature importances: country_txt     0.7791
+x27             0.1002
+city_txt        0.0146
+x3              0.0120
+x8              0.0087
+x7              0.0077
+x36             0.0054
+x44             0.0036
+x12             0.0031
+x14             0.0028
+x55             0.0027
+x18             0.0027
+x4              0.0027
+x24             0.0027
+x9              0.0027
+x23             0.0026
+x46             0.0026
+x10             0.0024
+x31             0.0022
+x41             0.0022
+x5              0.0022
+x13             0.0021
+x48             0.0019
+x6              0.0019
+x53             0.0017
+x51             0.0017
+x19             0.0016
+x16             0.0016
+x20             0.0014
+x49             0.0013
+x1              0.0012
+x28             0.0012
+x35             0.0012
+x17             0.0011
+x38             0.0011
+x42             0.0010
+x15             0.0010
+x52             0.0010
+x37             0.0009
+x30             0.0008
+x11             0.0008
+x2              0.0008
+x50             0.0007
+x39             0.0007
+x43             0.0007
+x25             0.0007
+x22             0.0006
+x29             0.0006
+x47             0.0006
+x45             0.0006
+x26             0.0006
+x21             0.0005
+x32             0.0005
+x54             0.0003
+x34             0.0003
+x40             0.0003
+data_quality    0.0001
+dtype: float64
+Scored 0.9138 on dataset REG_TEXT_AUTO_MVIEIRA101_GLOBAL_COST_OF_LIVING, fold 0 in 24 seconds. Multimodal state: all 🔥
+🎯 Regression variable x33 had no extreme outliers.
+Fitting E5ColumnEncoder for column city with model intfloat/e5-small-v2 for 3539 texts
+🔍 [PCA variance] city: 0.401
+Fitting E5ColumnEncoder for column country with model intfloat/e5-small-v2 for 3539 texts
+🔍 [PCA variance] country: 0.858
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: country_txt    0.9459
+city_txt       0.0541
+dtype: float64
+Scored 0.9015 on dataset REG_TEXT_AUTO_MVIEIRA101_GLOBAL_COST_OF_LIVING, fold 0 in 1 seconds. Multimodal state: text_only 📝
+[10/34] PASS   dj=0.0123 nt=0.8197301206474962 all=0.9137811250561501 to=0.9015217500652037 28.5s mvieira101/global-cost-of-living :: target=x33 (nuniq=230 zmax=4.72) leaks_dropped=[] text=['city', 'country'] n_num=55
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Rapid_rating had no extreme outliers.
+🔭 5 features → light  [tabular: 5]
+🔥 Feature importances: Standard_Rating    0.5435
+Blitz_rating       0.4130
+Title              0.0351
+Inactive_flag      0.0084
+Gender             0.0000
+dtype: float64
+Scored 0.7923 on dataset REG_TEXT_AUTO_VIKASOJHA98_TOP_WOMEN_CHESS_PLAYERS, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Rapid_rating had no extreme outliers.
+Fitting E5ColumnEncoder for column Federation with model intfloat/e5-small-v2 for 2924 texts
+🔍 [PCA variance] Federation: 0.861
+Fitting E5ColumnEncoder for column Name with model intfloat/e5-small-v2 for 2924 texts
+🔍 [PCA variance] Name: 0.395
+🔭 65 features → light  [tabular: 5 | txt_emb: 60]
+🔥 Feature importances: Standard_Rating    0.4563
+Blitz_rating       0.3583
+Name_txt           0.0924
+Federation_txt     0.0465
+Title              0.0430
+Inactive_flag      0.0035
+Gender             0.0000
+dtype: float64
+Scored 0.8165 on dataset REG_TEXT_AUTO_VIKASOJHA98_TOP_WOMEN_CHESS_PLAYERS, fold 0 in 258 seconds. Multimodal state: all 🔥
+🎯 Regression variable Rapid_rating had no extreme outliers.
+Fitting E5ColumnEncoder for column Federation with model intfloat/e5-small-v2 for 2924 texts
+🔍 [PCA variance] Federation: 0.861
+Fitting E5ColumnEncoder for column Name with model intfloat/e5-small-v2 for 2924 texts
+🔍 [PCA variance] Name: 0.395
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: Name_txt          0.7546
+Federation_txt    0.2454
+dtype: float64
+Scored 0.0736 on dataset REG_TEXT_AUTO_VIKASOJHA98_TOP_WOMEN_CHESS_PLAYERS, fold 0 in 1 seconds. Multimodal state: text_only 📝
+[11/34] PASS   dj=0.0242 nt=0.7923373775871763 all=0.8165148210640814 to=0.07360254186473725 262.0s vikasojha98/top-women-chess-players :: target=Rapid_rating (nuniq=861 zmax=3.73) leaks_dropped=[] text=['Federation', 'Name'] n_n
+[12/34] skip   dj=None nt=None all=None to=None 0.6s songseungwon/2020-udemy-courses-dataset :: no usable target (no numeric column qualified)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (536 > 512). Running this sequence through the model will result in indexing errors
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Rating had no extreme outliers.
+🔭 48 features → light  [tabular: 48]
+🔥 Feature importances: Price                                              0.2143
+Center_Distance                                    0.1424
+Number_of_Reviews                                  0.1379
+Metro_Distance                                     0.1335
+Бесплатный_чай/кофе                                0.0675
+Трансфер                                           0.0386
+Размещение_с_домашними_животными_не_допускается    0.0358
+Фен_(по_запросу)                                   0.0232
+Парковка                                           0.0195
+Номера_для_некурящих                               0.0132
+Отель_для_некурящих                                0.0126
+Телевизор                                          0.0115
+Стиральная_машина                                  0.0105
+Круглосуточная_стойка_регистрации                  0.0097
+Кабельное_телевидение                              0.0097
+Бесплатный_Wi_Fi                                   0.0096
+Бесплатная_общественная_парковка_поблизости        0.0087
+Индивидуальная_регистрация_заезда_и_отъезда        0.0084
+Отопление                                          0.0082
+Ранняя_регистрация_заезда                          0.0075
+Хранение_багажа                                    0.0071
+Гладильные_принадлежности                          0.0067
+Поздняя_регистрация_выезда                         0.0066
+Обслуживание_номеров                               0.0066
+Микроволновая_печь                                 0.0065
+Семейные_номера                                    0.0059
+Завтрак                                            0.0057
+Магазины                                           0.0050
+Размещение_подходит_для_семей/детей                0.0046
+Доступ_в_интернет                                  0.0035
+Ускоренная_регистрация_заезда                      0.0025
+Трансфер_от_аэропорта                              0.0024
+Халат                                              0.0021
+Терраса                                            0.0020
+Холодильник                                        0.0020
+Is_Top_Stays                                       0.0019
+Сейф_(в_номере)                                    0.0012
+Упакованные_ланчи                                  0.0012
+Телефон                                            0.0009
+Компьютер                                          0.0009
+Бар                                                0.0008
+Кафе                                               0.0008
+Завтрак_в_номер                                    0.0004
+Пресса                                             0.0003
+Диетическое_меню_(по_запросу)                      0.0000
+Гладильные_услуги_(оплачивается_отдельно)          0.0000
+Персонал_говорит_на_английском                     0.0000
+Персонал_говорит_на_русском                        0.0000
+dtype: float64
+Scored 0.1547 on dataset REG_TEXT_AUTO_MICHAELSTEPANOVSKY_HOTEL_DATA, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Rating had no extreme outliers.
+Fitting E5ColumnEncoder for column Description with model intfloat/e5-small-v2 for 5265 texts
+🔍 [PCA variance] Description: 0.574
+Fitting E5ColumnEncoder for column Hotel Name with model intfloat/e5-small-v2 for 5265 texts
+🔍 [PCA variance] Hotel Name: 0.489
+🔭 108 features → light  [tabular: 48 | txt_emb: 60]
+🔥 Feature importances: Description_txt                                    0.3584
+Hotel_Name_txt                                     0.3481
+Number_of_Reviews                                  0.0736
+Price                                              0.0727
+Бесплатный_чай/кофе                                0.0389
+Metro_Distance                                     0.0256
+Размещение_с_домашними_животными_не_допускается    0.0201
+Трансфер                                           0.0170
+Center_Distance                                    0.0150
+Парковка                                           0.0073
+Стиральная_машина                                  0.0028
+Фен_(по_запросу)                                   0.0027
+Обслуживание_номеров                               0.0024
+Круглосуточная_стойка_регистрации                  0.0019
+Отель_для_некурящих                                0.0019
+Отопление                                          0.0014
+Микроволновая_печь                                 0.0011
+Магазины                                           0.0010
+Телевизор                                          0.0009
+Завтрак                                            0.0008
+Номера_для_некурящих                               0.0007
+Индивидуальная_регистрация_заезда_и_отъезда        0.0007
+Ранняя_регистрация_заезда                          0.0007
+Is_Top_Stays                                       0.0007
+Доступ_в_интернет                                  0.0006
+Упакованные_ланчи                                  0.0005
+Бесплатная_общественная_парковка_поблизости        0.0004
+Размещение_подходит_для_семей/детей                0.0003
+Гладильные_принадлежности                          0.0003
+Бесплатный_Wi_Fi                                   0.0003
+Сейф_(в_номере)                                    0.0003
+Семейные_номера                                    0.0002
+Хранение_багажа                                    0.0001
+Ускоренная_регистрация_заезда                      0.0001
+Кафе                                               0.0001
+Поздняя_регистрация_выезда                         0.0001
+Компьютер                                          0.0000
+Пресса                                             0.0000
+Терраса                                            0.0000
+Халат                                              0.0000
+Холодильник                                        0.0000
+Кабельное_телевидение                              0.0000
+Диетическое_меню_(по_запросу)                      0.0000
+Бар                                                0.0000
+Гладильные_услуги_(оплачивается_отдельно)          0.0000
+Телефон                                            0.0000
+Завтрак_в_номер                                    0.0000
+Персонал_говорит_на_русском                        0.0000
+Трансфер_от_аэропорта                              0.0000
+Персонал_говорит_на_английском                     0.0000
+dtype: float64
+Scored 0.1590 on dataset REG_TEXT_AUTO_MICHAELSTEPANOVSKY_HOTEL_DATA, fold 0 in 532 seconds. Multimodal state: all 🔥
+🎯 Regression variable Rating had no extreme outliers.
+Fitting E5ColumnEncoder for column Description with model intfloat/e5-small-v2 for 5265 texts
+🔍 [PCA variance] Description: 0.574
+Fitting E5ColumnEncoder for column Hotel Name with model intfloat/e5-small-v2 for 5265 texts
+🔍 [PCA variance] Hotel Name: 0.489
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: Hotel_Name_txt     0.5197
+Description_txt    0.4803
+dtype: float64
+Scored 0.0362 on dataset REG_TEXT_AUTO_MICHAELSTEPANOVSKY_HOTEL_DATA, fold 0 in 5 seconds. Multimodal state: text_only 📝
+[13/34] PASS   dj=0.0043 nt=0.15471557513433432 all=0.15900284171166423 to=0.036199417697869274 542.2s michaelstepanovsky/hotel-data :: target=Rating (nuniq=85 zmax=4.98) leaks_dropped=[] text=['Description', 'Hotel Name'] n_n
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Metacritic had no extreme outliers.
+🔭 16 features → light  [tabular: 16]
+🔥 Feature importances: RecommendationCount            0.5299
+PriceInitial                   0.2277
+GenreIsEarlyAccess             0.0814
+GenreIsIndie                   0.0337
+GenreIsCasual                  0.0256
+GenreIsSimulation              0.0218
+GenreIsStrategy                0.0197
+GenreIsRPG                     0.0171
+GenreIsAction                  0.0145
+GenreIsAdventure               0.0113
+GenreIsNonGame                 0.0076
+GenreIsRacing                  0.0031
+GenreIsSports                  0.0024
+IsFree                         0.0021
+GenreIsMassivelyMultiplayer    0.0012
+GenreIsFreeToPlay              0.0008
+dtype: float64
+Scored 0.3920 on dataset REG_TEXT_AUTO_THEDEVASTATOR_GET_YOUR_GAME_ON_METACRITIC_RE, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Metacritic had no extreme outliers.
+Fitting E5ColumnEncoder for column ReleaseDate with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] ReleaseDate: 0.978
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] ResponseName: 0.370
+🔭 76 features → light  [tabular: 16 | txt_emb: 60]
+🔥 Feature importances: ReleaseDate_txt                0.3678
+RecommendationCount            0.2551
+ResponseName_txt               0.2132
+PriceInitial                   0.0922
+GenreIsEarlyAccess             0.0327
+GenreIsCasual                  0.0133
+GenreIsStrategy                0.0069
+GenreIsSimulation              0.0044
+GenreIsAdventure               0.0038
+GenreIsNonGame                 0.0033
+GenreIsIndie                   0.0031
+GenreIsRPG                     0.0025
+GenreIsAction                  0.0009
+GenreIsRacing                  0.0004
+IsFree                         0.0001
+GenreIsFreeToPlay              0.0001
+GenreIsSports                  0.0000
+GenreIsMassivelyMultiplayer    0.0000
+dtype: float64
+Scored 0.4745 on dataset REG_TEXT_AUTO_THEDEVASTATOR_GET_YOUR_GAME_ON_METACRITIC_RE, fold 0 in 93 seconds. Multimodal state: all 🔥
+🎯 Regression variable Metacritic had no extreme outliers.
+Fitting E5ColumnEncoder for column ReleaseDate with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] ReleaseDate: 0.978
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] ResponseName: 0.370
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: ReleaseDate_txt     0.5995
+ResponseName_txt    0.4005
+dtype: float64
+Scored 0.2404 on dataset REG_TEXT_AUTO_THEDEVASTATOR_GET_YOUR_GAME_ON_METACRITIC_RE, fold 0 in 3 seconds. Multimodal state: text_only 📝
+[14/34] PASS   dj=0.0825 nt=0.3920029605633665 all=0.47452019156776837 to=0.2404187861310445 98.7s thedevastator/get-your-game-on-metacritic-re :: target=Metacritic (nuniq=72 zmax=2.96) leaks_dropped=[] text=['ReleaseDate', 'ResponseName
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable avg_rating_recent had no extreme outliers.
+🔭 12 features → light  [tabular: 12]
+🔥 Feature importances: num_reviews                     0.9379
+num_subscribers                 0.0268
+num_published_lectures          0.0185
+price_detail__price_string      0.0071
+price_detail__amount            0.0055
+discount_price__amount          0.0031
+num_published_practice_tests    0.0008
+discount_price__price_string    0.0004
+is_paid                         0.0000
+is_wishlisted                   0.0000
+discount_price__currency        0.0000
+price_detail__currency          0.0000
+dtype: float64
+Scored 0.7542 on dataset REG_TEXT_AUTO_JILKOTHARI_FINANCE_ACCOUNTING_COURSES_UDEMY_, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable avg_rating_recent had no extreme outliers.
+Fitting E5ColumnEncoder for column created with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] created: 0.918
+Fitting E5ColumnEncoder for column title with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] title: 0.462
+🔭 72 features → light  [tabular: 12 | txt_emb: 60]
+🔥 Feature importances: num_reviews                     0.8549
+title_txt                       0.0650
+created_txt                     0.0575
+num_subscribers                 0.0091
+num_published_lectures          0.0056
+price_detail__price_string      0.0045
+discount_price__amount          0.0018
+price_detail__amount            0.0009
+discount_price__price_string    0.0005
+num_published_practice_tests    0.0000
+is_wishlisted                   0.0000
+is_paid                         0.0000
+discount_price__currency        0.0000
+price_detail__currency          0.0000
+dtype: float64
+Scored 0.7788 on dataset REG_TEXT_AUTO_JILKOTHARI_FINANCE_ACCOUNTING_COURSES_UDEMY_, fold 0 in 132 seconds. Multimodal state: all 🔥
+🎯 Regression variable avg_rating_recent had no extreme outliers.
+Fitting E5ColumnEncoder for column created with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] created: 0.918
+Fitting E5ColumnEncoder for column title with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] title: 0.462
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: title_txt      0.5371
+created_txt    0.4629
+dtype: float64
+Scored 0.0460 on dataset REG_TEXT_AUTO_JILKOTHARI_FINANCE_ACCOUNTING_COURSES_UDEMY_, fold 0 in 3 seconds. Multimodal state: text_only 📝
+[15/34] PASS   dj=0.0245 nt=0.754233432885273 all=0.7787658159233029 to=0.046007105021011685 138.6s jilkothari/finance-accounting-courses-udemy- :: target=avg_rating_recent (nuniq=11781 zmax=3.76) leaks_dropped=['avg_rating', 'rating'] te
+[16/34] skip   dj=None nt=None all=None to=None 0.6s dhrubangtalukdar/magnus-carlsen-chess-com-ga :: no usable target (no numeric column qualified)
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Complexity Average had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: Domains           0.5690
+Rating_Average    0.1579
+Min_Age           0.1352
+Max_Players       0.0437
+Users_Rated       0.0432
+Owned_Users       0.0424
+Min_Players       0.0085
+dtype: float64
+Scored 0.5840 on dataset REG_TEXT_AUTO_MELISSAMONFARED_BOARD_GAMES, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Complexity Average had no extreme outliers.
+Fitting E5ColumnEncoder for column Mechanics with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Mechanics: 0.876
+Fitting E5ColumnEncoder for column Name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Name: 0.357
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: Domains           0.4670
+Mechanics_txt     0.1678
+Name_txt          0.1262
+Rating_Average    0.1067
+Min_Age           0.0944
+Max_Players       0.0175
+Users_Rated       0.0119
+Owned_Users       0.0068
+Min_Players       0.0017
+dtype: float64
+Scored 0.6228 on dataset REG_TEXT_AUTO_MELISSAMONFARED_BOARD_GAMES, fold 0 in 415 seconds. Multimodal state: all 🔥
+🎯 Regression variable Complexity Average had no extreme outliers.
+Fitting E5ColumnEncoder for column Mechanics with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Mechanics: 0.876
+Fitting E5ColumnEncoder for column Name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Name: 0.357
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: Mechanics_txt    0.6858
+Name_txt         0.3142
+dtype: float64
+Scored 0.5024 on dataset REG_TEXT_AUTO_MELISSAMONFARED_BOARD_GAMES, fold 0 in 4 seconds. Multimodal state: text_only 📝
+[17/34] PASS   dj=0.0388 nt=0.5840176711206982 all=0.6227834384258129 to=0.5024069552509925 423.7s melissamonfared/board-games :: target=Complexity Average (nuniq=379 zmax=3.54) leaks_dropped=[] text=['Mechanics', 'Name'
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Stars had no extreme outliers.
+🔭 3 features → light  [tabular: 3]
+🔥 Feature importances: Rating        0.9659
+Enrollment    0.0291
+Category      0.0051
+dtype: float64
+Scored 0.7352 on dataset REG_TEXT_AUTO_SHUBHAMCHAMBHARE_ALL_MAJOR_FIELDS_COURSES_IN, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Stars had no extreme outliers.
+Fitting E5ColumnEncoder for column Summary with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Summary: 0.442
+Fitting E5ColumnEncoder for column Title with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Title: 0.451
+🔭 63 features → light  [tabular: 3 | txt_emb: 60]
+🔥 Feature importances: Rating         0.8593
+Summary_txt    0.0650
+Title_txt      0.0635
+Enrollment     0.0104
+Category       0.0019
+dtype: float64
+Scored 0.7452 on dataset REG_TEXT_AUTO_SHUBHAMCHAMBHARE_ALL_MAJOR_FIELDS_COURSES_IN, fold 0 in 489 seconds. Multimodal state: all 🔥
+🎯 Regression variable Stars had no extreme outliers.
+Fitting E5ColumnEncoder for column Summary with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Summary: 0.442
+Fitting E5ColumnEncoder for column Title with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Title: 0.451
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: Summary_txt    0.5062
+Title_txt      0.4938
+dtype: float64
+Scored 0.0125 on dataset REG_TEXT_AUTO_SHUBHAMCHAMBHARE_ALL_MAJOR_FIELDS_COURSES_IN, fold 0 in 5 seconds. Multimodal state: text_only 📝
+[18/34] PASS   dj=0.01 nt=0.735162963917747 all=0.7452024103285546 to=0.012517847756890577 498.3s shubhamchambhare/all-major-fields-courses-in :: target=Stars (nuniq=43 zmax=3.49) leaks_dropped=[] text=['Summary', 'Title'] n_num=2
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable sentiment_polarity_score had no extreme outliers.
+🔭 29 features → light  [tabular: 29]
+🔥 Feature importances: sentiment_polarity_summarised        0.6572
+sentiment_polarity                   0.2025
+sentiment_subjectivity_score         0.0637
+alpha_numeric_count                  0.0136
+count_words                          0.0098
+characters_count                     0.0075
+ease_of_reading_score                0.0055
+noun_phase_count                     0.0054
+non_alpha_numeric_count              0.0052
+spelling_quality_score               0.0051
+spaces_count                         0.0041
+chars_excl_spaces_count              0.0036
+original_Sentiment                   0.0027
+punctuations_count                   0.0026
+original_Sentiment_Subjectivity      0.0020
+duplicates_count                     0.0019
+sentences_count                      0.0015
+stop_words_count                     0.0012
+grammar_check_score                  0.0010
+sentiment_subjectivity               0.0009
+ease_of_reading_quality              0.0009
+whole_numbers_count                  0.0008
+grammar_check                        0.0008
+sentiment_subjectivity_summarised    0.0003
+spelling_quality                     0.0001
+emoji_count                          0.0000
+dates_count                          0.0000
+ease_of_reading_summarised           0.0000
+spelling_quality_summarised          0.0000
+dtype: float64
+Scored 0.8734 on dataset REG_TEXT_AUTO_NEOMATRIX369_GOOGLE_PLAY_STORE_APPS_EXTENDED, fold 0 in 2 seconds. Multimodal state: no_text 😶
+🎯 Regression variable sentiment_polarity_score had no extreme outliers.
+Fitting E5ColumnEncoder for column App with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] App: 0.489
+Fitting E5ColumnEncoder for column Translated_Review with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Translated_Review: 0.492
+🔭 89 features → light  [tabular: 29 | txt_emb: 60]
+🔥 Feature importances: sentiment_polarity_summarised        0.6164
+sentiment_polarity                   0.1996
+Translated_Review_txt                0.1006
+sentiment_subjectivity_score         0.0508
+App_txt                              0.0134
+original_Sentiment                   0.0041
+count_words                          0.0026
+characters_count                     0.0021
+alpha_numeric_count                  0.0018
+non_alpha_numeric_count              0.0015
+noun_phase_count                     0.0009
+sentiment_subjectivity               0.0009
+ease_of_reading_score                0.0008
+spelling_quality_score               0.0008
+spaces_count                         0.0008
+original_Sentiment_Subjectivity      0.0007
+chars_excl_spaces_count              0.0005
+ease_of_reading_quality              0.0004
+punctuations_count                   0.0002
+grammar_check_score                  0.0002
+sentences_count                      0.0002
+duplicates_count                     0.0001
+stop_words_count                     0.0001
+sentiment_subjectivity_summarised    0.0001
+grammar_check                        0.0001
+ease_of_reading_summarised           0.0000
+whole_numbers_count                  0.0000
+dates_count                          0.0000
+emoji_count                          0.0000
+spelling_quality_summarised          0.0000
+spelling_quality                     0.0000
+dtype: float64
+Scored 0.9010 on dataset REG_TEXT_AUTO_NEOMATRIX369_GOOGLE_PLAY_STORE_APPS_EXTENDED, fold 0 in 1440 seconds. Multimodal state: all 🔥
+🎯 Regression variable sentiment_polarity_score had no extreme outliers.
+Fitting E5ColumnEncoder for column App with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] App: 0.489
+Fitting E5ColumnEncoder for column Translated_Review with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Translated_Review: 0.492
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: Translated_Review_txt    0.9345
+App_txt                  0.0655
+dtype: float64
+Scored 0.5841 on dataset REG_TEXT_AUTO_NEOMATRIX369_GOOGLE_PLAY_STORE_APPS_EXTENDED, fold 0 in 7 seconds. Multimodal state: text_only 📝
+[19/34] PASS   dj=0.0276 nt=0.8733777735437279 all=0.9009954162763989 to=0.5840519916375091 1456.9s neomatrix369/google-play-store-apps-extended :: target=sentiment_polarity_score (nuniq=5410 zmax=3.37) leaks_dropped=['original_Sentiment_
+Traceback (most recent call last):
+  File "C:\Noa\nlp\project\MulTaBench2\curation_lab\screen\hunt.py", line 92, in hunt_one
+    row["text_only"] = _one_run(spec, "text_only", 0, device, cache_dir)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+multabench.datasets.multimodal.MultimodalError: No text features found, irrelevant
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable 2013 had no extreme outliers.
+🔭 28 features → light  [tabular: 28]
+🔥 Feature importances: series_name     0.9496
+country_name    0.0504
+1985            0.0000
+1986            0.0000
+1987            0.0000
+1990            0.0000
+1991            0.0000
+1992            0.0000
+1993            0.0000
+1995            0.0000
+1996            0.0000
+1997            0.0000
+1998            0.0000
+1999            0.0000
+2000            0.0000
+2001            0.0000
+2002            0.0000
+2003            0.0000
+2004            0.0000
+2005            0.0000
+2006            0.0000
+2007            0.0000
+2008            0.0000
+2009            0.0000
+2010            0.0000
+2011            0.0000
+2012            0.0000
+2015            0.0000
+dtype: float64
+Scored 0.9411 on dataset REG_TEXT_AUTO_MYLESONEILL_WORLD_UNIVERSITY_RANKINGS, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable 2013 had no extreme outliers.
+🔭 28 features → light  [tabular: 28]
+🔥 Feature importances: series_name     0.9496
+country_name    0.0504
+1985            0.0000
+1986            0.0000
+1987            0.0000
+1990            0.0000
+1991            0.0000
+1992            0.0000
+1993            0.0000
+1995            0.0000
+1996            0.0000
+1997            0.0000
+1998            0.0000
+1999            0.0000
+2000            0.0000
+2001            0.0000
+2002            0.0000
+2003            0.0000
+2004            0.0000
+2005            0.0000
+2006            0.0000
+2007            0.0000
+2008            0.0000
+2009            0.0000
+2010            0.0000
+2011            0.0000
+2012            0.0000
+2015            0.0000
+dtype: float64
+Scored 0.9411 on dataset REG_TEXT_AUTO_MYLESONEILL_WORLD_UNIVERSITY_RANKINGS, fold 0 in 1 seconds. Multimodal state: all 🔥
+[20/34] error  dj=None nt=0.9411129643207599 all=0.9411129643207599 to=None 5.7s mylesoneill/world-university-rankings :: MultimodalError: No text features found, irrelevant
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable price had no extreme outliers.
+🔭 14 features → light  [tabular: 14]
+🔥 Feature importances: weight_grams      0.1922
+battery_mAh       0.1835
+review_count      0.1767
+rating            0.1268
+gpu               0.0530
+storage           0.0448
+warranty          0.0383
+screen_size       0.0366
+cpu               0.0316
+country_origin    0.0305
+color             0.0304
+ram               0.0231
+category          0.0219
+in_stock          0.0106
+dtype: float64
+Scored -0.0332 on dataset REG_TEXT_AUTO_ROHITENG_APPLE_PRODUCTS_DATASET_100K_ROWS_AN, fold 0 in 2 seconds. Multimodal state: no_text 😶
+🎯 Regression variable price had no extreme outliers.
+Fitting E5ColumnEncoder for column dimensions_mm with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] dimensions_mm: 0.738
+Fitting E5ColumnEncoder for column model_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] model_name: 0.835
+🔭 74 features → light  [tabular: 14 | txt_emb: 60]
+🔥 Feature importances: dimensions_mm_txt    0.5043
+model_name_txt       0.3777
+battery_mAh          0.0231
+weight_grams         0.0207
+review_count         0.0185
+rating               0.0144
+screen_size          0.0078
+color                0.0078
+storage              0.0053
+gpu                  0.0051
+category             0.0046
+country_origin       0.0043
+warranty             0.0027
+cpu                  0.0022
+ram                  0.0008
+in_stock             0.0007
+dtype: float64
+Scored -0.0447 on dataset REG_TEXT_AUTO_ROHITENG_APPLE_PRODUCTS_DATASET_100K_ROWS_AN, fold 0 in 169 seconds. Multimodal state: all 🔥
+[21/34] FAIL   dj=None nt=-0.03321340472481449 all=-0.04469432131357598 to=None 177.1s rohiteng/apple-products-dataset-100k-rows-an :: target=price (nuniq=85760 zmax=1.73) leaks_dropped=[] text=['dimensions_mm', 'model_name']
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable rating had no extreme outliers.
+🔭 8 features → light  [tabular: 8]
+🔥 Feature importances: price             0.3289
+brand             0.1903
+reviews           0.1869
+original_price    0.1864
+cologne_type      0.0406
+category          0.0332
+location          0.0279
+volume            0.0058
+dtype: float64
+Scored -0.1299 on dataset REG_TEXT_AUTO_NOMANMUNIR_DARAZ_PERFUMES, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable rating had no extreme outliers.
+Fitting E5ColumnEncoder for column image with model intfloat/e5-small-v2 for 816 texts
+🔍 [PCA variance] image: 0.811
+Fitting E5ColumnEncoder for column sold with model intfloat/e5-small-v2 for 816 texts
+🔍 [PCA variance] sold: 0.969
+🔭 69 features → light  [tabular: 9 | txt_emb: 60]
+🔥 Feature importances: image_txt         0.6635
+sold_txt          0.1669
+seller            0.0916
+reviews           0.0390
+original_price    0.0161
+price             0.0094
+location          0.0047
+cologne_type      0.0045
+category          0.0034
+brand             0.0006
+volume            0.0002
+dtype: float64
+Scored -0.0088 on dataset REG_TEXT_AUTO_NOMANMUNIR_DARAZ_PERFUMES, fold 0 in 21 seconds. Multimodal state: all 🔥
+🎯 Regression variable rating had no extreme outliers.
+Fitting E5ColumnEncoder for column image with model intfloat/e5-small-v2 for 816 texts
+🔍 [PCA variance] image: 0.811
+Fitting E5ColumnEncoder for column sold with model intfloat/e5-small-v2 for 816 texts
+🔍 [PCA variance] sold: 0.969
+🔭 61 features → light  [tabular: 1 | txt_emb: 60]
+🔥 Feature importances: image_txt    0.7224
+sold_txt     0.1861
+seller       0.0915
+dtype: float64
+Scored -0.0455 on dataset REG_TEXT_AUTO_NOMANMUNIR_DARAZ_PERFUMES, fold 0 in 3 seconds. Multimodal state: text_only 📝
+[22/34] PASS   dj=0.0367 nt=-0.12990144003828918 all=-0.008773781011577109 to=-0.04546479467784281 26.5s nomanmunir/daraz-perfumes :: target=rating (nuniq=172 zmax=4.41) leaks_dropped=[] text=['sold', 'seller', 'image'] n_nu
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Listing Price had no extreme outliers.
+🔭 5 features → light  [tabular: 5]
+🔥 Feature importances: Sale_Price    0.5873
+Brand         0.2876
+Discount      0.0802
+Reviews       0.0334
+Rating        0.0115
+dtype: float64
+Scored 0.9212 on dataset REG_TEXT_AUTO_KAUSHIKSURESH147_ADIDAS_VS_NIKE, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Listing Price had no extreme outliers.
+Fitting E5ColumnEncoder for column Description with model intfloat/e5-small-v2 for 2648 texts
+🔍 [PCA variance] Description: 0.524
+Fitting E5ColumnEncoder for column Last Visited with model intfloat/e5-small-v2 for 2648 texts
+🔍 [PCA variance] Last Visited: 0.944
+Fitting E5ColumnEncoder for column Product Name with model intfloat/e5-small-v2 for 2648 texts
+🔍 [PCA variance] Product Name: 0.628
+🔭 95 features → light  [tabular: 5 | txt_emb: 90]
+🔥 Feature importances: Sale_Price          0.4121
+Brand               0.2783
+Product_Name_txt    0.1121
+Description_txt     0.0890
+Discount            0.0718
+Last_Visited_txt    0.0301
+Reviews             0.0064
+Rating              0.0002
+dtype: float64
+Scored 0.8163 on dataset REG_TEXT_AUTO_KAUSHIKSURESH147_ADIDAS_VS_NIKE, fold 0 in 352 seconds. Multimodal state: all 🔥
+[23/34] FAIL   dj=None nt=0.9211902624026296 all=0.8162991096655449 to=None 354.0s kaushiksuresh147/adidas-vs-nike :: target=Listing Price (nuniq=78 zmax=4.90) leaks_dropped=[] text=['Description', 'Last Visi
+[24/34] skip   dj=None nt=None all=None to=None 0.6s anandshaw2001/airlines-reviews-and-rating :: no usable target (no numeric column qualified)
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable ecoscore_score had no extreme outliers.
+🔭 21 features → light  [tabular: 21]
+🔥 Feature importances: ecoscore_grade            0.9728
+proteins_100g             0.0032
+fat_100g                  0.0031
+sugars_100g               0.0030
+salt_100g                 0.0029
+barcode                   0.0029
+ingredients_count         0.0021
+saturated_fat_100g        0.0020
+nutriscore_score          0.0020
+fiber_100g                0.0018
+subcategory               0.0013
+country                   0.0008
+nova_group                0.0007
+additives_count           0.0007
+category                  0.0003
+last_modified             0.0002
+nutriscore_grade          0.0001
+is_vegetarian             0.0001
+nutrition_completeness    0.0000
+is_vegan                  0.0000
+is_palm_oil_free          0.0000
+dtype: float64
+Scored 0.9691 on dataset REG_TEXT_AUTO_RROKON_GLOBAL_GROCERY_NUTRITION_DATASET_2025, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable ecoscore_score had no extreme outliers.
+Fitting E5ColumnEncoder for column brand with model intfloat/e5-small-v2 for 2988 texts
+🔍 [PCA variance] brand: 0.422
+Fitting E5ColumnEncoder for column packaging_materials with model intfloat/e5-small-v2 for 2988 texts
+🔍 [PCA variance] packaging_materials: 0.944
+Fitting E5ColumnEncoder for column product_name with model intfloat/e5-small-v2 for 2988 texts
+🔍 [PCA variance] product_name: 0.424
+🔭 111 features → light  [tabular: 21 | txt_emb: 90]
+🔥 Feature importances: ecoscore_grade             0.9666
+product_name_txt           0.0126
+brand_txt                  0.0096
+packaging_materials_txt    0.0017
+fat_100g                   0.0016
+proteins_100g              0.0014
+sugars_100g                0.0012
+subcategory                0.0009
+salt_100g                  0.0009
+ingredients_count          0.0007
+saturated_fat_100g         0.0005
+barcode                    0.0005
+nutriscore_score           0.0004
+fiber_100g                 0.0004
+country                    0.0003
+additives_count            0.0003
+category                   0.0002
+nova_group                 0.0001
+last_modified              0.0000
+is_vegan                   0.0000
+nutriscore_grade           0.0000
+is_vegetarian              0.0000
+is_palm_oil_free           0.0000
+nutrition_completeness     0.0000
+dtype: float64
+Scored 0.9697 on dataset REG_TEXT_AUTO_RROKON_GLOBAL_GROCERY_NUTRITION_DATASET_2025, fold 0 in 177 seconds. Multimodal state: all 🔥
+🎯 Regression variable ecoscore_score had no extreme outliers.
+Fitting E5ColumnEncoder for column brand with model intfloat/e5-small-v2 for 2988 texts
+🔍 [PCA variance] brand: 0.422
+Fitting E5ColumnEncoder for column packaging_materials with model intfloat/e5-small-v2 for 2988 texts
+🔍 [PCA variance] packaging_materials: 0.944
+Fitting E5ColumnEncoder for column product_name with model intfloat/e5-small-v2 for 2988 texts
+🔍 [PCA variance] product_name: 0.424
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: product_name_txt           0.6173
+brand_txt                  0.3157
+packaging_materials_txt    0.0670
+dtype: float64
+Scored 0.1189 on dataset REG_TEXT_AUTO_RROKON_GLOBAL_GROCERY_NUTRITION_DATASET_2025, fold 0 in 14 seconds. Multimodal state: text_only 📝
+[25/34] PASS   dj=0.0005 nt=0.9691425336722679 all=0.9696828645110702 to=0.1189371955729166 195.0s rrokon/global-grocery-nutrition-dataset-2025 :: target=ecoscore_score (nuniq=127 zmax=3.19) leaks_dropped=[] text=['brand', 'packaging_mat
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable appid had no extreme outliers.
+🔭 12 features → light  [tabular: 12]
+🔥 Feature importances: average_forever    0.2468
+ccu                0.1823
+negative           0.1466
+median_forever     0.1168
+owners             0.1044
+positive           0.0775
+initialprice       0.0532
+price              0.0390
+discount           0.0132
+median_2weeks      0.0102
+average_2weeks     0.0100
+userscore          0.0000
+dtype: float64
+Scored 0.4712 on dataset REG_TEXT_AUTO_MUHAMMADAQEELKABIR_STEAM_GAMES_DATASET_STEAM, fold 0 in 2 seconds. Multimodal state: no_text 😶
+🎯 Regression variable appid had no extreme outliers.
+Fitting E5ColumnEncoder for column developer with model intfloat/e5-small-v2 for 8100 texts
+🔍 [PCA variance] developer: 0.382
+Fitting E5ColumnEncoder for column name with model intfloat/e5-small-v2 for 8100 texts
+🔍 [PCA variance] name: 0.357
+Fitting E5ColumnEncoder for column publisher with model intfloat/e5-small-v2 for 8100 texts
+🔍 [PCA variance] publisher: 0.454
+🔭 102 features → light  [tabular: 12 | txt_emb: 90]
+🔥 Feature importances: publisher_txt      0.1668
+average_forever    0.1642
+ccu                0.1233
+name_txt           0.1207
+developer_txt      0.1086
+negative           0.0937
+owners             0.0789
+median_forever     0.0616
+positive           0.0301
+initialprice       0.0291
+price              0.0130
+discount           0.0068
+median_2weeks      0.0028
+average_2weeks     0.0004
+userscore          0.0000
+dtype: float64
+Scored 0.4947 on dataset REG_TEXT_AUTO_MUHAMMADAQEELKABIR_STEAM_GAMES_DATASET_STEAM, fold 0 in 439 seconds. Multimodal state: all 🔥
+🎯 Regression variable appid had no extreme outliers.
+Fitting E5ColumnEncoder for column developer with model intfloat/e5-small-v2 for 8100 texts
+🔍 [PCA variance] developer: 0.382
+Fitting E5ColumnEncoder for column name with model intfloat/e5-small-v2 for 8100 texts
+🔍 [PCA variance] name: 0.357
+Fitting E5ColumnEncoder for column publisher with model intfloat/e5-small-v2 for 8100 texts
+🔍 [PCA variance] publisher: 0.454
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: publisher_txt    0.4137
+developer_txt    0.3134
+name_txt         0.2728
+dtype: float64
+Scored 0.1702 on dataset REG_TEXT_AUTO_MUHAMMADAQEELKABIR_STEAM_GAMES_DATASET_STEAM, fold 0 in 18 seconds. Multimodal state: text_only 📝
+[26/34] PASS   dj=0.0236 nt=0.47117279716428806 all=0.49472284878021966 to=0.1702111954357619 462.1s muhammadaqeelkabir/steam-games-dataset-steam :: target=appid (nuniq=9950 zmax=3.71) leaks_dropped=[] text=['developer', 'name', 'publisher
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Overall Score had no extreme outliers.
+🔭 8 features → light  [tabular: 8]
+🔥 Feature importances: Research_Environment       0.6703
+Research_Quality           0.2864
+Teaching                   0.0351
+International_Outlook      0.0072
+Industry_Impact            0.0009
+International_Students     0.0001
+Students_to_Staff_Ratio    0.0000
+Student_Population         0.0000
+dtype: float64
+Scored 0.9988 on dataset REG_TEXT_AUTO_ARITRA100_WORLD_UNIVERSITY_RANKING, fold 0 in 6 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Overall Score had no extreme outliers.
+Fitting E5ColumnEncoder for column Country with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Country: 0.915
+Fitting E5ColumnEncoder for column Female to Male Ratio with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Female to Male Ratio: 0.964
+Fitting E5ColumnEncoder for column Name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Name: 0.491
+🔭 98 features → light  [tabular: 8 | txt_emb: 90]
+🔥 Feature importances: Research_Environment        0.6702
+Research_Quality            0.2864
+Teaching                    0.0350
+International_Outlook       0.0072
+Industry_Impact             0.0009
+Name_txt                    0.0001
+International_Students      0.0001
+Female_to_Male_Ratio_txt    0.0000
+Country_txt                 0.0000
+Students_to_Staff_Ratio     0.0000
+Student_Population          0.0000
+dtype: float64
+Scored 0.9987 on dataset REG_TEXT_AUTO_ARITRA100_WORLD_UNIVERSITY_RANKING, fold 0 in 1529 seconds. Multimodal state: all 🔥
+🎯 Regression variable Overall Score had no extreme outliers.
+Fitting E5ColumnEncoder for column Country with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Country: 0.915
+Fitting E5ColumnEncoder for column Female to Male Ratio with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Female to Male Ratio: 0.964
+Fitting E5ColumnEncoder for column Name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] Name: 0.491
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: Country_txt                 0.5008
+Name_txt                    0.4736
+Female_to_Male_Ratio_txt    0.0256
+dtype: float64
+Scored 0.8461 on dataset REG_TEXT_AUTO_ARITRA100_WORLD_UNIVERSITY_RANKING, fold 0 in 19 seconds. Multimodal state: text_only 📝
+[27/34] FAIL   dj=-0.0001 nt=0.9987946702887629 all=0.9987396036407363 to=0.8461092543382175 1558.8s aritra100/world-university-ranking :: target=Overall Score (nuniq=12550 zmax=3.76) leaks_dropped=[] text=['Country', 'Female to 
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable recipe_number had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: created_at         0.3891
+best_score         0.2899
+thumbs_down        0.1093
+stars              0.0913
+thumbs_up          0.0785
+user_reputation    0.0337
+reply_count        0.0082
+dtype: float64
+Scored 0.0302 on dataset REG_TEXT_AUTO_ZSINGHRAHULK_RECIPE_REVIEWS, fold 0 in 13 seconds. Multimodal state: no_text 😶
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 97 features → light  [tabular: 7 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+stars              0.0
+created_at         0.0
+thumbs_up          0.0
+user_reputation    0.0
+best_score         0.0
+thumbs_down        0.0
+reply_count        0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_ZSINGHRAHULK_RECIPE_REVIEWS, fold 0 in 2195 seconds. Multimodal state: all 🔥
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_ZSINGHRAHULK_RECIPE_REVIEWS, fold 0 in 11 seconds. Multimodal state: text_only 📝
+[28/34] FAIL   dj=0.0 nt=0.030187735752948863 all=0.9999998866185152 to=0.9999998834336864 2222.5s zsinghrahulk/recipe-reviews :: target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', '
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable recipe_number had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: created_at         0.3891
+best_score         0.2899
+thumbs_down        0.1093
+stars              0.0913
+thumbs_up          0.0785
+user_reputation    0.0337
+reply_count        0.0082
+dtype: float64
+Scored 0.0302 on dataset REG_TEXT_AUTO_SHUBHAM2703_RECIPE_REVIEW_AND_USER_FEEDBACK_, fold 0 in 3 seconds. Multimodal state: no_text 😶
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 97 features → light  [tabular: 7 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+created_at         0.0
+thumbs_up          0.0
+user_reputation    0.0
+best_score         0.0
+stars              0.0
+reply_count        0.0
+thumbs_down        0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_SHUBHAM2703_RECIPE_REVIEW_AND_USER_FEEDBACK_, fold 0 in 12 seconds. Multimodal state: all 🔥
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_SHUBHAM2703_RECIPE_REVIEW_AND_USER_FEEDBACK_, fold 0 in 11 seconds. Multimodal state: text_only 📝
+[29/34] FAIL   dj=-0.0 nt=0.030187735752948863 all=0.9999998752556316 to=0.999999878856398 29.5s shubham2703/recipe-review-and-user-feedback- :: target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', '
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable recipe_number had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: created_at         0.3891
+best_score         0.2899
+thumbs_down        0.1093
+stars              0.0913
+thumbs_up          0.0785
+user_reputation    0.0337
+reply_count        0.0082
+dtype: float64
+Scored 0.0302 on dataset REG_TEXT_AUTO_KARTIKSAINI18_RECIPE_REVIEW_DATASET_WITH_FEE, fold 0 in 2 seconds. Multimodal state: no_text 😶
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 97 features → light  [tabular: 7 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+stars              0.0
+created_at         0.0
+thumbs_up          0.0
+user_reputation    0.0
+best_score         0.0
+thumbs_down        0.0
+reply_count        0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_KARTIKSAINI18_RECIPE_REVIEW_DATASET_WITH_FEE, fold 0 in 12 seconds. Multimodal state: all 🔥
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_KARTIKSAINI18_RECIPE_REVIEW_DATASET_WITH_FEE, fold 0 in 11 seconds. Multimodal state: text_only 📝
+[30/34] FAIL   dj=0.0 nt=0.030187735752948863 all=0.9999998866185152 to=0.9999998834336864 27.3s kartiksaini18/recipe-review-dataset-with-fee :: target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', '
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable recipe_number had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: created_at         0.3891
+best_score         0.2899
+thumbs_down        0.1093
+stars              0.0913
+thumbs_up          0.0785
+user_reputation    0.0337
+reply_count        0.0082
+dtype: float64
+Scored 0.0302 on dataset REG_TEXT_AUTO_SATYAJEETKUMARRAJ_RECIPE_REVIEWS_DATASET, fold 0 in 1 seconds. Multimodal state: no_text 😶
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 97 features → light  [tabular: 7 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+stars              0.0
+created_at         0.0
+thumbs_up          0.0
+user_reputation    0.0
+best_score         0.0
+thumbs_down        0.0
+reply_count        0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_SATYAJEETKUMARRAJ_RECIPE_REVIEWS_DATASET, fold 0 in 12 seconds. Multimodal state: all 🔥
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_SATYAJEETKUMARRAJ_RECIPE_REVIEWS_DATASET, fold 0 in 11 seconds. Multimodal state: text_only 📝
+[31/34] FAIL   dj=0.0 nt=0.030187735752948863 all=0.9999998866185152 to=0.9999998834336864 27.6s satyajeetkumarraj/recipe-reviews-dataset :: target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', '
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable recipe_number had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: created_at         0.3891
+best_score         0.2899
+thumbs_down        0.1093
+stars              0.0913
+thumbs_up          0.0785
+user_reputation    0.0337
+reply_count        0.0082
+dtype: float64
+Scored 0.0302 on dataset REG_TEXT_AUTO_JOEBEACHCAPITAL_RECIPE_REVIEWS_AND_USER_FEED, fold 0 in 2 seconds. Multimodal state: no_text 😶
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 97 features → light  [tabular: 7 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+stars              0.0
+created_at         0.0
+thumbs_up          0.0
+user_reputation    0.0
+best_score         0.0
+thumbs_down        0.0
+reply_count        0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_JOEBEACHCAPITAL_RECIPE_REVIEWS_AND_USER_FEED, fold 0 in 12 seconds. Multimodal state: all 🔥
+🎯 Regression variable recipe_number had no extreme outliers.
+Fitting E5ColumnEncoder for column recipe_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] recipe_name: 0.756
+Fitting E5ColumnEncoder for column text with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] text: 0.472
+Fitting E5ColumnEncoder for column user_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_name: 0.362
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: recipe_name_txt    1.0
+text_txt           0.0
+user_name_txt      0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_JOEBEACHCAPITAL_RECIPE_REVIEWS_AND_USER_FEED, fold 0 in 10 seconds. Multimodal state: text_only 📝
+[32/34] FAIL   dj=0.0 nt=0.030187735752948863 all=0.9999998866185152 to=0.9999998834336864 27.8s joebeachcapital/recipe-reviews-and-user-feed :: target=recipe_number (nuniq=100 zmax=2.06) leaks_dropped=[] text=['recipe_name', 'text', '
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable rec_no had no extreme outliers.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: rec_cd         0.9955
+max_rating     0.0022
+upvotes        0.0021
+downvotes      0.0002
+user_reput     0.0000
+ratings        0.0000
+response_no    0.0000
+dtype: float64
+Scored 0.9980 on dataset REG_TEXT_AUTO_MOTAHARESHOKRI_COOKBOOK_REVIEWS, fold 0 in 3 seconds. Multimodal state: no_text 😶
+🎯 Regression variable rec_no had no extreme outliers.
+Fitting E5ColumnEncoder for column comment with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] comment: 0.478
+Fitting E5ColumnEncoder for column rec_nm with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] rec_nm: 0.757
+Fitting E5ColumnEncoder for column user_nm with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_nm: 0.382
+🔭 97 features → light  [tabular: 7 | txt_emb: 90]
+🔥 Feature importances: rec_nm_txt     0.9211
+rec_cd         0.0789
+comment_txt    0.0000
+user_nm_txt    0.0000
+user_reput     0.0000
+response_no    0.0000
+ratings        0.0000
+downvotes      0.0000
+upvotes        0.0000
+max_rating     0.0000
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_MOTAHARESHOKRI_COOKBOOK_REVIEWS, fold 0 in 1510 seconds. Multimodal state: all 🔥
+🎯 Regression variable rec_no had no extreme outliers.
+Fitting E5ColumnEncoder for column comment with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] comment: 0.478
+Fitting E5ColumnEncoder for column rec_nm with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] rec_nm: 0.757
+Fitting E5ColumnEncoder for column user_nm with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] user_nm: 0.382
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: rec_nm_txt     1.0
+comment_txt    0.0
+user_nm_txt    0.0
+dtype: float64
+Scored 1.0000 on dataset REG_TEXT_AUTO_MOTAHARESHOKRI_COOKBOOK_REVIEWS, fold 0 in 11 seconds. Multimodal state: text_only 📝
+[33/34] FAIL   dj=0.0 nt=0.9980299412002813 all=0.9999999884914381 to=0.9999965696531382 1527.1s motahareshokri/cookbook-reviews :: target=rec_no (nuniq=100 zmax=2.06) leaks_dropped=[] text=['comment', 'rec_nm', 'user_nm']
+[34/34] skip   dj=None nt=None all=None to=None 2.7s rabieelkharoua/patient-ratings-identifying-b :: no usable target (no numeric column qualified)

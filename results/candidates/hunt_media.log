@@ -1,0 +1,519 @@
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\sharmajicoder\smartphones-specification-and-prices\1.archive...
+  0%|          | 0.00/41.3M [00:00<?, ?B/s]  2%|▏         | 1.00M/41.3M [00:00<00:35, 1.19MB/s]  5%|▍         | 2.00M/41.3M [00:01<00:17, 2.39MB/s] 10%|▉         | 4.00M/41.3M [00:01<00:07, 5.15MB/s] 17%|█▋        | 7.00M/41.3M [00:01<00:03, 9.81MB/s] 24%|██▍       | 10.0M/41.3M [00:01<00:02, 14.1MB/s] 32%|███▏      | 13.0M/41.3M [00:01<00:01, 17.6MB/s] 41%|████      | 17.0M/41.3M [00:01<00:01, 21.9MB/s] 48%|████▊     | 20.0M/41.3M [00:01<00:00, 24.2MB/s] 56%|█████▌    | 23.0M/41.3M [00:01<00:01, 17.2MB/s] 63%|██████▎   | 26.0M/41.3M [00:02<00:00, 19.3MB/s] 70%|███████   | 29.0M/41.3M [00:02<00:00, 17.5MB/s] 78%|███████▊  | 32.0M/41.3M [00:02<00:00, 19.6MB/s] 87%|████████▋ | 36.0M/41.3M [00:02<00:00, 22.9MB/s] 97%|█████████▋| 40.0M/41.3M [00:02<00:00, 23.6MB/s]100%|██████████| 41.3M/41.3M [00:02<00:00, 15.8MB/s]
+Extracting files...
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable cpu_score had no extreme outliers.
+🔭 28 features → light  [tabular: 28]
+🔥 Feature importances: chipset                 0.7387
+gpu_score               0.2460
+brand                   0.0028
+battery_mah             0.0017
+thickness_mm            0.0016
+screen_to_body_ratio    0.0015
+display_size_inch       0.0014
+weight_g                0.0013
+os                      0.0005
+bluetooth_version       0.0004
+fast_charging_w         0.0004
+colors_available        0.0004
+front_camera_mp         0.0004
+build_material          0.0003
+rear_camera_mp          0.0003
+storage_gb              0.0003
+wifi_version            0.0003
+display_type            0.0003
+refresh_rate_hz         0.0002
+expandable_storage      0.0002
+ram_gb                  0.0002
+water_resistance        0.0001
+warranty_years          0.0001
+wireless_charging       0.0001
+dual_sim                0.0001
+face_unlock             0.0001
+5g_support              0.0001
+fingerprint_sensor      0.0000
+dtype: float64
+Scored 0.9520 on dataset REG_TEXT_AUTO_SHARMAJICODER_SMARTPHONES_SPECIFICATION_AND_, fold 0 in 6 seconds. Multimodal state: no_text 😶
+🎯 Regression variable cpu_score had no extreme outliers.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8626.87it/s]
+Fitting E5ColumnEncoder for column camera_setup with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] camera_setup: 0.998
+Fitting E5ColumnEncoder for column model_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] model_name: 0.802
+🔭 88 features → light  [tabular: 28 | txt_emb: 60]
+🔥 Feature importances: chipset                 0.7322
+gpu_score               0.2462
+model_name_txt          0.0116
+camera_setup_txt        0.0054
+brand                   0.0013
+battery_mah             0.0006
+thickness_mm            0.0005
+os                      0.0004
+screen_to_body_ratio    0.0003
+weight_g                0.0003
+display_size_inch       0.0003
+rear_camera_mp          0.0002
+fast_charging_w         0.0001
+build_material          0.0001
+display_type            0.0001
+wireless_charging       0.0001
+storage_gb              0.0001
+ram_gb                  0.0001
+front_camera_mp         0.0001
+refresh_rate_hz         0.0001
+water_resistance        0.0001
+colors_available        0.0001
+bluetooth_version       0.0000
+wifi_version            0.0000
+warranty_years          0.0000
+face_unlock             0.0000
+fingerprint_sensor      0.0000
+5g_support              0.0000
+expandable_storage      0.0000
+dual_sim                0.0000
+dtype: float64
+Scored 0.9513 on dataset REG_TEXT_AUTO_SHARMAJICODER_SMARTPHONES_SPECIFICATION_AND_, fold 0 in 331 seconds. Multimodal state: all 🔥
+🎯 Regression variable cpu_score had no extreme outliers.
+Fitting E5ColumnEncoder for column camera_setup with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] camera_setup: 0.998
+Fitting E5ColumnEncoder for column model_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] model_name: 0.802
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: model_name_txt      0.9517
+camera_setup_txt    0.0483
+dtype: float64
+Scored 0.7277 on dataset REG_TEXT_AUTO_SHARMAJICODER_SMARTPHONES_SPECIFICATION_AND_, fold 0 in 10 seconds. Multimodal state: text_only 📝
+[1/24] FAIL   dj=-0.0007 nt=0.9519878189957293 all=0.9513375420568916 to=0.7276580436732722 554.3s sharmajicoder/smartphones-specification-and- :: target=cpu_score (nuniq=17040 zmax=4.89) leaks_dropped=['price_inr'] text=['camera_setup',
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\sharmajicoder\used-phone-price-prediction-dataset\1.archive...
+  0%|          | 0.00/31.9M [00:00<?, ?B/s]  3%|▎         | 1.00M/31.9M [00:00<00:28, 1.12MB/s]  6%|▋         | 2.00M/31.9M [00:01<00:13, 2.25MB/s] 13%|█▎        | 4.00M/31.9M [00:01<00:06, 4.82MB/s] 19%|█▉        | 6.00M/31.9M [00:01<00:03, 7.54MB/s] 31%|███▏      | 10.0M/31.9M [00:01<00:01, 13.5MB/s] 41%|████      | 13.0M/31.9M [00:01<00:01, 16.9MB/s] 50%|█████     | 16.0M/31.9M [00:01<00:00, 19.1MB/s] 59%|█████▉    | 19.0M/31.9M [00:01<00:00, 20.1MB/s] 69%|██████▉   | 22.0M/31.9M [00:01<00:00, 21.6MB/s] 78%|███████▊  | 25.0M/31.9M [00:02<00:00, 23.5MB/s] 88%|████████▊ | 28.0M/31.9M [00:02<00:00, 24.1MB/s] 97%|█████████▋| 31.0M/31.9M [00:02<00:00, 25.4MB/s]100%|██████████| 31.9M/31.9M [00:02<00:00, 14.5MB/s]
+Extracting files...
+[2/24] skip   dj=None nt=None all=None to=None 51.5s sharmajicoder/used-phone-price-prediction-da :: no genuine text column (raw text cols: [])
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\jakubkhalponiak\phones-2024\2.archive...
+  0%|          | 0.00/1.32M [00:00<?, ?B/s] 76%|███████▌  | 1.00M/1.32M [00:01<00:00, 988kB/s]100%|██████████| 1.32M/1.32M [00:01<00:00, 1.25MB/s]
+Extracting files...
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable ppi_density had no extreme outliers.
+🔭 27 features → light  [tabular: 27]
+🔥 Feature importances: display_resolution    0.7069
+price_usd             0.0538
+display_size          0.0453
+features_sensors      0.0442
+weight                0.0266
+os_type               0.0245
+ram                   0.0211
+storage               0.0142
+video_resolution      0.0136
+colors_available      0.0117
+battery               0.0083
+phone_brand           0.0067
+quantile_10           0.0050
+gpu                   0.0040
+nfc                   0.0039
+fingerprint           0.0028
+quantile_90           0.0019
+quantile_50           0.0012
+price_range           0.0012
+usb                   0.0010
+os_version            0.0009
+battery_size          0.0007
+foldable              0.0005
+chip_company          0.0002
+gpu_company           0.0000
+store                 0.0000
+cpu_core              0.0000
+dtype: float64
+Scored 0.9923 on dataset REG_TEXT_AUTO_JAKUBKHALPONIAK_PHONES_2024, fold 0 in 9 seconds. Multimodal state: no_text 😶
+🎯 Regression variable ppi_density had no extreme outliers.
+Fitting E5ColumnEncoder for column chipset with model intfloat/e5-small-v2 for 1385 texts
+🔍 [PCA variance] chipset: 0.916
+Fitting E5ColumnEncoder for column os with model intfloat/e5-small-v2 for 1385 texts
+🔍 [PCA variance] os: 0.966
+Fitting E5ColumnEncoder for column phone_model with model intfloat/e5-small-v2 for 1385 texts
+🔍 [PCA variance] phone_model: 0.800
+🔭 117 features → light  [tabular: 27 | txt_emb: 90]
+🔥 Feature importances: display_resolution    0.6998
+phone_model_txt       0.0810
+chipset_txt           0.0620
+features_sensors      0.0383
+price_usd             0.0306
+os_txt                0.0240
+os_type               0.0236
+display_size          0.0116
+fingerprint           0.0062
+weight                0.0042
+ram                   0.0042
+nfc                   0.0035
+video_resolution      0.0026
+battery               0.0023
+gpu                   0.0022
+foldable              0.0020
+storage               0.0012
+quantile_50           0.0003
+quantile_10           0.0003
+phone_brand           0.0002
+colors_available      0.0001
+usb                   0.0000
+battery_size          0.0000
+price_range           0.0000
+quantile_90           0.0000
+store                 0.0000
+os_version            0.0000
+gpu_company           0.0000
+chip_company          0.0000
+cpu_core              0.0000
+dtype: float64
+Scored 0.9915 on dataset REG_TEXT_AUTO_JAKUBKHALPONIAK_PHONES_2024, fold 0 in 132 seconds. Multimodal state: all 🔥
+🎯 Regression variable ppi_density had no extreme outliers.
+Fitting E5ColumnEncoder for column chipset with model intfloat/e5-small-v2 for 1385 texts
+🔍 [PCA variance] chipset: 0.916
+Fitting E5ColumnEncoder for column os with model intfloat/e5-small-v2 for 1385 texts
+🔍 [PCA variance] os: 0.966
+Fitting E5ColumnEncoder for column phone_model with model intfloat/e5-small-v2 for 1385 texts
+🔍 [PCA variance] phone_model: 0.800
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: chipset_txt        0.6302
+phone_model_txt    0.2693
+os_txt             0.1005
+dtype: float64
+Scored 0.9527 on dataset REG_TEXT_AUTO_JAKUBKHALPONIAK_PHONES_2024, fold 0 in 14 seconds. Multimodal state: text_only 📝
+[3/24] FAIL   dj=-0.0008 nt=0.9922835117183757 all=0.9914724733366652 to=0.9527230636631412 159.7s jakubkhalponiak/phones-2024 :: target=ppi_density (nuniq=94 zmax=3.33) leaks_dropped=[] text=['phone_model', 'chipset', '
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\muhammadawaistayyab\mobile-phones-prices-in-india\1.archive...
+  0%|          | 0.00/279k [00:00<?, ?B/s]100%|██████████| 279k/279k [00:00<00:00, 442kB/s]100%|██████████| 279k/279k [00:00<00:00, 442kB/s]
+Extracting files...
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable Rating had no extreme outliers.
+🔭 56 features → light  [tabular: 56]
+🔥 Feature importances: Brand                         0.4114
+Price                         0.3556
+No_of_Reviews                 0.0814
+No_of_Ratings                 0.0697
+Display_size_cm               0.0292
+GPS_Type                      0.0067
+Internal_Storage              0.0033
+Primary_Camera_Available      0.0029
+Bluetooth_Support             0.0027
+Removable_Battery             0.0025
+Supported_Networks            0.0023
+SIM_Size                      0.0022
+Quick_Charging                0.0022
+Video_Formats                 0.0022
+3G                            0.0020
+Primary_Camera                0.0020
+NFC                           0.0017
+Hybrid_Sim_Slot               0.0017
+Smartphone                    0.0016
+Wi_Fi_Hotspot                 0.0016
+SMS                           0.0015
+Call_Wait/Hold                0.0015
+Wi-Fi                         0.0014
+Resolution_Type               0.0013
+Dual_Camera_Lens              0.0012
+Secondary_Camera_Available    0.0011
+Frame_Rate                    0.0009
+HD_Recording                  0.0006
+Processor_Core                0.0006
+Video_Recording               0.0006
+Internet_Connectivity         0.0005
+Full_HD_Recording             0.0005
+EDGE                          0.0005
+Secondary_Camera              0.0005
+Mobile_Tracker                0.0004
+Depth                         0.0004
+Battery_Capacity              0.0004
+Network_Type                  0.0003
+Display_Type                  0.0003
+Digital_Zoom                  0.0002
+GPS_Support                   0.0001
+Operating_System              0.0001
+Display_size_inches           0.0001
+Browser                       0.0000
+Flash                         0.0000
+Wi_Fi_Version                 0.0000
+OTG_Compatible                0.0000
+Touchscreen                   0.0000
+Sound_Enhancements            0.0000
+Browse_Type                   0.0000
+SIM_Type                      0.0000
+Video_Recording_Resolution    0.0000
+Bluetooth_Version             0.0000
+Pre_installed_Browser         0.0000
+Map_Support                   0.0000
+Graphics_PPI                  0.0000
+dtype: float64
+Scored 0.8543 on dataset REG_TEXT_AUTO_MUHAMMADAWAISTAYYAB_MOBILE_PHONES_PRICES_IN_, fold 0 in 17 seconds. Multimodal state: no_text 😶
+🎯 Regression variable Rating had no extreme outliers.
+Fitting E5ColumnEncoder for column Height with model intfloat/e5-small-v2 for 798 texts
+🔍 [PCA variance] Height: 0.966
+Fitting E5ColumnEncoder for column Weight with model intfloat/e5-small-v2 for 798 texts
+🔍 [PCA variance] Weight: 0.942
+Fitting E5ColumnEncoder for column Width with model intfloat/e5-small-v2 for 798 texts
+🔍 [PCA variance] Width: 0.976
+🔭 146 features → light  [tabular: 56 | txt_emb: 90]
+🔥 Feature importances: Brand                         0.4077
+Price                         0.3310
+No_of_Reviews                 0.0674
+Weight_txt                    0.0585
+No_of_Ratings                 0.0404
+Height_txt                    0.0332
+Width_txt                     0.0299
+Display_size_cm               0.0200
+Internal_Storage              0.0032
+SIM_Size                      0.0011
+Flash                         0.0010
+Primary_Camera_Available      0.0009
+Primary_Camera                0.0008
+Resolution_Type               0.0006
+Dual_Camera_Lens              0.0005
+EDGE                          0.0005
+Smartphone                    0.0005
+Processor_Core                0.0003
+NFC                           0.0002
+Video_Formats                 0.0002
+Removable_Battery             0.0002
+3G                            0.0002
+Quick_Charging                0.0002
+Bluetooth_Support             0.0001
+Call_Wait/Hold                0.0001
+GPS_Support                   0.0001
+Wi-Fi                         0.0001
+Video_Recording               0.0001
+Supported_Networks            0.0001
+Secondary_Camera_Available    0.0001
+Hybrid_Sim_Slot               0.0001
+HD_Recording                  0.0001
+Full_HD_Recording             0.0001
+SMS                           0.0001
+Depth                         0.0000
+Network_Type                  0.0000
+Secondary_Camera              0.0000
+Display_Type                  0.0000
+GPS_Type                      0.0000
+Mobile_Tracker                0.0000
+Operating_System              0.0000
+Wi_Fi_Hotspot                 0.0000
+Sound_Enhancements            0.0000
+Video_Recording_Resolution    0.0000
+Display_size_inches           0.0000
+OTG_Compatible                0.0000
+Browse_Type                   0.0000
+SIM_Type                      0.0000
+Touchscreen                   0.0000
+Digital_Zoom                  0.0000
+Frame_Rate                    0.0000
+Wi_Fi_Version                 0.0000
+Bluetooth_Version             0.0000
+Pre_installed_Browser         0.0000
+Internet_Connectivity         0.0000
+Graphics_PPI                  0.0000
+Map_Support                   0.0000
+Battery_Capacity              0.0000
+Browser                       0.0000
+dtype: float64
+Scored 0.8332 on dataset REG_TEXT_AUTO_MUHAMMADAWAISTAYYAB_MOBILE_PHONES_PRICES_IN_, fold 0 in 63 seconds. Multimodal state: all 🔥
+[4/24] FAIL   dj=None nt=0.8543106150006886 all=0.8332382493515739 to=None 83.8s muhammadawaistayyab/mobile-phones-prices-in- :: target=Rating (nuniq=21 zmax=4.50) leaks_dropped=[] text=['Weight', 'Width', 'Height'] n_n
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\gyanprakashkushwaha\mobile-recommendation-system-dataset\1.archive...
+  0%|          | 0.00/248k [00:00<?, ?B/s]100%|██████████| 248k/248k [00:00<00:00, 429kB/s]100%|██████████| 248k/248k [00:00<00:00, 429kB/s]
+Extracting files...
+[5/24] skip   dj=None nt=None all=None to=None 2.3s gyanprakashkushwaha/mobile-recommendation-sy :: no usable target (no numeric column qualified)
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\costinflation\nvme-ssd-prices-raw-dataset-2026\1.archive...
+  0%|          | 0.00/4.73M [00:00<?, ?B/s] 21%|██        | 1.00M/4.73M [00:00<00:03, 1.15MB/s] 42%|████▏     | 2.00M/4.73M [00:01<00:01, 2.33MB/s] 85%|████████▍ | 4.00M/4.73M [00:01<00:00, 5.02MB/s]100%|██████████| 4.73M/4.73M [00:01<00:00, 4.12MB/s]
+Extracting files...
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable price_amount had no extreme outliers.
+🔭 9 features → light  [tabular: 9]
+🔥 Feature importances: quantity_name                0.6108
+quantity_value               0.1949
+normalized_price_amount      0.1940
+geography_label              0.0002
+quantity_unit                0.0001
+series_title                 0.0000
+geography_type               0.0000
+normalized_quantity_value    0.0000
+normalized_quantity_unit     0.0000
+dtype: float64
+Scored 0.9827 on dataset REG_TEXT_AUTO_COSTINFLATION_NVME_SSD_PRICES_RAW_DATASET_20, fold 0 in 11 seconds. Multimodal state: no_text 😶
+🎯 Regression variable price_amount had no extreme outliers.
+Fitting E5ColumnEncoder for column product_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] product_name: 0.647
+🔭 39 features → light  [tabular: 9 | txt_emb: 30]
+🔥 Feature importances: quantity_name                0.6028
+quantity_value               0.1851
+normalized_price_amount      0.1791
+product_name_txt             0.0328
+quantity_unit                0.0001
+geography_label              0.0000
+geography_type               0.0000
+series_title                 0.0000
+normalized_quantity_value    0.0000
+normalized_quantity_unit     0.0000
+dtype: float64
+Scored 0.9992 on dataset REG_TEXT_AUTO_COSTINFLATION_NVME_SSD_PRICES_RAW_DATASET_20, fold 0 in 591 seconds. Multimodal state: all 🔥
+🎯 Regression variable price_amount had no extreme outliers.
+Fitting E5ColumnEncoder for column product_name with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] product_name: 0.647
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: product_name_txt    1.0
+dtype: float64
+Scored 0.9822 on dataset REG_TEXT_AUTO_COSTINFLATION_NVME_SSD_PRICES_RAW_DATASET_20, fold 0 in 25 seconds. Multimodal state: text_only 📝
+[6/24] PASS   dj=0.0165 nt=0.9827313761399297 all=0.9992313937556988 to=0.9822101598984142 638.3s costinflation/nvme-ssd-prices-raw-dataset-20 :: target=price_amount (nuniq=1189 zmax=4.66) leaks_dropped=[] text=['product_name'] n_num=3
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\maulikgajera\global-silicon-chip-benchmark-dataset\1.archive...
+  0%|          | 0.00/3.34M [00:00<?, ?B/s] 30%|██▉       | 1.00M/3.34M [00:00<00:02, 1.14MB/s] 60%|█████▉    | 2.00M/3.34M [00:01<00:00, 2.29MB/s]100%|██████████| 3.34M/3.34M [00:01<00:00, 3.04MB/s]
+Extracting files...
+[7/24] skip   dj=None nt=None all=None to=None 8.1s maulikgajera/global-silicon-chip-benchmark-d :: no genuine text column (raw text cols: ['chip_id'])
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\donbarbos\github-repos\4.archive...
+  0%|          | 0.00/23.3M [00:00<?, ?B/s]  4%|▍         | 1.00M/23.3M [00:01<00:28, 819kB/s]  9%|▊         | 2.00M/23.3M [00:01<00:13, 1.68MB/s] 17%|█▋        | 4.00M/23.3M [00:01<00:05, 3.84MB/s] 30%|███       | 7.00M/23.3M [00:01<00:02, 7.57MB/s] 43%|████▎     | 10.0M/23.3M [00:01<00:01, 11.5MB/s] 56%|█████▌    | 13.0M/23.3M [00:01<00:00, 14.9MB/s] 69%|██████▊   | 16.0M/23.3M [00:02<00:00, 18.2MB/s] 86%|████████▌ | 20.0M/23.3M [00:02<00:00, 21.6MB/s] 99%|█████████▉| 23.0M/23.3M [00:02<00:00, 22.9MB/s]100%|██████████| 23.3M/23.3M [00:02<00:00, 10.8MB/s]
+Extracting files...
+[8/24] skip   dj=None nt=None all=None to=None 22.4s donbarbos/github-repos :: no usable target (no numeric column qualified)
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\lorenzoscaturchio\github-repo-metrics\12.archive...
+  0%|          | 0.00/499k [00:00<?, ?B/s]100%|██████████| 499k/499k [00:00<00:00, 643kB/s]100%|██████████| 499k/499k [00:00<00:00, 642kB/s]
+Extracting files...
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable test_coverage had no extreme outliers.
+🔭 22 features → light  [tabular: 22]
+🔥 Feature importances: readme_length             0.1503
+size_kb                   0.1249
+commits                   0.1162
+releases                  0.0994
+closed_issues             0.0758
+merged_pull_requests      0.0682
+stars                     0.0659
+open_issues               0.0581
+forks                     0.0529
+language                  0.0419
+watchers                  0.0309
+contributors              0.0295
+default_branch            0.0235
+has_wiki                  0.0149
+license                   0.0108
+open_pull_requests        0.0106
+has_pages                 0.0076
+has_contributing_guide    0.0074
+is_fork                   0.0074
+has_discussions           0.0036
+is_archived               0.0002
+has_ci                    0.0000
+dtype: float64
+Scored -0.1781 on dataset REG_TEXT_AUTO_LORENZOSCATURCHIO_GITHUB_REPO_METRICS, fold 0 in 40 seconds. Multimodal state: no_text 😶
+🎯 Regression variable test_coverage had no extreme outliers.
+Fitting E5ColumnEncoder for column description with model intfloat/e5-small-v2 for 1379 texts
+🔍 [PCA variance] description: 0.858
+Fitting E5ColumnEncoder for column repo_name with model intfloat/e5-small-v2 for 1379 texts
+🔍 [PCA variance] repo_name: 0.693
+Fitting E5ColumnEncoder for column topics with model intfloat/e5-small-v2 for 1379 texts
+🔍 [PCA variance] topics: 0.783
+🔭 112 features → light  [tabular: 22 | txt_emb: 90]
+🔥 Feature importances: repo_name_txt             0.3238
+topics_txt                0.3089
+description_txt           0.2941
+releases                  0.0105
+commits                   0.0093
+size_kb                   0.0083
+readme_length             0.0072
+default_branch            0.0048
+merged_pull_requests      0.0048
+open_issues               0.0047
+closed_issues             0.0042
+language                  0.0042
+forks                     0.0036
+watchers                  0.0035
+stars                     0.0030
+contributors              0.0029
+open_pull_requests        0.0011
+license                   0.0005
+is_fork                   0.0003
+has_contributing_guide    0.0000
+has_ci                    0.0000
+has_pages                 0.0000
+has_wiki                  0.0000
+is_archived               0.0000
+has_discussions           0.0000
+dtype: float64
+Scored -0.1305 on dataset REG_TEXT_AUTO_LORENZOSCATURCHIO_GITHUB_REPO_METRICS, fold 0 in 281 seconds. Multimodal state: all 🔥
+🎯 Regression variable test_coverage had no extreme outliers.
+Fitting E5ColumnEncoder for column description with model intfloat/e5-small-v2 for 1379 texts
+🔍 [PCA variance] description: 0.858
+Fitting E5ColumnEncoder for column repo_name with model intfloat/e5-small-v2 for 1379 texts
+🔍 [PCA variance] repo_name: 0.693
+Fitting E5ColumnEncoder for column topics with model intfloat/e5-small-v2 for 1379 texts
+🔍 [PCA variance] topics: 0.783
+🔭 90 features → light  [tabular: 0 | txt_emb: 90]
+🔥 Feature importances: repo_name_txt      0.3822
+description_txt    0.3092
+topics_txt         0.3086
+dtype: float64
+Scored -0.1937 on dataset REG_TEXT_AUTO_LORENZOSCATURCHIO_GITHUB_REPO_METRICS, fold 0 in 26 seconds. Multimodal state: text_only 📝
+[9/24] PASS   dj=0.0476 nt=-0.17810443496816464 all=-0.13049251819228003 to=-0.19365752175531337 353.7s lorenzoscaturchio/github-repo-metrics :: target=test_coverage (nuniq=696 zmax=2.74) leaks_dropped=[] text=['description', 'repo_nam
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\muhammadaqeelkabir\top-github-repositories\2.archive...
+  0%|          | 0.00/1.09M [00:00<?, ?B/s] 92%|█████████▏| 1.00M/1.09M [00:00<00:00, 1.11MB/s]100%|██████████| 1.09M/1.09M [00:00<00:00, 1.19MB/s]
+Extracting files...
+[10/24] skip   dj=None nt=None all=None to=None 3.3s muhammadaqeelkabir/top-github-repositories :: no usable target (no numeric column qualified)
+Downloading to C:\Users\talkr\.cache\kagglehub\datasets\mansiaggarwal88\ai-engineering-github-repositories\1.archive...
+  0%|          | 0.00/4.72M [00:00<?, ?B/s] 21%|██        | 1.00M/4.72M [00:00<00:03, 1.13MB/s] 42%|████▏     | 2.00M/4.72M [00:01<00:01, 2.28MB/s] 85%|████████▍ | 4.00M/4.72M [00:01<00:00, 4.92MB/s]100%|██████████| 4.72M/4.72M [00:01<00:00, 4.04MB/s]
+Extracting files...
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🎯 Regression variable releases_count had no extreme outliers.
+🔭 24 features → light  [tabular: 24]
+🔥 Feature importances: release_cadence_days         0.5853
+repo_age_days                0.1891
+days_since_last_push         0.0795
+size_kb                      0.0606
+open_issues                  0.0514
+forks                        0.0094
+stars                        0.0089
+github_health_pct            0.0074
+search_topic_matched         0.0022
+language                     0.0018
+has_contributing_file        0.0017
+popularity_tier              0.0010
+dependency_manifest_found    0.0007
+license                      0.0004
+ai_category                  0.0002
+framework_stack              0.0001
+archived                     0.0001
+license_family               0.0000
+maintenance_status           0.0000
+visibility                   0.0000
+has_readme_file              0.0000
+deep_enrichment_applied      0.0000
+has_license_file             0.0000
+has_issue_template           0.0000
+dtype: float64
+Scored 0.8379 on dataset REG_TEXT_AUTO_MANSIAGGARWAL88_AI_ENGINEERING_GITHUB_REPOSI, fold 0 in 27 seconds. Multimodal state: no_text 😶
+🎯 Regression variable releases_count had no extreme outliers.
+Fitting E5ColumnEncoder for column detected_dependencies with model intfloat/e5-small-v2 for 3240 texts
+🔍 [PCA variance] detected_dependencies: 0.997
+Fitting E5ColumnEncoder for column owner with model intfloat/e5-small-v2 for 3240 texts
+🔍 [PCA variance] owner: 0.381
+🔭 84 features → light  [tabular: 24 | txt_emb: 60]
+🔥 Feature importances: release_cadence_days         0.5605
+repo_age_days                0.1755
+owner_txt                    0.0743
+days_since_last_push         0.0698
+size_kb                      0.0475
+open_issues                  0.0468
+detected_dependencies_txt    0.0105
+forks                        0.0053
+github_health_pct            0.0042
+stars                        0.0027
+search_topic_matched         0.0012
+language                     0.0010
+dependency_manifest_found    0.0003
+has_contributing_file        0.0002
+ai_category                  0.0002
+license                      0.0000
+popularity_tier              0.0000
+license_family               0.0000
+framework_stack              0.0000
+archived                     0.0000
+visibility                   0.0000
+maintenance_status           0.0000
+deep_enrichment_applied      0.0000
+has_license_file             0.0000
+has_readme_file              0.0000
+has_issue_template           0.0000
+dtype: float64
+Scored 0.8290 on dataset REG_TEXT_AUTO_MANSIAGGARWAL88_AI_ENGINEERING_GITHUB_REPOSI, fold 0 in 299 seconds. Multimodal state: all 🔥
+[11/24] FAIL   dj=None nt=0.8379271897160692 all=0.829026663105157 to=None 335.6s mansiaggarwal88/ai-engineering-github-reposi :: target=releases_count (nuniq=101 zmax=2.32) leaks_dropped=[] text=['detected_dependencies'
+[12/24] skip   dj=None nt=None all=None to=None 0.8s quadeer15sh/windows-store-top-apps-games :: no usable target (no numeric column qualified)
+[13/24] skip   dj=None nt=None all=None to=None 0.8s bhavikjikadara/google-play-store-application :: no usable target (no numeric column qualified)

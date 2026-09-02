@@ -1,0 +1,2 @@
+model,dataset,fold,multimodal_state,test_score,runtime,n_train,n_test,m_features,task_type,tune_e5
+TabPFN-v2p5 🇩🇪,MUL_TEXT_PRODUCT_SENTIMENT,0,no_text,0.8357517487848736,195.79730677604675,4582,509,1,MUL,False

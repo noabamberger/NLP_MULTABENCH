@@ -1,0 +1,54 @@
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+spec: price_usd_log10 | text ['CARD_TEXT', 'TYPE'] | num ['CMC', 'NUMBER_OF_EDITIONS', 'power', 'toughness', 'first_edition_year'] | cat ['RARITY', 'COLOR_PIE']
+🚨 Warning: Regression variable price_usd_log10 had extreme outliers!
+  Top 10 z-scores: [5.358, 5.245, 4.7, 4.643, 4.62, 4.299, 4.233, 4.166, 4.12, 4.093]
+  Bot 10 z-scores: [-1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88]
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: RARITY                0.6776
+first_edition_year    0.1894
+CMC                   0.0481
+COLOR_PIE             0.0322
+power                 0.0318
+toughness             0.0209
+NUMBER_OF_EDITIONS    0.0000
+dtype: float64
+Scored 0.5203 on dataset REG_TEXT_GAMES_MTG_CARD_PRICES, fold 0 in 7 seconds. Multimodal state: no_text 😶
+  no_text    = 0.5203  (8s)
+🚨 Warning: Regression variable price_usd_log10 had extreme outliers!
+  Top 10 z-scores: [5.358, 5.245, 4.7, 4.643, 4.62, 4.299, 4.233, 4.166, 4.12, 4.093]
+  Bot 10 z-scores: [-1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88]
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7500.46it/s]
+Fitting E5ColumnEncoder for column CARD_TEXT with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] CARD_TEXT: 0.558
+Fitting E5ColumnEncoder for column TYPE with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] TYPE: 0.822
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: RARITY                0.5081
+CARD_TEXT_txt         0.2166
+TYPE_txt              0.1178
+first_edition_year    0.1077
+COLOR_PIE             0.0168
+CMC                   0.0156
+power                 0.0128
+toughness             0.0044
+NUMBER_OF_EDITIONS    0.0000
+dtype: float64
+Scored 0.5913 on dataset REG_TEXT_GAMES_MTG_CARD_PRICES, fold 0 in 1038 seconds. Multimodal state: all 🔥
+  all        = 0.5913  (1039s)
+🚨 Warning: Regression variable price_usd_log10 had extreme outliers!
+  Top 10 z-scores: [5.358, 5.245, 4.7, 4.643, 4.62, 4.299, 4.233, 4.166, 4.12, 4.093]
+  Bot 10 z-scores: [-1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88, -1.88]
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column CARD_TEXT with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] CARD_TEXT: 0.558
+Fitting E5ColumnEncoder for column TYPE with model intfloat/e5-small-v2 for 9000 texts
+🔍 [PCA variance] TYPE: 0.822
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: CARD_TEXT_txt    0.6054
+TYPE_txt         0.3946
+dtype: float64
+Scored 0.2540 on dataset REG_TEXT_GAMES_MTG_CARD_PRICES, fold 0 in 23 seconds. Multimodal state: text_only 📝
+  text_only  = 0.2540  (25s)
+==> delta_joint = 0.0709

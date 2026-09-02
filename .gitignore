@@ -21,10 +21,13 @@ kaggle_uploads/
 results/qualitative/
 figures/
 
-# curation_lab working data
+# curation_lab working data (results are tracked; caches and raw downloads are not)
 data/candidates/
-results/candidates/
 .emb_cache/
+.tar_cache/
+
+# git worktrees (full copies of the repository) - never commit these
+.claude/
 
 # Remote login bootstrap (contains a password - never commit)
 remote_login.env

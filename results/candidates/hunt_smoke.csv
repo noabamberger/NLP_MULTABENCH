@@ -1,0 +1,2 @@
+ref,verdict,detail,no_text,all,text_only,delta_joint,secs
+sridipbasu/global-food-nutrition-dataset-pricing-and-rating,FAIL,target=calories (nuniq=4393 zmax=3.28) leaks_dropped=[] text=['item_name'] n_num=9,0.6285842829057405,0.6277297177895842,0.6295968676243547,-0.0019,64.5

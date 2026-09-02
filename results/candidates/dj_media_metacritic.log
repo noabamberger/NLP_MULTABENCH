@@ -1,0 +1,426 @@
+REG_TEXT_MEDIA_METACRITIC_SCORED: dropped 10357/12624 sentinel Metacritic==0 rows -> 2267 rows; text=['ResponseName'] n_num=15
+  target=Metacritic text=['ResponseName'] n_num=15 n_cat=0 drop=['ReleaseDate', 'GenreIsNonGame']
+  target dist: n=2267 nuniq=71 min=20 max=96 mean=72.145 std=11.166 |z|max=4.67
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → light  [tabular: 15]
+🔥 Feature importances: RecommendationCount            0.6157
+PriceInitial                   0.1620
+GenreIsIndie                   0.0550
+GenreIsAction                  0.0533
+GenreIsAdventure               0.0267
+GenreIsSimulation              0.0264
+GenreIsStrategy                0.0213
+GenreIsRPG                     0.0133
+GenreIsCasual                  0.0097
+IsFree                         0.0047
+GenreIsRacing                  0.0040
+GenreIsSports                  0.0028
+GenreIsFreeToPlay              0.0026
+GenreIsMassivelyMultiplayer    0.0025
+GenreIsEarlyAccess             0.0000
+dtype: float64
+Scored 0.0742 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 2 seconds. Multimodal state: no_text 😶
+  light      no_text    f0 = 0.0742 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → cat  [tabular: 15]
+Scored 0.1388 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 1 seconds. Multimodal state: no_text 😶
+  cat        no_text    f0 = 0.1388 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabm  [tabular: 15]
+Scored 0.1529 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 41 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f0 = 0.1529 (41s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2  [tabular: 15]
+Scored 0.1648 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 27 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f0 = 0.1648 (28s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2p5  [tabular: 15]
+Scored 0.1653 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 33 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f0 = 0.1653 (34s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → light  [tabular: 15]
+🔥 Feature importances: RecommendationCount            0.5964
+PriceInitial                   0.1693
+GenreIsAction                  0.0612
+GenreIsIndie                   0.0555
+GenreIsStrategy                0.0277
+GenreIsAdventure               0.0271
+GenreIsSimulation              0.0186
+GenreIsRPG                     0.0167
+GenreIsCasual                  0.0100
+IsFree                         0.0050
+GenreIsSports                  0.0040
+GenreIsRacing                  0.0033
+GenreIsFreeToPlay              0.0028
+GenreIsMassivelyMultiplayer    0.0024
+GenreIsEarlyAccess             0.0000
+dtype: float64
+Scored 0.0900 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f1 = 0.0900 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → cat  [tabular: 15]
+Scored 0.1557 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 2 seconds. Multimodal state: no_text 😶
+  cat        no_text    f1 = 0.1557 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabm  [tabular: 15]
+Scored 0.1524 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 48 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f1 = 0.1524 (49s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2  [tabular: 15]
+Scored 0.1636 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 31 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f1 = 0.1636 (31s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2p5  [tabular: 15]
+Scored 0.1557 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 36 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f1 = 0.1557 (36s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → light  [tabular: 15]
+🔥 Feature importances: RecommendationCount            0.6133
+PriceInitial                   0.1674
+GenreIsIndie                   0.0587
+GenreIsAction                  0.0585
+GenreIsAdventure               0.0275
+GenreIsStrategy                0.0201
+GenreIsSimulation              0.0167
+GenreIsCasual                  0.0089
+IsFree                         0.0087
+GenreIsRPG                     0.0083
+GenreIsFreeToPlay              0.0049
+GenreIsRacing                  0.0025
+GenreIsSports                  0.0024
+GenreIsMassivelyMultiplayer    0.0021
+GenreIsEarlyAccess             0.0000
+dtype: float64
+Scored 0.2485 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f2 = 0.2485 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → cat  [tabular: 15]
+Scored 0.2789 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 2 seconds. Multimodal state: no_text 😶
+  cat        no_text    f2 = 0.2789 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabm  [tabular: 15]
+Scored 0.2428 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 56 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f2 = 0.2428 (57s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2  [tabular: 15]
+Scored 0.2456 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 32 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f2 = 0.2456 (33s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2p5  [tabular: 15]
+Scored 0.2481 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 41 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f2 = 0.2481 (41s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → light  [tabular: 15]
+🔥 Feature importances: RecommendationCount            0.6152
+PriceInitial                   0.1526
+GenreIsAction                  0.0553
+GenreIsIndie                   0.0498
+GenreIsAdventure               0.0365
+GenreIsStrategy                0.0265
+GenreIsSimulation              0.0229
+GenreIsRPG                     0.0175
+GenreIsCasual                  0.0098
+IsFree                         0.0045
+GenreIsRacing                  0.0027
+GenreIsFreeToPlay              0.0025
+GenreIsMassivelyMultiplayer    0.0022
+GenreIsSports                  0.0020
+GenreIsEarlyAccess             0.0000
+dtype: float64
+Scored 0.0386 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 3 seconds. Multimodal state: no_text 😶
+  light      no_text    f3 = 0.0386 (4s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → cat  [tabular: 15]
+Scored 0.1178 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 3 seconds. Multimodal state: no_text 😶
+  cat        no_text    f3 = 0.1178 (4s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabm  [tabular: 15]
+Scored 0.1282 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 155 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f3 = 0.1282 (155s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2  [tabular: 15]
+Scored 0.1291 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 50 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f3 = 0.1291 (51s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2p5  [tabular: 15]
+Scored 0.1311 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 60 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f3 = 0.1311 (61s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → light  [tabular: 15]
+🔥 Feature importances: RecommendationCount            0.6358
+PriceInitial                   0.1326
+GenreIsIndie                   0.0720
+GenreIsAction                  0.0463
+GenreIsAdventure               0.0288
+GenreIsStrategy                0.0263
+GenreIsSimulation              0.0189
+GenreIsRPG                     0.0133
+GenreIsCasual                  0.0087
+GenreIsSports                  0.0066
+IsFree                         0.0043
+GenreIsRacing                  0.0037
+GenreIsFreeToPlay              0.0015
+GenreIsMassivelyMultiplayer    0.0013
+GenreIsEarlyAccess             0.0000
+dtype: float64
+Scored 0.1239 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 3 seconds. Multimodal state: no_text 😶
+  light      no_text    f4 = 0.1239 (4s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → cat  [tabular: 15]
+Scored 0.1759 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 2 seconds. Multimodal state: no_text 😶
+  cat        no_text    f4 = 0.1759 (2s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabm  [tabular: 15]
+Scored 0.1318 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 157 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f4 = 0.1318 (157s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2  [tabular: 15]
+Scored 0.1939 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 46 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f4 = 0.1939 (47s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 15 features → tabpfnv2p5  [tabular: 15]
+Scored 0.1868 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 55 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f4 = 0.1868 (55s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 10113.86it/s]
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.402
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: ResponseName_txt    1.0
+dtype: float64
+Scored 0.1078 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 11 seconds. Multimodal state: text_only 📝
+  light      text_only  f0 = 0.1078 (12s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.402
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.0946 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 18 seconds. Multimodal state: text_only 📝
+  cat        text_only  f0 = 0.0946 (19s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.402
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.1073 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 96 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f0 = 0.1073 (97s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.1557 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 173 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f0 = 0.1557 (174s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.1555 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 148 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f0 = 0.1555 (149s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.403
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: ResponseName_txt    1.0
+dtype: float64
+Scored 0.0490 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 24 seconds. Multimodal state: text_only 📝
+  light      text_only  f1 = 0.0490 (24s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.403
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.1070 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 40 seconds. Multimodal state: text_only 📝
+  cat        text_only  f1 = 0.1070 (40s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.403
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.0989 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 153 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f1 = 0.0989 (153s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.1352 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 169 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f1 = 0.1352 (170s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.1380 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 1 in 143 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f1 = 0.1380 (144s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: ResponseName_txt    1.0
+dtype: float64
+Scored 0.0168 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 17 seconds. Multimodal state: text_only 📝
+  light      text_only  f2 = 0.0168 (17s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.1229 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 16 seconds. Multimodal state: text_only 📝
+  cat        text_only  f2 = 0.1229 (16s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.1031 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 126 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f2 = 0.1031 (127s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.1037 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 139 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f2 = 0.1037 (140s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.1100 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 2 in 102 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f2 = 0.1100 (102s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.400
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: ResponseName_txt    1.0
+dtype: float64
+Scored 0.0258 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 5 seconds. Multimodal state: text_only 📝
+  light      text_only  f3 = 0.0258 (5s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.400
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.0790 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 15 seconds. Multimodal state: text_only 📝
+  cat        text_only  f3 = 0.0790 (16s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.400
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.0817 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 127 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f3 = 0.0817 (127s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.0801 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 169 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f3 = 0.0801 (169s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.0876 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 3 in 143 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f3 = 0.0876 (143s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → light  [tabular: 0 | txt_emb: 30]
+🔥 Feature importances: ResponseName_txt    1.0
+dtype: float64
+Scored 0.0750 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 35 seconds. Multimodal state: text_only 📝
+  light      text_only  f4 = 0.0750 (36s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → cat  [tabular: 0 | txt_emb: 30]
+Scored 0.1478 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 20 seconds. Multimodal state: text_only 📝
+  cat        text_only  f4 = 0.1478 (21s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.401
+🔭 30 features → tabm  [tabular: 0 | txt_emb: 30]
+Scored 0.1240 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 183 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f4 = 0.1240 (184s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2  [tabular: 0 | txt_emb: 30]
+Scored 0.1702 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 193 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f4 = 0.1702 (194s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 2041 texts
+🔍 [PCA variance] ResponseName: 0.399
+🔭 30 features → tabpfnv2p5  [tabular: 0 | txt_emb: 30]
+Scored 0.1629 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 4 in 156 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f4 = 0.1629 (157s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.402
+🔭 45 features → light  [tabular: 15 | txt_emb: 30]
+🔥 Feature importances: ResponseName_txt               0.7682
+RecommendationCount            0.1745
+PriceInitial                   0.0239
+GenreIsAction                  0.0166
+GenreIsIndie                   0.0061
+GenreIsAdventure               0.0059
+GenreIsSimulation              0.0027
+GenreIsCasual                  0.0009
+GenreIsStrategy                0.0007
+GenreIsSports                  0.0004
+IsFree                         0.0002
+GenreIsRacing                  0.0001
+GenreIsRPG                     0.0000
+GenreIsEarlyAccess             0.0000
+GenreIsFreeToPlay              0.0000
+GenreIsMassivelyMultiplayer    0.0000
+dtype: float64
+Scored 0.1554 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 31 seconds. Multimodal state: all 🔥
+  light      all        f0 = 0.1554 (32s)
+🎯 Regression variable Metacritic had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column ResponseName with model intfloat/e5-small-v2 for 1837 texts
+🔍 [PCA variance] ResponseName: 0.402
+🔭 45 features → cat  [tabular: 15 | txt_emb: 30]
+Scored 0.1701 on dataset REG_TEXT_MEDIA_METACRITIC_SCORED, fold 0 in 58 seconds. Multimodal state: all 🔥
+  cat        all        f0 = 0.1701 (59s)

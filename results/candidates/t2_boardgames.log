@@ -1,0 +1,29 @@
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+=== T2 frozen screen: board games ===
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🚨 Warning: Regression variable Rating Average had extreme outliers!
+  Top 10 z-scores: [3.394, 3.352, 3.266, 3.234, 3.234, 3.138, 3.106, 3.042, 3.031, 3.031]
+  Bot 10 z-scores: [-5.72, -5.666, -5.431, -5.314, -5.239, -5.196, -5.186, -4.94, -4.812, -4.641]
+🔭 9 features → light  [tabular: 9]
+🔥 Feature importances: Complexity_Average    0.3678
+Year_Published        0.3223
+Users_Rated           0.0836
+Domains               0.0657
+Owned_Users           0.0524
+Play_Time             0.0419
+Max_Players           0.0353
+Min_Age               0.0207
+Min_Players           0.0102
+dtype: float64
+Scored 0.5668 on dataset REG_TEXT_SOCIAL_BOARD_GAMES_BGG, fold 0 in 3 seconds. Multimodal state: no_text 😶
+  light  no_text    fold=0 score=0.5668 (4s)
+🚨 Warning: Regression variable Rating Average had extreme outliers!
+  Top 10 z-scores: [3.394, 3.352, 3.266, 3.234, 3.234, 3.138, 3.106, 3.042, 3.031, 3.031]
+  Bot 10 z-scores: [-5.72, -5.666, -5.431, -5.314, -5.239, -5.196, -5.186, -4.94, -4.812, -4.641]
+🔭 9 features → cat  [tabular: 9]
+Scored 0.5704 on dataset REG_TEXT_SOCIAL_BOARD_GAMES_BGG, fold 0 in 85 seconds. Multimodal state: no_text 😶
+  cat    no_text    fold=0 score=0.5704 (86s)
+🚨 Warning: Regression variable Rating Average had extreme outliers!
+  Top 10 z-scores: [3.394, 3.352, 3.266, 3.234, 3.234, 3.138, 3.106, 3.042, 3.031, 3.031]
+  Bot 10 z-scores: [-5.72, -5.666, -5.431, -5.314, -5.239, -5.196, -5.186, -4.94, -4.812, -4.641]
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 13146.01it/s]

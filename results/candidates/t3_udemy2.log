@@ -1,0 +1,47 @@
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+rows=2999 | target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_num=6
+🎯 Regression variable price had no extreme outliers.
+[tar] training max_length cap = 40 (was 512) -> ~12.8x
+Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4374 train examples (passage: col_name: col_val)
+[Dataset] train: n=4374, val: n=486
+[Dataset] train_y.shape=(4374,), val_y.shape=(486,) (y = labels)
+[Steps] batch_size=256 → 18 steps/epoch → 36 total steps (2 epochs)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 5835.89it/s]
+🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16
+[Trainable parameters per layer (E5)]
+  layer.9: 110,592
+  layer.10: 110,592
+  layer.11: 110,592
+  head: 3,465
+  total trainable: 335,241  (frozen: 33,360,000)
+  0%|          | 0/36 [00:00<?, ?it/s]  3%|▎         | 1/36 [01:16<44:48, 76.82s/it]  6%|▌         | 2/36 [01:24<20:23, 36.00s/it]  8%|▊         | 3/36 [01:32<12:48, 23.30s/it] 11%|█         | 4/36 [01:40<09:17, 17.41s/it] 14%|█▍        | 5/36 [01:49<07:16, 14.10s/it] 17%|█▋        | 6/36 [01:58<06:11, 12.39s/it] 19%|█▉        | 7/36 [02:06<05:17, 10.94s/it] 22%|██▏       | 8/36 [02:15<04:52, 10.46s/it] 25%|██▌       | 9/36 [02:22<04:17,  9.53s/it] 28%|██▊       | 10/36 [02:31<04:01,  9.27s/it] 31%|███       | 11/36 [02:39<03:41,  8.85s/it] 33%|███▎      | 12/36 [02:46<03:19,  8.29s/it] 36%|███▌      | 13/36 [02:53<03:01,  7.91s/it] 39%|███▉      | 14/36 [03:01<02:54,  7.94s/it] 42%|████▏     | 15/36 [03:11<02:57,  8.43s/it] 44%|████▍     | 16/36 [03:19<02:47,  8.35s/it] 47%|████▋     | 17/36 [03:28<02:45,  8.71s/it] 50%|█████     | 18/36 [03:32<02:06,  7.06s/it]
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:14<00:00,  7.47s/it][A                                               
+                                             [A 50%|█████     | 18/36 [05:12<02:06,  7.06s/it]
+100%|██████████| 2/2 [00:15<00:00,  7.47s/it][A
+                                             [A 53%|█████▎    | 19/36 [06:32<16:46, 59.21s/it] 56%|█████▌    | 20/36 [06:41<11:47, 44.19s/it] 58%|█████▊    | 21/36 [06:49<08:17, 33.14s/it] 61%|██████    | 22/36 [06:58<06:03, 25.97s/it] 64%|██████▍   | 23/36 [07:06<04:25, 20.42s/it] 67%|██████▋   | 24/36 [07:14<03:20, 16.75s/it] 69%|██████▉   | 25/36 [07:22<02:36, 14.22s/it] 72%|███████▏  | 26/36 [07:30<02:02, 12.27s/it] 75%|███████▌  | 27/36 [07:39<01:41, 11.24s/it] 78%|███████▊  | 28/36 [07:46<01:20, 10.11s/it] 81%|████████  | 29/36 [07:55<01:07,  9.68s/it] 83%|████████▎ | 30/36 [08:02<00:54,  9.00s/it] 86%|████████▌ | 31/36 [08:12<00:45,  9.10s/it] 89%|████████▉ | 32/36 [08:17<00:32,  8.01s/it] 92%|█████████▏| 33/36 [08:22<00:21,  7.15s/it] 94%|█████████▍| 34/36 [08:28<00:13,  6.72s/it] 97%|█████████▋| 35/36 [08:32<00:06,  6.07s/it]100%|██████████| 36/36 [08:34<00:00,  4.79s/it]{'eval_auc': '0.5393', 'eval_loss': '2.013', 'eval_runtime': '100.8', 'eval_samples_per_second': '4.822', 'eval_steps_per_second': '0.02', 'epoch': '1'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:13<00:00,  6.73s/it][A                                               
+                                             [A100%|██████████| 36/36 [09:55<00:00,  4.79s/it]
+100%|██████████| 2/2 [00:14<00:00,  6.73s/it][A
+                                             [A                                               100%|██████████| 36/36 [09:55<00:00,  4.79s/it]100%|██████████| 36/36 [09:55<00:00, 16.55s/it]
+{'eval_auc': '0.539', 'eval_loss': '1.878', 'eval_runtime': '80.26', 'eval_samples_per_second': '6.056', 'eval_steps_per_second': '0.025', 'epoch': '2'}
+{'train_runtime': '595.4', 'train_samples_per_second': '14.69', 'train_steps_per_second': '0.06', 'train_loss': '2.055', 'epoch': '2'}
+🔍 [PCA variance] course_instr: 0.417
+🔍 [PCA variance] course_name: 0.449
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4247
+course_name_txt         0.2428
+price_dis               0.2345
+coures_reviews          0.0453
+course_lectures         0.0333
+course_enrollmenters    0.0086
+course_totalHourse      0.0081
+course_rating           0.0020
+course_level            0.0007
+dtype: float64
+Scored 0.5056 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 756 seconds. Multimodal state: all 🔥
+
+=== TAR probe REG_TEXT_EDU_UDEMY_ACADEMY ===
+  all=0.4957  ft=0.5056  Delta_Awareness=0.0099  (758.2s, 2 epochs)  -> PASS

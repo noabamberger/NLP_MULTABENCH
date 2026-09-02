@@ -1,0 +1,691 @@
+REG_TEXT_EDU_UDEMY_ACADEMY: rows=2999 | target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_num=6
+[transformers] `DINOv3ViTImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `DINOv3ViTImageProcessor` instead.
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: price_dis               0.3484
+coures_reviews          0.1646
+course_enrollmenters    0.1575
+course_lectures         0.1567
+course_totalHourse      0.0847
+course_rating           0.0774
+course_level            0.0107
+dtype: float64
+Scored 0.2957 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 3 seconds. Multimodal state: no_text 😶
+  light      no_text    f0 = 0.2957 (3s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → cat  [tabular: 7]
+Scored 0.3312 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 59 seconds. Multimodal state: no_text 😶
+  cat        no_text    f0 = 0.3312 (59s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabm  [tabular: 7]
+Scored 0.3467 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 133 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f0 = 0.3467 (133s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2  [tabular: 7]
+Scored 0.3283 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 45 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f0 = 0.3283 (45s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2p5  [tabular: 7]
+Scored 0.3297 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 39 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f0 = 0.3297 (39s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: price_dis               0.3454
+course_lectures         0.1714
+coures_reviews          0.1569
+course_enrollmenters    0.1493
+course_totalHourse      0.0848
+course_rating           0.0787
+course_level            0.0134
+dtype: float64
+Scored 0.2996 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f1 = 0.2996 (2s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → cat  [tabular: 7]
+Scored 0.3226 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 68 seconds. Multimodal state: no_text 😶
+  cat        no_text    f1 = 0.3226 (69s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabm  [tabular: 7]
+Scored 0.3138 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 109 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f1 = 0.3138 (110s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2  [tabular: 7]
+Scored 0.2996 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 42 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f1 = 0.2996 (43s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2p5  [tabular: 7]
+Scored 0.3277 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 32 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f1 = 0.3277 (33s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: price_dis               0.3499
+course_lectures         0.1698
+course_enrollmenters    0.1610
+coures_reviews          0.1527
+course_totalHourse      0.0859
+course_rating           0.0678
+course_level            0.0129
+dtype: float64
+Scored 0.2396 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 2 seconds. Multimodal state: no_text 😶
+  light      no_text    f2 = 0.2396 (3s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → cat  [tabular: 7]
+Scored 0.3266 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 23 seconds. Multimodal state: no_text 😶
+  cat        no_text    f2 = 0.3266 (24s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabm  [tabular: 7]
+Scored 0.2921 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 92 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f2 = 0.2921 (93s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2  [tabular: 7]
+Scored 0.3195 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 54 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f2 = 0.3195 (55s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2p5  [tabular: 7]
+Scored 0.3341 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 32 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f2 = 0.3341 (32s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: price_dis               0.3435
+course_lectures         0.1726
+course_enrollmenters    0.1718
+coures_reviews          0.1430
+course_totalHourse      0.0827
+course_rating           0.0716
+course_level            0.0148
+dtype: float64
+Scored 0.2503 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 1 seconds. Multimodal state: no_text 😶
+  light      no_text    f3 = 0.2503 (1s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → cat  [tabular: 7]
+Scored 0.2545 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 39 seconds. Multimodal state: no_text 😶
+  cat        no_text    f3 = 0.2545 (40s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabm  [tabular: 7]
+Scored 0.2573 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 77 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f3 = 0.2573 (77s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2  [tabular: 7]
+Scored 0.2698 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 77 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f3 = 0.2698 (78s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2p5  [tabular: 7]
+Scored 0.2838 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 68 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f3 = 0.2838 (69s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → light  [tabular: 7]
+🔥 Feature importances: price_dis               0.3395
+course_lectures         0.1768
+coures_reviews          0.1697
+course_enrollmenters    0.1454
+course_totalHourse      0.0937
+course_rating           0.0613
+course_level            0.0135
+dtype: float64
+Scored 0.2197 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 5 seconds. Multimodal state: no_text 😶
+  light      no_text    f4 = 0.2197 (6s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → cat  [tabular: 7]
+Scored 0.2525 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 55 seconds. Multimodal state: no_text 😶
+  cat        no_text    f4 = 0.2525 (55s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabm  [tabular: 7]
+Scored 0.2826 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 141 seconds. Multimodal state: no_text 😶
+  tabm       no_text    f4 = 0.2826 (142s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2  [tabular: 7]
+Scored 0.2758 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 87 seconds. Multimodal state: no_text 😶
+  tabpfnv2   no_text    f4 = 0.2758 (88s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+🔭 7 features → tabpfnv2p5  [tabular: 7]
+Scored 0.2810 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 60 seconds. Multimodal state: no_text 😶
+  tabpfnv2p5 no_text    f4 = 0.2810 (61s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4499.60it/s]
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt    0.5948
+course_name_txt     0.4052
+dtype: float64
+Scored 0.2083 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 11 seconds. Multimodal state: text_only 📝
+  light      text_only  f0 = 0.2083 (12s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 60 features → cat  [tabular: 0 | txt_emb: 60]
+Scored 0.1992 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 35 seconds. Multimodal state: text_only 📝
+  cat        text_only  f0 = 0.1992 (35s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 60 features → tabm  [tabular: 0 | txt_emb: 60]
+Scored 0.1926 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 427 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f0 = 0.1926 (428s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]
+Scored 0.1208 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 414 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f0 = 0.1208 (415s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]
+Scored 0.1880 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 197 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f0 = 0.1880 (197s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.445
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt    0.5674
+course_name_txt     0.4326
+dtype: float64
+Scored 0.2563 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 5 seconds. Multimodal state: text_only 📝
+  light      text_only  f1 = 0.2563 (6s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.445
+🔭 60 features → cat  [tabular: 0 | txt_emb: 60]
+Scored 0.2949 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 35 seconds. Multimodal state: text_only 📝
+  cat        text_only  f1 = 0.2949 (35s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.445
+🔭 60 features → tabm  [tabular: 0 | txt_emb: 60]
+Scored 0.3286 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 327 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f1 = 0.3286 (327s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]
+Scored 0.2920 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 429 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f1 = 0.2920 (430s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]
+Scored 0.2783 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 318 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f1 = 0.2783 (318s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.414
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt    0.6025
+course_name_txt     0.3975
+dtype: float64
+Scored 0.1899 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 3 seconds. Multimodal state: text_only 📝
+  light      text_only  f2 = 0.1899 (4s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.414
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → cat  [tabular: 0 | txt_emb: 60]
+Scored 0.1970 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 25 seconds. Multimodal state: text_only 📝
+  cat        text_only  f2 = 0.1970 (25s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.414
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabm  [tabular: 0 | txt_emb: 60]
+Scored 0.1888 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 153 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f2 = 0.1888 (154s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.415
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]
+Scored 0.1090 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 360 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f2 = 0.1090 (362s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.415
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]
+Scored 0.1644 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 221 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f2 = 0.1644 (222s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt    0.5751
+course_name_txt     0.4249
+dtype: float64
+Scored 0.2820 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 3 seconds. Multimodal state: text_only 📝
+  light      text_only  f3 = 0.2820 (4s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → cat  [tabular: 0 | txt_emb: 60]
+Scored 0.2304 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 16 seconds. Multimodal state: text_only 📝
+  cat        text_only  f3 = 0.2304 (16s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 60 features → tabm  [tabular: 0 | txt_emb: 60]
+Scored 0.2853 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 114 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f3 = 0.2853 (115s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]
+Scored 0.1639 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 239 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f3 = 0.1639 (240s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]
+Scored 0.2353 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 223 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f3 = 0.2353 (223s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → light  [tabular: 0 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt    0.5994
+course_name_txt     0.4006
+dtype: float64
+Scored 0.0610 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 3 seconds. Multimodal state: text_only 📝
+  light      text_only  f4 = 0.0610 (3s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → cat  [tabular: 0 | txt_emb: 60]
+Scored 0.1090 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 20 seconds. Multimodal state: text_only 📝
+  cat        text_only  f4 = 0.1090 (21s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → tabm  [tabular: 0 | txt_emb: 60]
+Scored 0.1074 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 125 seconds. Multimodal state: text_only 📝
+  tabm       text_only  f4 = 0.1074 (126s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]
+Scored 0.1293 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 317 seconds. Multimodal state: text_only 📝
+  tabpfnv2   text_only  f4 = 0.1293 (318s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]
+Scored 0.1820 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 222 seconds. Multimodal state: text_only 📝
+  tabpfnv2p5 text_only  f4 = 0.1820 (223s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4128
+course_name_txt         0.2507
+price_dis               0.2355
+coures_reviews          0.0436
+course_lectures         0.0360
+course_enrollmenters    0.0114
+course_totalHourse      0.0065
+course_rating           0.0019
+course_level            0.0016
+dtype: float64
+Scored 0.4957 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 3 seconds. Multimodal state: all 🔥
+  light      all        f0 = 0.4957 (4s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 67 features → cat  [tabular: 7 | txt_emb: 60]
+Scored 0.5177 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 130 seconds. Multimodal state: all 🔥
+  cat        all        f0 = 0.5177 (130s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.443
+🔭 67 features → tabm  [tabular: 7 | txt_emb: 60]
+Scored 0.5480 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 304 seconds. Multimodal state: all 🔥
+  tabm       all        f0 = 0.5480 (305s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]
+Scored 0.4617 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 236 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f0 = 0.4617 (237s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]
+Scored 0.4602 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 174 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f0 = 0.4602 (174s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.445
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4217
+course_name_txt         0.2443
+price_dis               0.2303
+course_lectures         0.0516
+coures_reviews          0.0303
+course_enrollmenters    0.0102
+course_totalHourse      0.0085
+course_rating           0.0019
+course_level            0.0012
+dtype: float64
+Scored 0.5367 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 1 seconds. Multimodal state: all 🔥
+  light      all        f1 = 0.5367 (2s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.445
+🔭 67 features → cat  [tabular: 7 | txt_emb: 60]
+Scored 0.5688 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 135 seconds. Multimodal state: all 🔥
+  cat        all        f1 = 0.5688 (136s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.445
+🔭 67 features → tabm  [tabular: 7 | txt_emb: 60]
+Scored 0.5770 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 221 seconds. Multimodal state: all 🔥
+  tabm       all        f1 = 0.5770 (222s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]
+Scored 0.4507 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 227 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f1 = 0.4507 (227s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]
+Scored 0.5129 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 174 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f1 = 0.5129 (174s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.414
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4280
+price_dis               0.2386
+course_name_txt         0.2283
+course_lectures         0.0473
+coures_reviews          0.0331
+course_totalHourse      0.0094
+course_enrollmenters    0.0089
+course_rating           0.0047
+course_level            0.0018
+dtype: float64
+Scored 0.4319 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 2 seconds. Multimodal state: all 🔥
+  light      all        f2 = 0.4319 (2s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.414
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → cat  [tabular: 7 | txt_emb: 60]
+Scored 0.4565 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 140 seconds. Multimodal state: all 🔥
+  cat        all        f2 = 0.4565 (140s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.414
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabm  [tabular: 7 | txt_emb: 60]
+Scored 0.5137 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 201 seconds. Multimodal state: all 🔥
+  tabm       all        f2 = 0.5137 (201s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.415
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]
+Scored 0.4196 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 224 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f2 = 0.4196 (224s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.415
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]
+Scored 0.4201 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 173 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f2 = 0.4201 (174s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4350
+price_dis               0.2326
+course_name_txt         0.2262
+course_lectures         0.0484
+coures_reviews          0.0352
+course_enrollmenters    0.0154
+course_totalHourse      0.0043
+course_rating           0.0016
+course_level            0.0013
+dtype: float64
+Scored 0.4512 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 1 seconds. Multimodal state: all 🔥
+  light      all        f3 = 0.4512 (2s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → cat  [tabular: 7 | txt_emb: 60]
+Scored 0.4790 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 141 seconds. Multimodal state: all 🔥
+  cat        all        f3 = 0.4790 (142s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.412
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.442
+🔭 67 features → tabm  [tabular: 7 | txt_emb: 60]
+Scored 0.4661 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 241 seconds. Multimodal state: all 🔥
+  tabm       all        f3 = 0.4661 (242s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]
+Scored 0.4145 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 224 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f3 = 0.4145 (225s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]
+Scored 0.4267 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 174 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f3 = 0.4267 (174s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → light  [tabular: 7 | txt_emb: 60]
+🔥 Feature importances: course_instr_txt        0.4368
+price_dis               0.2343
+course_name_txt         0.2228
+course_lectures         0.0462
+coures_reviews          0.0362
+course_enrollmenters    0.0132
+course_totalHourse      0.0091
+course_rating           0.0013
+course_level            0.0002
+dtype: float64
+Scored 0.4347 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 1 seconds. Multimodal state: all 🔥
+  light      all        f4 = 0.4347 (2s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → cat  [tabular: 7 | txt_emb: 60]
+Scored 0.4355 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 96 seconds. Multimodal state: all 🔥
+  cat        all        f4 = 0.4355 (96s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2430 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → tabm  [tabular: 7 | txt_emb: 60]
+Scored 0.4242 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 161 seconds. Multimodal state: all 🔥
+  tabm       all        f4 = 0.4242 (162s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]
+Scored 0.4285 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 224 seconds. Multimodal state: all 🔥
+  tabpfnv2   all        f4 = 0.4285 (224s)
+🎯 Regression variable price had no extreme outliers.
+⚠️ No GPU available, using CPU. This may lead to slow performance.
+Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_instr: 0.413
+Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts
+🔍 [PCA variance] course_name: 0.441
+🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]
+Scored 0.4358 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 178 seconds. Multimodal state: all 🔥
+  tabpfnv2p5 all        f4 = 0.4358 (179s)
+
+=== deltas ===
+     model  n_rows  delta_joint  delta_awareness
+  CatBoost      15        0.194              NaN
+  LightGBM      15        0.209              NaN
+      TabM      15        0.208              NaN
+TabPFN-2.5      15        0.140              NaN
+  TabPFNv2      15        0.136              NaN
