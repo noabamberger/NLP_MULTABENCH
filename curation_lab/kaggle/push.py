@@ -90,7 +90,7 @@ def kaggle(*args: str, check: bool = True) -> str:
 def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
           full: bool = False, full_epochs: int = 10, candidates: list[str] | None = None,
           folds: str | None = None, models: str | None = None,
-          states: str | None = None) -> None:
+          states: str | None = None, kernel_id: str | None = None) -> None:
     cmd = [sys.executable, "-m", "curation_lab.kaggle.build_notebook", "--out", out_dir]
     if machine_shape:
         cmd += ["--machine-shape", machine_shape]
@@ -100,7 +100,8 @@ def build(out_dir: str, machine_shape: str | None = None, cpu: bool = False,
         cmd += ["--full", "--full-epochs", str(full_epochs)]
     for item in candidates or []:
         cmd += ["--candidate", item]
-    for flag, value in (("--folds", folds), ("--models", models), ("--states", states)):
+    for flag, value in (("--folds", folds), ("--models", models), ("--states", states),
+                        ("--kernel-id", kernel_id)):
         if value:
             cmd += [flag, value]
     subprocess.check_call(cmd, cwd=REPO_ROOT, env=_env())
@@ -174,12 +175,15 @@ def main() -> None:
     p.add_argument("--models", default=None, help="Comma-separated committee SHORT_NAMEs.")
     p.add_argument("--states", default=None,
                    help="Comma-separated conditions: no_text,text_only,all,ft.")
+    p.add_argument("--kernel-id", default=None,
+                   help="Run against a different kernel, e.g. to sweep concurrently.")
     p.add_argument("--timeout", type=int, default=TIMEOUT_SECONDS,
                    help="Seconds to poll before giving up. A multi-fold ft sweep needs hours; "
                         "giving up here does not stop the kernel, --log-only still collects it.")
     args = p.parse_args()
 
-    kernel_id = KERNEL_ID.replace("-tar-gpu", "-tar-cpu") if args.cpu else KERNEL_ID
+    kernel_id = args.kernel_id or (
+        KERNEL_ID.replace("-tar-gpu", "-tar-cpu") if args.cpu else KERNEL_ID)
     work_dir = args.dir + ("-cpu" if args.cpu and args.dir == DEFAULT_DIR else "")
     out_dir = os.path.join(work_dir, "output")
     if args.log_only:
@@ -190,7 +194,8 @@ def main() -> None:
         build(work_dir, args.machine_shape, cpu=args.cpu,
               full=args.full, full_epochs=args.full_epochs,
               candidates=args.candidate,
-              folds=args.folds, models=args.models, states=args.states)
+              folds=args.folds, models=args.models, states=args.states,
+              kernel_id=args.kernel_id)
     push_args = ["kernels", "push", "-p", work_dir]
     if args.machine_shape:
         push_args += ["--accelerator", args.machine_shape]

@@ -1,0 +1,6 @@
+ref,rows,target,task,transform,n_text,n_num,n_cat,text,flags,detail
+suhanigupta04/global-movies-dataset-19502026,100000,roi_pct,REG,,2.0,15.0,7.0,"genre,title",ok,"target=roi_pct (nuniq=9796 zmax=3.87) leaks_dropped=[] text=['genre', 'title'] n_num=15"
+manarmohamed11/multicategory-electronics-product-new-egg,4347,,,,,,,,no-spec,no usable target (no numeric column qualified)
+meruvakodandasuraj/video-game-sales-and-metacritic-intelligence-198026,50000,user_score,REG,,1.0,22.0,9.0,title,WIDE,target=user_score (nuniq=73 zmax=4.49) leaks_dropped=[] text=['title'] n_num=22
+wiltheman/anime-data-set-for-ml,10000,popularity,REG,,3.0,3.0,3.0,"genres,themes,title_english",ok,"target=popularity (nuniq=7439 zmax=4.93) leaks_dropped=['members', 'scored_by'] text=['genres', 'themes', 'tit"
+saitejabandaruin/global-restaurant-delivery-intelligence,62417,,,,,,,,no-spec,"no genuine text column (raw text cols: ['Menu_ID', 'Restaurant_ID'])"

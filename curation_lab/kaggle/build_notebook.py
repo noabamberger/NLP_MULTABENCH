@@ -545,10 +545,14 @@ def build_notebook(require_gpu: bool = True, smoke: bool = True, full_epochs: in
 
 
 def build_metadata(enable_gpu: bool = True, machine_shape: str | None = None,
-                   dataset_refs: tuple[str, ...] = (CANDIDATE_DATASET,)) -> dict:
+                   dataset_refs: tuple[str, ...] = (CANDIDATE_DATASET,),
+                   kernel_id: str | None = None) -> dict:
     # The CPU validation variant lives in its own kernel so that pushing it does
-    # not overwrite the GPU kernel's accelerator setting.
-    kid = KERNEL_ID if enable_gpu else KERNEL_ID.replace("-tar-gpu", "-tar-cpu")
+    # not overwrite the GPU kernel's accelerator setting. A caller can also name a
+    # separate kernel to run a second sweep concurrently: one kernel only ever runs
+    # one version at a time, so pushing a screen to the kernel already running a
+    # full grid would displace it.
+    kid = kernel_id or (KERNEL_ID if enable_gpu else KERNEL_ID.replace("-tar-gpu", "-tar-cpu"))
     meta = {
         "id": kid,
         "title": kid.split("/")[-1],
@@ -591,6 +595,9 @@ def main() -> None:
     p.add_argument("--models", default="light",
                    help="Comma-separated SHORT_NAMEs from the curation committee: "
                         "light,cat,tabm,tabpfnv2,tabpfnv2p5.")
+    p.add_argument("--kernel-id", default=None,
+                   help="owner/slug of the kernel to write. Use a second kernel to run "
+                        "a sweep concurrently with one already running.")
     p.add_argument("--states", default="all,ft",
                    help="Curation conditions to measure: no_text,text_only,all,ft. "
                         "Run all four on one machine when the output feeds passes().")
@@ -635,7 +642,8 @@ def main() -> None:
     with open(meta_path, "w", encoding="utf-8") as fh:
         json.dump(build_metadata(enable_gpu=require_gpu,
                                  machine_shape=args.machine_shape,
-                                 dataset_refs=tuple(r for r, _ in candidates)), fh, indent=2)
+                                 dataset_refs=tuple(r for r, _ in candidates),
+                                 kernel_id=args.kernel_id), fh, indent=2)
     print(f"wrote {nb_path}\nwrote {meta_path}")
 
 
