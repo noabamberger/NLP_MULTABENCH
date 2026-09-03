@@ -24,13 +24,15 @@ Even repaired, the candidate is weak:
   against 15 structured columns.
 - The structured block is dominated by `RecommendationCount` (feature importance 0.62) and
   `PriceInitial` (0.16); the remainder are genre one-hots.
-- Its fold-0 Delta_Awareness screen was **-0.006 / -0.013** (LightGBM / CatBoost) — the wrong sign
-  on both models.
+- Its fold-0 Delta_Awareness screen was **-0.014 for LightGBM and -0.006 for CatBoost** — the
+  wrong sign on both models. (Computed from `screening/t2_joint/screen4_fold0.csv`, dataset
+  `REG_TEXT_GAMES_METACRITIC_PC`.)
 
 The frozen grid in `grid.csv` was therefore stopped part-way rather than completed: **52 rows, 3
-frozen states, no `ft` state, and only LightGBM and CatBoost reach a full 5 folds** (TabM,
-TabPFNv2 and TabPFN-2.5 have partial coverage). What it did measure is unpersuasive on its own
-terms — Delta_Joint +0.040 for LightGBM and **-0.003** for CatBoost.
+frozen states and no `ft` state at all.** All five models have the full 5 folds of `no_text` and
+`text_only`; what is missing is the `all` state, which only LightGBM and CatBoost reach and only
+for a single fold each. Delta_Joint is therefore a one-fold quantity here, and what it measured is
+unpersuasive on its own terms — +0.040 for LightGBM and **-0.003** for CatBoost.
 
 No verdict is claimed from this file, and none should be: it is an incomplete grid on a candidate
 rejected on target quality.
