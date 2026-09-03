@@ -36,7 +36,7 @@ that are near-copies of the target; no individual column here is one. A cheap gu
 paper and is not yet implemented: flag any candidate whose `no_text` R^2 exceeds ~0.95 as
 saturated, since at that point no text signal can be demonstrated regardless of the deltas.
 
-## Note on two rows above
+## Note on three rows above
 
 Three entries differ from the summary tables in `docs/archive/`, and the evidence files were
 checked directly rather than transcribed:

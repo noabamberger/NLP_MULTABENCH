@@ -1,6 +1,9 @@
 # Index of curation evidence
 
-Every file under `results/curation/`, with the name it had before the reorganization.
+Every *evidence* file under `results/curation/` — grids, logs, screens and source tables — with
+the name it had before the reorganization. The authored narrative documents (`VERDICT.md`,
+`STATUS.md`, `REJECTION.md`, `REJECTIONS.md`, the `validation/README.md` and this index) are not
+listed: they were written here rather than moved, so they have no prior name to record.
 
 **Nothing here was reformatted.** The reorganization (commit `64bd9a5`) was renames only — no file
 content changed, so no measured number moved. The *original filename* column is what keeps the

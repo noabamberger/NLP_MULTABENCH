@@ -72,6 +72,21 @@ buckets — `accepted/`, `in_progress/`, `rejected/`, `screening/`, `validation/
 [`results/curation/INDEX.md`](results/curation/INDEX.md) as the file-level map (original
 filenames, both CSV schemas, and what each file proves).
 
+These files were moved into that layout from a flat directory. That the move destroyed nothing
+is a checkable claim, not an assurance — re-run it yourself:
+
+```bash
+PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -m curation_lab.tools.manifest check   docs/superpowers/plans/consolidation-manifest.json   --except README.md RESUME.md PHASE2_RESULTS.md RESEARCH_NOTES.md            docs/AUTONOMOUS_MINER_RULES.md            results/candidates/DJ_PROPERTY_REPORT.md            results/candidates/DJ_PROPERTY_TAR_REPORT.md            results/candidates/DJ_GAMES_REPORT.md            results/candidates/HUNT_ROUND2_REPORT.md
+# LOST: []
+```
+
+The manifest records the sha256 of every evidence file as it stood before the reorganization;
+the check asks whether each recorded content still exists anywhere in the tree. The nine
+exceptions are the documents that gained an archive header — the one intended content change.
+Note what this proves and what it does not: it establishes **custody**, not correctness. A file
+moved somewhere nonsensical still counts as present, and a file never recorded is invisible to
+it. It answers "was anything destroyed", not "is everything where it belongs".
+
 ## Where the paper is
 
 [`paper/`](paper/) holds the Technion write-up: the assignment brief

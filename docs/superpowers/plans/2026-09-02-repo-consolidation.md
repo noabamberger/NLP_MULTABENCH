@@ -1066,7 +1066,7 @@ Expected: `paper/source/instructions.pdf` exists. (`instructions.pdf` is untrack
 
 - [ ] **Step 2: Write `paper/README.md`**
 
-States: this directory holds the Technion 097215 Track 2 write-up. `source/instructions.pdf` is the assignment brief. `report.md` is a **skeleton, not a draft** — drafting it is separate work. `assets/` holds tables and figures generated from `results/curation/`; nothing there is hand-typed, so every number in the report traces to a committed CSV. Note the deviation that must be disclosed in any submission: E5 fine-tuning ran 10 epochs rather than the `E5TrainArgs` default of 50. (TabPFN-2.5 was unavailable for the Udemy grid and is recorded there as a non-pass; it is available now, so a re-run would only strengthen that result.)
+States: this directory holds the Technion 097215 Track 2 write-up. `source/instructions.pdf` is the assignment brief. `report.md` is a **skeleton, not a draft** — drafting it is separate work. `assets/` holds tables and figures generated from `results/curation/`; nothing there is hand-typed, so every number in the report traces to a committed CSV. Note the deviation that must be disclosed in any submission: E5 fine-tuning ran 10 epochs rather than the `E5TrainArgs` default of 50. (TabPFN-2.5 ran on every accepted grid: it is one of Udemy's three passing learners, with that dataset's largest Delta_Awareness at +0.016, and posts the largest Delta_Joint on Vietnam housing. Its earlier unavailability is a methodological anecdote, not a limitation on the results.)
 
 - [ ] **Step 3: Write `paper/report.md` as a skeleton with evidence pointers**
 
@@ -1081,7 +1081,7 @@ Each section is a heading plus a note naming the evidence folder it draws from �
 7. **Negative results and what they taught** — Evidence: `results/curation/rejected/`, `docs/findings/03-methodological-findings.md`.
 8. **Methodological contribution** — the cheap-screen principle and its two instances. Evidence: `docs/findings/03-methodological-findings.md`.
 9. **Reproducibility and deviations** — Evidence: `docs/findings/04-environment-and-performance.md`, `results/curation/validation/`.
-10. **Limitations** — 10 epochs not 50; the float knife-edge cells; TabPFN-2.5 unavailable at the time of the Udemy grid though available now.
+10. **Limitations** — 10 epochs not 50; the float knife-edge cells. Do NOT write that TabPFN-2.5 was unavailable for the Udemy grid: it ran there and passed. See the corrected passage in section 4 of this plan.
 
 - [ ] **Step 4: Archive the upstream README and add its header**
 
