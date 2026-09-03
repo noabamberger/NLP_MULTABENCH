@@ -26,7 +26,7 @@ Delta_Awareness = mean(ft)  - mean(all)                           > 0.001
 | T1 after junk-column filter | 58 | 25% |
 | after used-domain filter | 34 | 15% |
 | **T2 Delta_Joint pass (1 model, 1 fold)** | **16** | **7%** |
-| Full 5x5 grid attempted | 3 | -- |
+| Full 5x5 grid attempted | 4 | -- |
 | **Survived scrutiny** | **2** | **<1%** |
 
 **Plan for roughly 1% end-to-end yield.** To deliver 5 accepted datasets, screen on the order of

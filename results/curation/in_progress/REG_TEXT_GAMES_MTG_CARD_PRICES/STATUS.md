@@ -65,7 +65,8 @@ it does.
 **A TAR grid at epochs >= 10 over >= 3 folds.**
 
 A fold-0 screen will not resolve it. The per-(model, fold) spread of Delta_Awareness is
-sigma = 0.0063 — roughly 6x the delta threshold of 0.001 — so a single fold cannot resolve a
+sigma = 0.0063 on board games, the widest measured (anime's own is 0.0026, all cells pooled
+0.0047) — every one of them many times the delta threshold of 0.001, so a single fold cannot resolve a
 criterion whose threshold sits far inside its own noise band. Screening one fold has already cost
 two full grids elsewhere in this project; see
 [`docs/findings/03-methodological-findings.md`](../../../../docs/findings/03-methodological-findings.md).

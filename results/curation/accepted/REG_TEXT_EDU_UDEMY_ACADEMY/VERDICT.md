@@ -79,8 +79,13 @@ The file is retained as the measured evidence behind
 a cheap screen is only valid where cheapness does not change the quantity being screened — true
 for Delta_Joint (frozen encoders), false for Delta_Awareness.
 
-Its Delta_Joint figures (0.136-0.209) are identical to the accepted grid's, as they must be:
-the frozen states do not depend on the epoch budget.
+Its Delta_Joint figures (0.136-0.209) match the accepted grid's on four of five models, as they
+should: the frozen states do not depend on the epoch budget. TabPFN-2.5 reads 0.138 here against
+0.140 in the accepted grid, and the cause is a data artifact rather than a real difference — this
+file has 101 rows because it carries an exact duplicate of the TabPFN-2.5 / `all` / fold-4 row,
+which double-weights that fold in the mean. `deltas.normalize` does not de-duplicate (the Kaggle
+loader does), so read this file with `.drop_duplicates(subset=['model','state','fold'])`, as the
+reproduce command below does.
 
 ## Reproduce
 

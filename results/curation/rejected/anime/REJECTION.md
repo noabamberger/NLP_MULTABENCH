@@ -23,13 +23,15 @@ stays at 5.
 
 ## The fold-0 screen had looked positive
 
-This dataset was promoted to a full grid on a fold-0 Delta_Awareness screen of **+0.002 / +0.003**
-(LightGBM / CatBoost). The full grid reversed it: every model landed at or below zero.
+This dataset was promoted to a full grid on a fold-0 Delta_Awareness screen of **+0.003 for
+LightGBM and +0.002 for CatBoost**. The full grid reversed it: every model landed at or below
+zero.
 
 Anime is the cleaner-cut of the two reversals in that round — board games at least kept one model
 above the line, whereas here nothing survived. Both cases are the same error: a single fold cannot
 resolve a criterion whose threshold (0.001) sits far inside the per-(model, fold) noise band
-(sigma = 0.0063). See
+(board games' sigma = 0.0063, anime's own 0.0026, all cells pooled 0.0047 — the threshold sits
+inside all three). See
 [`docs/findings/03-methodological-findings.md`](../../../docs/findings/03-methodological-findings.md).
 
 ## Files in this folder

@@ -34,6 +34,12 @@ screen-time rejections that never reached a full grid).
 **Standard scope (1 passing dataset) is met twice.** **Outstanding scope (>=5 passing datasets)
 needs 3 more.**
 
+## Deviation to carry into any writeup
+
+E5 fine-tuning ran **10 epochs**, not the `E5TrainArgs` default of 50 (patience 3). It applies to
+both acceptances, affects Delta_Awareness only, and is conservative — the measured trend is that
+more epochs widen the delta. Re-run at 50 if GPU budget allows; nothing else is pending on it.
+
 ## Blockers
 
 - **The local candidate pool is exhausted.** It needs a fresh T0/T1 Kaggle search with the

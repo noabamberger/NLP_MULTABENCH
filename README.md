@@ -34,6 +34,15 @@ and clear a strict `>` only because float64 renders the difference as `0.0010000
 Both are flagged where they appear, and neither verdict depends on its cell — dropping them
 leaves Vietnam at 4 of 5 (still accepted) and board games at 1 of 5 (still rejected).
 
+**One deviation applies to both acceptances and must be disclosed in any writeup:** E5
+fine-tuning ran **10 epochs**, not the `E5TrainArgs` default of 50 (patience 3), for compute
+feasibility. This affects the `ft` state and therefore Delta_Awareness — the narrower of the two
+criteria, and the one Udemy passes at exactly quorum. It is conservative in the direction that
+matters (Delta_Awareness grew with epochs in every measurement: LightGBM fold 0 went +0.0099 at 2
+epochs to +0.0322 at 10), so the full budget would be expected to widen the margins rather than
+narrow them. Detail in
+[`docs/findings/04-environment-and-performance.md`](docs/findings/04-environment-and-performance.md).
+
 **Standard scope (1 passing dataset) is met twice. Outstanding scope (>=5 passing datasets)
 needs 3 more.**
 

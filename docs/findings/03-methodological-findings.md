@@ -38,10 +38,12 @@ different axis of "cheap" collapsing the same way. Board games:
 | 5-fold mean | -0.0003 | +0.0021 | +0.0010 | -0.0015 |
 
 Every model dropped and two flipped sign. Anime showed the same reversal, more cleanly: a fold-0
-screen of +0.002 / +0.003 (LightGBM / CatBoost) became 0 of 5 on the full grid, with three of the
-four measured models landing negative. The per-(model, fold) spread is sigma = 0.0063 over
-[-0.0124, +0.0163] — about 6x the delta threshold — so one fold cannot resolve a criterion whose
-threshold sits deep inside its noise band. Screening one fold cost two full grids (board games,
+screen of +0.003 (LightGBM) and +0.002 (CatBoost) became 0 of 5 on the full grid, with three of the
+four measured models landing negative. Board games' per-(model, fold) spread is sigma = 0.0063
+over [-0.0124, +0.0163] — about 6x the delta threshold. That is the widest of the three; anime's
+own spread is 0.0026 and all 45 measured cells pooled give 0.0047. The argument does not depend on
+which you take: the threshold of 0.001 sits deep inside every one of them, so one fold cannot
+resolve the criterion. Screening one fold cost two full grids (board games,
 then promoted anime). Delta_Joint is unaffected: at +0.03 to +0.09 it is an order of magnitude
 above the same noise, which is why the cheap frozen screen stays sound for it.
 

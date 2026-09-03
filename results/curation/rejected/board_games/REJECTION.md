@@ -71,7 +71,7 @@ LightGBM's +0.003 is a real margin.
 
 ## The fold-0 screen pointed the wrong way
 
-This dataset was promoted to a full grid on a fold-0 Delta_Awareness screen of +0.016 / +0.008
+This dataset was promoted to a full grid on a fold-0 Delta_Awareness screen of +0.016 / +0.007
 (LightGBM / CatBoost). The five-fold means:
 
 | board games | CatBoost | LightGBM | TabM | TabPFNv2 |
@@ -88,6 +88,7 @@ Every model dropped, and the fold-0 reading pointed the *opposite* way for two o
 |---|---|---|---|
 | `grid_t2_screen.csv` | cpu | 2 | the aborted T2 screen, `REG_TEXT_SOCIAL_BOARD_GAMES_BGG` |
 | `grid_bgg_description.csv` | cpu | 3 | LightGBM fold-0 `Description` variant, `REG_TEXT_GAMES_BGG_DESCRIPTION` |
-| `grid_gpu_full.csv` | kaggle | 80 | the full T4 grid, `REG_TEXT_GAMES_BOARDGAMES_BGG` |
+| `grid_gpu_full.csv` | kaggle | 80 | the 4-model T4 grid, `REG_TEXT_GAMES_BOARDGAMES_BGG` |
+| `grid_pfn25.csv` | kaggle | 20 | TabPFN-2.5, completing the committee to 100 cells |
 | `logs/t2_boardgames.log` | — | — | T2 screen log |
 | `logs/dj_games_bgg.log` | — | — | `Description` variant log |

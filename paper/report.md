@@ -68,5 +68,3 @@ Evidence: `docs/findings/04-environment-and-performance.md`, `results/curation/v
 - Two float knife-edge cells exist where a `>` comparison is decided by float64
   representation rather than by evidence (Vietnam housing's TabPFNv2, board games' TabM) --
   neither verdict depends on the affected cell.
-- TabPFN-2.5 was unavailable at the time of the Udemy grid (recorded as a non-pass there)
-  though it is available now.

@@ -24,10 +24,13 @@ measurement here (e.g. LightGBM fold 0 on Udemy went +0.0099 at 2 epochs to +0.0
 so the paper's full budget would be expected to widen the accepted margins, not narrow them.
 See `docs/findings/04-environment-and-performance.md`.
 
-One further note for the writeup: TabPFN-2.5 was unavailable (a Prior Labs licensing block,
-misdiagnosed for weeks as a Hugging Face gating issue — see the same findings doc) for the
-`REG_TEXT_EDU_UDEMY_ACADEMY` grid, where it is recorded as a non-pass. It is available now, so
-a re-run would only strengthen that result, never weaken it.
+One further note for the writeup: TabPFN-2.5 was blocked for part of this project — a Prior
+Labs API-key requirement, misdiagnosed for weeks as Hugging Face gating (see the same findings
+doc). That blocker is resolved, and **every accepted grid includes TabPFN-2.5 as a measured
+model, not an absent one.** It is in fact one of Udemy's three passing learners, with that
+dataset's largest Delta_Awareness (+0.016), and it posts the largest Delta_Joint on Vietnam
+housing (+0.324). The blocker is worth describing as a methodological anecdote, not as a
+limitation on the results.
 
 ## Where the evidence lives
 
