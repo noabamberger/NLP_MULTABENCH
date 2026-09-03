@@ -10,7 +10,8 @@ The same source dataset was screened three ways under three registered names:
 |---|---|---|---|
 | `REG_TEXT_SOCIAL_BOARD_GAMES_BGG` | `grid_t2_screen.csv` | cpu | the aborted T2 screen (2 rows, `no_text` only) |
 | `REG_TEXT_GAMES_BGG_DESCRIPTION` | `grid_bgg_description.csv` | cpu | LightGBM fold-0 probe on the `Description` text variant |
-| `REG_TEXT_GAMES_BOARDGAMES_BGG` | `grid_gpu_full.csv` | kaggle | the full T4 grid, 4 models x 4 states x 5 folds |
+| `REG_TEXT_GAMES_BOARDGAMES_BGG` | `grid_gpu_full.csv` | kaggle | the T4 grid, 4 models x 4 states x 5 folds |
+| `REG_TEXT_GAMES_BOARDGAMES_BGG` | `grid_pfn25.csv` | kaggle | TabPFN-2.5, 4 states x 5 folds, completing the committee |
 
 ## Reason 1: the screening Delta_Joint of +0.039 was an artifact
 
@@ -43,9 +44,9 @@ spec is not a curation decision.
 
 ## Reason 2: the full grid fails Delta_Awareness
 
-`grid_gpu_full.csv` — 4 models x 4 states x 5 folds = 80 cells, no gaps, all on one T4, `ft` at
-10 epochs. TabPFN-2.5 was never run on this dataset, so its cell is absent and counts as a
-non-pass, leaving the quorum denominator at 5:
+`grid_gpu_full.csv` + `grid_pfn25.csv` — 5 models x 4 states x 5 folds = **100 cells, no gaps**,
+all on one T4, `ft` at 10 epochs. TabPFN-2.5 was added once the Prior Labs token unblocked it, so
+no cell here is absent or counted as a non-pass by default:
 
 | model | no_text | text_only | all | ft | Delta_Joint | Delta_Awareness |
 |---|---|---|---|---|---|---|
@@ -53,10 +54,15 @@ non-pass, leaving the quorum denominator at 5:
 | TabM | 0.576 | 0.504 | 0.628 | 0.629 | +0.052 | +0.001 |
 | CatBoost | 0.576 | 0.490 | 0.623 | 0.623 | +0.047 | 0.000 |
 | TabPFNv2 | 0.585 | 0.504 | 0.640 | 0.639 | +0.055 | -0.001 |
-| TabPFN-2.5 | — | — | — | — | not run | not run |
+| TabPFN-2.5 | 0.586 | 0.514 | 0.645 | 0.645 | **+0.059** | 0.000 |
 
-Delta_Joint is healthy (+0.047 to +0.055) and Delta_Awareness is not: **2 of 5 against a quorum
-of 3 -> REJECTED.**
+Delta_Joint is healthy (+0.047 to +0.059, TabPFN-2.5 strongest) and Delta_Awareness is not:
+**2 of 5 against a quorum of 3 -> REJECTED.**
+
+Completing the committee did not rescue it, and that is worth stating plainly: the earlier
+four-model verdict counted TabPFN-2.5 as an absent non-pass, so one could have argued the
+rejection was an artifact of a missing model. It was not. TabPFN-2.5 posts the dataset's
+*largest* Delta_Joint and a Delta_Awareness of exactly 0.000.
 
 And **counted honestly it is 1 of 5.** TabM's +0.001 is the same float knife-edge documented for
 TabPFNv2 in `accepted/REG_TEXT_HOUSES_VIETNAM_2024/VERDICT.md`: the difference of the rounded

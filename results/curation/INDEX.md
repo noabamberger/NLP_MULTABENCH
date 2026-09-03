@@ -64,7 +64,8 @@ target, typing, leak drops), `probe` (T3 TAR probes), `source` (a data table), `
 |---|---|---|---|---|---|
 | `rejected/board_games/grid_t2_screen.csv` | `t2_boardgames.csv` | `REG_TEXT_SOCIAL_BOARD_GAMES_BGG` | rejected | cpu | The aborted T2 screen (2 rows, `no_text` only) — the first pass at this source. |
 | `rejected/board_games/grid_bgg_description.csv` | `dj_games_bgg.csv` | `REG_TEXT_GAMES_BGG_DESCRIPTION` | rejected | cpu | LightGBM fold-0 probe on the `Description` text variant, Delta_Joint +0.059 — a third registered name for the same source. |
-| `rejected/board_games/grid_gpu_full.csv` | `boardgames_full.csv` | `REG_TEXT_GAMES_BOARDGAMES_BGG` | rejected | kaggle | The honest full grid: Delta_Joint +0.047..+0.055, Delta_Awareness 2 of 5 (1 of 5 counted honestly) against a quorum of 3. |
+| `rejected/board_games/grid_gpu_full.csv` | `boardgames_full.csv` | `REG_TEXT_GAMES_BOARDGAMES_BGG` | rejected | kaggle | The honest grid, 4 models x 4 states x 5 folds: Delta_Joint +0.047..+0.055, Delta_Awareness 2 of 5 (1 of 5 counted honestly) against a quorum of 3. |
+| `rejected/board_games/grid_pfn25.csv` | `boardgames_pfn25.csv` | `REG_TEXT_GAMES_BOARDGAMES_BGG` | rejected | kaggle | TabPFN-2.5, 4 states x 5 folds, completing the committee to 100 cells. Delta_Joint +0.059 (largest of the five), Delta_Awareness 0.000 — the completed grid did not change the rejection. |
 | `rejected/board_games/logs/t2_boardgames.log` | `t2_boardgames.log` | `REG_TEXT_SOCIAL_BOARD_GAMES_BGG` | rejected | log | T2 screen log. |
 | `rejected/board_games/logs/dj_games_bgg.log` | `dj_games_bgg.log` | `REG_TEXT_GAMES_BGG_DESCRIPTION` | rejected | log | The `Description` variant log. |
 | `rejected/anime/grid.csv` | `anime_full.csv` | `REG_TEXT_MEDIA_ANIME_POPULARITY` | rejected | kaggle | Full grid, 80/80 cells: Delta_Joint +0.031..+0.037 but Delta_Awareness 0 of 5, reversing a positive fold-0 screen. |
