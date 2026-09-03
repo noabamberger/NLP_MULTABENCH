@@ -319,7 +319,7 @@ only because someone restored the deleted columns and watched the delta collapse
 | douglascampospires/mtg-all-cards (log10 USD) | +0.050..+0.075, 75/75 cells | unmeasured | **NOT ACCEPTED — needs a TAR grid at epochs>=10, >=3 folds** |
 | melissamonfared/board-games | +0.0388 becomes -0.0005 (junk-filter artifact); complete five-model grid +0.047..+0.059 Delta_Joint | 2 of 5 nominal, 1 of 5 counting the float knife-edge honestly | **REJECTED twice over** — artifact, then genuine Delta_Awareness failure. Completing the committee with TabPFN-2.5 (largest Delta_Joint at +0.059, Delta_Awareness exactly 0.000) did not rescue it. |
 | douglascampospires-adjacent anime popularity | +0.031..+0.037 | -0.002..0.000, negative on 3 of 4 measured models | **REJECTED, 0 of 5** |
-| thedevastator metacritic recommendations | one-fold +0.040 / -0.003 | not gridded | **REJECTED at the target** — 82% sentinel zeros |
+| thedevastator metacritic recommendations | one-fold +0.040 / -0.003 — but `all` is 1 fold against 5-fold baselines whose `no_text` spans 0.118-0.279, so CatBoost's sign is a fold-mismatch artifact, not a measurement | partial grid (52 rows, no `ft`) | **REJECTED at the target** — 82% sentinel zeros |
 | tolstoyjustin/kerala-bevco-liquor-price-list | +0.136 | -- | invalid -- target was "Sl No" |
 | muhammadaqeelkabir/steam-games-dataset | +0.024 | -- | invalid -- target was "appid" |
 | neomatrix369/google-play-store-apps-extended | +0.028 | -- | rejected -- target derived from its own text |

@@ -34,6 +34,21 @@ frozen states and no `ft` state at all.** All five models have the full 5 folds 
 for a single fold each. Delta_Joint is therefore a one-fold quantity here, and what it measured is
 unpersuasive on its own terms — +0.040 for LightGBM and **-0.003** for CatBoost.
 
+**Do not lift either number into a table as if it measured the dataset.** `all` is one fold while
+the baselines are five, and the baselines swing hard across folds: `no_text` runs 0.118-0.279 for
+CatBoost and 0.039-0.248 for LightGBM, a span four to five times the deltas being reported. Fold 0
+happens to sit below both 5-fold means, so switching the subtrahend from the fold-0 baseline to the
+5-fold mean drags each delta down — LightGBM from +0.048 to +0.040, and CatBoost from **+0.031 to
+-0.003**. CatBoost's negative sign is produced by the fold mismatch, not by the dataset, with
+`no_text` fold 2 at 0.279 doing most of the work on its own.
+
+This is the same principle stated in
+[`accepted/REG_TEXT_HOUSES_VIETNAM_2024/VERDICT.md`](../../accepted/REG_TEXT_HOUSES_VIETNAM_2024/VERDICT.md)
+— a delta is a difference of two means, so its halves must share the conditions they are measured
+under or the drift between them lands inside the delta. There the halves had to share a machine;
+here they would have to share a fold set, and they do not. The rejection does not rest on either
+number: it rests on the target being 82% sentinel zeros.
+
 No verdict is claimed from this file, and none should be: it is an incomplete grid on a candidate
 rejected on target quality.
 
