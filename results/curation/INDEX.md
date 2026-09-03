@@ -6,7 +6,18 @@ the name it had before the reorganization. The authored narrative documents (`VE
 listed: they were written here rather than moved, so they have no prior name to record.
 
 **Nothing here was reformatted.** The reorganization (commit `64bd9a5`) was renames only — no file
-content changed, so no measured number moved. The *original filename* column is what keeps the
+content changed, so no measured number moved.
+
+Two separate claims are made about that move, each with its own evidence, and neither does the
+other's job:
+
+- **No content was destroyed** — proved by the content-addressed manifest
+  (`docs/superpowers/plans/consolidation-manifest.json`; re-run it with
+  `python -m curation_lab.tools.manifest check`). It asks whether each recorded file's content
+  still exists *anywhere*, so it would not notice content moved somewhere nonsensical, and it says
+  nothing about files it never recorded.
+- **It went where this index says it went** — proved by the rename-only diff of `64bd9a5`
+  (54 renames, 0 additions, 0 deletions) together with the original-filename column below. The *original filename* column is what keeps the
 `--out` paths recorded in the archived reports and run logs traceable across the renames: a report
 that says it wrote `results/candidates/dj_property_tar_all_ft.csv` is talking about
 `accepted/REG_TEXT_HOUSES_VIETNAM_2024/grid_tar.csv`.
