@@ -1,3 +1,9 @@
+> **Superseded 2026-09-02.** Replaced by `docs/status/STATE.md`.
+> This file mixed a live handoff with in-flight agent status and a since-resolved TabPFN-2.5
+> diagnosis (Hugging Face gating) that turned out to be wrong.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # RESUME — pick up here
 
 Written at a session boundary (token exhaustion). Branch: **`curation-lab`**.

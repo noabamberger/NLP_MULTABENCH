@@ -1,3 +1,10 @@
+> **Superseded 2026-09-02.** Replaced by
+> `results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/VERDICT.md`.
+> This file measured only Delta_Joint and explicitly left Delta_Awareness unmeasured; the dataset
+> has since been accepted 5 of 5 with the full four-state grid on one machine.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # Delta_Joint — `nguyentiennhan/vietnam-housing-dataset-2024`
 
 Registered as `REG_TEXT_HOUSES_VIETNAM_2024`. Full 75-cell frozen grid, CPU, 5 models x 3

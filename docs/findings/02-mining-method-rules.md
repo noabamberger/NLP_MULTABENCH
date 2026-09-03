@@ -1,13 +1,18 @@
-# Rules for an Autonomous MulTaBench Dataset Miner
+# Rules for an autonomous MulTaBench dataset miner
 
 Everything here was **measured**, not assumed. Each rule states its evidence, because several
-contradict the intuition we started with -- including two cases where our own tooling
-manufactured false positives.
+contradict the intuition the project started with — including two cases where its own tooling
+manufactured false positives. Carried over from `docs/archive/AUTONOMOUS_MINER_RULES.md`
+(sections 0-10 substantially intact) with two updates: the case file's MTG row now reads the
+finished 75/75 frozen grid rather than "on track", and board games' and anime's full-grid outcomes
+are added since they postdate that document.
 
 Target: a system that mines public sources and returns datasets satisfying, for >=3 of 5 learners,
 
-    Delta_Joint     = mean(all) - max(mean(no_text), mean(text_only)) > 0.001
-    Delta_Awareness = mean(ft)  - mean(all)                           > 0.001
+```
+Delta_Joint     = mean(all) - max(mean(no_text), mean(text_only)) > 0.001
+Delta_Awareness = mean(ft)  - mean(all)                           > 0.001
+```
 
 ---
 
@@ -22,7 +27,7 @@ Target: a system that mines public sources and returns datasets satisfying, for 
 | after used-domain filter | 34 | 15% |
 | **T2 Delta_Joint pass (1 model, 1 fold)** | **16** | **7%** |
 | Full 5x5 grid attempted | 3 | -- |
-| **Survived scrutiny** | **~1-2** | **<1%** |
+| **Survived scrutiny** | **2** | **<1%** |
 
 **Plan for roughly 1% end-to-end yield.** To deliver 5 accepted datasets, screen on the order of
 500 candidates. The expensive tiers must be reached by very few.
@@ -102,7 +107,7 @@ and spaced abbreviations (Sl No).
 
 ### 3.2 THE BIGGEST TRAP: over-deleting structured columns MANUFACTURES Delta_Joint
 
-**This invalidated one of our three recommended datasets.**
+**This invalidated one of the three recommended backup datasets — board games.**
 
 A name-based junk filter dropping year|time|rank|id|count will delete **real structured
 predictors**. For board games, Year Published and Play Time are not identifiers -- they are the two
@@ -192,8 +197,8 @@ not change the quantity being screened.*
 - **FALSE for Delta_Awareness**: under-training the LoRA adapter leaves ft approximately equal to
   all, so the delta collapses to noise around zero **by construction**.
 
-**R5.2 -- Never probe TAR at a token epoch budget.** We rejected a dataset at 1-of-5 using epochs=2,
-then re-ran the identical cell at epochs=10:
+**R5.2 -- Never probe TAR at a token epoch budget.** A dataset was rejected at 1-of-5 using
+epochs=2, then the identical cell was re-run at epochs=10:
 
 | model, fold 0 | all | ft @ 2 ep | Delta @ 2 ep | ft @ 10 ep | Delta @ 10 ep |
 |---|---|---|---|---|---|
@@ -204,9 +209,20 @@ A **fail at low epochs proves nothing**; only a pass is informative. This invali
 batch of TAR probes (Vietnam housing +0.0007, metacritic -0.0143, and others) -- they measured the
 epoch budget, not the datasets. Use **epochs >= 10**, or the paper default of 50 with patience 3.
 
-**R5.3 -- TAR is where datasets actually die.** Delta_Joint is common (16 of 34 screened passed,
-some enormously). Delta_Awareness is the discriminator. Budget accordingly: cheap wide Delta_Joint
-screening, then deep TAR on very few.
+**R5.3 -- A single-fold Delta_Awareness screen is also invalid — same error, different axis.**
+Board games' fold-0 screen (+0.0074 to +0.0163 across models) reversed on the full 5-fold grid
+(-0.0003 to +0.0021, two models flipping sign); anime's fold-0 screen (+0.002 / +0.003) reversed to
+0 of 5 on the full grid. The per-(model, fold) spread is sigma = 0.0063 over
+[-0.0124, +0.0163] -- about 6x the delta threshold -- so one fold cannot resolve a criterion whose
+threshold sits deep inside its noise band. Screening one fold cost two full grids. Screen
+Delta_Awareness on all 5 folds, or at minimum 3.
+
+**R5.4 -- TAR is where datasets actually die.** Delta_Joint is common (16 of 34 screened passed,
+some enormously). Delta_Awareness is the discriminator: five of the eight candidates that reached a
+Delta_Awareness screen in the second hunt round cleared Delta_Joint and then failed TAR. Budget
+accordingly: cheap wide Delta_Joint screening, then deep TAR on very few — though see
+[`03-methodological-findings.md`](03-methodological-findings.md) for why, now that GPU makes TAR
+affordable, the ordering should be reversed.
 
 ---
 
@@ -257,9 +273,9 @@ constraint on grid wall-clock.
   does "import wandb" at module level. The package is required; credentials are not, as long as
   wandb_run() is never called.
 - **Python 3.11+ required** -- multabench/datasets/multimodal.py uses enum.StrEnum.
-- **TabPFN-2.5 weights are gated.** tabpfn/browser_auth.py::_poll_for_token calls select.select on
-  standard input, which fails on Windows for non-socket handles in any non-interactive context.
-  Needs a one-time licence acceptance plus HF_TOKEN.
+- **TabPFN-2.5's blocker was a Prior Labs API key, not HuggingFace gating** — see
+  [`04-environment-and-performance.md`](04-environment-and-performance.md) for the full diagnosis
+  and why the wrong explanation survived for weeks.
 - **TAR asserts a GPU.** multabench/e5/e5_finetune.py:245 asserts CUDA_VISIBLE_DEVICES is in
   os.environ ("Single GPU only"). It checks only presence, so setting it plus passing an explicit
   torch.device("cpu") runs the path on CPU.
@@ -289,25 +305,26 @@ constraint on grid wall-clock.
     T4  TAR          epochs >= 10 ONLY; encoder sharing; TabPFN last         hours-days
 
 **The single highest-value addition over a naive pipeline is T2b.** Without it a name-based junk
-filter silently manufactures passing datasets -- exactly what happened to us, caught only because
-someone restored the deleted columns and watched the delta collapse to -0.0005.
+filter silently manufactures passing datasets -- exactly what happened with board games, caught
+only because someone restored the deleted columns and watched the delta collapse to -0.0005.
 
 ---
 
 ## 9. Case file (ground truth for regression-testing a miner)
 
-| dataset | Delta_Joint | outcome |
-|---|---|---|
-| nguyentiennhan/vietnam-housing-dataset-2024 | +0.249..+0.324, t=58, 25/25 | **PASSES Delta_Joint on all 5 models** |
-| douglascampospires/mtg-all-cards (log10 USD) | +0.059..+0.078, t=25 | on track (grid completing) |
-| mariahalshiekh/udemy-course-academy-teaching | +0.136..+0.209 | passes Delta_Joint 5/5; TAR marginal |
-| melissamonfared/board-games | +0.0388 becomes -0.0005 | **ARTIFACT** -- junk filter deleted real features |
-| thedevastator metacritic recommendations | CatBoost -0.003 | fails; target was 82% sentinel zeros |
-| tolstoyjustin/kerala-bevco-liquor-price-list | +0.136 | invalid -- target was "Sl No" |
-| muhammadaqeelkabir/steam-games-dataset | +0.024 | invalid -- target was "appid" |
-| neomatrix369/google-play-store-apps-extended | +0.028 | rejected -- target derived from its own text |
-| nomanmunir/daraz-perfumes | +0.037 | rejected -- all-state R^2 negative |
-| rrokon/global-grocery-nutrition-2025 | +0.0005 | noise (baseline saturated at 0.969) |
+| dataset | Delta_Joint | Delta_Awareness | outcome |
+|---|---|---|---|
+| nguyentiennhan/vietnam-housing-dataset-2024 | +0.249..+0.324, t=58, 25/25 | +0.001..+0.015, 4-5 of 5 real margin | **ACCEPTED, 5 of 5** |
+| mariahalshiekh/udemy-course-academy-teaching | +0.136..+0.209 | -0.007..+0.016, 3 of 5 | **ACCEPTED, 3 of 5** |
+| douglascampospires/mtg-all-cards (log10 USD) | +0.050..+0.075, 75/75 cells | unmeasured | **NOT ACCEPTED — needs a TAR grid at epochs>=10, >=3 folds** |
+| melissamonfared/board-games | +0.0388 becomes -0.0005 (junk-filter artifact); full grid +0.047..+0.055 Delta_Joint | 2 of 5 nominal, 1 of 5 counting the float knife-edge honestly | **REJECTED twice over** — artifact, then genuine Delta_Awareness failure |
+| douglascampospires-adjacent anime popularity | +0.031..+0.037 | -0.002..0.000, negative on 3 of 4 measured models | **REJECTED, 0 of 5** |
+| thedevastator metacritic recommendations | one-fold +0.040 / -0.003 | not gridded | **REJECTED at the target** — 82% sentinel zeros |
+| tolstoyjustin/kerala-bevco-liquor-price-list | +0.136 | -- | invalid -- target was "Sl No" |
+| muhammadaqeelkabir/steam-games-dataset | +0.024 | -- | invalid -- target was "appid" |
+| neomatrix369/google-play-store-apps-extended | +0.028 | -- | rejected -- target derived from its own text |
+| nomanmunir/daraz-perfumes | +0.037 | -- | rejected -- all-state R^2 negative |
+| rrokon/global-grocery-nutrition-2025 | +0.0005 | -- | noise (baseline saturated at 0.969) |
 
 A miner should reproduce every one of these verdicts, including the rejections.
 
@@ -317,7 +334,8 @@ A miner should reproduce every one of these verdicts, including the rejections.
 
 Sections 1-9 are mostly rejection rules. Those keep a miner honest but will not, on their own,
 find anything. These are the measured properties of the datasets that actually worked, and they
-are far more discriminative than Delta_Joint magnitude alone.
+are far more discriminative than Delta_Joint magnitude alone. Everything below carries over
+unchanged from the original — it is measured, not inferred.
 
 ### 10.1 The measured signature of a real pass
 
@@ -382,11 +400,11 @@ For candidates surviving T1, rank by (highest first):
             / n_text_columns                        # encoding cost
 
 Estimated from a single cheap LightGBM screen, this ranks Vietnam housing above every other
-candidate we found -- correctly, and before any expensive grid was run.
+candidate found -- correctly, and before any expensive grid was run.
 
 ### 10.4 What the winners did NOT need
 
-Worth recording, because we wasted effort assuming otherwise:
+Worth recording, because effort was wasted assuming otherwise:
 
 - **Not a large delta at screen time.** MTG's screen looked ordinary; its grid value held up.
 - **Not many rows.** Vietnam has 30k but training subsamples to 10k; the extra rows were unused.

@@ -1,3 +1,9 @@
+> **Superseded 2026-09-02.** Replaced by `docs/findings/02-mining-method-rules.md`.
+> This file's per-candidate scouting notes and its "corrections to my stated assumptions" section
+> are folded into the consolidated rulebook, generalized as numbered rules with their evidence.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # RESEARCH_NOTES.md — Phase 2 dataset scouting
 
 Log of T0 (metadata) and T1 (typing probe) work for the Curation Lab

@@ -1,3 +1,11 @@
+> **Superseded 2026-09-02.** Replaced by
+> `results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/VERDICT.md` and
+> `docs/findings/03-methodological-findings.md`.
+> This file held a rejected verdict (epochs=2, 1 of 5), then its correction, then the final
+> acceptance, all in one document with no way to tell which section was still true.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # Phase 2 Results — candidate curation
 
 ## Headline

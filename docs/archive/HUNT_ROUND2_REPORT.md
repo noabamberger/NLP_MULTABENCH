@@ -1,3 +1,12 @@
+> **Superseded 2026-09-02.** Replaced by `docs/findings/03-methodological-findings.md` and
+> `results/curation/rejected/`.
+> This file's four findings (fold-0 Delta_Awareness screens are invalid, joint signal is common but
+> awareness is not, two junk-spec classes, and the local pool being thinner than it looks) are
+> folded into the consolidated methodological findings; its per-candidate results now live under
+> the per-dataset rejection folders.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # Second hunt round — screening the local candidate pool for a passing dataset
 
 Goal: find more datasets that pass the full curation criterion, starting from the

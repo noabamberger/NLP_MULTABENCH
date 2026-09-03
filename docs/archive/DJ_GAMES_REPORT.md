@@ -1,3 +1,13 @@
+> **Superseded 2026-09-02.** Replaced by
+> `results/curation/in_progress/REG_TEXT_GAMES_MTG_CARD_PRICES/STATUS.md`,
+> `results/curation/rejected/board_games/REJECTION.md`, and
+> `results/curation/rejected/REJECTIONS.md`.
+> This file was explicitly "work in progress" for the games/leisure lane; the board-games artifact
+> finding is now folded into a full rejection (Delta_Awareness also failed on the gridded run),
+> and the other rejected-on-inspection candidates now have a single consolidated table.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # Delta_Joint — games / leisure / hobbies lane
 
 Frozen states only (`no_text`, `text_only`, `all`). **No fine-tuning was run**; every

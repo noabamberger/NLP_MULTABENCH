@@ -1,3 +1,11 @@
+> **Superseded 2026-09-02.** Replaced by
+> `results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/VERDICT.md`.
+> This file's content (the TAR grid, the CPU/GPU noise calibration, the TabPFNv2 float knife-edge)
+> is carried into the canonical VERDICT.md essentially intact; nothing here was wrong, it is just
+> no longer the place a reader should look first.
+> Kept verbatim below: the current document was written from it, and the
+> judgment calls in that rewrite should stay checkable against this source.
+
 # Delta_Awareness (TAR) — `nguyentiennhan/vietnam-housing-dataset-2024`
 
 Registered as `REG_TEXT_HOUSES_VIETNAM_2024`. Companion to `DJ_PROPERTY_REPORT.md`,
