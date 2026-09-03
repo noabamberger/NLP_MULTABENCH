@@ -21,13 +21,18 @@ Two layers live in this repo:
 | `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.209 (5/5) | +0.006..+0.016 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
 | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.250..+0.324 (5/5) | +0.001..+0.015 (5/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/`](results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/) |
 | `REG_TEXT_GAMES_MTG_CARD_PRICES` | +0.050..+0.075 (5/5) | not measured | in progress | [`results/curation/in_progress/`](results/curation/in_progress/) |
-| board games | +0.047..+0.055 | +0.003..-0.001 (1/5) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
+| board games | +0.047..+0.055 | -0.001..+0.003 (2/5, one a knife-edge) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
 | anime | +0.031..+0.037 | -0.002..0.000 (0/5) | rejected | [`results/curation/rejected/anime/`](results/curation/rejected/anime/) |
 | metacritic | — | — | rejected (82% sentinel target) | [`results/curation/rejected/metacritic/`](results/curation/rejected/metacritic/) |
 
 Every verdict is computed by `multabench.leaderboard.analysis.pass_matrix.passes()` — the
 repo's own implementation of the criterion (>=3 of 5 learners, `delta = 0.001`, per-state
 means over 5 folds rounded to 3 decimals before differencing) — never reimplemented here.
+The counts above are what that function returns, including two cells it passes on a **float
+knife-edge**: Vietnam housing's TabPFNv2 and board games' TabM each differ by exactly delta,
+and clear a strict `>` only because float64 renders the difference as `0.0010000000000000009`.
+Both are flagged where they appear, and neither verdict depends on its cell — dropping them
+leaves Vietnam at 4 of 5 (still accepted) and board games at 1 of 5 (still rejected).
 
 **Standard scope (1 passing dataset) is met twice. Outstanding scope (>=5 passing datasets)
 needs 3 more.**
