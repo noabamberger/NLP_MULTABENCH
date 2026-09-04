@@ -18,7 +18,7 @@ Two layers live in this repo:
 
 | dataset | Delta_Joint | Delta_Awareness | verdict | evidence |
 |---|---|---|---|---|
-| `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.209 (5/5) | +0.006..+0.016 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
+| `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.218 (5/5) | +0.002..+0.021 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
 | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.250..+0.324 (5/5) | +0.001..+0.015 (5/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/`](results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/) |
 | `REG_TEXT_GAMES_MTG_CARD_PRICES` | +0.050..+0.075 (5/5) | not measured | in progress | [`results/curation/in_progress/`](results/curation/in_progress/) |
 | board games | +0.047..+0.059 | -0.001..+0.003 (2/5, one a knife-edge) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
@@ -33,6 +33,16 @@ knife-edge**: Vietnam housing's TabPFNv2 and board games' TabM each differ by ex
 and clear a strict `>` only because float64 renders the difference as `0.0010000000000000009`.
 Both are flagged where they appear, and neither verdict depends on its cell — dropping them
 leaves Vietnam at 4 of 5 (still accepted) and board games at 1 of 5 (still rejected).
+
+**Udemy was measured twice, on two machines, and accepted at 3 of 5 in both — but not by the same
+three learners.** The Kaggle T4 grid is the primary evidence (100 cells, every state for a learner
+within one session); the earlier CPU grid is retained as the cross-environment comparison.
+Delta_Joint reproduced within 0.011 across the two lanes and `no_text` matched to three decimals
+for all five models, but two learners flipped on Delta_Awareness in opposite directions (LightGBM
++0.006 -> -0.005, TabPFNv2 -0.001 -> +0.002). Both flips are sub-0.011 moves against a 0.001
+threshold. Cite the dataset-level verdict; a per-learner Delta_Awareness on this dataset is not
+reproducible across environments. Detail in
+[`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/VERDICT.md`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/VERDICT.md).
 
 **One deviation applies to both acceptances and must be disclosed in any writeup:** E5
 fine-tuning ran **10 epochs**, not the `E5TrainArgs` default of 50 (patience 3), for compute
@@ -96,29 +106,51 @@ pointers only, not a draft), and `paper/assets/` for generated tables/figures. S
 
 ## How to run the harness
 
-Two lanes, both against the same criterion:
+**The pipeline runs on Kaggle GPU.** Every curation grid is measured there — a full 5 models x 4
+states x 5 folds grid costs well under an hour of T4 time (~0.65 GPU-h for Udemy's 100 cells,
+2-3% of the ~30 h weekly quota), so there is no longer a reason to run a grid locally.
 
-- **Kaggle GPU (primary path)** — used for every full 5x4x5 grid with a `ft` (TAR) state:
+```bash
+python -m curation_lab.kaggle.push_code -m "why this push"   # re-version the code dataset FIRST
 
-  ```bash
-  python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full \
-    --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
-    --models light,cat,tabm,tabpfnv2 --states no_text,text_only,all,ft
-  python -m curation_lab.kaggle.verdict_from_runs results/curation/<path>.csv
-  ```
+python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
+  --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
+  --models light,cat,tabm --states no_text,text_only,all,ft \
+  --kernel-id talkraicer/multabench-<name>-lct
 
-  `machine_shape=NvidiaTeslaT4` is load-bearing: Kaggle's default P100 accelerator (sm_60)
-  cannot launch kernels under this image's torch even though `torch.cuda.is_available()`
-  returns `True`.
+python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
+  --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
+  --models tabpfnv2,tabpfnv2p5 --states no_text,text_only,all,ft \
+  --kernel-id talkraicer/multabench-<name>-pfn
 
-- **CPU (legacy path)** — produced the Udemy and MTG grids, and remains the way to reproduce
-  them:
+python -m curation_lab.kaggle.verdict_from_runs results/curation/<path>/grid_gpu_*.csv
+```
 
-  ```bash
-  PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -m curation_lab.screen.verify \
-    --ref <owner/slug> --name REG_TEXT_<NAME> \
-    --out results/curation/<path>.csv --folds 0,1,2,3,4 --epochs 10
-  ```
+Four things about that shape are load-bearing:
+
+- **`push_code` first.** The notebook imports `multabench`/`curation_lab` from the attached
+  `talkraicer/multabench-code` dataset, not from a clone, so local changes are invisible to a run
+  until the dataset is re-versioned — and the run silently uses the old code.
+- **`machine-shape NvidiaTeslaT4`.** Kaggle's default P100 (sm_60) cannot launch kernels under
+  this image's torch even though `torch.cuda.is_available()` returns `True`; the failure appears
+  only once training starts.
+- **Split by model, not by state.** All four states for a learner must share one session:
+  Delta_Awareness is a difference of two means, and cross-machine drift lands directly in it.
+  Splitting by model also keeps each kernel inside the session cap.
+- **`--full-epochs 10` minimum.** A starved epoch budget measures the budget, not the dataset
+  (`docs/findings/03-methodological-findings.md`).
+
+**Local CPU is for frozen-only work and reproduction, not for grids.** There is no CUDA on the
+local machine, frozen E5 embedding costs ~10 min per run, and TAR fine-tuning is far more
+expensive — a full CPU grid takes days of serial wall-clock on the one machine that everything
+else also needs. The CPU runner remains available for Delta_Joint-only measurements and for
+reproducing the historical grids:
+
+```bash
+PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -m curation_lab.screen.verify \
+  --ref <owner/slug> --name REG_TEXT_<NAME> \
+  --out results/curation/<path>.csv --folds 0,1,2,3,4 --epochs 10
+```
 
 Environment constraints (see [`CLAUDE.md`](CLAUDE.md) for full detail):
 
@@ -127,8 +159,6 @@ Environment constraints (see [`CLAUDE.md`](CLAUDE.md) for full detail):
 - **pandas must be 2.3.3** — pandas 3.x breaks feature-type detection.
 - Always set **`PYTHONIOENCODING=utf-8`** — model names contain characters the console's
   cp1255 codepage can't print.
-- No CUDA on the local machine; frozen E5 embedding costs ~10 min per run on CPU, and TAR
-  fine-tuning is far more expensive — hence the Kaggle T4 lane for anything with a `ft` state.
 
 ## Open blockers
 

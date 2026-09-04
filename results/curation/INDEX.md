@@ -49,9 +49,14 @@ target, typing, leak drops), `probe` (T3 TAR probes), `source` (a data table), `
 
 | new path | original filename | dataset | tier | schema | what it proves |
 |---|---|---|---|---|---|
-| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid.csv` | `verify_udemy_e10.csv` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | cpu | The accepted verdict: complete 5x4x5 grid at epochs=10, 3 of 5 pass, Delta_Joint +0.136..+0.209. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid_gpu_light_cat_tabm.csv` | `tar_results.csv` (udemy-lct) | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | kaggle | **Primary evidence.** T4, `light,cat,tabm` x 4 states x folds 0-4 (60 cells), `ft` at 10 epochs. Split by model so every state for a learner is within-session. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid_gpu_tabpfn.csv` | `tar_results.csv` (udemy-pfn) | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | kaggle | **Primary evidence.** T4, `tabpfnv2,tabpfnv2p5` x 4 states x folds 0-4 (40 cells). With the row above: 100 cells, no gaps, ACCEPTED 3 of 5. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid.csv` | `verify_udemy_e10.csv` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | cpu | The earlier CPU grid at epochs=10, also 3 of 5. Retained as the cross-environment comparison: Delta_Joint reproduces within 0.011 but two learners flip on Delta_Awareness. Not superseded — it is the evidence for that instability. |
 | `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid_epochs2_superseded.csv` | `verify_udemy.csv` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | cpu | The epochs=2 sweep that rejected the dataset 1 of 5. Superseded; retained as the evidence that a starved epoch budget measures the budget, not the dataset. |
-| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/verify_udemy_e10.log` | `verify_udemy_e10.log` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | Run log for the accepted grid: spec line, target distribution, per-cell scores. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/kaggle_udemy_lct_gpu.log` | `udemy-lct` kernel log | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | T4 kernel log for `light,cat,tabm`: device banner, spec line, per-cell scores, tar_cache hit/miss counts. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/kaggle_udemy_pfn_gpu.log` | `udemy-pfn` kernel log | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | T4 kernel log for both TabPFNs; shows TabPFN-2.5 running with the Prior Labs token. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/kaggle_udemy_smoke_gpu.log` | smoke kernel log | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | 1-fold GPU smoke that validated the path before the full pushes. |
+| `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/verify_udemy_e10.log` | `verify_udemy_e10.log` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | Run log for the CPU grid: spec line, target distribution, per-cell scores. |
 | `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/verify_udemy_frozen.log` | `verify_udemy_frozen.log` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | Frozen-state half of the sweep. |
 | `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/verify_udemy_ft.log` | `verify_udemy_ft.log` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | The `ft` half of the sweep; shows the LoRA fine-tuning and the TAR encoder cache. |
 | `accepted/REG_TEXT_EDU_UDEMY_ACADEMY/logs/t3_udemy.log` | `t3_udemy.log` | `REG_TEXT_EDU_UDEMY_ACADEMY` | accepted | log | Earliest T3 TAR probe. |

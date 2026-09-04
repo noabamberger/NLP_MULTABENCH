@@ -17,9 +17,11 @@ two of their design notes still apply to any future GPU lane:
 - `tar_smoke.py` exercises `multabench.e5.e5_finetune.finetune_e5_with_lora` alone, so a failure
   is unambiguously a TAR failure rather than something downstream.
 
-**Status: not in use.** The Azure allocation was time-boxed and did not renew. Every grid in
-`results/curation/` that has an `ft` state was produced by the Kaggle lane
-(`curation_lab/kaggle/`), which is the documented primary path — see the repo README.
+**Status: not in use.** The Azure allocation was time-boxed and did not renew. The Kaggle lane
+(`curation_lab/kaggle/`) is the pipeline — see the repo README. Every grid in `results/curation/`
+with an `ft` state was produced there, with one deliberate exception:
+`accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid.csv`, an earlier CPU grid retained as that dataset's
+cross-environment comparison.
 
 Nothing here has been re-run or re-verified since the allocation lapsed. Treat it as a starting
 point for a future GPU lane, not as working infrastructure.

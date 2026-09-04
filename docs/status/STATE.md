@@ -19,7 +19,7 @@ Track).
 
 | dataset | status | quorum |
 |---|---|---|
-| `REG_TEXT_EDU_UDEMY_ACADEMY` | **ACCEPTED** | 3 of 5 |
+| `REG_TEXT_EDU_UDEMY_ACADEMY` | **ACCEPTED** — re-measured end-to-end on Kaggle T4 (100 cells); 3 of 5 in both lanes, but not the same three learners | 3 of 5 |
 | `REG_TEXT_HOUSES_VIETNAM_2024` | **ACCEPTED** | 5 of 5 |
 | `REG_TEXT_GAMES_MTG_CARD_PRICES` | **IN PROGRESS** — Delta_Joint measured (75/75 cells, 5 of 5
   positive), Delta_Awareness never run | — |
@@ -60,9 +60,24 @@ more epochs widen the delta. Re-run at 50 if GPU budget allows; nothing else is 
 
 ## Reproduce commands, against the new paths
 
+**The pipeline runs on Kaggle GPU.** Split by model so all four states for a learner share one
+session, and re-version the code dataset first or the run silently uses stale code:
+
 ```bash
-python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full \
+python -m curation_lab.kaggle.push_code -m "why this push"
+
+python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
   --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
-  --models light,cat,tabm,tabpfnv2 --states no_text,text_only,all,ft
-python -m curation_lab.kaggle.verdict_from_runs results/curation/<path>.csv
+  --models light,cat,tabm --states no_text,text_only,all,ft \
+  --kernel-id talkraicer/multabench-<name>-lct
+
+python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
+  --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
+  --models tabpfnv2,tabpfnv2p5 --states no_text,text_only,all,ft \
+  --kernel-id talkraicer/multabench-<name>-pfn
+
+python -m curation_lab.kaggle.verdict_from_runs results/curation/<path>/grid_gpu_*.csv
 ```
+
+Cost reference: Udemy's full 100-cell grid was ~0.65 GPU-h, 2-3% of the ~30 h weekly quota. Cost
+scales with training rows, so a 10k-row candidate (MTG) will cost several times that.

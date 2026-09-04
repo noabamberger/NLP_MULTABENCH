@@ -61,8 +61,10 @@ One benchmark run = one (model, dataset, fold, condition):
 python benchmark.py --model light --dataset_name MUL_TEXT_MICHELIN_RESTAURANTS --fold 0 --multimodal_state all
 ```
 
-A full curation sweep for one dataset is **5 models × 4 states × 5 folds = 100 runs**; there is no
-built-in sweep driver — drive it from your own shell loop / scheduler.
+A full curation sweep for one dataset is **5 models × 4 states × 5 folds = 100 runs**. `benchmark.py`
+has no built-in sweep driver; in practice sweeps are not driven locally at all — they run on Kaggle
+GPU via `curation_lab.kaggle.push` (see Environment below), which owns the fold/model/state loop and
+writes a `kaggle`-schema results CSV.
 
 Model keys (`--model`, from each class's `SHORT_NAME`): `light` `cat` `xgb` `rf` `real` `tabm`
 `iclv2` `dpt` `tabpfnv2` `tabpfnv2p5` `tabstar` `agmm` `ctx`. The 5 curation models are
@@ -184,8 +186,13 @@ numpy 2.4.0, which is incompatible with this repo; installing this repo's pins t
 - Always run Python with `PYTHONIOENCODING=utf-8`. The console codepage here is cp1255, and simply
   printing an emoji `MODEL_NAME` raises `UnicodeEncodeError`. Pass `encoding="utf-8"` to every
   `read_csv`/`to_csv` that touches model names.
-- No CUDA on this machine: `DEVICE` is `None` and everything runs on CPU. Frozen E5 embedding of
-  ~5k rows costs ~10 minutes per run; LoRA fine-tuning (`ft`) is far more expensive.
+- No CUDA on this machine: `DEVICE` is `None` and anything run locally runs on CPU. Frozen E5
+  embedding of ~5k rows costs ~10 minutes per run; LoRA fine-tuning (`ft`) is far more expensive.
+- **Curation grids run on Kaggle GPU, not locally.** `curation_lab/kaggle/` is the pipeline:
+  `push_code.py` (re-version the code dataset first, or the run silently uses stale code) ->
+  `push.py --machine-shape NvidiaTeslaT4` -> `verdict_from_runs.py`. Split pushes by model so all
+  four states for a learner share one session. A full 5 x 4 x 5 = 100-cell grid costs well under an
+  hour of T4 time. Local CPU is for frozen-only (Delta_Joint) work and reproduction only.
 
 ## Gotchas
 

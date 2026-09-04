@@ -1,0 +1,1260 @@
+[{"stream_name":"stderr","time":6.800095668,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.800154863,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.744778189,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.744810828,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.744816139,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.74482081,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.428162766,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.42819629,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.428202392,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.428206827,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.660810346,"data":"name, memory.total [MiB], driver_version\n"}
+,{"stream_name":"stdout","time":9.660861629,"data":"Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":9.660866745,"data":"Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":9.660872454,"data":"\n"}
+,{"stream_name":"stdout","time":9.660880783,"data":"python: 3.12.13\n"}
+,{"stream_name":"stdout","time":10.356528619,"data":"--- before install ---\n"}
+,{"stream_name":"stdout","time":14.567458178,"data":"  torch          2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":31.255497832,"data":"  transformers   5.0.0\n"}
+,{"stream_name":"stdout","time":39.931750032,"data":"  peft           0.19.1\n"}
+,{"stream_name":"stdout","time":39.931777241,"data":"  pandas         2.3.3\n"}
+,{"stream_name":"stdout","time":39.931783486,"data":"  numpy          2.0.2\n"}
+,{"stream_name":"stdout","time":39.931788565,"data":"  sklearn        1.6.1\n"}
+,{"stream_name":"stdout","time":44.317115951,"data":"  lightgbm       4.6.0\n"}
+,{"stream_name":"stdout","time":44.317151694,"data":"  skrub          MISSING (ModuleNotFoundError)\n"}
+,{"stream_name":"stdout","time":44.317158425,"data":"  openml         MISSING (ModuleNotFoundError)\n"}
+,{"stream_name":"stdout","time":44.951317296,"data":"  kagglehub      1.0.0\n"}
+,{"stream_name":"stdout","time":47.467699548,"data":"  wandb          0.26.1\n"}
+,{"stream_name":"stdout","time":47.467736703,"data":"  dotenv         (no __version__)\n"}
+,{"stream_name":"stdout","time":47.46774165,"data":"  tabstar        MISSING (ModuleNotFoundError)\n"}
+,{"stream_name":"stdout","time":47.467745846,"data":"extra learner packages for ['tabpfnv2', 'tabpfnv2p5'] -\u003e ['tabpfn']\n"}
+,{"stream_name":"stdout","time":51.560493769,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.9/150.9 kB 4.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.624843424,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 595.9/595.9 kB 14.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.660705133,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.4/160.4 kB 11.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.705397302,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 771.2/771.2 kB 36.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.740349198,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.8/93.8 kB 6.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.76267706,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.9/150.9 kB 4.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.762704194,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 595.9/595.9 kB 14.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.76271076,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.4/160.4 kB 11.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.762716996,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 771.2/771.2 kB 36.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":51.762721722,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.8/93.8 kB 6.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":54.490485978,"data":"removing torchao 0.10.0 (incompatible with peft 0.19.1)\n"}
+,{"stream_name":"stdout","time":55.840763834,"data":"--- after install ---\n"}
+,{"stream_name":"stdout","time":55.84079756,"data":"  torch          2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":55.840807413,"data":"  transformers   5.0.0\n"}
+,{"stream_name":"stdout","time":55.840810379,"data":"  peft           0.19.1\n"}
+,{"stream_name":"stdout","time":55.840812938,"data":"  pandas         2.3.3\n"}
+,{"stream_name":"stdout","time":55.840815627,"data":"  numpy          2.0.2\n"}
+,{"stream_name":"stdout","time":55.840818181,"data":"  sklearn        1.6.1\n"}
+,{"stream_name":"stdout","time":55.840820772,"data":"  lightgbm       4.6.0\n"}
+,{"stream_name":"stdout","time":57.327746794,"data":"  skrub          0.10.1\n"}
+,{"stream_name":"stdout","time":57.332436628,"data":"  openml         0.15.1\n"}
+,{"stream_name":"stdout","time":57.3324586,"data":"  kagglehub      1.0.0\n"}
+,{"stream_name":"stdout","time":57.332463573,"data":"  wandb          0.26.1\n"}
+,{"stream_name":"stdout","time":57.332467699,"data":"  dotenv         (no __version__)\n"}
+,{"stream_name":"stdout","time":57.332471659,"data":"  tabstar        1.1.16\n"}
+,{"stream_name":"stdout","time":57.368424717,"data":"--- /kaggle/input ---\n"}
+,{"stream_name":"stdout","time":57.368510453,"data":" /kaggle/input | ['datasets'] []\n"}
+,{"stream_name":"stdout","time":57.368518818,"data":"   /kaggle/input/datasets | ['mariahalshiekh', 'talkraicer'] []\n"}
+,{"stream_name":"stdout","time":57.368523387,"data":"     /kaggle/input/datasets/talkraicer | ['multabench-code'] []\n"}
+,{"stream_name":"stdout","time":57.368527662,"data":"       /kaggle/input/datasets/talkraicer/multabench-code | ['curation_lab', 'multabench'] ['benchmark.py']\n"}
+,{"stream_name":"stdout","time":57.368532098,"data":"     /kaggle/input/datasets/mariahalshiekh | ['udemy-course-academy-teaching'] []\n"}
+,{"stream_name":"stdout","time":57.368552955,"data":"       /kaggle/input/datasets/mariahalshiekh/udemy-course-academy-teaching | [] ['udemy_dataset.csv']\n"}
+,{"stream_name":"stdout","time":57.368592625,"data":"CODE_DIR = /kaggle/input/datasets/talkraicer/multabench-code\n"}
+,{"stream_name":"stdout","time":57.533128995,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":57.533164683,"data":"device: Tesla T4\n"}
+,{"stream_name":"stdout","time":57.533170195,"data":"compute capability: (7, 5)\n"}
+,{"stream_name":"stdout","time":57.533174803,"data":"torch arch list   : ['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']\n"}
+,{"stream_name":"stdout","time":58.10591525,"data":"CUDA kernel launch OK (probe=-542.509)\n"}
+,{"stream_name":"stdout","time":60.227221882,"data":"❗ Warning: 8 CPU devices requested, but only 4 available.\n"}
+,{"stream_name":"stdout","time":61.010908187,"data":"import chain OK\n"}
+,{"stream_name":"stdout","time":61.245960592,"data":"\n"}
+,{"stream_name":"stdout","time":61.245999714,"data":"=== REG_TEXT_EDU_UDEMY_ACADEMY  (mariahalshiekh/udemy-course-academy-teaching) ===\n"}
+,{"stream_name":"stdout","time":61.246005407,"data":"  rows=2999 cols=12  csv=udemy_dataset.csv\n"}
+,{"stream_name":"stdout","time":61.24601029,"data":"  target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_num=6\n"}
+,{"stream_name":"stdout","time":61.246014366,"data":"  target='price'  text=['course_instr', 'course_name']\n"}
+,{"stream_name":"stdout","time":61.246018512,"data":"  numeric=['coures_reviews', 'course_enrollmenters', 'course_lectures', 'course_rating', 'course_totalHourse', 'price_dis']\n"}
+,{"stream_name":"stdout","time":61.246022677,"data":"  categorical=['course_level']\n"}
+,{"stream_name":"stdout","time":61.246026378,"data":"\n"}
+,{"stream_name":"stdout","time":61.246029922,"data":"1 of 1 candidates specced\n"}
+,{"stream_name":"stdout","time":61.26116839,"data":"SMOKE=False -- skipping.\n"}
+,{"stream_name":"stdout","time":61.294432993,"data":"\n"}
+,{"stream_name":"stdout","time":61.294461284,"data":"########## REG_TEXT_EDU_UDEMY_ACADEMY ##########\n"}
+,{"stream_name":"stdout","time":61.725666486,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":61.725706743,"data":"🔭 7 features → tabpfnv2  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":61.757600258,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":61.757632948,"data":"\n"}
+,{"stream_name":"stderr","time":61.7576379,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":66.575762007,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":66.57579978,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":66.586901482,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":66.586925912,"data":"Scored 0.3281 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 5 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":66.586933915,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/no_text/f0           = 0.3281  (5.1s)\n"}
+,{"stream_name":"stdout","time":66.77407352,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stderr","time":66.774919675,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":66.774952303,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":66.774957938,"data":"\n"}
+,{"stream_name":"stderr","time":66.774961667,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":66.774965445,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":69.828137958,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":69.82818863,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":69.828194829,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":69.828216714,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":69.828221341,"data":"\n"}
+,{"stream_name":"stderr","time":69.828224935,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":69.828228776,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":69.828233369,"data":"\n"}
+,{"stream_name":"stderr","time":69.828237314,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":69.828246946,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":69.828249787,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":69.828252357,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":69.828254978,"data":"\n"}
+,{"stream_name":"stderr","time":69.828257405,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":69.828259953,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":70.880376339,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":73.331580162,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":73.331624258,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":75.486510519,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":79.373877041,"data":"🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":81.387191123,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":81.387231884,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":81.387238555,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":81.387247176,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":81.387253339,"data":"\n"}
+,{"stream_name":"stderr","time":81.387259193,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":81.387265216,"data":"\n"}
+,{"stream_name":"stderr","time":81.387271331,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":81.387296948,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":81.387301641,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":81.387306275,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":81.387310611,"data":"\n"}
+,{"stream_name":"stderr","time":81.387315224,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":81.804284948,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":81.804325593,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":81.804330056,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":81.804335047,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":81.804339265,"data":"\n"}
+,{"stream_name":"stderr","time":81.804354903,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":81.804359873,"data":"\n"}
+,{"stream_name":"stderr","time":81.804364385,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":81.80436929,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":81.804374848,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":81.804379993,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":81.804384256,"data":"\n"}
+,{"stream_name":"stderr","time":81.804388079,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":82.216602536,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":82.216647998,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":82.216653678,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":82.216657101,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":82.216660116,"data":"\n"}
+,{"stream_name":"stderr","time":82.216662726,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":82.216697484,"data":"\n"}
+,{"stream_name":"stderr","time":82.216703091,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":82.216708182,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":82.216713103,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":82.216717692,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":82.216721881,"data":"\n"}
+,{"stream_name":"stderr","time":82.216725708,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":82.498250718,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":82.498385043,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":82.498390566,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":82.498394776,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":82.498398792,"data":"\n"}
+,{"stream_name":"stderr","time":82.498403328,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":82.498556224,"data":"\n"}
+,{"stream_name":"stderr","time":82.498633877,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":82.498638097,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":82.498641403,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":82.49864527,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":82.498648132,"data":"\n"}
+,{"stream_name":"stderr","time":82.498650616,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":91.180532598,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":91.180599954,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":91.191223234,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":91.191247468,"data":"Scored 0.1229 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 24 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":91.191253885,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/text_only/f0         = 0.1229  (24.5s)\n"}
+,{"stream_name":"stderr","time":91.388424077,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":91.388466024,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":91.388471998,"data":"\n"}
+,{"stream_name":"stderr","time":91.388476414,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":91.388480863,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":91.389395888,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":91.389420317,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":93.418828658,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":93.41886701,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":95.457284563,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":99.352537843,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":112.88540776,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":112.885455057,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":112.895614239,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":112.895641807,"data":"Scored 0.4599 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 21 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":112.895648092,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/all/f0               = 0.4599  (21.6s)\n"}
+,{"stream_name":"stdout","time":112.962766512,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":112.962804715,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":113.121631113,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":113.12166982,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":113.121676884,"data":"\n"}
+,{"stream_name":"stderr","time":113.12168209,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":113.121687352,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":114.025152305,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stdout","time":114.454925029,"data":"[Dataset] train: n=4860, val: n=540\n"}
+,{"stream_name":"stdout","time":114.45498194,"data":"[Dataset] train_y.shape=(4860,), val_y.shape=(540,) (y = labels)\n"}
+,{"stream_name":"stdout","time":114.454989985,"data":"[Steps] batch_size=256 → 19 steps/epoch → 190 total steps (10 epochs)\n"}
+,{"stream_name":"stderr","time":114.978639087,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":114.978671074,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":114.978676133,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":114.97868008,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":114.978683722,"data":"\n"}
+,{"stream_name":"stderr","time":114.978687146,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":114.978709121,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":114.978712645,"data":"\n"}
+,{"stream_name":"stderr","time":114.978715147,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":114.978717826,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":114.978720567,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":114.978723156,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":114.978725777,"data":"\n"}
+,{"stream_name":"stderr","time":114.978728266,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":114.978730961,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":115.713837847,"data":"🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16\n"}
+,{"stream_name":"stdout","time":115.713873562,"data":"[Trainable parameters per layer (E5)]\n"}
+,{"stream_name":"stdout","time":115.713878855,"data":"  layer.9: 110,592\n"}
+,{"stream_name":"stdout","time":115.713882909,"data":"  layer.10: 110,592\n"}
+,{"stream_name":"stdout","time":115.713886754,"data":"  layer.11: 110,592\n"}
+,{"stream_name":"stdout","time":115.713890554,"data":"  head: 3,465\n"}
+,{"stream_name":"stdout","time":115.713894394,"data":"  total trainable: 335,241  (frozen: 33,360,000)\n"}
+,{"stream_name":"stderr","time":171.856581579,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":171.856628518,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":171.856637318,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":171.856643931,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":171.856649968,"data":"\n"}
+,{"stream_name":"stderr","time":171.856655681,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":171.856661054,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":171.856667351,"data":"\n"}
+,{"stream_name":"stderr","time":171.85667206,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":171.856677835,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":171.856683779,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":171.856690013,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":171.856695658,"data":"\n"}
+,{"stream_name":"stderr","time":171.856712948,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":171.856717766,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":175.062824656,"data":"🔍 [PCA variance] course_instr: 0.435\n"}
+,{"stream_name":"stdout","time":177.206779982,"data":"🔍 [PCA variance] course_name: 0.457\n"}
+,{"stream_name":"stdout","time":181.375846331,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":195.077783715,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":195.077828355,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":195.106477563,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":195.106528291,"data":"Scored 0.4482 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 82 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":195.10653301,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/ft/f0                = 0.4482  (82.1s)\n"}
+,{"stream_name":"stderr","time":195.281318103,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":195.28135612,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":195.281363817,"data":"\n"}
+,{"stream_name":"stderr","time":195.281367995,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":195.281372107,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":195.282214769,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":195.282244362,"data":"🔭 7 features → tabpfnv2p5  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":200.193581583,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":200.193624036,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":200.201040194,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":200.201072911,"data":"Scored 0.3295 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 5 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":200.201079543,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/no_text/f0         = 0.3295  (5.0s)\n"}
+,{"stream_name":"stderr","time":200.403135463,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":200.403173695,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":200.403179731,"data":"\n"}
+,{"stream_name":"stderr","time":200.403183763,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":200.40318764,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":200.404107321,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":200.404131279,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":202.363038357,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":202.363077631,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":204.472354888,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":208.353098621,"data":"🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":216.326854464,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":216.326899147,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":216.337618682,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":216.337646936,"data":"Scored 0.1880 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 16 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":216.337667663,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/text_only/f0       = 0.1880  (16.1s)\n"}
+,{"stream_name":"stderr","time":216.540244624,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":216.540287049,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":216.540293151,"data":"\n"}
+,{"stream_name":"stderr","time":216.540297429,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":216.540302264,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":216.541204817,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":216.541232211,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":219.093990473,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":219.094026808,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":221.272399703,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":225.192463334,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":234.12018829,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":234.120223642,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":234.130088436,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":234.13011379,"data":"Scored 0.4596 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 17 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":234.130119271,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/all/f0             = 0.4596  (17.7s)\n"}
+,{"stream_name":"stdout","time":234.192988135,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":234.193023304,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":234.333122377,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":234.333158209,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":234.333163937,"data":"\n"}
+,{"stream_name":"stderr","time":234.333168498,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":234.333173037,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":235.005580548,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stderr","time":235.795630819,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":235.795676102,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":235.795680882,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":235.795684328,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":235.795687708,"data":"\n"}
+,{"stream_name":"stderr","time":235.7956909,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":235.795694406,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":235.795712288,"data":"\n"}
+,{"stream_name":"stderr","time":235.79571491,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":235.795717352,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":235.795719718,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":235.795722027,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":235.795724422,"data":"\n"}
+,{"stream_name":"stderr","time":235.795726654,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":235.795729041,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":236.81908119,"data":"[tar_cache] hit 35e1f839c390 -- skipping E5 fine-tuning (4860 train examples)\n"}
+,{"stream_name":"stdout","time":239.159341245,"data":"🔍 [PCA variance] course_instr: 0.435\n"}
+,{"stream_name":"stdout","time":241.499020991,"data":"🔍 [PCA variance] course_name: 0.457\n"}
+,{"stream_name":"stdout","time":245.597351228,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":254.838847246,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":254.838888754,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":254.854825117,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":254.854860725,"data":"Scored 0.4804 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 20 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":254.854864993,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/ft/f0              = 0.4804  (20.7s)\n"}
+,{"stream_name":"stderr","time":255.042040654,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":255.042079448,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":255.042085074,"data":"\n"}
+,{"stream_name":"stderr","time":255.042089742,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":255.042094413,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":255.042916649,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":255.042947743,"data":"🔭 7 features → tabpfnv2  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":257.447807695,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":257.447841171,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":257.462654265,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":257.462681258,"data":"Scored 0.3007 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":257.462686697,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/no_text/f1           = 0.3007  (2.5s)\n"}
+,{"stream_name":"stderr","time":257.650678677,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":257.650716347,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":257.650723203,"data":"\n"}
+,{"stream_name":"stderr","time":257.650727042,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":257.650749818,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":257.651622453,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":257.651646869,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":260.128034373,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":260.128163864,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":262.203306277,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":266.089023381,"data":"🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":267.96658523,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":267.966633278,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":267.966638469,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":267.966642744,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":267.966646721,"data":"\n"}
+,{"stream_name":"stderr","time":267.966650103,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":267.966653593,"data":"\n"}
+,{"stream_name":"stderr","time":267.966656991,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":267.966660614,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":267.966664236,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":267.966668149,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":267.966671709,"data":"\n"}
+,{"stream_name":"stderr","time":267.966675071,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":268.386400576,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":268.386443787,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":268.386448821,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":268.386453152,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":268.386468695,"data":"\n"}
+,{"stream_name":"stderr","time":268.386494947,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":268.386499403,"data":"\n"}
+,{"stream_name":"stderr","time":268.386502872,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":268.386506664,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":268.386510676,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":268.386518483,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":268.386521665,"data":"\n"}
+,{"stream_name":"stderr","time":268.386523935,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":268.801345349,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":268.801388655,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":268.80139394,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":268.801397337,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":268.801401117,"data":"\n"}
+,{"stream_name":"stderr","time":268.801425819,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":268.80143038,"data":"\n"}
+,{"stream_name":"stderr","time":268.801435091,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":268.801439944,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":268.801445581,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":268.801450647,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":268.801455247,"data":"\n"}
+,{"stream_name":"stderr","time":268.801459304,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":269.078775837,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":269.078816085,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":269.078820702,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":269.078825774,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":269.078843743,"data":"\n"}
+,{"stream_name":"stderr","time":269.078846471,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":269.078849085,"data":"\n"}
+,{"stream_name":"stderr","time":269.078851624,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":269.078854455,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":269.078857313,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":269.07886031,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":269.078863164,"data":"\n"}
+,{"stream_name":"stderr","time":269.078865713,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":278.161577023,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":278.161618286,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":278.169292657,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":278.169325582,"data":"Scored 0.2790 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 20 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":278.169332119,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/text_only/f1         = 0.2790  (20.6s)\n"}
+,{"stream_name":"stderr","time":278.364163365,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":278.364203289,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":278.36420918,"data":"\n"}
+,{"stream_name":"stderr","time":278.364213797,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":278.364218179,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":278.365085959,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":278.365111823,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":280.755524223,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":280.755600773,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":283.146725472,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":287.085825406,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":300.90848552,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":300.908529945,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":300.923805485,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":300.923833711,"data":"Scored 0.4504 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 22 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":300.923850801,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/all/f1               = 0.4504  (22.7s)\n"}
+,{"stream_name":"stdout","time":300.989165133,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":300.989206179,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":301.153320159,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":301.153350979,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":301.15335678,"data":"\n"}
+,{"stream_name":"stderr","time":301.153361224,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":301.153365789,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":301.841739658,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stdout","time":302.190087429,"data":"[Dataset] train: n=4860, val: n=540\n"}
+,{"stream_name":"stdout","time":302.19012371,"data":"[Dataset] train_y.shape=(4860,), val_y.shape=(540,) (y = labels)\n"}
+,{"stream_name":"stdout","time":302.19012992,"data":"[Steps] batch_size=256 → 19 steps/epoch → 190 total steps (10 epochs)\n"}
+,{"stream_name":"stderr","time":302.665654776,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":302.665698108,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":302.6657026,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":302.66572666,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":302.665731562,"data":"\n"}
+,{"stream_name":"stderr","time":302.665736,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":302.665740402,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":302.665745518,"data":"\n"}
+,{"stream_name":"stderr","time":302.66574907,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":302.665752722,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":302.66575638,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":302.665760057,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":302.665763554,"data":"\n"}
+,{"stream_name":"stderr","time":302.665767098,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":302.665777278,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":303.369017611,"data":"🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16\n"}
+,{"stream_name":"stdout","time":303.369054711,"data":"[Trainable parameters per layer (E5)]\n"}
+,{"stream_name":"stdout","time":303.369060639,"data":"  layer.9: 110,592\n"}
+,{"stream_name":"stdout","time":303.3690646,"data":"  layer.10: 110,592\n"}
+,{"stream_name":"stdout","time":303.369068685,"data":"  layer.11: 110,592\n"}
+,{"stream_name":"stdout","time":303.369072844,"data":"  head: 3,465\n"}
+,{"stream_name":"stdout","time":303.369076491,"data":"  total trainable: 335,241  (frozen: 33,360,000)\n"}
+,{"stream_name":"stderr","time":361.335083901,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":361.335148797,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":361.335158811,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":361.335161607,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":361.335164215,"data":"\n"}
+,{"stream_name":"stderr","time":361.335166644,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":361.335169145,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":361.335172215,"data":"\n"}
+,{"stream_name":"stderr","time":361.33517467,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":361.335177183,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":361.335179705,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":361.335182187,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":361.335184744,"data":"\n"}
+,{"stream_name":"stderr","time":361.335187126,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":361.335189659,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":364.818240983,"data":"🔍 [PCA variance] course_instr: 0.436\n"}
+,{"stream_name":"stdout","time":367.167190587,"data":"🔍 [PCA variance] course_name: 0.461\n"}
+,{"stream_name":"stdout","time":371.391338651,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":385.388432167,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":385.388472615,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":385.408075227,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":385.408105074,"data":"Scored 0.4682 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 84 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":385.408110415,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/ft/f1                = 0.4682  (84.4s)\n"}
+,{"stream_name":"stderr","time":385.592550223,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":385.59260906,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":385.592615195,"data":"\n"}
+,{"stream_name":"stderr","time":385.59262035,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":385.592625306,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":385.593520715,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":385.593537493,"data":"🔭 7 features → tabpfnv2p5  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":387.495400395,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":387.495450407,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":387.502916875,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":387.50294257,"data":"Scored 0.3277 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":387.50295387,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/no_text/f1         = 0.3277  (2.0s)\n"}
+,{"stream_name":"stderr","time":387.699410327,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":387.699473419,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":387.699480693,"data":"\n"}
+,{"stream_name":"stderr","time":387.699484866,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":387.699489113,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":387.700476824,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":387.700495761,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":390.171409366,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":390.171453247,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":392.388219719,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":396.275661837,"data":"🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":404.616234406,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":404.616276226,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":404.623541122,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":404.62361484,"data":"Scored 0.2804 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 17 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":404.623625464,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/text_only/f1       = 0.2804  (17.1s)\n"}
+,{"stream_name":"stderr","time":404.828115638,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":404.828150842,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":404.828165006,"data":"\n"}
+,{"stream_name":"stderr","time":404.828170343,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":404.828175551,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":404.8290342,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":404.829054581,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":407.308662433,"data":"🔍 [PCA variance] course_instr: 0.412\n"}
+,{"stream_name":"stdout","time":407.308707582,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":409.338435661,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":413.252751533,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":422.41641379,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":422.41649975,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":422.433366788,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":422.433413139,"data":"Scored 0.5141 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 17 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":422.433420969,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/all/f1             = 0.5141  (17.7s)\n"}
+,{"stream_name":"stdout","time":422.489949722,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":422.489991499,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":422.635699474,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":422.63577107,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":422.635778859,"data":"\n"}
+,{"stream_name":"stderr","time":422.635783069,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":422.635787933,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":423.304843882,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stderr","time":424.097994443,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":424.098034329,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":424.098039137,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":424.098042617,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":424.098045808,"data":"\n"}
+,{"stream_name":"stderr","time":424.098049013,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":424.098052453,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":424.098073253,"data":"\n"}
+,{"stream_name":"stderr","time":424.098078911,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":424.098084764,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":424.098090169,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":424.098095538,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":424.098100527,"data":"\n"}
+,{"stream_name":"stderr","time":424.098105061,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":424.098109647,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":425.109218677,"data":"[tar_cache] hit 61422f367335 -- skipping E5 fine-tuning (4860 train examples)\n"}
+,{"stream_name":"stdout","time":427.528617425,"data":"🔍 [PCA variance] course_instr: 0.436\n"}
+,{"stream_name":"stdout","time":429.730390026,"data":"🔍 [PCA variance] course_name: 0.461\n"}
+,{"stream_name":"stdout","time":433.96473613,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":443.211849898,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":443.211890749,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":443.227273464,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":443.227314982,"data":"Scored 0.5139 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 1 in 20 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":443.227336231,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/ft/f1              = 0.5139  (20.7s)\n"}
+,{"stream_name":"stdout","time":443.416518572,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stderr","time":443.416542692,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":443.416593239,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":443.416598772,"data":"\n"}
+,{"stream_name":"stderr","time":443.416603057,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":443.416607017,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":443.416553437,"data":"🔭 7 features → tabpfnv2  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":445.814224438,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":445.81425906,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":445.821387828,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":445.821425085,"data":"Scored 0.3207 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":445.821435867,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/no_text/f2           = 0.3207  (2.5s)\n"}
+,{"stream_name":"stderr","time":446.36448624,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":446.364522383,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":446.364528128,"data":"\n"}
+,{"stream_name":"stderr","time":446.364532363,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":446.364536532,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":446.365324511,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":446.365342444,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":448.428135445,"data":"🔍 [PCA variance] course_instr: 0.415\n"}
+,{"stream_name":"stdout","time":448.428284215,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":450.635978489,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":454.338612546,"data":"🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":456.238977854,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":456.239026872,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":456.23903643,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":456.239048876,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":456.23905647,"data":"\n"}
+,{"stream_name":"stderr","time":456.239083716,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":456.239089283,"data":"\n"}
+,{"stream_name":"stderr","time":456.239094305,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":456.239099804,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":456.239105644,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":456.239111694,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":456.239117183,"data":"\n"}
+,{"stream_name":"stderr","time":456.239122077,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":456.667604276,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":456.667645726,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":456.667649783,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":456.667656119,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":456.667690803,"data":"\n"}
+,{"stream_name":"stderr","time":456.667695337,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":456.66770431,"data":"\n"}
+,{"stream_name":"stderr","time":456.667708404,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":456.667712779,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":456.667716968,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":456.667721184,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":456.667725048,"data":"\n"}
+,{"stream_name":"stderr","time":456.667730358,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":457.089721723,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":457.089764313,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":457.089771065,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":457.089781276,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":457.08980758,"data":"\n"}
+,{"stream_name":"stderr","time":457.089812595,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":457.089816963,"data":"\n"}
+,{"stream_name":"stderr","time":457.089820591,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":457.08982491,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":457.089829338,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":457.089835901,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":457.089844565,"data":"\n"}
+,{"stream_name":"stderr","time":457.089847112,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":457.370209982,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":457.370249104,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":457.370255787,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":457.37026113,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":457.370265871,"data":"\n"}
+,{"stream_name":"stderr","time":457.370269964,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":457.370274267,"data":"\n"}
+,{"stream_name":"stderr","time":457.370279774,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":457.370285543,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":457.370290918,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":457.37029721,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":457.37030205,"data":"\n"}
+,{"stream_name":"stderr","time":457.370306142,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":466.434680695,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":466.434720159,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":466.44545957,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":466.445490268,"data":"Scored 0.1126 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 20 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":466.445514728,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/text_only/f2         = 0.1126  (20.6s)\n"}
+,{"stream_name":"stderr","time":466.638623191,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":466.638680011,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":466.638687024,"data":"\n"}
+,{"stream_name":"stderr","time":466.638691896,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":466.638696954,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":466.639768843,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":466.639787121,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":468.693623698,"data":"🔍 [PCA variance] course_instr: 0.415\n"}
+,{"stream_name":"stdout","time":468.693660833,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":470.74692563,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":474.463861962,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":488.141804087,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":488.141847652,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":488.171633819,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":488.171663632,"data":"Scored 0.4188 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 21 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":488.17167009,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/all/f2               = 0.4188  (21.6s)\n"}
+,{"stream_name":"stdout","time":488.230939524,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":488.230975822,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":488.361276721,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":488.361318767,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":488.361326424,"data":"\n"}
+,{"stream_name":"stderr","time":488.361332541,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":488.361338789,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":489.051175811,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stdout","time":489.397974477,"data":"[Dataset] train: n=4860, val: n=540\n"}
+,{"stream_name":"stdout","time":489.398010656,"data":"[Dataset] train_y.shape=(4860,), val_y.shape=(540,) (y = labels)\n"}
+,{"stream_name":"stdout","time":489.398017848,"data":"[Steps] batch_size=256 → 19 steps/epoch → 190 total steps (10 epochs)\n"}
+,{"stream_name":"stderr","time":489.889693845,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":489.889757236,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":489.889764507,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":489.889793872,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":489.889797127,"data":"\n"}
+,{"stream_name":"stderr","time":489.88979963,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":489.889802154,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":489.889805224,"data":"\n"}
+,{"stream_name":"stderr","time":489.889807617,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":489.889810132,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":489.889812782,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":489.8898153,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":489.889817864,"data":"\n"}
+,{"stream_name":"stderr","time":489.889820253,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":489.889822722,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":490.61664577,"data":"🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16\n"}
+,{"stream_name":"stdout","time":490.616682249,"data":"[Trainable parameters per layer (E5)]\n"}
+,{"stream_name":"stdout","time":490.616687945,"data":"  layer.9: 110,592\n"}
+,{"stream_name":"stdout","time":490.616692587,"data":"  layer.10: 110,592\n"}
+,{"stream_name":"stdout","time":490.616696933,"data":"  layer.11: 110,592\n"}
+,{"stream_name":"stdout","time":490.616701349,"data":"  head: 3,465\n"}
+,{"stream_name":"stdout","time":490.616705696,"data":"  total trainable: 335,241  (frozen: 33,360,000)\n"}
+,{"stream_name":"stderr","time":548.886438977,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":548.886551751,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":548.886589256,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":548.886595051,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":548.886600763,"data":"\n"}
+,{"stream_name":"stderr","time":548.88660534,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":548.886609826,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":548.886615885,"data":"\n"}
+,{"stream_name":"stderr","time":548.8866212,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":548.886626294,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":548.886631843,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":548.886637035,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":548.886641672,"data":"\n"}
+,{"stream_name":"stderr","time":548.886646338,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":548.886650833,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":552.229048982,"data":"🔍 [PCA variance] course_instr: 0.439\n"}
+,{"stream_name":"stdout","time":554.522314105,"data":"🔍 [PCA variance] course_name: 0.456\n"}
+,{"stream_name":"stdout","time":558.546769177,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":572.591840048,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":572.591939729,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":572.612594998,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":572.612631396,"data":"Scored 0.4256 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 84 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":572.612635869,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/ft/f2                = 0.4256  (84.4s)\n"}
+,{"stream_name":"stderr","time":572.79763742,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":572.797671977,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":572.797676497,"data":"\n"}
+,{"stream_name":"stderr","time":572.797679932,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":572.797684207,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":572.798400429,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":572.798412323,"data":"🔭 7 features → tabpfnv2p5  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":574.698736941,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":574.69877304,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":574.706208177,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":574.70624174,"data":"Scored 0.3342 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":574.706247327,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/no_text/f2         = 0.3342  (2.0s)\n"}
+,{"stream_name":"stderr","time":574.901732591,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":574.901770291,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":574.901776502,"data":"\n"}
+,{"stream_name":"stderr","time":574.901781332,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":574.901786391,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":574.902814935,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":574.902846784,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":576.975367664,"data":"🔍 [PCA variance] course_instr: 0.415\n"}
+,{"stream_name":"stdout","time":576.975426579,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":579.119771694,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":582.911629221,"data":"🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":591.353046308,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":591.353098666,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":591.364879994,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":591.364935515,"data":"Scored 0.1667 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 16 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":591.364942405,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/text_only/f2       = 0.1667  (16.6s)\n"}
+,{"stream_name":"stderr","time":591.555699695,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":591.555757443,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":591.555763476,"data":"\n"}
+,{"stream_name":"stderr","time":591.555767204,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":591.555770981,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":591.556659314,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":591.556692668,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":593.762399225,"data":"🔍 [PCA variance] course_instr: 0.415\n"}
+,{"stream_name":"stdout","time":593.762443055,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":596.345373204,"data":"🔍 [PCA variance] course_name: 0.442\n"}
+,{"stream_name":"stdout","time":600.067976811,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":609.288631149,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":609.288675092,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":609.319171884,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":609.319242856,"data":"Scored 0.4206 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 17 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":609.319250144,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/all/f2             = 0.4206  (17.9s)\n"}
+,{"stream_name":"stdout","time":609.368259494,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":609.368295626,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":609.51493055,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":609.514995883,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":609.515002573,"data":"\n"}
+,{"stream_name":"stderr","time":609.51500752,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":609.515012133,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":610.17853402,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stderr","time":610.969338624,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":610.969436333,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":610.969443588,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":610.969447929,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":610.969452253,"data":"\n"}
+,{"stream_name":"stderr","time":610.969456712,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":610.969478569,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":610.969483449,"data":"\n"}
+,{"stream_name":"stderr","time":610.96948759,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":610.969491936,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":610.969495724,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":610.969499276,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":610.969502989,"data":"\n"}
+,{"stream_name":"stderr","time":610.969506555,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":610.969510458,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":612.006523126,"data":"[tar_cache] hit de382cafe263 -- skipping E5 fine-tuning (4860 train examples)\n"}
+,{"stream_name":"stdout","time":614.129318533,"data":"🔍 [PCA variance] course_instr: 0.439\n"}
+,{"stream_name":"stdout","time":616.382597803,"data":"🔍 [PCA variance] course_name: 0.456\n"}
+,{"stream_name":"stdout","time":620.446533971,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":629.469843885,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":629.469899622,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":629.490524634,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":629.490583198,"data":"Scored 0.4339 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 2 in 20 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":629.490594354,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/ft/f2              = 0.4339  (20.1s)\n"}
+,{"stream_name":"stderr","time":629.67360257,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":629.673641166,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":629.673648108,"data":"\n"}
+,{"stream_name":"stderr","time":629.673653671,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":629.673658979,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":629.674353878,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":629.674372305,"data":"🔭 7 features → tabpfnv2  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":632.066122384,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":632.066167488,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":632.073497689,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":632.073524966,"data":"Scored 0.2703 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":632.073533053,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/no_text/f3           = 0.2703  (2.5s)\n"}
+,{"stream_name":"stderr","time":632.277908091,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":632.277955092,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":632.277982543,"data":"\n"}
+,{"stream_name":"stderr","time":632.27798707,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":632.277990926,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":632.278941396,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":632.278971797,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":634.771664669,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":634.771717499,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":636.811111781,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":640.736869348,"data":"🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":642.583893333,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":642.583947388,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":642.583955203,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":642.583960605,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":642.58396471,"data":"\n"}
+,{"stream_name":"stderr","time":642.583968923,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":642.583973318,"data":"\n"}
+,{"stream_name":"stderr","time":642.583977158,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":642.583981749,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":642.583986171,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":642.583990283,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":642.583994022,"data":"\n"}
+,{"stream_name":"stderr","time":642.58399795,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":643.00395566,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":643.004006075,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":643.004013169,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":643.004038726,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":643.004043353,"data":"\n"}
+,{"stream_name":"stderr","time":643.004052916,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":643.004056858,"data":"\n"}
+,{"stream_name":"stderr","time":643.00407443,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":643.004079048,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":643.004084564,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":643.004089538,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":643.004094499,"data":"\n"}
+,{"stream_name":"stderr","time":643.004098688,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":643.431602397,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":643.431672509,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":643.43167967,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":643.43168586,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":643.431691329,"data":"\n"}
+,{"stream_name":"stderr","time":643.431694829,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":643.431699039,"data":"\n"}
+,{"stream_name":"stderr","time":643.431703119,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":643.431707207,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":643.431711583,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":643.431715941,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":643.431719752,"data":"\n"}
+,{"stream_name":"stderr","time":643.431723483,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":643.704875404,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":643.704932826,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":643.704939609,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":643.704962267,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":643.70496573,"data":"\n"}
+,{"stream_name":"stderr","time":643.704968674,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":643.704971576,"data":"\n"}
+,{"stream_name":"stderr","time":643.70500037,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":643.705006885,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":643.705013028,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":643.705018859,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":643.705024633,"data":"\n"}
+,{"stream_name":"stderr","time":643.705029511,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":652.80927023,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":652.809318363,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":652.820597733,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":652.820642028,"data":"Scored 0.1656 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 20 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":652.820654224,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/text_only/f3         = 0.1656  (20.7s)\n"}
+,{"stream_name":"stderr","time":653.012417789,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":653.012458274,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":653.012464178,"data":"\n"}
+,{"stream_name":"stderr","time":653.012468376,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":653.012472737,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":653.013459702,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":653.013493624,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":655.272041959,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":655.272088836,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":657.583639094,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":661.538361282,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":675.55131794,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":675.551383024,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":675.580337447,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":675.5804067,"data":"Scored 0.4132 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 22 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":675.580414937,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/all/f3               = 0.4132  (22.7s)\n"}
+,{"stream_name":"stdout","time":675.633420068,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":675.633466602,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":675.788956233,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":675.78899517,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":675.788998996,"data":"\n"}
+,{"stream_name":"stderr","time":675.789001774,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":675.789004549,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":676.454870506,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stdout","time":676.801310173,"data":"[Dataset] train: n=4860, val: n=540\n"}
+,{"stream_name":"stdout","time":676.801356539,"data":"[Dataset] train_y.shape=(4860,), val_y.shape=(540,) (y = labels)\n"}
+,{"stream_name":"stdout","time":676.801363699,"data":"[Steps] batch_size=256 → 19 steps/epoch → 190 total steps (10 epochs)\n"}
+,{"stream_name":"stderr","time":677.257947264,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":677.258004758,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":677.258012026,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":677.258016739,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":677.258020823,"data":"\n"}
+,{"stream_name":"stderr","time":677.258024516,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":677.258028432,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":677.2580386,"data":"\n"}
+,{"stream_name":"stderr","time":677.25804174,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":677.258044392,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":677.258046973,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":677.258049973,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":677.258052684,"data":"\n"}
+,{"stream_name":"stderr","time":677.258055129,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":677.258057663,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":677.971032293,"data":"🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16\n"}
+,{"stream_name":"stdout","time":677.971067587,"data":"[Trainable parameters per layer (E5)]\n"}
+,{"stream_name":"stdout","time":677.971073247,"data":"  layer.9: 110,592\n"}
+,{"stream_name":"stdout","time":677.971077901,"data":"  layer.10: 110,592\n"}
+,{"stream_name":"stdout","time":677.971082398,"data":"  layer.11: 110,592\n"}
+,{"stream_name":"stdout","time":677.971086844,"data":"  head: 3,465\n"}
+,{"stream_name":"stdout","time":677.971108658,"data":"  total trainable: 335,241  (frozen: 33,360,000)\n"}
+,{"stream_name":"stderr","time":735.999496261,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":735.999553992,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":735.999598777,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":735.999605059,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":735.999611186,"data":"\n"}
+,{"stream_name":"stderr","time":735.999616814,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":735.999621854,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":735.999627464,"data":"\n"}
+,{"stream_name":"stderr","time":735.999632263,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":735.99963724,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":735.999648171,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":735.999651957,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":735.9996556359999,"data":"\n"}
+,{"stream_name":"stderr","time":735.999659265,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":735.999662731,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":739.226454754,"data":"🔍 [PCA variance] course_instr: 0.434\n"}
+,{"stream_name":"stdout","time":741.508375665,"data":"🔍 [PCA variance] course_name: 0.455\n"}
+,{"stream_name":"stdout","time":745.789528545,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":759.424685021,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":759.424735383,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":759.44748083,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":759.447526182,"data":"Scored 0.4187 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 83 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":759.447532133,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/ft/f3                = 0.4187  (83.8s)\n"}
+,{"stream_name":"stderr","time":759.627243423,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":759.627283735,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":759.627290006,"data":"\n"}
+,{"stream_name":"stderr","time":759.627295282,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":759.627300997,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":759.628143367,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":759.628173957,"data":"🔭 7 features → tabpfnv2p5  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":761.538996803,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":761.539062406,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":761.54621357,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":761.54626377,"data":"Scored 0.2838 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":761.546270894,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/no_text/f3         = 0.2838  (2.0s)\n"}
+,{"stream_name":"stderr","time":761.741820036,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":761.741885532,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":761.741892807,"data":"\n"}
+,{"stream_name":"stderr","time":761.741897306,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":761.741901758,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":761.742945256,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":761.742974758,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":764.042315673,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":764.042353177,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":766.338069417,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":770.23506465,"data":"🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":778.654461737,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":778.654508488,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":778.662364344,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":778.662404304,"data":"Scored 0.2352 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 17 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":778.662413458,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/text_only/f3       = 0.2352  (17.0s)\n"}
+,{"stream_name":"stderr","time":778.857338457,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":778.857376179,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":778.857398722,"data":"\n"}
+,{"stream_name":"stderr","time":778.857404668,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":778.857410113,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":778.858364437,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":778.858393083,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":780.902389887,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":780.902464617,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":783.415135418,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":787.29612242,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":796.439653157,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":796.439704986,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":796.464503994,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":796.464545961,"data":"Scored 0.4271 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 17 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":796.464552851,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/all/f3             = 0.4271  (17.7s)\n"}
+,{"stream_name":"stdout","time":796.514070562,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":796.514113766,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":796.666600815,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":796.666639531,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":796.66664538,"data":"\n"}
+,{"stream_name":"stderr","time":796.666650068,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":796.66665489,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":797.323604236,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stderr","time":798.117042776,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":798.117099207,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":798.117105925,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":798.117110104,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":798.117114022,"data":"\n"}
+,{"stream_name":"stderr","time":798.117117823,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":798.117123723,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":798.117152076,"data":"\n"}
+,{"stream_name":"stderr","time":798.117156303,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":798.117160835,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":798.117165073,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":798.117169522,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":798.117173713,"data":"\n"}
+,{"stream_name":"stderr","time":798.117177601,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":798.117181974,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":799.117669377,"data":"[tar_cache] hit 25bd6f52f66a -- skipping E5 fine-tuning (4860 train examples)\n"}
+,{"stream_name":"stdout","time":801.547153438,"data":"🔍 [PCA variance] course_instr: 0.434\n"}
+,{"stream_name":"stdout","time":803.774446888,"data":"🔍 [PCA variance] course_name: 0.455\n"}
+,{"stream_name":"stdout","time":808.013649524,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":817.084230449,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":817.084276503,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":817.099932673,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":817.099994095,"data":"Scored 0.4365 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 3 in 20 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":817.099999366,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/ft/f3              = 0.4365  (20.6s)\n"}
+,{"stream_name":"stderr","time":817.287514626,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":817.287553851,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":817.287580261,"data":"\n"}
+,{"stream_name":"stderr","time":817.287587852,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":817.287593454,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":817.28879646,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":817.288824797,"data":"🔭 7 features → tabpfnv2  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":819.692094097,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":819.692141139,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":819.698839246,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":819.698868585,"data":"Scored 0.2742 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":819.698880618,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/no_text/f4           = 0.2742  (2.5s)\n"}
+,{"stream_name":"stderr","time":819.895476377,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":819.895511364,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":819.895516887,"data":"\n"}
+,{"stream_name":"stderr","time":819.895521032,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":819.895525386,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":819.896473351,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":819.896503207,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":822.215763308,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":822.215830165,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":824.661683458,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":828.541412861,"data":"🔭 60 features → tabpfnv2  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":830.446978108,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":830.447039167,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":830.447050348,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":830.447079931,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":830.447086609,"data":"\n"}
+,{"stream_name":"stderr","time":830.447091893,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":830.44709721,"data":"\n"}
+,{"stream_name":"stderr","time":830.447102175,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":830.447107999,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":830.447113664,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":830.447119559,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":830.447124943,"data":"\n"}
+,{"stream_name":"stderr","time":830.447129751,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":830.853545699,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":830.853611848,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":830.853619729,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":830.853624454,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":830.853628983,"data":"\n"}
+,{"stream_name":"stderr","time":830.853633373,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":830.853637536,"data":"\n"}
+,{"stream_name":"stderr","time":830.853641483,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":830.853645349,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":830.853649638,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":830.853654557,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":830.853659341,"data":"\n"}
+,{"stream_name":"stderr","time":830.853663937,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":831.298813808,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":831.298856707,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":831.298864576,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":831.298895003,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":831.298900804,"data":"\n"}
+,{"stream_name":"stderr","time":831.298905548,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":831.298910365,"data":"\n"}
+,{"stream_name":"stderr","time":831.298915175,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":831.298921027,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":831.298926631,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":831.298932478,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":831.29893777,"data":"\n"}
+,{"stream_name":"stderr","time":831.298942566,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":831.596862159,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":831.596918777,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":831.596925927,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":831.596931856,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":831.596936296,"data":"\n"}
+,{"stream_name":"stderr","time":831.596940278,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":831.596944194,"data":"\n"}
+,{"stream_name":"stderr","time":831.596953819,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/compose/_column_transformer.py:1667: FutureWarning: \n"}
+,{"stream_name":"stderr","time":831.59695747,"data":"The format of the columns of the 'remainder' transformer in ColumnTransformer.transformers_ will change in version 1.7 to match the format of the other transformers.\n"}
+,{"stream_name":"stderr","time":831.596960607,"data":"At the moment the remainder columns are stored as indices (of type int). With the same ColumnTransformer configuration, in the future they will be stored as a different type depending on the ColumnTransformer inputs.\n"}
+,{"stream_name":"stderr","time":831.596963745,"data":"To use the new behavior now and suppress this warning, use ColumnTransformer(force_int_remainder_cols=False).\n"}
+,{"stream_name":"stderr","time":831.596966659,"data":"\n"}
+,{"stream_name":"stderr","time":831.59696928,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":840.646885759,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":840.646964618,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":840.656315239,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":840.656372583,"data":"Scored 0.1322 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 20 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":840.656378976,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/text_only/f4         = 0.1322  (20.9s)\n"}
+,{"stream_name":"stderr","time":840.850124456,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":840.850208603,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":840.850216527,"data":"\n"}
+,{"stream_name":"stderr","time":840.850221289,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":840.850225539,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":840.851253859,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":840.851284634,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":843.333604248,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":843.333656242,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":845.58546375,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":849.491133102,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":863.286792579,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":863.286842563,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":863.328792405,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":863.328857773,"data":"Scored 0.4326 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 22 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":863.328867137,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/all/f4               = 0.4326  (22.6s)\n"}
+,{"stream_name":"stdout","time":863.376236453,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":863.376275404,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":863.510696471,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":863.510739907,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":863.510744784,"data":"\n"}
+,{"stream_name":"stderr","time":863.510748306,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":863.510751874,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":864.206483833,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stdout","time":864.551348803,"data":"[Dataset] train: n=4860, val: n=540\n"}
+,{"stream_name":"stdout","time":864.551388126,"data":"[Dataset] train_y.shape=(4860,), val_y.shape=(540,) (y = labels)\n"}
+,{"stream_name":"stdout","time":864.551396606,"data":"[Steps] batch_size=256 → 19 steps/epoch → 190 total steps (10 epochs)\n"}
+,{"stream_name":"stderr","time":865.033157216,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":865.033265723,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":865.03327335,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":865.033277955,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":865.033282157,"data":"\n"}
+,{"stream_name":"stderr","time":865.033286569,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":865.033291107,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":865.033295813,"data":"\n"}
+,{"stream_name":"stderr","time":865.033299584,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":865.033303586,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":865.033307676,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":865.033311674,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":865.033315774,"data":"\n"}
+,{"stream_name":"stderr","time":865.033325131,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":865.033328877,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":865.742086031,"data":"🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16\n"}
+,{"stream_name":"stdout","time":865.742124491,"data":"[Trainable parameters per layer (E5)]\n"}
+,{"stream_name":"stdout","time":865.742130515,"data":"  layer.9: 110,592\n"}
+,{"stream_name":"stdout","time":865.742135384,"data":"  layer.10: 110,592\n"}
+,{"stream_name":"stdout","time":865.742139901,"data":"  layer.11: 110,592\n"}
+,{"stream_name":"stdout","time":865.742144522,"data":"  head: 3,465\n"}
+,{"stream_name":"stdout","time":865.742149274,"data":"  total trainable: 335,241  (frozen: 33,360,000)\n"}
+,{"stream_name":"stderr","time":924.103327016,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":924.103382489,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":924.103389642,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":924.103394884,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":924.103402192,"data":"\n"}
+,{"stream_name":"stderr","time":924.103418377,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":924.103421965,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":924.103439297,"data":"\n"}
+,{"stream_name":"stderr","time":924.103442749,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":924.103446255,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":924.103450101,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":924.103470975,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":924.103476442,"data":"\n"}
+,{"stream_name":"stderr","time":924.103481333,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":924.103486647,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":927.316430669,"data":"🔍 [PCA variance] course_instr: 0.434\n"}
+,{"stream_name":"stdout","time":929.746929109,"data":"🔍 [PCA variance] course_name: 0.459\n"}
+,{"stream_name":"stdout","time":934.020073787,"data":"🔭 67 features → tabpfnv2  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":947.615329347,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":947.615389241,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":947.635640407,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":947.635683602,"data":"Scored 0.4226 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 84 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":947.63568917,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2/ft/f4                = 0.4226  (84.3s)\n"}
+,{"stream_name":"stderr","time":947.81846469,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":947.818506291,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":947.818513451,"data":"\n"}
+,{"stream_name":"stderr","time":947.818519149,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":947.818524809,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":947.819229757,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":947.819252476,"data":"🔭 7 features → tabpfnv2p5  [tabular: 7]\n"}
+,{"stream_name":"stderr","time":949.727611864,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":949.727653109,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":949.735146486,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":949.735178275,"data":"Scored 0.2808 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 2 seconds. Multimodal state: no_text 😶\n"}
+,{"stream_name":"stdout","time":949.735185275,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/no_text/f4         = 0.2808  (2.0s)\n"}
+,{"stream_name":"stderr","time":949.930895228,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":949.930942782,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":949.930950286,"data":"\n"}
+,{"stream_name":"stderr","time":949.930956139,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":949.930961957,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":949.931749424,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":949.931779043,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":952.146179623,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":952.146239811,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":954.506517294,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":958.379584785,"data":"🔭 60 features → tabpfnv2p5  [tabular: 0 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":966.89531805,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":966.895394328,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":966.90309362,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":966.903127428,"data":"Scored 0.1825 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 17 seconds. Multimodal state: text_only 📝\n"}
+,{"stream_name":"stdout","time":966.903133515,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/text_only/f4       = 0.1825  (17.1s)\n"}
+,{"stream_name":"stderr","time":967.099033407,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":967.099103495,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":967.099110669,"data":"\n"}
+,{"stream_name":"stderr","time":967.099115435,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":967.099120206,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":967.100024134,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":967.100053588,"data":"Fitting E5ColumnEncoder for column course_instr with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":969.245682992,"data":"🔍 [PCA variance] course_instr: 0.413\n"}
+,{"stream_name":"stdout","time":969.245732156,"data":"Fitting E5ColumnEncoder for column course_name with model intfloat/e5-small-v2 for 2700 texts\n"}
+,{"stream_name":"stdout","time":971.935799686,"data":"🔍 [PCA variance] course_name: 0.441\n"}
+,{"stream_name":"stdout","time":975.906708491,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":984.770958399,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":984.771032031,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":984.797621829,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":984.797702301,"data":"Scored 0.4361 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 17 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":984.797711923,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/all/f4             = 0.4361  (17.8s)\n"}
+,{"stream_name":"stdout","time":984.847813054,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stdout","time":984.847853944,"data":"[ft] epochs=10, max_length capped by tar_cache\n"}
+,{"stream_name":"stderr","time":984.995504045,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":984.995543052,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":984.995550942,"data":"\n"}
+,{"stream_name":"stderr","time":984.995580997,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":984.995587016,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":985.643714632,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4860 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stderr","time":986.581784725,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":986.581823848,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":986.581828547,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":986.581881634,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":986.581887026,"data":"\n"}
+,{"stream_name":"stderr","time":986.581891078,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":986.58189538,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":986.581900066,"data":"\n"}
+,{"stream_name":"stderr","time":986.581905897,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":986.581913247,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":986.581915976,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":986.58191861,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":986.581921221,"data":"\n"}
+,{"stream_name":"stderr","time":986.581939446,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":986.581944657,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":987.623503361,"data":"[tar_cache] hit 55edf026779b -- skipping E5 fine-tuning (4860 train examples)\n"}
+,{"stream_name":"stdout","time":989.773553465,"data":"🔍 [PCA variance] course_instr: 0.434\n"}
+,{"stream_name":"stdout","time":991.993253409,"data":"🔍 [PCA variance] course_name: 0.459\n"}
+,{"stream_name":"stdout","time":996.350285441,"data":"🔭 67 features → tabpfnv2p5  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stderr","time":1005.514298159,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":1005.514347645,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":1005.542515306,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":1005.542584242,"data":"Scored 0.4554 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 4 in 20 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":1005.542595855,"data":"  REG_TEXT_EDU_UDEMY_ACA/tabpfnv2p5/ft/f4              = 0.4554  (20.7s)\n"}
+,{"stream_name":"stdout","time":1005.57449519,"data":"\n"}
+,{"stream_name":"stdout","time":1005.574848657,"data":"[tar_cache] {'hits': 5, 'misses': 5, 'corrupt': 0} -- 5 of 10 ft runs reused an encoder instead of fine-tuning it again\n"}
+,{"stream_name":"stdout","time":1005.574869315,"data":"\n"}
+,{"stream_name":"stdout","time":1005.574875425,"data":"================ REG_TEXT_EDU_UDEMY_ACADEMY ================\n"}
+,{"stream_name":"stdout","time":1005.574880882,"data":"state         all     ft  no_text  text_only  D_Joint  D_Awareness\n"}
+,{"stream_name":"stdout","time":1005.574886041,"data":"model                                                             \n"}
+,{"stream_name":"stdout","time":1005.574915576,"data":"tabpfnv2    0.435  0.437    0.299      0.162    0.136        0.002\n"}
+,{"stream_name":"stdout","time":1005.574921492,"data":"tabpfnv2p5  0.452  0.464    0.311      0.211    0.141        0.012\n"}
+,{"stream_name":"stdout","time":1005.574927116,"data":"folds: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4)]\n"}
+,{"stream_name":"stdout","time":1005.574932478,"data":"\n"}
+,{"stream_name":"stdout","time":1005.574937203,"data":"wrote /kaggle/working/tar_results.csv\n"}
+,{"stream_name":"stderr","time":1005.575755684,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":1005.575793216,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":1005.57581605,"data":"\n"}
+,{"stream_name":"stderr","time":1005.575821824,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":1005.575826528,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":1012.097099106,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1012.09717461,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1012.28238464,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1012.282434068,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1012.951170727,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1013.461229018,"data":"[NbConvertApp] Writing 414891 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1016.189434438,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1017.281086924,"data":"[NbConvertApp] Writing 673199 bytes to __results__.html\n"}
+]

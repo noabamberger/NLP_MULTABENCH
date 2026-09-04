@@ -12,9 +12,17 @@
 - **`PYTHONIOENCODING=utf-8` always** — the console codepage here is cp1255, and simply printing an
   emoji model name raises `UnicodeEncodeError`. Pass `encoding="utf-8"` to every `read_csv`/
   `to_csv` that touches model names.
-- **No CUDA on this machine**: `DEVICE` is `None` and everything runs on CPU. Frozen E5 embedding
-  of ~5k rows costs ~10 minutes per run; LoRA fine-tuning (`ft`) is far more expensive — which is
-  why the accepted datasets' TAR grids were run on a Kaggle T4 rather than locally.
+- **No CUDA on this machine**: `DEVICE` is `None` and anything run locally runs on CPU. Frozen E5
+  embedding of ~5k rows costs ~10 minutes per run; LoRA fine-tuning (`ft`) is far more expensive.
+  **This is why the pipeline runs on Kaggle GPU**: every curation grid in `results/curation/` that
+  contains an `ft` state was measured on a Kaggle T4, and a full 5 models x 4 states x 5 folds grid
+  costs under an hour there (~0.65 GPU-h for Udemy's 100 cells, 2-3% of the ~30 h weekly quota).
+  Local CPU is for frozen-only (Delta_Joint) work and for reproducing historical grids; a full CPU
+  grid costs days of serial wall-clock on the single local machine.
+
+  The one CPU grid with an `ft` state is `REG_TEXT_EDU_UDEMY_ACADEMY/grid.csv`, kept deliberately
+  as the cross-environment comparison against that dataset's T4 grid — see its `VERDICT.md` for
+  what the two lanes agree and disagree about.
 
 ## Performance economics
 

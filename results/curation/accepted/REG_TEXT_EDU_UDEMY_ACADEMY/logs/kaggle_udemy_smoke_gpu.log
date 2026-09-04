@@ -1,0 +1,146 @@
+[{"stream_name":"stderr","time":6.283605882,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.283658182,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.120717157,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.120746275,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.120752804,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.120759779,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.707675738,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.707708284,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.707711808,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.707714458,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":8.794415773,"data":"name, memory.total [MiB], driver_version\n"}
+,{"stream_name":"stdout","time":8.794446071,"data":"Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":8.794452013,"data":"Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":8.79445625,"data":"\n"}
+,{"stream_name":"stdout","time":8.794460086,"data":"python: 3.12.13\n"}
+,{"stream_name":"stdout","time":9.490465748,"data":"--- before install ---\n"}
+,{"stream_name":"stdout","time":13.532505136,"data":"  torch          2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":28.696464207,"data":"  transformers   5.0.0\n"}
+,{"stream_name":"stdout","time":36.395122426,"data":"  peft           0.19.1\n"}
+,{"stream_name":"stdout","time":36.395153386,"data":"  pandas         2.3.3\n"}
+,{"stream_name":"stdout","time":36.395159142,"data":"  numpy          2.0.2\n"}
+,{"stream_name":"stdout","time":36.395163594,"data":"  sklearn        1.6.1\n"}
+,{"stream_name":"stdout","time":40.147295869,"data":"  lightgbm       4.6.0\n"}
+,{"stream_name":"stdout","time":40.147319969,"data":"  skrub          MISSING (ModuleNotFoundError)\n"}
+,{"stream_name":"stdout","time":40.147324012,"data":"  openml         MISSING (ModuleNotFoundError)\n"}
+,{"stream_name":"stdout","time":40.713494782,"data":"  kagglehub      1.0.0\n"}
+,{"stream_name":"stdout","time":42.87909742,"data":"  wandb          0.26.1\n"}
+,{"stream_name":"stdout","time":42.879138629,"data":"  dotenv         (no __version__)\n"}
+,{"stream_name":"stdout","time":42.879144857,"data":"  tabstar        MISSING (ModuleNotFoundError)\n"}
+,{"stream_name":"stdout","time":45.806951534,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.9/150.9 kB 9.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":45.830119518,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 595.9/595.9 kB 35.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":45.85173518,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.4/160.4 kB 11.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":45.868794188,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.8/93.8 kB 7.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":46.008934512,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.9/150.9 kB 9.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":46.008961422,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 595.9/595.9 kB 35.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":46.008967144,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.4/160.4 kB 11.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":46.008972001,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.8/93.8 kB 7.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":47.977385506,"data":"removing torchao 0.10.0 (incompatible with peft 0.19.1)\n"}
+,{"stream_name":"stdout","time":49.172609177,"data":"--- after install ---\n"}
+,{"stream_name":"stdout","time":49.172636694,"data":"  torch          2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":49.172642434,"data":"  transformers   5.0.0\n"}
+,{"stream_name":"stdout","time":49.172647045,"data":"  peft           0.19.1\n"}
+,{"stream_name":"stdout","time":49.172651522,"data":"  pandas         2.3.3\n"}
+,{"stream_name":"stdout","time":49.172656502,"data":"  numpy          2.0.2\n"}
+,{"stream_name":"stdout","time":49.172661026,"data":"  sklearn        1.6.1\n"}
+,{"stream_name":"stdout","time":49.172665432,"data":"  lightgbm       4.6.0\n"}
+,{"stream_name":"stdout","time":50.436380474,"data":"  skrub          0.10.1\n"}
+,{"stream_name":"stdout","time":50.436427527,"data":"  openml         0.15.1\n"}
+,{"stream_name":"stdout","time":50.436435385,"data":"  kagglehub      1.0.0\n"}
+,{"stream_name":"stdout","time":50.43644049,"data":"  wandb          0.26.1\n"}
+,{"stream_name":"stdout","time":50.436446002,"data":"  dotenv         (no __version__)\n"}
+,{"stream_name":"stdout","time":50.436451111,"data":"  tabstar        1.1.16\n"}
+,{"stream_name":"stdout","time":50.460838619,"data":"--- /kaggle/input ---\n"}
+,{"stream_name":"stdout","time":50.460864034,"data":" /kaggle/input | ['datasets'] []\n"}
+,{"stream_name":"stdout","time":50.460869415,"data":"   /kaggle/input/datasets | ['mariahalshiekh', 'talkraicer'] []\n"}
+,{"stream_name":"stdout","time":50.460874129,"data":"     /kaggle/input/datasets/talkraicer | ['multabench-code'] []\n"}
+,{"stream_name":"stdout","time":50.460878665,"data":"       /kaggle/input/datasets/talkraicer/multabench-code | ['curation_lab', 'multabench'] ['benchmark.py']\n"}
+,{"stream_name":"stdout","time":50.469719829,"data":"     /kaggle/input/datasets/mariahalshiekh | ['udemy-course-academy-teaching'] []\n"}
+,{"stream_name":"stdout","time":50.469744343,"data":"       /kaggle/input/datasets/mariahalshiekh/udemy-course-academy-teaching | [] ['udemy_dataset.csv']\n"}
+,{"stream_name":"stdout","time":50.469750551,"data":"CODE_DIR = /kaggle/input/datasets/talkraicer/multabench-code\n"}
+,{"stream_name":"stdout","time":50.652021032,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":50.65205418,"data":"device: Tesla T4\n"}
+,{"stream_name":"stdout","time":50.652060132,"data":"compute capability: (7, 5)\n"}
+,{"stream_name":"stdout","time":50.652077377,"data":"torch arch list   : ['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']\n"}
+,{"stream_name":"stdout","time":51.153950312,"data":"CUDA kernel launch OK (probe=377.403)\n"}
+,{"stream_name":"stdout","time":52.940459422,"data":"❗ Warning: 8 CPU devices requested, but only 4 available.\n"}
+,{"stream_name":"stdout","time":53.578366978,"data":"import chain OK\n"}
+,{"stream_name":"stdout","time":53.801830051,"data":"\n"}
+,{"stream_name":"stdout","time":53.80185943,"data":"=== REG_TEXT_EDU_UDEMY_ACADEMY  (mariahalshiekh/udemy-course-academy-teaching) ===\n"}
+,{"stream_name":"stdout","time":53.80187033,"data":"  rows=2999 cols=12  csv=udemy_dataset.csv\n"}
+,{"stream_name":"stdout","time":53.801873813,"data":"  target=price (nuniq=28 zmax=3.00) leaks_dropped=[] text=['course_instr', 'course_name'] n_num=6\n"}
+,{"stream_name":"stdout","time":53.80187717,"data":"  target='price'  text=['course_instr', 'course_name']\n"}
+,{"stream_name":"stdout","time":53.801880733,"data":"  numeric=['coures_reviews', 'course_enrollmenters', 'course_lectures', 'course_rating', 'course_totalHourse', 'price_dis']\n"}
+,{"stream_name":"stdout","time":53.801898948,"data":"  categorical=['course_level']\n"}
+,{"stream_name":"stdout","time":53.80190431,"data":"\n"}
+,{"stream_name":"stdout","time":53.801909338,"data":"1 of 1 candidates specced\n"}
+,{"stream_name":"stdout","time":53.968165296,"data":"🎯 Regression variable price had no extreme outliers.\n"}
+,{"stream_name":"stderr","time":54.120583502,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":54.120608667,"data":"\n"}
+,{"stream_name":"stderr","time":54.120614513,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":54.63201291,"data":"[tar] training max_length cap = 40 (was 512) -\u003e ~12.8x\n"}
+,{"stream_name":"stdout","time":54.83199403,"data":"🖥️ Using CUDA_VISIBLE_DEVICES=0. Setting device to 'cuda'.\n"}
+,{"stream_name":"stdout","time":55.082524313,"data":"Finetuning single E5 (intfloat/e5-small-v2) for 2 columns with 4374 train examples (passage: col_name: col_val)\n"}
+,{"stream_name":"stdout","time":55.082551772,"data":"[Dataset] train: n=4374, val: n=486\n"}
+,{"stream_name":"stdout","time":55.082557787,"data":"[Dataset] train_y.shape=(4374,), val_y.shape=(486,) (y = labels)\n"}
+,{"stream_name":"stdout","time":55.08256291,"data":"[Steps] batch_size=256 → 18 steps/epoch → 18 total steps (1 epochs)\n"}
+,{"stream_name":"stderr","time":58.184035793,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":58.184073398,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":58.184079665,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":58.184084969,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":58.184090272,"data":"\n"}
+,{"stream_name":"stderr","time":58.184095172,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":58.184109886,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":58.18411585,"data":"\n"}
+,{"stream_name":"stderr","time":58.184120792,"data":"BertModel LOAD REPORT from: intfloat/e5-small-v2\n"}
+,{"stream_name":"stderr","time":58.184126137,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stderr","time":58.184146834,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":58.184150882,"data":"embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":58.184154695,"data":"\n"}
+,{"stream_name":"stderr","time":58.184158449,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":58.184162361,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":58.673916143,"data":"🦜 Doing LoRA on last 3 layers of intfloat/e5-small-v2 with rank 16\n"}
+,{"stream_name":"stdout","time":58.673949552,"data":"[Trainable parameters per layer (E5)]\n"}
+,{"stream_name":"stdout","time":58.673954393,"data":"  layer.9: 110,592\n"}
+,{"stream_name":"stdout","time":58.673957747,"data":"  layer.10: 110,592\n"}
+,{"stream_name":"stdout","time":58.673960868,"data":"  layer.11: 110,592\n"}
+,{"stream_name":"stdout","time":58.673963935,"data":"  head: 3,465\n"}
+,{"stream_name":"stdout","time":58.673966942,"data":"  total trainable: 335,241  (frozen: 33,360,000)\n"}
+,{"stream_name":"stdout","time":66.617786335,"data":"🔍 [PCA variance] course_instr: 0.414\n"}
+,{"stream_name":"stdout","time":68.834820674,"data":"🔍 [PCA variance] course_name: 0.444\n"}
+,{"stream_name":"stdout","time":72.865780518,"data":"🔭 67 features → light  [tabular: 7 | txt_emb: 60]\n"}
+,{"stream_name":"stdout","time":73.386303495,"data":"🔥 Feature importances: course_instr_txt        0.4274\n"}
+,{"stream_name":"stdout","time":73.386341984,"data":"course_name_txt         0.2451\n"}
+,{"stream_name":"stdout","time":73.386347199,"data":"price_dis               0.2329\n"}
+,{"stream_name":"stdout","time":73.386351764,"data":"coures_reviews          0.0439\n"}
+,{"stream_name":"stdout","time":73.386356009,"data":"course_lectures         0.0328\n"}
+,{"stream_name":"stdout","time":73.386374849,"data":"course_enrollmenters    0.0084\n"}
+,{"stream_name":"stdout","time":73.386380202,"data":"course_totalHourse      0.0072\n"}
+,{"stream_name":"stdout","time":73.386385546,"data":"course_rating           0.0019\n"}
+,{"stream_name":"stdout","time":73.386390841,"data":"course_level            0.0005\n"}
+,{"stream_name":"stdout","time":73.386395521,"data":"dtype: float64\n"}
+,{"stream_name":"stderr","time":73.726689874,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":73.726768559,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":73.742999507,"data":"🆔 Could not get the current commit hash.\n"}
+,{"stream_name":"stdout","time":73.74302155,"data":"Scored 0.5215 on dataset REG_TEXT_EDU_UDEMY_ACADEMY, fold 0 in 19 seconds. Multimodal state: all 🔥\n"}
+,{"stream_name":"stdout","time":73.743027288,"data":"\n"}
+,{"stream_name":"stdout","time":73.743031569,"data":"=== SMOKE OK ===\n"}
+,{"stream_name":"stdout","time":73.743035913,"data":"  ft score      : 0.5215\n"}
+,{"stream_name":"stdout","time":73.743049295,"data":"  max_length cap: 40 (upstream default 512)\n"}
+,{"stream_name":"stdout","time":73.743053652,"data":"  wall clock    : 19.9s for 1 epoch(s)\n"}
+,{"stream_name":"stdout","time":73.743057825,"data":"  total elapsed : 20s\n"}
+,{"stream_name":"stderr","time":73.74564988,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":73.745664987,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stderr","time":73.745708518,"data":"\n"}
+,{"stream_name":"stderr","time":73.746737062,"data":"fatal: not a git repository (or any parent up to mount point /kaggle)\n"}
+,{"stream_name":"stderr","time":73.746751029,"data":"Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).\n"}
+,{"stream_name":"stdout","time":73.788174392,"data":"SMOKE=True -- skipping the full run.\n"}
+,{"stream_name":"stderr","time":79.374172293,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":79.374202557,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":79.523801548,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":79.523834864,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":80.112117286,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":80.450002174,"data":"[NbConvertApp] Writing 119576 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":82.808762201,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":83.674436592,"data":"[NbConvertApp] Writing 425987 bytes to __results__.html\n"}
+]
