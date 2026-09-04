@@ -1,0 +1,316 @@
+\documentclass{article}
+
+% The official NeurIPS style file if it is present (drop neurips_2024.sty next to
+% this file, or compile on Overleaf's NeurIPS 2024 template); otherwise a close
+% geometric approximation so the document still builds.
+\IfFileExists{neurips_2024.sty}{%
+  \usepackage[final]{neurips_2024}%
+}{%
+  \usepackage[letterpaper,margin=1.25in]{geometry}%
+  \usepackage[colorlinks=true,allcolors=blue]{hyperref}%
+  \renewcommand{\baselinestretch}{1.0}%
+}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{url}
+
+\title{Two New Text--Tabular Datasets for MulTaBench, and What It Takes to Find Them}
+
+\author{%
+  Tal Kraicer \\
+  Technion --- Israel Institute of Technology \\
+  NLP (097215), Spring 2026 --- Track 2 (Benchmark) \\
+  \texttt{talkraicer@gmail.com} \\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We curate and evaluate two new text--tabular datasets against the MulTaBench curation
+criterion, using the official MulTaBench implementation of five tabular learners (TabM,
+CatBoost, LightGBM, TabPFN v2, TabPFN 2.5) under four conditions. Both pass.
+\emph{Vietnam housing} passes on \textbf{5 of 5} learners with a joint-signal gain of
+$+0.288 \pm 0.024$ $R^2$ pooled over 25 (learner, fold) cells, positive in every cell
+($t = 59.9$); \emph{Udemy courses} passes on \textbf{3 of 5} with $+0.175 \pm 0.046$, also
+positive in every cell ($t = 19.1$) --- two orders of magnitude above the acceptance margin
+$\delta = 0.001$. We report the target-awareness term with equal candour: it is the binding
+constraint, clearly significant on Vietnam housing ($t = 4.7$) and \emph{not} significant when
+pooled on Udemy ($t = 0.9$) despite meeting the per-learner criterion. We also report failed
+candidates, because two failed in ways a naive pipeline would score as successes: deleting
+structured columns by name \emph{manufactures} a joint gain that vanishes when they are
+restored ($+0.0388 \rightarrow -0.0005$), and cheap screens of the target-awareness term are
+invalid along two independent axes. All measurements were produced on Kaggle T4 GPUs, with all
+four conditions for a learner measured inside a single session.
+\end{abstract}
+
+\section{Introduction}
+
+Text--tabular learning concerns tables in which some columns hold numerical or categorical
+features and others hold free text. MulTaBench~\cite{multabench} formalises when such a
+dataset is worth benchmarking: the text and the structured block must each contribute
+predictive signal the other lacks, and a text encoder adapted to the prediction target must
+improve on a frozen one. A dataset satisfying both conditions exercises the capability that
+text--tabular models are built for; a dataset failing either collapses into a pure tabular
+task or a pure NLP task.
+
+This paper takes the benchmark track: we identify, preprocess and evaluate new datasets
+against that criterion rather than proposing a new algorithm. Our contributions are:
+
+\begin{enumerate}
+\itemsep2pt
+\item \textbf{Two new passing datasets} from domains absent from MulTaBench --- Vietnamese
+residential real-estate listings (5 of 5 learners) and online-course listings (3 of 5) ---
+with joint gains of $+0.288$ and $+0.175$ $R^2$, positive in all 25 (learner, fold) cells for
+both.
+\item \textbf{An automated mining pipeline} and its measured yield: 232 candidates discovered,
+2 surviving scrutiny, with the survival rate at every stage reported so the funnel can be
+sized by others.
+\item \textbf{Two negative methodological results} that invalidate the obvious cheap
+pipeline. Name-based deletion of structured columns manufactures joint signal; and the
+target-awareness term cannot be screened cheaply along either the epoch axis or the fold
+axis, because cheapening it collapses the quantity being measured.
+\end{enumerate}
+
+\section{The Curation Criterion}
+
+Following MulTaBench, each dataset is evaluated with five learners --- TabM~\cite{tabm},
+CatBoost~\cite{catboost}, LightGBM~\cite{lightgbm}, TabPFN v2~\cite{tabpfnv2} and TabPFN
+2.5~\cite{tabpfn25} --- under four conditions: \textbf{Unimodal Structured} (tabular columns
+only), \textbf{Unimodal Unstructured} (text only), \textbf{Joint Frozen} (all features, with
+frozen E5-small-v2~\cite{e5} embeddings), and \textbf{Joint Target-Aware} (TAR; all features,
+with E5 LoRA-tuned~\cite{lora} on the target, as in TabSTAR~\cite{tabstar}). Text columns are
+embedded per column and compressed to 30 principal components. Scores are $R^2$ for
+regression; both our datasets are regression tasks.
+
+Writing $\mu_c$ for the mean score over folds $0$--$4$ in condition $c$, rounded to three
+decimals before differencing, a learner passes when
+\begin{align}
+\Delta_{\text{Joint}} &= \mu_{\text{frozen}} - \max(\mu_{\text{struct}}, \mu_{\text{text}}) > \delta,\\
+\Delta_{\text{Aware}} &= \mu_{\text{TAR}} - \mu_{\text{frozen}} > \delta,
+\end{align}
+with $\delta = 0.001$. A dataset is accepted when at least 3 of the 5 learners pass
+\emph{both} inequalities. A learner clearing one inequality but not the other contributes
+nothing. Every verdict in this paper is computed by the MulTaBench reference implementation of
+this rule, which asserts grid completeness (5 folds $\times$ 4 conditions per learner) rather
+than averaging over gaps; we did not reimplement the arithmetic.
+
+\paragraph{Experimental setup.} All runs were executed on Kaggle T4 GPUs. Because each
+$\Delta$ is a difference of two means, the four conditions for a given learner are always
+measured inside a single GPU session, so that no environment difference can enter a delta.
+Each dataset's grid is $5 \times 4 \times 5 = 100$ cells, costing $0.65$ GPU-hours for Udemy and
+$1.87$ for the ten-times-larger Vietnam housing: cost scales with training-set size, not with
+raw row count, since evaluation subsamples to at most 10k training rows. TAR fine-tuning is
+shared across learners within a fold --- the tuned encoder is a function of the training texts
+and labels, not of the downstream learner --- which reduces a 25-cell TAR sweep to 10
+fine-tunings.
+
+\section{Method: Mining and Validating Candidates}
+
+\paragraph{Funnel and yield.} Candidates were discovered by programmatic search over public
+dataset repositories, then profiled, screened and gridded. Table~\ref{tab:funnel} gives the
+measured survival at each stage. The end-to-end yield is under $1\%$, which is the single most
+useful number for anyone sizing such an effort: reaching five accepted datasets implies
+screening on the order of 500 candidates.
+
+\begin{table}[t]
+\centering
+\caption{Measured yield of the mining funnel. Percentages are of the 232 discovered candidates.}
+\label{tab:funnel}
+\begin{tabular}{lrr}
+\toprule
+Stage & Count & Survival \\
+\midrule
+Discovered by search & 232 & --- \\
+Parsed successfully & 229 & 99\% \\
+Viable under typing/target gates & 120 & 52\% \\
+After removing false text columns (dates, identifiers) & 58 & 25\% \\
+After excluding domains already in MulTaBench & 34 & 15\% \\
+Passing a $\Delta_{\text{Joint}}$ screen & 16 & 7\% \\
+Full grid attempted & 4 & --- \\
+\textbf{Survived scrutiny} & \textbf{2} & \textbf{$<1\%$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Automated specification.} For each candidate the pipeline selects a target and
+partitions columns without human annotation. Targets are rejected when they are identifiers or
+serial numbers, when one value holds more than $20\%$ of the mass (a missing-value sentinel
+masquerading as a number), when $|z|_{\max} > 5$, or when the target is derived from the text
+it would be predicted from. Columns correlating with the target at Spearman $\rho \ge 0.95$ are
+dropped as leakage; Spearman rather than Pearson, so that monotone-but-nonlinear leaks such as
+a rank column are caught.
+
+\paragraph{Validity rule 1: never delete structured columns by name.} A name-based ``junk''
+filter that removes columns matching patterns like \texttt{year} or \texttt{time} is an obvious
+convenience and it is actively harmful. On a board-games candidate, \texttt{Year Published} and
+\texttt{Play Time} are not identifiers but the two strongest structured predictors. Deleting
+them cripples the structured baseline and lets the text act as a \emph{proxy} for the deleted
+feature, inventing a joint gain that disappears when they return:
+\[
+\Delta_{\text{Joint}} = +0.0388 \;\longrightarrow\; +0.0229 \;\longrightarrow\; -0.0005
+\]
+as the columns are restored one at a time. The unstructured baseline is unchanged at $0.502$
+throughout, so this is entirely an effect on the structured baseline: a controlled ablation,
+not a correlation. Consequently every positive $\Delta_{\text{Joint}}$ we report was re-measured
+with the maximal structured block --- nothing dropped except proven leakage --- and a candidate
+whose gain collapses under that test is discarded. Name patterns are used only to reject
+\emph{text} candidates, never to remove structured columns.
+
+\paragraph{Validity rule 2: $\Delta_{\text{Aware}}$ cannot be screened cheaply.} A cheap screen
+is valid only where cheapness does not change the quantity being screened. This holds for
+$\Delta_{\text{Joint}}$, which uses frozen encoders, so a subset of folds is unbiased. It fails
+for $\Delta_{\text{Aware}}$ along two independent axes, and we measured both.
+\emph{Epochs}: an under-trained LoRA adapter barely moves the encoder, so TAR $\approx$ frozen
+and the delta collapses toward zero by construction. At 2 epochs one of our accepted datasets
+scored $+0.0099$ (LightGBM, fold 0); the identical cell at 10 epochs scored $+0.0322$. A failure
+at a low epoch budget therefore proves nothing; only a pass is informative. \emph{Folds}: a
+board-games fold-0 screen of $+0.0074$ to $+0.0163$ reversed to $-0.0003$ to $+0.0021$ on the
+full five-fold grid, two learners changing sign; an anime fold-0 screen of $+0.002$/$+0.003$
+became 0 of 5. The per-(learner, fold) spread is $\sigma \approx 0.006$, roughly six times
+$\delta$, so one fold cannot resolve a criterion whose threshold sits inside its noise band. We
+therefore evaluate $\Delta_{\text{Aware}}$ only at $\ge 10$ epochs over all five folds.
+
+\section{Results}
+
+\begin{table}[t]
+\centering
+\caption{Per-learner results on Kaggle T4. Means over folds 0--4, rounded to three decimals
+before differencing; $\delta = 0.001$. Struct.\ = Unimodal Structured, Text = Unimodal
+Unstructured, Frozen = Joint Frozen, TAR = Joint Target-Aware.}
+\label{tab:results}
+\small
+\begin{tabular}{llrrrrrrl}
+\toprule
+Dataset & Learner & Struct. & Text & Frozen & TAR & $\Delta_{\text{Joint}}$ & $\Delta_{\text{Aware}}$ & Verdict \\
+\midrule
+Vietnam & CatBoost   & 0.341 & 0.322 & 0.632 & 0.636 & $+0.291$ & $+0.004$ & pass \\
+housing & LightGBM   & 0.342 & 0.310 & 0.592 & 0.607 & $+0.250$ & $+0.015$ & pass \\
+        & TabM       & 0.312 & 0.336 & 0.633 & 0.638 & $+0.297$ & $+0.005$ & pass \\
+        & TabPFN v2  & 0.342 & 0.340 & 0.646 & 0.647 & $+0.304$ & $+0.001$ & pass$^{\dagger}$ \\
+        & TabPFN 2.5 & 0.356 & 0.346 & 0.680 & 0.685 & $+0.324$ & $+0.005$ & pass \\
+\midrule
+Udemy   & CatBoost   & 0.297 & 0.210 & 0.480 & 0.501 & $+0.183$ & $+0.021$ & pass \\
+courses & LightGBM   & 0.261 & 0.212 & 0.479 & 0.474 & $+0.218$ & $-0.005$ & fail \\
+        & TabM       & 0.298 & 0.221 & 0.504 & 0.492 & $+0.206$ & $-0.012$ & fail \\
+        & TabPFN v2  & 0.299 & 0.162 & 0.435 & 0.437 & $+0.136$ & $+0.002$ & pass \\
+        & TabPFN 2.5 & 0.311 & 0.211 & 0.452 & 0.464 & $+0.141$ & $+0.012$ & pass \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\footnotesize $^{\dagger}$ Knife-edge: the difference of rounded means is exactly $\delta$
+($0.647 - 0.646$) and clears a strict $>$ only through float64 representation. Reported, not
+relied upon --- excluding this cell leaves Vietnam housing at 4 of 5, still accepted.
+\end{table}
+
+\paragraph{Vietnam housing (\textsc{reg\_text\_houses\_vietnam\_2024}).} Residential
+for-sale listings; 30{,}229 rows. The target is \texttt{Price} (687 distinct values,
+$|z|_{\max} = 2.54$, no outlier clipping required); the single text column is the free-form
+\texttt{Address}; the structured block is physical attributes (area, frontage, floors,
+bedrooms, bathrooms, orientation, legal status, furnishing). \textbf{Accepted, 5 of 5.} Pooled over the 25 (learner,
+fold) cells, $\Delta_{\text{Joint}} = 0.288 \pm 0.024$, positive in \textbf{25 of 25} cells,
+$t = 59.9$; $\Delta_{\text{Aware}} = 0.0065 \pm 0.0068$, positive in 22 of 25, $t = 4.7$. The
+joint gain nearly doubles the better unimodal baseline ($0.35 \rightarrow 0.65$).
+
+The mechanism is interpretable and is, we believe, the property worth searching for directly.
+The address encodes \emph{location premium} --- street, ward, district, city --- while the
+structured block encodes \emph{physical size and condition}. These are orthogonal drivers of
+price and neither is derivable from the other, which is precisely why the joint condition beats
+both unimodal baselines by so much. The two baselines are also nearly balanced ($0.34$ vs
+$0.33$ on average), the fingerprint of two independently informative channels rather than one
+dominant modality with a decorative second.
+
+\paragraph{Udemy courses (\textsc{reg\_text\_edu\_udemy\_academy}).} Online-course listings;
+2{,}999 rows. The target is course price (28 distinct values, $|z|_{\max} = 3.00$, no extreme
+outliers); the text columns are \texttt{course\_name} and \texttt{course\_instr}; the
+structured block is six numeric course statistics. No course or MOOC dataset exists in
+MulTaBench, so this is a genuinely new domain. \textbf{Accepted, 3 of 5} (CatBoost, TabPFN v2,
+TabPFN 2.5). $\Delta_{\text{Joint}} = 0.175 \pm 0.046$ pooled, positive in \textbf{25 of 25}
+cells, $t = 19.1$; both unimodal baselines are non-degenerate ($\approx 0.30$ structured,
+$\approx 0.21$ text), so the joint gain is genuine complementarity rather than one modality
+collapsing.
+
+We state the weakness plainly. Udemy's $\Delta_{\text{Aware}}$ meets the per-learner criterion
+on exactly the quorum of three, but pooled over all 25 cells it is $0.0036 \pm 0.0202$ with
+$t = 0.9$ --- \emph{not} significant, and negative on two learners. The dataset's joint signal
+is beyond dispute; its target-awareness signal is marginal and rests on CatBoost ($+0.021$) and
+TabPFN 2.5 ($+0.012$), the only two learners clearly above the noise. Vietnam housing is the
+stronger of our two contributions on this axis, and is the one we would nominate for inclusion
+in a combined benchmark.
+
+\paragraph{Negative results.} Of four candidates gridded, two failed, and both are informative.
+\emph{Board games} showed a healthy $\Delta_{\text{Joint}}$ ($+0.047$ to $+0.059$ once the
+structured block was restored) and then died on target-awareness at 1 of 5, counting its
+knife-edge cell honestly. \emph{Anime popularity} likewise cleared the joint condition
+($+0.031$ to $+0.037$) and failed target-awareness at 0 of 5, a LoRA-tuned encoder scoring
+\emph{worse} than a frozen one on three of four learners. A Metacritic-derived table was
+rejected at the target: $82\%$ of its values were a single sentinel zero, so the apparent
+regression task was really a has-a-score indicator. The pattern is consistent and is itself a
+finding: the joint condition is comparatively easy --- 16 of 34 screened candidates cleared it
+--- while target-awareness eliminates most of them.
+
+\section{Limitations}
+
+\textbf{Epoch budget.} TAR fine-tuning ran 10 epochs rather than the reference default of 50
+with patience 3. This is conservative in the direction that matters: $\Delta_{\text{Aware}}$
+grew monotonically with the epoch budget in every measurement we made (the $+0.0099 \rightarrow
++0.0322$ comparison above), so the full budget would be expected to widen our accepted margins.
+It cannot manufacture a pass, only suppress one.
+
+\textbf{Deltas are not comparable across datasets.} $R^2$ deltas depend on intrinsic task
+difficulty; the scale-free ratio of joint to best-unimodal performance ($1.85\times$ for Vietnam
+housing, $1.61\times$ for Udemy, averaged over learners) is the more transferable statistic.
+
+\textbf{Two datasets, not five.} We meet the standard scope twice over but not the outstanding
+scope; the measured $<1\%$ yield in Table~\ref{tab:funnel} quantifies what reaching five costs.
+
+\section{Conclusion}
+
+We contribute two new text--tabular datasets that pass the MulTaBench curation criterion --- one
+at 5 of 5 learners with a joint gain of $+0.288$ $R^2$ positive in every measured cell, the
+other at 3 of 5 with $+0.175$ --- both two orders of magnitude above the acceptance margin.
+Equally, we report that target-awareness rather than joint signal is what eliminates candidates,
+that it cannot be screened cheaply along either the epoch or the fold axis, and that a
+name-based structured-column filter manufactures joint signal that does not exist. The most
+productive question when assessing a candidate is not whether it contains text, but whether the
+text describes a \emph{different aspect of the entity} than the structured columns do: both of
+our passing datasets have that property, and restatement is precisely where the joint gain
+vanishes.
+
+\begin{thebibliography}{99}
+\footnotesize
+
+\bibitem{multabench} A.~Arazi et al. MulTaBench: A Benchmark for Multimodal Tabular Learning.
+\emph{arXiv:2605.10616}, 2026.
+
+\bibitem{tabstar} A.~Arazi et al. TabSTAR: A Tabular Foundation Model with Semantically Target-Aware
+Representations. 2025.
+
+\bibitem{tabpfnv2} N.~Hollmann et al. Accurate predictions on small data with a tabular foundation
+model. \emph{Nature}, 2025.
+
+\bibitem{tabpfn25} Prior Labs. TabPFN-2.5. Technical report, 2025.
+
+\bibitem{tabm} Y.~Gorishniy et al. TabM: Advancing Tabular Deep Learning with Parameter-Efficient
+Ensembling. \emph{ICLR}, 2025.
+
+\bibitem{catboost} L.~Prokhorenkova et al. CatBoost: unbiased boosting with categorical features.
+\emph{NeurIPS}, 2018.
+
+\bibitem{lightgbm} G.~Ke et al. LightGBM: A Highly Efficient Gradient Boosting Decision Tree.
+\emph{NeurIPS}, 2017.
+
+\bibitem{e5} L.~Wang et al. Text Embeddings by Weakly-Supervised Contrastive Pre-training.
+\emph{arXiv:2212.03533}, 2022.
+
+\bibitem{lora} E.~J. Hu et al. LoRA: Low-Rank Adaptation of Large Language Models. \emph{ICLR}, 2022.
+
+\end{thebibliography}
+
+\end{document}
