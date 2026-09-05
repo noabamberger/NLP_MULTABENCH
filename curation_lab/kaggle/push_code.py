@@ -24,7 +24,7 @@ import sys
 
 from curation_lab.kaggle.push import KAGGLE_EXE, REPO_ROOT, _env, load_token
 
-DATASET_ID = "talkraicer/multabench-code"
+DATASET_ID = "noabamberger/multabench-code"
 INCLUDE = ("multabench", "curation_lab", "benchmark.py")
 SKIP_DIRS = {"__pycache__", ".git", ".venv", "node_modules", ".pytest_cache",
              ".emb_cache", ".tar_cache", "catboost_info"}

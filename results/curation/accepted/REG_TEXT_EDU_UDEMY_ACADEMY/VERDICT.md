@@ -130,12 +130,12 @@ learner share one session:
 python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
   --candidate "mariahalshiekh/udemy-course-academy-teaching=REG_TEXT_EDU_UDEMY_ACADEMY" \
   --folds 0,1,2,3,4 --models light,cat,tabm --states no_text,text_only,all,ft \
-  --kernel-id talkraicer/multabench-udemy-lct
+  --kernel-id noabamberger/multabench-udemy-lct
 
 python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
   --candidate "mariahalshiekh/udemy-course-academy-teaching=REG_TEXT_EDU_UDEMY_ACADEMY" \
   --folds 0,1,2,3,4 --models tabpfnv2,tabpfnv2p5 --states no_text,text_only,all,ft \
-  --kernel-id talkraicer/multabench-udemy-pfn
+  --kernel-id noabamberger/multabench-udemy-pfn
 
 python -m curation_lab.kaggle.verdict_from_runs \
   results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/grid_gpu_*.csv

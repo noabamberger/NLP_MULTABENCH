@@ -11,7 +11,7 @@
 Registered as `REG_TEXT_HOUSES_VIETNAM_2024`. Companion to `DJ_PROPERTY_REPORT.md`,
 which measured Delta_Joint on CPU and explicitly left Delta_Awareness unmeasured.
 
-Run on a **Kaggle T4 GPU** notebook (`talkraicer/multabench-tar-gpu`), driven by
+Run on a **Kaggle T4 GPU** notebook, driven by
 `curation_lab.kaggle.push`. Spec is auto-derived by `screen/auto_spec.py` and matches
 the CPU grid exactly: target `Price`, text `['Address']`, 6 numeric + 4 categorical,
 no leakage columns.

@@ -19,8 +19,8 @@ import argparse
 import json
 import os
 
-KERNEL_ID = "talkraicer/multabench-tar-gpu"
-CODE_DATASET = "talkraicer/multabench-code"
+KERNEL_ID = "noabamberger/multabench-tar-gpu"
+CODE_DATASET = "noabamberger/multabench-code"
 # The candidate must be pre-attached: an API-launched kernel is non-interactive
 # and Kaggle rejects kagglehub.dataset_download() for a not-yet-attached dataset.
 # Which candidate is a build-time choice (--dataset-ref / --dataset-name); it has

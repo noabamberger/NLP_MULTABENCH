@@ -25,7 +25,7 @@ import time
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DEFAULT_DIR = os.path.join(REPO_ROOT, "kaggle_uploads", "tar-gpu")
-KERNEL_ID = "talkraicer/multabench-tar-gpu"
+KERNEL_ID = "noabamberger/multabench-tar-gpu"
 POLL_SECONDS = 20
 # A cold GPU notebook is queue + container boot + pip + HF model pull before it
 # reaches any of our code; 45 min covers a one-epoch smoke run. A multi-fold ft

@@ -69,12 +69,12 @@ python -m curation_lab.kaggle.push_code -m "why this push"
 python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
   --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
   --models light,cat,tabm --states no_text,text_only,all,ft \
-  --kernel-id talkraicer/multabench-<name>-lct
+  --kernel-id noabamberger/multabench-<name>-lct
 
 python -m curation_lab.kaggle.push --machine-shape NvidiaTeslaT4 --full --full-epochs 10 \
   --candidate "<owner/slug>=REG_TEXT_<NAME>" --folds 0,1,2,3,4 \
   --models tabpfnv2,tabpfnv2p5 --states no_text,text_only,all,ft \
-  --kernel-id talkraicer/multabench-<name>-pfn
+  --kernel-id noabamberger/multabench-<name>-pfn
 
 python -m curation_lab.kaggle.verdict_from_runs results/curation/<path>/grid_gpu_*.csv
 ```
