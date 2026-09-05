@@ -157,9 +157,6 @@ file); it is not the recommended path for new work.
 | `grid_gpu_tabpfn.csv` | kaggle | **Primary.** T4, `tabpfnv2,tabpfnv2p5` x 4 states x folds 0-4 (40 cells) |
 | `grid.csv` | cpu | The earlier CPU grid at epochs=10; retained as the cross-environment comparison |
 | `grid_epochs2_superseded.csv` | cpu | The epochs=2 sweep; superseded, retained as method evidence |
-| `logs/kaggle_udemy_lct_gpu.log` | — | T4 kernel log, `light,cat,tabm` |
-| `logs/kaggle_udemy_pfn_gpu.log` | — | T4 kernel log, both TabPFNs |
-| `logs/kaggle_udemy_smoke_gpu.log` | — | 1-fold GPU smoke run that validated the path |
 | `logs/verify_udemy_e10.log` | — | run log for the CPU grid |
 | `logs/verify_udemy_frozen.log` | — | CPU frozen-states run log |
 | `logs/verify_udemy_ft.log` | — | CPU `ft` run log |
