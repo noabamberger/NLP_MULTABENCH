@@ -3,7 +3,7 @@
 A fork of the official **MulTaBench** benchmark
 ([arXiv 2605.10616](https://arxiv.org/abs/2605.10616)), used for the Technion NLP course
 00970215 (Spring 2026) final project, **Track 2 — Benchmark Track**: curate new text-tabular
-dataset(s) and prove they pass MulTaBench's own curation pipeline. Deadline **2026-10-26**.
+dataset(s) and prove they pass MulTaBench's own curation pipeline.
 
 Two layers live in this repo:
 
