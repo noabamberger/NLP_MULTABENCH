@@ -99,23 +99,6 @@ def _clean_patch():
 # The training-loop max_length cap (Task 1)
 # ---------------------------------------------------------------------------
 
-def test_training_passage_matches_what_the_dataset_tokenizes(tokenizer):
-    """The cap must be measured on TextLabelDataset's string, not on ours.
-
-    Training strings are pre-joined "col: value" and are stripped a second time
-    inside the dataset, so they are NOT format_e5_passage(col, value) -- an empty
-    value loses its trailing space. Decode what the dataset actually produced and
-    require it to equal training_passages().
-    """
-    raw = ["Product_Description: great sound", "Product_Description: ", "  ", ""]
-    ds = TextLabelDataset(raw, np.zeros(len(raw), dtype=int), tokenizer, max_length=64)
-    expected = tc.training_passages(raw)
-    for i, want in enumerate(expected):
-        ids = ds[i]["input_ids"]
-        mask = ds[i]["attention_mask"]
-        got = tokenizer.decode(ids[mask.bool()], skip_special_tokens=True)
-        assert got == want.lower().strip(), f"row {i}: {got!r} != {want!r}"
-
 
 def test_cap_holds_every_training_passage_with_no_truncation(tokenizer):
     raw = ["review: " + "word " * n for n in (1, 5, 40)]

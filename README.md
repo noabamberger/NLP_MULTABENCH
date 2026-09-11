@@ -12,7 +12,8 @@ Two layers live in this repo:
   [`docs/archive/README-upstream.md`](docs/archive/README-upstream.md).
 - **`curation_lab/`** — this project's own code: dataset mining, screening, the Kaggle GPU
   harness, and the criterion/verdict logic built on top of `multabench`'s own
-  `pass_matrix.passes()`.
+  `pass_matrix.passes()`. Its module map and funnel are documented in
+  [`curation_lab/README.md`](curation_lab/README.md).
 
 ## Current state
 
@@ -20,7 +21,7 @@ Two layers live in this repo:
 |---|---|---|---|---|
 | `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.218 (5/5) | +0.002..+0.021 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
 | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.250..+0.324 (5/5) | +0.001..+0.015 (5/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/`](results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/) |
-| `REG_TEXT_GAMES_MTG_CARD_PRICES` | +0.050..+0.075 (5/5) | not measured | in progress | [`results/curation/in_progress/`](results/curation/in_progress/) |
+| `REG_TEXT_GAMES_MTG_CARD_PRICES` | +0.050..+0.075 (5/5) | not measured | unresolved — no verdict claimed | [`results/curation/in_progress/`](results/curation/in_progress/) |
 | board games | +0.047..+0.059 | -0.001..+0.003 (2/5, one a knife-edge) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
 | anime | +0.031..+0.037 | -0.002..0.000 (0/5) | rejected | [`results/curation/rejected/anime/`](results/curation/rejected/anime/) |
 | metacritic | — | — | rejected (82% sentinel target) | [`results/curation/rejected/metacritic/`](results/curation/rejected/metacritic/) |
@@ -53,8 +54,9 @@ epochs to +0.0322 at 10), so the full budget would be expected to widen the marg
 narrow them. Detail in
 [`docs/findings/04-environment-and-performance.md`](docs/findings/04-environment-and-performance.md).
 
-**Standard scope (1 passing dataset) is met twice. Outstanding scope (>=5 passing datasets)
-needs 3 more.**
+**Standard scope — one passing dataset — is met twice.** Outstanding scope (>=5 passing
+datasets) was not reached. MTG card prices is the only further candidate carrying a complete
+Delta_Joint; its Delta_Awareness was never measured, so no verdict is claimed for it.
 
 ## Where the conclusions are
 
@@ -71,9 +73,8 @@ The canonical write-up of what was learned lives in four documents, in read orde
    — environment constraints and performance economics, including the resolved TabPFN-2.5
    blocker.
 
-[`docs/status/STATE.md`](docs/status/STATE.md) is the live handoff — read it for what's
-actually next. [`docs/archive/`](docs/archive/) holds every document these four superseded;
-each archived file carries a header naming its replacement.
+[`docs/archive/`](docs/archive/) holds every document these four superseded; each archived file
+carries a header naming its replacement.
 
 ## Where the results are
 
@@ -96,13 +97,6 @@ exceptions are the documents that gained an archive header — the one intended 
 Note what this proves and what it does not: it establishes **custody**, not correctness. A file
 moved somewhere nonsensical still counts as present, and a file never recorded is invisible to
 it. It answers "was anything destroyed", not "is everything where it belongs".
-
-## Where the paper is
-
-[`paper/`](paper/) holds the Technion write-up: the assignment brief
-(`paper/source/instructions.pdf`), a report **skeleton** (`paper/report.md` — evidence
-pointers only, not a draft), and `paper/assets/` for generated tables/figures. See
-[`paper/README.md`](paper/README.md).
 
 ## How to run the harness
 
@@ -160,11 +154,10 @@ Environment constraints (see [`CLAUDE.md`](CLAUDE.md) for full detail):
 - Always set **`PYTHONIOENCODING=utf-8`** — model names contain characters the console's
   cp1255 codepage can't print.
 
-## Open blockers
+## The committee is complete
 
-- **The local candidate pool is exhausted.** The next step is a fresh T0/T1 Kaggle search
-  with the junk-aware profiler — the previous search ranked candidates on a text-column count
-  that mistyped dates and ids as text, so the pool was never as rich as it appeared.
-- **The TabPFN-2.5 blocker is resolved.** It was a Prior Labs API key requirement, not
-  Hugging Face gating (see `docs/findings/04-environment-and-performance.md`). The full
-  five-model committee is available for every future grid.
+All five learners — TabM, CatBoost, LightGBM, TabPFN v2 and TabPFN v2.5 — are measured in every
+accepted grid. TabPFN-2.5 was blocked for part of the project by a Prior Labs API key
+requirement, misdiagnosed for weeks as Hugging Face gating; the key resolved it. No verdict here
+rests on an absent model. The episode is written up as a methodological anecdote in
+[`docs/findings/04-environment-and-performance.md`](docs/findings/04-environment-and-performance.md).
