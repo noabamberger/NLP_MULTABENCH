@@ -1,9 +1,11 @@
 # Screen-time rejections
 
 Candidates rejected during screening, before a full grid was spent on them. Each row names the
-reason and the screening file that shows it. The three candidates that *were* gridded have their
+reason and the screening file that shows it. The four candidates that *were* gridded have their
 own folders beside this file: [`board_games/`](board_games/REJECTION.md),
-[`anime/`](anime/REJECTION.md), [`metacritic/`](metacritic/REJECTION.md).
+[`anime/`](anime/REJECTION.md), [`metacritic/`](metacritic/REJECTION.md), and
+[`mtg_card_prices/`](mtg_card_prices/VERDICT.md) (borderline: 4 of 5 by `passes()`, 2 of 5 with
+its two knife-edge passes counted as fails).
 
 Paths are relative to `results/curation/`.
 

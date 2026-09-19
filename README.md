@@ -21,10 +21,10 @@ This repository contains two main components:
 |---|---|---|---|---|
 | `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.218 (5/5) | +0.002..+0.021 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
 | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.250..+0.324 (5/5) | +0.001..+0.015 (5/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/`](results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/) |
-| `REG_TEXT_GAMES_MTG_CARD_PRICES` | +0.050..+0.075 (5/5) | not measured | unresolved — no verdict claimed | [`results/curation/in_progress/`](results/curation/in_progress/) |
 | board games | +0.047..+0.059 | -0.001..+0.003 (2/5, one a knife-edge) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
 | anime | +0.031..+0.037 | -0.002..0.000 (0/5) | rejected | [`results/curation/rejected/anime/`](results/curation/rejected/anime/) |
 | metacritic | — | — | rejected (82% sentinel target) | [`results/curation/rejected/metacritic/`](results/curation/rejected/metacritic/) |
+| MTG card prices | +0.053..+0.074 (5/5) | -0.001..+0.006 (4/5 by `passes()`, 2 of them knife-edges) | **borderline** — not counted as accepted | [`results/curation/rejected/mtg_card_prices/`](results/curation/rejected/mtg_card_prices/) |
 
 Every verdict is computed by `multabench.leaderboard.analysis.pass_matrix.passes()` — the
 repo's own implementation of the criterion (>=3 of 5 learners, `delta = 0.001`, per-state
@@ -34,6 +34,12 @@ knife-edge**: Vietnam housing's TabPFNv2 and board games' TabM each differ by ex
 and clear a strict `>` only because float64 renders the difference as `0.0010000000000000009`.
 Both are flagged where they appear, and neither verdict depends on its cell — dropping them
 leaves Vietnam at 4 of 5 (still accepted) and board games at 1 of 5 (still rejected).
+
+**MTG card prices is the exception, and is reported as borderline.** `passes()` returns 4 of 5,
+but two of those passes (CatBoost and LightGBM) are the same float knife-edge. Here the verdict
+does depend on them: with both counted as fails the count is 2 of 5, below quorum. We claim
+neither an acceptance nor a clean rejection. Detail in
+[`results/curation/rejected/mtg_card_prices/VERDICT.md`](results/curation/rejected/mtg_card_prices/VERDICT.md).
 
 **Udemy was measured twice, on two machines, and accepted at 3 of 5 in both — but not by the same
 three learners.** The Kaggle T4 grid is the primary evidence (100 cells, every state for a learner
@@ -74,8 +80,8 @@ carries a header naming its replacement.
 
 ## Where the results are
 
-Every measured grid, log and screen lives under `results/curation/`, organized into five
-buckets — `accepted/`, `in_progress/`, `rejected/`, `screening/`, `validation/` — with
+Every measured grid, log and screen lives under `results/curation/`, organized into four
+buckets — `accepted/`, `rejected/`, `screening/`, `validation/` — with
 [`results/curation/INDEX.md`](results/curation/INDEX.md) as the file-level map (original
 filenames, both CSV schemas, and what each file proves).
 

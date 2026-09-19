@@ -2,7 +2,7 @@
 
 Every *evidence* file under `results/curation/` — grids, logs, screens and source tables — with
 the name it had before the reorganization. The authored narrative documents (`VERDICT.md`,
-`STATUS.md`, `REJECTION.md`, `REJECTIONS.md`, the `validation/README.md` and this index) are not
+`REJECTION.md`, `REJECTIONS.md`, the `validation/README.md` and this index) are not
 listed: they were written here rather than moved, so they have no prior name to record.
 
 **Nothing here was reformatted.** The reorganization (commit `64bd9a5`) was renames only — no file
@@ -65,15 +65,6 @@ target, typing, leak drops), `probe` (T3 TAR probes), `source` (a data table), `
 | `accepted/REG_TEXT_HOUSES_VIETNAM_2024/grid_tar_pfn25.csv` | `dj_property_tar_pfn25.csv` | `REG_TEXT_HOUSES_VIETNAM_2024` | accepted | kaggle | TabPFN-2.5, all four states x 5 folds, 20/20 cells. Proves the fifth committee model is measured, not absent, and posts the largest Delta_Joint (+0.324). |
 | `accepted/REG_TEXT_HOUSES_VIETNAM_2024/logs/dj_property.log` | `dj_property.log` | `REG_TEXT_HOUSES_VIETNAM_2024` | accepted | log | CPU frozen run log: spec line (target `Price`, 687 distinct, zmax 2.54) and per-cell scores. |
 
-## in_progress/
-
-| new path | original filename | dataset | tier | schema | what it proves |
-|---|---|---|---|---|---|
-| `in_progress/REG_TEXT_GAMES_MTG_CARD_PRICES/grid_frozen.csv` | `dj_games.csv` | `REG_TEXT_GAMES_MTG_CARD_PRICES` | in_progress | cpu | Delta_Joint complete and positive on all 5 models (75/75 cells, +0.050..+0.075). Delta_Awareness unmeasured, so no verdict. |
-| `in_progress/REG_TEXT_GAMES_MTG_CARD_PRICES/logs/dj_games.log` | `dj_games.log` | `REG_TEXT_GAMES_MTG_CARD_PRICES` | in_progress | log | Frozen run log; records the target distribution and the zmax 5.36 outlier warning (never clipped). |
-| `in_progress/REG_TEXT_GAMES_MTG_CARD_PRICES/logs/dj_games_finish.log` | `dj_games_finish.log` | `REG_TEXT_GAMES_MTG_CARD_PRICES` | in_progress | log | Completion of the frozen sweep. |
-| `in_progress/REG_TEXT_GAMES_MTG_CARD_PRICES/logs/probe_mtg.log` | `probe_mtg.log` | `REG_TEXT_GAMES_MTG_CARD_PRICES` | in_progress | log | Initial spec/typing probe on the prepared CSV. |
-
 ## rejected/
 
 | new path | original filename | dataset | tier | schema | what it proves |
@@ -88,6 +79,8 @@ target, typing, leak drops), `probe` (T3 TAR probes), `source` (a data table), `
 | `rejected/metacritic/derived_input.csv` | `derived/metacritic_scored.csv` | `REG_TEXT_MEDIA_METACRITIC_SCORED` | rejected | source | The repaired input the grid was built from: 2,267 scored rows after dropping 10,357 of 12,624 sentinel `Metacritic == 0` rows. |
 | `rejected/metacritic/grid.csv` | `dj_media_metacritic.csv` | `REG_TEXT_MEDIA_METACRITIC_SCORED` | rejected | cpu | Partial frozen grid (52 rows, no `ft` state): LightGBM Delta_Joint +0.040, CatBoost -0.003. No verdict is claimed from it. |
 | `rejected/metacritic/logs/dj_media_metacritic.log` | `dj_media_metacritic.log` | `REG_TEXT_MEDIA_METACRITIC_SCORED` | rejected | log | Run log; the `dropped 10357/12624 sentinel Metacritic==0 rows` line is the rejection reason in one place. |
+| `rejected/mtg_card_prices/grid_gpu_light_cat_tabm.csv` | `tar_results.csv` (mtg-lct) | `REG_TEXT_GAMES_MTG_CARD_PRICES` | rejected (borderline) | kaggle | T4, `light,cat,tabm` x 4 states x folds 0-4 (60 cells), `ft` at 10 epochs. Added after the reorganization, so it is not in the manifest. |
+| `rejected/mtg_card_prices/grid_gpu_tabpfn.csv` | `tar_results.csv` (mtg-pfn) | `REG_TEXT_GAMES_MTG_CARD_PRICES` | rejected (borderline) | kaggle | T4, `tabpfnv2,tabpfnv2p5` x 4 states x folds 0-4 (40 cells). With the row above: 100 cells, no gaps. Delta_Joint +0.053..+0.074 (5/5). `passes()` gives 4 of 5, but CatBoost and LightGBM pass only on a float knife-edge, so it is 2 of 5 with those counted as fails. BORDERLINE. Supersedes the removed CPU frozen-only grid. |
 
 ## screening/
 
