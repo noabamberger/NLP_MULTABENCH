@@ -241,10 +241,13 @@ SPEC = '''\
 # ("New Datasets cannot be attached in non-interactive sessions"). The candidate
 # is declared in kernel-metadata.json dataset_sources instead and is already
 # mounted, so we just locate its CSV.
-import glob
+import glob, importlib
 
 all_csvs = [p for p in glob.glob("/kaggle/input/**/*.csv", recursive=True)
             if not p.startswith(CODE_DIR)]
+
+# Candidates uploaded already prepared, mapped to the module whose spec() built them.
+HAND_SPECS = {"REG_TEXT_GAMES_MTG_CARD_PRICES": "curation_lab.prep.mtg_cards"}
 
 def spec_for(ref, name):
     """Locate one candidate's CSV among the mounted datasources and auto-spec it.
@@ -261,6 +264,11 @@ def spec_for(ref, name):
     df, enc, err = _read_any_csv(csv)
     if df is None:
         return None, None, f"could not read {csv}: {err}"
+    if name in HAND_SPECS:
+        # A pre-prepared CSV whose spec auto_spec cannot express (parsed target,
+        # hand-chosen columns). Use the exact spec the frozen CPU grid used.
+        module = importlib.import_module(HAND_SPECS[name])
+        return module.spec(csv, name=name), df, f"hand spec from {HAND_SPECS[name]}"
     read_kwargs = {} if enc == "utf-8" else {"encoding": enc.split("/")[0]}
     spec, why = build_spec(df, name=name, csv_path=csv, read_kwargs=read_kwargs)
     if spec is None:
