@@ -1,11 +1,11 @@
-# MulTaBench2 — Technion 097215 Track 2
+# Final Project for the NLP Course (00970215) at the Technion
 
 A fork of the official **MulTaBench** benchmark
 ([arXiv 2605.10616](https://arxiv.org/abs/2605.10616)), used for the Technion NLP course
 00970215 (Spring 2026) final project, **Track 2 — Benchmark Track**: curate new text-tabular
 dataset(s) and prove they pass MulTaBench's own curation pipeline.
 
-Two layers live in this repo:
+This repository contains two main components:
 
 - **`multabench/` + `benchmark.py`** — the upstream benchmark. **Read-only** here; not
   modified for this project. Its own README is archived at
