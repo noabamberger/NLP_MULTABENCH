@@ -17,7 +17,7 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-_USED_SLUGS_PATH = Path(__file__).with_name("_used_slugs.txt")
+_USED_SLUGS_PATH = Path(__file__).with_name("multabench_existing_kaggle.txt")
 
 
 def _load_env(path: str = ".env") -> None:

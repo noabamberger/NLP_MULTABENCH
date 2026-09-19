@@ -86,6 +86,7 @@
   umark/.style={rectangle,draw=black,fill=black!45,inner sep=1.6pt},
   bmark/.style={diamond,draw=black,fill=white,inner sep=1.4pt},
   amark/.style={regular polygon,regular polygon sides=3,draw=black,fill=white,inner sep=1.1pt},
+mmark/.style={star,star points=5,star point ratio=2.2,draw=black,fill=black!25,inner sep=0.9pt},
 }
 
 
@@ -271,7 +272,7 @@ Viable under typing/target gates & 120 & 52\% \\
 After removing false text columns (dates, identifiers) & 58 & 25\% \\
 After excluding domains already in MulTaBench & 34 & 15\% \\
 Passing a screen & 16 & 7\% \\
-Full grid attempted & 4 & --- \\
+Full grid attempted & 5 & --- \\
 \textbf{Survived scrutiny} & \textbf{2} & \textbf{$<1\%$} \\
 \bottomrule
 \end{tabular}
@@ -425,18 +426,18 @@ $^{\dagger}$Knife-edge pass: rounded $\Delta_{\text{Aware}} = \delta$. Struct./T
 \end{table}
 
 
-\paragraph{Negative results.} Of four candidates gridded [Table~\ref{tab:funnel}], two failed
-(Figure~\ref{fig:scatter}, Appendix~\ref{app:rejected}). \emph{Board games} cleared the joint
+\paragraph{Negative results.} Of five candidates gridded [Table~\ref{tab:funnel}], three did not
+qualify (Figure~\ref{fig:scatter}, Appendices~\ref{app:rejected}--\ref{app:mtg}). \emph{Board games}~\citep{dataset_board_games} cleared the joint
 condition ($+0.047$ to $+0.059$ with the structured block restored) but failed on
-target-awareness at 1 of 5. \emph{Anime popularity} likewise cleared it ($+0.031$ to $+0.037$)
+target-awareness at 1 of 5. \emph{Anime popularity}~\citep{dataset_anime_popularity} likewise cleared it ($+0.031$ to $+0.037$)
 but failed at 0 of 5; pooled, its $\daware$ is $-0.0012$, $t = -2.15$ - the tuned encoder is
-\emph{significantly worse} than the frozen one. A Metacritic table was rejected at the target:
-$82\%$ of rows carried a sentinel zero, so the regression was really a has-a-score indicator. A
-fifth candidate, MTG *****TODO: FIX****** card prices, has a complete frozen grid ($\djoint = +0.050$ to $+0.075$) but no
-measured $\daware$ and is reported as unresolved (Appendix~\ref{app:mtg}); screen-time rejections
-are listed in Appendix~\ref{app:screen}. The pattern is itself a finding in that joint signal is
-comparatively easy - 16 of 34 screened candidates cleared it - while target-awareness
-eliminates most.
+\emph{significantly worse} than the frozen one. \emph{MTG card prices}~\citep{dataset_mtg_card_prices} cleared it as well
+($+0.053$ to $+0.074$) but is borderline on target-awareness: 4 of 5 learners pass nominally,
+two only on a knife-edge, leaving 2 of 5 without them. A Metacritic table~\citep{dataset_metacritic_scored} was rejected at the
+target: $82\%$ of rows carried a sentinel zero, so the regression was really a has-a-score
+indicator; screen-time rejections are listed in Appendix~\ref{app:screen}. The pattern is itself
+a finding in that joint signal is comparatively easy - 16 of 34 screened candidates cleared it -
+while target-awareness eliminates most.
 \section{Conclusion and Summary}
 
 We contribute two new text-tabular datasets that pass the MulTaBench curation criterion - one
@@ -450,6 +451,8 @@ question when assessing a candidate is not whether it contains text, but whether
 describes a \emph{different aspect of the entity} than the structured columns do. Both accepted
 datasets have that property, and restatement is where the joint gain vanishes.
 
+
+Target-aware fine-tuning via LoRA~\citep{lora} proved to be the most demanding bottleneck of this work. Beyond demanding substantial computational resources and prolonged evaluation times across learners and folds, the adaptation failed on the majority of candidate datasets, and in cases like anime popularity~\citep{dataset_anime_popularity} it even actively harmed performance ($t = -2.15$). Even when fine-tuning succeeded, the observed performance gains ($\daware$) were largely marginal compared to the baseline joint gains ($\djoint$). Future work should focus on improving the effectiveness of tabular text adaptation and establishing computationally cheaper, more reliable methods to fine-tune encoders without prohibitive screening overhead.
 % \paragraph{Limitations.} \emph{Epoch budget}: TAR fine-tuning ran for 10 epochs rather than the reference default of 50 with patience 3. While allocating a larger epoch budget can allow the adapter to learn richer task-specific representations, this holds only if early stopping and regularization are carefully managed to avoid overfitting on smaller splits. In our measurements, awareness gains grew with training epochs. As a result, our 10-epoch budget is conservative: it is far more likely to cause a viable candidate to fail than to produce a false positive. \emph{Comparability}: $R^2$ deltas depend on task
 % difficulty, so the scale-free ratio of joint to best-unimodal performance ($1.85\times$ Vietnam
 % housing, $1.61\times$ Udemy) transfers better across datasets.
@@ -482,7 +485,6 @@ three decimals, matching the order of operations the criterion uses. Pooled stat
 computed on unrounded per-(learner, fold) values.
 
 \section{Outcome of every gridded (dataset, learner) cell}
-
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[yscale=0.80]
@@ -518,23 +520,29 @@ computed on unrounded per-(learner, fold) values.
   % anime
   \node[amark] at (0.88,1.47) {}; \node[amark] at (0.88,1.58) {};
   \node[amark] at (1.04,1.36) {}; \node[amark] at (0.93,1.36) {};
+  % MTG card prices: CatBoost, LightGBM, TabM, TabPFN v2, TabPFN-2.5
+  \node[mmark] at (1.72,1.68) {}; \node[mmark] at (1.52,1.68) {};
+  \node[mmark] at (2.09,1.79) {}; \node[mmark] at (1.50,2.21) {};
+  \node[mmark] at (1.95,1.48) {};
   % legend
   \node[vmark] at (0.35,0.70) {}; \node[anchor=west,font=\scriptsize] at (0.5,0.70) {Vietnam housing (accepted 5/5)};
   \node[umark] at (0.35,0.26) {}; \node[anchor=west,font=\scriptsize] at (0.5,0.26) {Udemy courses (accepted 3/5)};
   \node[bmark] at (4.6,0.70) {}; \node[anchor=west,font=\scriptsize] at (4.75,0.70) {board games (rejected)};
   \node[amark] at (4.6,0.26) {}; \node[anchor=west,font=\scriptsize] at (4.75,0.26) {anime (rejected)};
+  \node[mmark] at (7.05,0.26) {}; \node[anchor=west,font=\scriptsize] at (7.2,0.26) {MTG (borderline)};
 \end{tikzpicture}
 \caption{Every gridded (dataset, learner) cell, $\djoint$ against $\daware$, from the per-learner
-five-fold means. A learner passes only inside the shaded band. MTG cards is omitted; its $\daware$
-was never measured.}
+five-fold means. A learner passes only inside the shaded band.}
 \label{fig:scatter}
 \end{figure}
 
-\noindent The horizontal spread is much larger than the vertical spread. Joint signal is relatively easy to find, while target awareness is what eliminates candidates. The two rejected datasets sit far to the left
-on $\djoint$ and cluster on the acceptance line on $\daware$. Only one of their nine measured learners
-sitting clearly above it, while the two accepted ones clear it on both axes. Nothing in
-the figure separates accepted from rejected along the horizontal axis
-alone.
+\noindent The horizontal spread is much larger than the vertical spread. Joint signal is relatively
+easy to find, while target awareness is what eliminates candidates. The three non-accepted
+datasets sit far to the left on $\djoint$ and cluster on the acceptance line on $\daware$: of their
+fourteen measured learners, only three sit above it, none by more than $+0.006$, while the two
+accepted ones clear it on both axes. Nothing in the figure separates accepted from rejected along
+the horizontal axis alone.
+
 
 
 \section{Vietnam housing - complete T4 grid}
@@ -595,32 +603,6 @@ negative $\daware$ cells fall on three different learners rather than concentrat
 learner's pass rests on a systematically adverse fold. This is the pattern that distinguishes
 this dataset from Udemy courses: the awareness term is small here, but it is consistently
 signed.
-
-
-\begin{table}[H]
-\centering\small
-\caption{Independent CPU frozen grid for the same dataset, 75 cells (5 learners $\times$ 3
-frozen states $\times$ 5 folds). Source: \texttt{grid\_frozen\_cpu.csv}.}
-\begin{tabular}{lrrrr}
-\toprule
-Learner & Struct. & Text & Frozen & $\djoint$ \\
-\midrule
-CatBoost   & 0.341 & 0.325 & 0.631 & $+0.290$ \\
-LightGBM   & 0.342 & 0.312 & 0.591 & $+0.249$ \\
-TabM       & 0.313 & 0.334 & 0.633 & $+0.299$ \\
-TabPFN v2  & 0.342 & 0.340 & 0.645 & $+0.303$ \\
-TabPFN-2.5 & 0.356 & 0.346 & 0.680 & $+0.324$ \\
-\midrule
-\multicolumn{5}{l}{Pooled: $n{=}25$, mean $0.2872$, sd $0.0247$, $25/25$ positive, $t = 58.03$.} \\
-\multicolumn{5}{l}{Agreement with the T4 lane: $\djoint$ within $0.002$ on all five learners.} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\noindent This lane ran before any fine-tuning and is retained as a cross-environment control, not
-differenced against the GPU values. It agrees with the T4 lane to within $0.002$ on all five
-learners, and its pooled $\djoint$ of $0.2872 \pm 0.0247$ sits against $0.2880 \pm 0.0240$ on the
-T4.
 
 
 \clearpage
@@ -767,42 +749,45 @@ Fold-0 $\daware$ screen & $-0.014$ (LightGBM), $-0.006$ (CatBoost) - wrong sign 
 score of zero, meaning never reviewed, covers 82\% of rows, so the nominal regression is really
 a has-a-score indicator; repairing it leaves 2{,}267 scored rows. The only surviving text
 column is a title, a proper noun rather than free text, and the fold-0 $\daware$ screen comes out
-the wrong sign on both learners tried. The partial grid is reported for completeness and no
+the wrong sign on both learners tried. The partial grid is reported for completeness, and no
 verdict is claimed from it.
 
 
 \clearpage
-\section{MTG card prices - frozen grid only, ***TODO: FIX***}
+\section{MTG card prices - complete T4 grid, borderline}
 \label{app:mtg}
 
 \begin{table}[H]
 \centering\small
-\caption{\textsc{reg\_text\_games\_mtg\_card\_prices}, 75/75 frozen cells on CPU. Target is
-$\log_{10}(\text{USD})$.}
-\begin{tabular}{lrrrr}
+\caption{\textsc{reg\_text\_games\_mtg\_card\_prices} (\texttt{douglascampospires/mtg-all-cards},
+28{,}507 cards, target $\log_{10}(\text{USD})$, text $=$ \texttt{CARD\_TEXT}, \texttt{TYPE}),
+100 cells on one T4, \texttt{ft} at 10 epochs. Sources: \texttt{grid\_gpu\_light\_cat\_tabm.csv},
+\texttt{grid\_gpu\_tabpfn.csv}.}
+\begin{tabular}{lrrrrrrl}
 \toprule
-Learner & Struct. & Text & Frozen & $\djoint$ \\
+Learner & Struct. & Text & Frozen & TAR & $\djoint$ & $\daware$ & Verdict \\
 \midrule
-CatBoost   & 0.525 & 0.291 & 0.587 & $+0.062$ \\
-LightGBM   & 0.518 & 0.265 & 0.575 & $+0.057$ \\
-TabM       & 0.505 & 0.308 & 0.580 & $+0.075$ \\
-TabPFN v2  & 0.521 & 0.270 & 0.571 & $+0.050$ \\
-TabPFN-2.5 & 0.523 & 0.310 & 0.591 & $+0.068$ \\
+CatBoost   & 0.525 & 0.292 & 0.586 & 0.587 & $+0.061$ & $+0.001$ & knife-edge \\
+LightGBM   & 0.518 & 0.271 & 0.572 & 0.573 & $+0.054$ & $+0.001$ & knife-edge \\
+TabM       & 0.504 & 0.305 & 0.578 & 0.580 & $+0.074$ & $+0.002$ & pass \\
+TabPFN v2  & 0.520 & 0.269 & 0.573 & 0.579 & $+0.053$ & $+0.006$ & pass \\
+TabPFN-2.5 & 0.523 & 0.310 & 0.592 & 0.591 & $+0.069$ & $-0.001$ & fail \\
 \midrule
-\multicolumn{5}{l}{Pooled $\djoint$: $n{=}25$, mean $0.0624$, sd $0.0112$, $25/25$ positive, $t = 27.81$.} \\
-\multicolumn{5}{l}{$\daware$: \textbf{not measured}. Requires $\ge 10$ epochs over $\ge 3$ folds (Appendix~\ref{app:validity}).} \\
+\multicolumn{8}{l}{\textbf{4 of 5 nominally, 2 of 5 without the knife-edges; quorum 3. BORDERLINE.}} \\
+\multicolumn{8}{l}{Pooled $\djoint$: $n{=}25$, mean $0.0620$, sd $0.0108$, $25/25$ positive, $t = 28.85$.} \\
+\multicolumn{8}{l}{Pooled $\daware$: $n{=}25$, mean $0.0018$, sd $0.0049$, $18/25$ positive, $t = 1.87$, range $[-0.0122, +0.0096]$.} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\noindent The joint term is not in doubt: $\djoint$ is positive on all five learners and in all 25 cells,
-pooling to $0.0624 \pm 0.0112$ at $t = 27.81$. $\daware$ has never been run, so the dataset is
-reported as unresolved rather than as an acceptance; resolving it requires at least 10 epochs
-over at least three folds, for the reasons established in Appendix~\ref{app:validity}. The
-target also carries heavy tails. The raw price column has $|z|_{\max} = 103$, and even after
-the log transform $|z|_{\max} = 5.36$ - warned but never clipped, per the reference
-protocol.
-
+\noindent The joint term is solid: $\djoint$ is positive in all 25 cells and pools to
+$0.0620 \pm 0.0108$ ($t = 28.85$). The awareness term decides the verdict and does not settle
+it. The reference implementation passes four learners, but CatBoost and LightGBM clear $\delta$
+only on a knife-edge: their rounded $\daware$ equals $\delta$, with unrounded values of
+$+0.0009$ and $+0.0011$. Without them, the count is 2 of 5, below quorum. This is the only
+candidate whose verdict depends on how knife-edges are counted, so we report it as borderline
+and do not count it as an accepted dataset. The target keeps $|z|_{\max} = 5.36$ after the log
+transform, which is warned about but never clipped, per the reference protocol.
 
 \section{Validity evidence: the two invalid shortcuts}
 \label{app:validity}
