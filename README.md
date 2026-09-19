@@ -17,47 +17,44 @@ This repository contains two main components:
 
 ## Current state
 
+Every grid below was measured on Kaggle Tesla T4 GPUs: 5 learners x 4 states x 5 folds, with all
+four states for a learner run in one session and `ft` at 10 epochs.
+
 | dataset | Delta_Joint | Delta_Awareness | verdict | evidence |
 |---|---|---|---|---|
-| `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.218 (5/5) | +0.002..+0.021 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
 | `REG_TEXT_HOUSES_VIETNAM_2024` | +0.250..+0.324 (5/5) | +0.001..+0.015 (5/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/`](results/curation/accepted/REG_TEXT_HOUSES_VIETNAM_2024/) |
-| board games | +0.047..+0.059 | -0.001..+0.003 (2/5, one a knife-edge) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
-| anime | +0.031..+0.037 | -0.002..0.000 (0/5) | rejected | [`results/curation/rejected/anime/`](results/curation/rejected/anime/) |
-| metacritic | — | — | rejected (82% sentinel target) | [`results/curation/rejected/metacritic/`](results/curation/rejected/metacritic/) |
+| `REG_TEXT_EDU_UDEMY_ACADEMY` | +0.136..+0.218 (5/5) | +0.002..+0.021 (3/5) | **ACCEPTED** | [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/) |
 | MTG card prices | +0.053..+0.074 (5/5) | -0.001..+0.006 (4/5 by `passes()`, 2 of them knife-edges) | **borderline** — not counted as accepted | [`results/curation/rejected/mtg_card_prices/`](results/curation/rejected/mtg_card_prices/) |
+| board games | +0.047..+0.059 (5/5) | -0.001..+0.003 (2/5, one a knife-edge) | rejected | [`results/curation/rejected/board_games/`](results/curation/rejected/board_games/) |
+| anime | +0.031..+0.037 (4/4 run) | -0.002..0.000 (0/5) | rejected | [`results/curation/rejected/anime/`](results/curation/rejected/anime/) |
+| metacritic | — | — | rejected at the target (82% sentinel zeros) | [`results/curation/rejected/metacritic/`](results/curation/rejected/metacritic/) |
 
 Every verdict is computed by `multabench.leaderboard.analysis.pass_matrix.passes()` — the
 repo's own implementation of the criterion (>=3 of 5 learners, `delta = 0.001`, per-state
 means over 5 folds rounded to 3 decimals before differencing) — never reimplemented here.
-The counts above are what that function returns, including two cells it passes on a **float
-knife-edge**: Vietnam housing's TabPFNv2 and board games' TabM each differ by exactly delta,
-and clear a strict `>` only because float64 renders the difference as `0.0010000000000000009`.
-Both are flagged where they appear, and neither verdict depends on its cell — dropping them
-leaves Vietnam at 4 of 5 (still accepted) and board games at 1 of 5 (still rejected).
 
-**MTG card prices is the exception, and is reported as borderline.** `passes()` returns 4 of 5,
-but two of those passes (CatBoost and LightGBM) are the same float knife-edge. Here the verdict
-does depend on them: with both counted as fails the count is 2 of 5, below quorum. We claim
-neither an acceptance nor a clean rejection. Detail in
-[`results/curation/rejected/mtg_card_prices/VERDICT.md`](results/curation/rejected/mtg_card_prices/VERDICT.md).
+**Float knife-edges.** Some cells differ by exactly delta after rounding. They clear the strict
+`>` only because float64 renders the difference as `0.0010000000000000009`. `passes()` counts
+them as passes, and they are flagged wherever they appear:
 
-**Udemy was measured twice, on two machines, and accepted at 3 of 5 in both — but not by the same
-three learners.** The Kaggle T4 grid is the primary evidence (100 cells, every state for a learner
-within one session); the earlier CPU grid is retained as the cross-environment comparison.
-Delta_Joint reproduced within 0.011 across the two lanes and `no_text` matched to three decimals
-for all five models, but two learners flipped on Delta_Awareness in opposite directions (LightGBM
-+0.006 -> -0.005, TabPFNv2 -0.001 -> +0.002). Both flips are sub-0.011 moves against a 0.001
-threshold. Cite the dataset-level verdict; a per-learner Delta_Awareness on this dataset is not
-reproducible across environments. Detail in
+- **Vietnam housing** (TabPFNv2) and **board games** (TabM) each have one. Neither verdict
+  depends on it: without them Vietnam is 4 of 5 (still accepted) and board games 1 of 5 (still
+  rejected).
+- **MTG card prices** has two (CatBoost and LightGBM), and here the verdict does depend on them.
+  `passes()` returns 4 of 5, but with both counted as fails the count is 2 of 5, below quorum. We
+  report it as **borderline** and do not count it as an accepted dataset. Detail in
+  [`results/curation/rejected/mtg_card_prices/VERDICT.md`](results/curation/rejected/mtg_card_prices/VERDICT.md).
+
+**Udemy passes at exactly the quorum, and its Delta_Awareness is noisy.** Pooled over the 25
+(learner, fold) cells it is +0.0036 +/- 0.0202 (t = 0.89, not significant), and it changes sign
+within a single learner across folds. Cite the dataset-level verdict, not a per-learner one.
+Detail in
 [`results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/VERDICT.md`](results/curation/accepted/REG_TEXT_EDU_UDEMY_ACADEMY/VERDICT.md).
 
-**One deviation applies to both acceptances and must be disclosed in any writeup:** E5
-fine-tuning ran **10 epochs**, not the `E5TrainArgs` default of 50 (patience 3), for compute
-feasibility. This affects the `ft` state and therefore Delta_Awareness — the narrower of the two
-criteria, and the one Udemy passes at exactly quorum. It is conservative in the direction that
-matters (Delta_Awareness grew with epochs in every measurement: LightGBM fold 0 went +0.0099 at 2
-epochs to +0.0322 at 10), so the full budget would be expected to widen the margins rather than
-narrow them. Detail in
+**One deviation applies to every grid and must be disclosed in any writeup:** E5 fine-tuning ran
+**10 epochs**, not the `E5TrainArgs` default of 50 (patience 3), for compute feasibility. This
+affects only the `ft` state and therefore only Delta_Awareness — the narrower of the two
+criteria, and the one Udemy passes at exactly quorum. Detail in
 [`docs/findings/04-environment-and-performance.md`](docs/findings/04-environment-and-performance.md).
 
 ## Where the conclusions are
@@ -83,7 +80,8 @@ carries a header naming its replacement.
 Every measured grid, log and screen lives under `results/curation/`, organized into four
 buckets — `accepted/`, `rejected/`, `screening/`, `validation/` — with
 [`results/curation/INDEX.md`](results/curation/INDEX.md) as the file-level map (original
-filenames, both CSV schemas, and what each file proves).
+filenames, CSV schemas, and what each file proves). The GPU grids use the `kaggle` schema
+(`state, score, secs, epochs, dataset, model, fold`).
 
 These files were moved into that layout from a flat directory. That the move destroyed nothing
 is a checkable claim, not an assurance — re-run it yourself:
@@ -102,9 +100,8 @@ it. It answers "was anything destroyed", not "is everything where it belongs".
 
 ## How to run the harness
 
-**The pipeline runs on Kaggle GPU.** Every curation grid is measured there — a full 5 models x 4
-states x 5 folds grid costs well under an hour of T4 time (~0.65 GPU-h for Udemy's 100 cells,
-2-3% of the ~30 h weekly quota), so there is no longer a reason to run a grid locally.
+**The pipeline runs on Kaggle GPU.** A full 5 models x 4 states x 5 folds grid costs well under an
+hour of T4 time (~0.65 GPU-h for Udemy's 100 cells, 2-3% of the ~30 h weekly quota).
 
 ```bash
 python -m curation_lab.kaggle.push_code -m "why this push"   # re-version the code dataset FIRST
@@ -136,19 +133,8 @@ Four things about that shape are load-bearing:
 - **`--full-epochs 10` minimum.** A starved epoch budget measures the budget, not the dataset
   (`docs/findings/03-methodological-findings.md`).
 
-**Local CPU is for frozen-only work and reproduction, not for grids.** There is no CUDA on the
-local machine, frozen E5 embedding costs ~10 min per run, and TAR fine-tuning is far more
-expensive — a full CPU grid takes days of serial wall-clock on the one machine that everything
-else also needs. The CPU runner remains available for Delta_Joint-only measurements and for
-reproducing the historical grids:
-
-```bash
-PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -m curation_lab.screen.verify \
-  --ref <owner/slug> --name REG_TEXT_<NAME> \
-  --out results/curation/<path>.csv --folds 0,1,2,3,4 --epochs 10
-```
-
-Environment constraints (see [`CLAUDE.md`](CLAUDE.md) for full detail):
+The push and verdict tools run from the local checkout. Environment constraints for that (see
+[`CLAUDE.md`](CLAUDE.md) for full detail):
 
 - Use **`.venv/Scripts/python.exe`** — never the system Python (it hosts an unrelated
   project pinned to an incompatible pandas/numpy).
