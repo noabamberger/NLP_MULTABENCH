@@ -1,4 +1,4 @@
-# Final Project for the NLP Course (00970215) at the Technion
+# Final Project for the NLP Course (00970215) - Technion
 
 A fork of the official **MulTaBench** benchmark
 ([arXiv 2605.10616](https://arxiv.org/abs/2605.10616)), used for the Technion NLP course
