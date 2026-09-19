@@ -54,10 +54,6 @@ epochs to +0.0322 at 10), so the full budget would be expected to widen the marg
 narrow them. Detail in
 [`docs/findings/04-environment-and-performance.md`](docs/findings/04-environment-and-performance.md).
 
-**Standard scope — one passing dataset — is met twice.** Outstanding scope (>=5 passing
-datasets) was not reached. MTG card prices is the only further candidate carrying a complete
-Delta_Joint; its Delta_Awareness was never measured, so no verdict is claimed for it.
-
 ## Where the conclusions are
 
 The canonical write-up of what was learned lives in four documents, in read order:
