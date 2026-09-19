@@ -1,11 +1,11 @@
-# MulTaBench2 — Technion 097215 Track 2
+# Final Project for the NLP Course (00970215) - Technion
 
 A fork of the official **MulTaBench** benchmark
 ([arXiv 2605.10616](https://arxiv.org/abs/2605.10616)), used for the Technion NLP course
 00970215 (Spring 2026) final project, **Track 2 — Benchmark Track**: curate new text-tabular
 dataset(s) and prove they pass MulTaBench's own curation pipeline.
 
-Two layers live in this repo:
+This repository contains two main components:
 
 - **`multabench/` + `benchmark.py`** — the upstream benchmark. **Read-only** here; not
   modified for this project. Its own README is archived at
@@ -53,10 +53,6 @@ matters (Delta_Awareness grew with epochs in every measurement: LightGBM fold 0 
 epochs to +0.0322 at 10), so the full budget would be expected to widen the margins rather than
 narrow them. Detail in
 [`docs/findings/04-environment-and-performance.md`](docs/findings/04-environment-and-performance.md).
-
-**Standard scope — one passing dataset — is met twice.** Outstanding scope (>=5 passing
-datasets) was not reached. MTG card prices is the only further candidate carrying a complete
-Delta_Joint; its Delta_Awareness was never measured, so no verdict is claimed for it.
 
 ## Where the conclusions are
 
