@@ -126,9 +126,8 @@ mmark/.style={star,star points=5,star point ratio=2.2,draw=black,fill=black!25,i
 % MulTaBench is a dedicated benchmark for multimodal tabular learning with text and image modalities. Expanding it with qualifying datasets broadens domain diversity and supports more robust, generalizable evaluations of multimodal models. Using the official MulTaBench curation protocol, we curate and evaluate two new text-tabular datasets across five tabular learners (TabM, CatBoost, LightGBM, TabPFN~v2, and TabPFN-2.5) under four experimental conditions. Both datasets demonstrate substantial multimodal improvements over unimodal baselines. \emph{Vietnam housing} qualifies across all five learners, exhibiting strong joint signal and statistically significant target-aware representation (TAR) gains. \emph{Udemy courses} also satisfy the benchmark acceptance threshold on a majority of learners (3 of 5), though its TAR effect does not reach statistical significance when pooled across folds. Finally, we detail the automated mining pipeline used to screen candidates and discuss two common screening shortcuts that we assess to be invalid.
 % \end{abstract}
 
-% ***********TO D0: make sure that what I changed is ok**************
 \begin{abstract}
-MulTaBench is a dedicated benchmark for multimodal tabular learning with text and image modalities. Expanding it with qualifying datasets broadens domain diversity and supports more robust, generalizable evaluations of multimodal models. Using the official MulTaBench curation protocol, we screened 232 candidate datasets through an automated pipeline, fully evaluated five candidates across five tabular learners (TabM, CatBoost, LightGBM, TabPFN~v2, and TabPFN-2.5) under four experimental conditions, and identified two new text-tabular datasets that satisfied the acceptance criterion. Both datasets demonstrate substantial multimodal improvements over unimodal baselines. \emph{Vietnam housing} qualifies across all five learners, exhibiting strong joint signal and statistically significant target-aware representation (TAR) gains. \emph{Udemy courses} also satisfy the benchmark acceptance threshold on a majority of learners (3 of 5), though its TAR effect does not reach statistical significance when pooled across folds. Finally, we detail the automated mining pipeline used to screen candidates and discuss two common screening shortcuts that we assess to be invalid.
+MulTaBench is a dedicated benchmark for multimodal tabular learning with text and image modalities. Expanding it with qualifying datasets broadens domain diversity and supports more robust, generalizable evaluations of multimodal models. Using the official MulTaBench curation protocol, we screened 232 candidate datasets through an automated pipeline, fully evaluated five candidates across five tabular learners (TabM, CatBoost, LightGBM, TabPFN~v2, and TabPFN-2.5) under four experimental conditions, and identified two new text-tabular datasets that satisfied the acceptance criterion. Both datasets demonstrate substantial multimodal improvements over unimodal baselines. \emph{Vietnam housing} qualifies across all five learners, exhibiting strong joint signal and statistically significant target-aware representation (TAR) gains. \emph{Udemy courses} also satisfy the benchmark acceptance threshold on a majority of learners (3 of 5), though its TAR effect does not reach statistical significance when pooled across folds. Finally, we detail the automated mining pipeline used to screen candidates and discuss two plausible screening shortcuts that we assess to be invalid.
 \end{abstract}
 
 
@@ -138,14 +137,14 @@ Real tables are rarely purely numerical: a property listing carries an address, 
 listing a title and an instructor name - free text beside numeric and categorical columns.
 \emph{Text-tabular learning} asks how to use both channels at once. The question is not
 rhetorical in that gradient-boosted trees remain very strong on structured data
-\cite{grinsztajn,shwartzziv}. Accordingly, a multimodal method only earns its complexity on tables where
+\cite{grinsztajn,shwartzziv}. Accordingly, a multimodal method provides value only where
 the text carries signal the structured block lacks, and vice versa. This makes \emph{dataset curation} a substantive research task rather than a simple data collection exercise. A benchmark
 built from tables whose text merely restates their columns will report that multimodal methods offer little to no value added. MulTaBench \cite{multabench}
 makes the requirement measurable in that a table is worth benchmarking only if (i) the joint model
 beats \emph{both} unimodal baselines, and (ii) a text encoder adapted to the prediction target
 beats a frozen one. Failing (i) collapses the task into pure tabular or pure NLP. Failing (ii)
-exercises text encoding but not the target-aware representation learning that models such as
-TabSTAR \cite{tabstar} are built around. This raises the practical question of how to identify, from a large pool of candidate datasets, those tables that actually satisfy these requirements.
+exercises text encoding but not the target-aware representation learning around which models such as
+TabSTAR \cite{tabstar} are built. This raises the practical question of how to identify, from a large pool of candidate datasets, those tables that actually satisfy these requirements.
 
 Our contributions are therefore threefold: 
 (1)~\textbf{The identification of two new text-tabular datasets} that qualify under the MulTaBench curation protocol: Vietnamese residential real-estate listings~\cite{dataset_vietnam_housing} (accepted across 5 of 5 tabular learners) and online-course listings~\cite{dataset_udemy_courses} (accepted across 3 of 5), both demonstrating consistent multimodal gains over unimodal baselines [Section~\ref{sec:results}].
@@ -281,7 +280,7 @@ Full grid attempted & 5 & --- \\
 
 
 \paragraph{Mining pipeline.} 
-Candidates were discovered through a programmatic search over public dataset repositories, then profiled, screened, and gridded (Table~\ref{tab:funnel}). Under our compute budget, the end-to-end yield of our current screening configuration was under $1\%$. Rather than brute-forcing hundreds of full grids, the pipeline focuses on maximizing candidate qualification before committing resources to complete evaluation.
+Candidates were discovered through a programmatic search over public dataset repositories, then profiled, screened, and gridded (Table~\ref{tab:funnel}). Given our compute budget, the end-to-end yield of our current screening configuration was under $1\%$. Rather than brute-forcing hundreds of full grids, the pipeline focuses on maximizing candidate qualification before committing resources to complete evaluation.
 For each candidate, the pipeline selects a target and partitions columns without
 human annotation. Targets are rejected when they are identifiers or serial numbers, when one
 value holds more than $20\%$ of the mass (a sentinel masquerading as a number), when
@@ -458,10 +457,12 @@ Target-aware fine-tuning via LoRA~\citep{lora} proved to be the most demanding b
 % housing, $1.61\times$ Udemy) transfers better across datasets.
 
 
-\paragraph{Limitations.} \emph{Epoch budget}: Although our measurements indicate that awareness gains grew with training epochs, % ***********TO D0: make sure that what I changed is ok**************
-due to the computational cost of evaluating many candidate datasets across multiple learners and folds, TAR fine-tuning was limited to 10 epochs rather than the reference default of 50 with patience 3. While allocating a larger epoch budget can allow the adapter to learn richer task-specific representations, this holds only if early stopping and regularization are carefully managed to avoid overfitting on smaller splits. Accordingly, we deem the 10-epoch estimates to be conservative, as reduced training is more likely to suppress a viable candidate than to create a false positive. \emph{Comparability}: $R^2$ deltas depend on task
-difficulty, so the scale-free ratio of joint to best-unimodal performance ($1.85\times$ Vietnam
-housing, $1.61\times$ Udemy) transfers better across datasets.
+\paragraph{Limitations.} \emph{Epoch budget}: Although our measurements indicate that awareness gains grew with training epochs, due to the computational cost of evaluating many candidate datasets across multiple learners and folds, TAR fine-tuning was limited to 10 epochs rather than the reference default of 50 with patience 3. While allocating a larger epoch budget can allow the adapter to learn richer task-specific representations, this holds only if early stopping and regularization are carefully managed to avoid overfitting on smaller splits. Accordingly, we deem the 10-epoch estimates to be conservative, as reduced training is more likely to suppress a viable candidate than to create a false positive. \emph{Comparability}: Absolute $R^2$ deltas are task-dependent, which limits direct comparison across datasets. We therefore also report the scale-free ratio of joint to best-unimodal performance ($1.85\times$ Vietnam
+housing, $1.61\times$ Udemy).
+
+% \emph{Comparability}: $R^2$ deltas depend on task
+% difficulty, so the scale-free ratio of joint to best-unimodal performance ($1.85\times$ Vietnam
+% housing, $1.61\times$ Udemy) transfers better across datasets.
 
 
 
@@ -720,7 +721,7 @@ TabPFN-2.5 & \multicolumn{6}{l}{not run} & non-pass \\
 \end{table}
 
 \noindent TabPFN-2.5 was not run, so its cell counts as a non-pass and the quorum denominator stays at
-five. The dataset fails at 0 of 5. As with board games the joint term is comfortable, pooling
+five. The dataset fails at 0 of 5. As with board games the joint term is substantial, pooling
 to $0.0329 \pm 0.0066$ and positive in all 20 measured cells. What sets this candidate apart is
 the direction of the awareness term: $\daware$ pools to $-0.0012$ at $t = -2.15$, so the tuned
 encoder is significantly \emph{worse} than the frozen one. This is the only candidate we
@@ -974,7 +975,7 @@ TabPFN v2 & 0.076 & 0.079 & yes \\
 \noindent The deltas agree within $0.012$ across four learners with every sign agreeing, and three of the
 four agree within $0.003$. The single wider case is LightGBM, at $0.058$ against a published
 $0.046$. This reproduction is the calibration behind the $\pm 0.015$ fold-noise band used
-throughout the paper: a candidate whose $\djoint$ falls inside that band is not distinguishable
+throughout the paper. A candidate whose $\djoint$ falls inside that band is not distinguishable
 from measurement noise, and is screened out rather than gridded.
 
 
